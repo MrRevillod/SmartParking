@@ -29,7 +29,6 @@ export const loginController = async (req, res) => {
     }
 }
 
-
 export const registerController = async (req, res) => {
 
     // TO DO !
@@ -90,5 +89,3 @@ export const accountValidation = async (req, res) => {
         res.status(error?.status || 500).json({ message: error?.message || MESSAGES.UNEXPECTED })
     }
 }
-
-

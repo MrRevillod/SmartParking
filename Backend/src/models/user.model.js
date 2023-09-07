@@ -5,6 +5,10 @@ import { model, Schema } from "mongoose"
 // Añadir la subcolleción de vehiculos al schema de usuario
 // Revisar diagrama de clases
 
+// userSchema es una struct base del usuario
+// es requerida para realizar operaciones en la base de datos
+// ejemplo: userModel.findById()
+
 const userSchema = new Schema({
 
     username: {

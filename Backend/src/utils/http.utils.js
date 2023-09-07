@@ -1,4 +1,9 @@
 
+// Objeto con mensajes comunes en respuestas HTTP
+
+// TO DO !
+// Traducir a español
+
 export const MESSAGES = {
     OK: "OK",
     USER_EXIST: "User already exists",
@@ -23,5 +28,3 @@ export const MESSAGES = {
     PROFILE_UPDATE_FAILED: "Profile update failed",
     RESOURCE_NOT_FOUND: "Resource not found"
 }
-
-
