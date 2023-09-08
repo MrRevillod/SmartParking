@@ -26,5 +26,6 @@ export const MESSAGES = {
     PASSWORD_RESET_FAILED: "Password reset failed",
     PROFILE_UPDATED: "Profile updated successfully",
     PROFILE_UPDATE_FAILED: "Profile update failed",
-    RESOURCE_NOT_FOUND: "Resource not found"
+    RESOURCE_NOT_FOUND: "Resource not found",
+    MIME_TYPES: "Formato invalido de imagen invalido"
 }

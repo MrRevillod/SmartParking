@@ -1,5 +1,6 @@
 
 import { Router } from "express"
+import { avatarUpload } from "../config/multer.js"
 import { validateRules } from "../middlewares/validator.mw.js"
 import { loginRules, userRules } from "../rules/auth.rules.js"
 import { accountValidation, loginController, registerController } from "../controllers/auth.controller.js"
@@ -17,5 +18,18 @@ const router = Router()
 router.post("/login", loginRules, validateRules, loginController)
 router.post("/register", userRules, validateRules, registerController)
 router.get("/validate-account/:id/:token", checkUserExist, checkValidateAccountToken, accountValidation)
+
+router.post('/uploads', avatarUpload.single('avatar'), (req, res) => {
+
+    try {
+
+        if (!req.uploaded) throw { status: 400, message: "Bad request" }
+
+        res.send("Imagen subida con exito")
+
+    } catch (error) {
+        res.status(error?.status || 500).json({ message: error?.message || MESSAGES.UNEXPECTED })
+    }
+})
 
 export default router

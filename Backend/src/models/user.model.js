@@ -29,6 +29,10 @@ const userSchema = new Schema({
 
     validated: {
         type: Boolean, required: true, default: false
+    },
+
+    profilePicture: {
+        type: String, required: true, unique: true
     }
 
 },

@@ -27,6 +27,7 @@ const JWT_REFRESH_SECRET = process.env.REFRESH_SECRET || "MY_REFRESH_SECRET"
 
 const RESEND_KEY = process.env.RESEND_KEY || "RESEND_KEY"
 const VIEWS_PATH = path.join(process.cwd(), "src/views")
+const UPLOADS_PATH = path.join(process.cwd(), "uploads")
 
 // Se exportan las constantes individualmente
 // Método de uso:
@@ -39,5 +40,6 @@ export {
     JWT_SECRET,
     JWT_REFRESH_SECRET,
     RESEND_KEY,
-    VIEWS_PATH
+    VIEWS_PATH,
+    UPLOADS_PATH
 }
