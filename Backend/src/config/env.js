@@ -26,8 +26,11 @@ const JWT_SECRET = process.env.JWT_SECRET || "MY_SECRET"
 const JWT_REFRESH_SECRET = process.env.REFRESH_SECRET || "MY_REFRESH_SECRET"
 
 const RESEND_KEY = process.env.RESEND_KEY || "RESEND_KEY"
+
 const VIEWS_PATH = path.join(process.cwd(), "src/views")
 const UPLOADS_PATH = path.join(process.cwd(), "uploads")
+const PUBLIC_PATH = path.join(process.cwd(), "public")
+const PUBLIC_URL = `http://localhost:${PORT}`
 
 // Se exportan las constantes individualmente
 // Método de uso:
@@ -41,5 +44,7 @@ export {
     JWT_REFRESH_SECRET,
     RESEND_KEY,
     VIEWS_PATH,
-    UPLOADS_PATH
+    PUBLIC_PATH,
+    UPLOADS_PATH,
+    PUBLIC_URL
 }
