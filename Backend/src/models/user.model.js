@@ -5,6 +5,25 @@ import { model, Schema } from "mongoose"
 // Añadir la subcolleción de vehiculos al schema de usuario
 // Revisar diagrama de clases
 
+const vehicleSchema = new Schema({
+
+    patente: {
+        type: String, required: true, unique: true
+    },
+
+    model: {
+        type: String, required: true, unique: true
+    },
+
+    year: {
+        type: String, required: true
+    }
+})
+
+// userSchema es una struct base del usuario
+// es requerida para realizar operaciones en la base de datos
+// ejemplo: userModel.findById()
+
 const userSchema = new Schema({
 
     username: {
@@ -25,7 +44,13 @@ const userSchema = new Schema({
 
     validated: {
         type: Boolean, required: true, default: false
-    }
+    },
+
+    profilePicture: {
+        type: String, default: true
+    },
+
+    vehicles: [vehicleSchema]
 
 },
     { timestamps: true, versionKey: false }

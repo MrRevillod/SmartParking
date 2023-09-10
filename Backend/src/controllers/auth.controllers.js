@@ -29,7 +29,6 @@ export const loginController = async (req, res) => {
     }
 }
 
-
 export const registerController = async (req, res) => {
 
     // TO DO !
@@ -45,7 +44,9 @@ export const registerController = async (req, res) => {
         if (user) throw { status: 409, message: MESSAGES.USER_EXIST }
 
         const hash = await hashPassword(password)
-        user = await userModel.create({ username, email, password: hash })
+        const profilePicture = `/uploads/${req.file.filename}`
+
+        user = await userModel.create({ username, email, password: hash, profilePicture })
 
         const payload = { uid: user.id }
         const secret = JWT_SECRET + user.validated.toString()
@@ -90,5 +91,3 @@ export const accountValidation = async (req, res) => {
         res.status(error?.status || 500).json({ message: error?.message || MESSAGES.UNEXPECTED })
     }
 }
-
-

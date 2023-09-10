@@ -9,9 +9,7 @@ const router = Router()
 // Obtener la ruta de este fichero actual (./src/routes/index.js)
 const currentModuleUrl = import.meta.url
 const currentModulePath = fileURLToPath(currentModuleUrl)
-const ROUTER_PATH = join(dirname(currentModulePath)) // (1)
-
-// console.log(`1 = ${currentModuleUrl} \n2 = ${currentModulePath} \n3 = ${ROUTER_PATH}\n`)
+const ROUTER_PATH = join(dirname(currentModulePath))
 
 // Función para limpiar el nombre del archivo (eliminar extensión)
 const getCleanFilename = (filename) => filename.split(".").shift()
@@ -34,5 +32,10 @@ readdirSync(ROUTER_PATH).forEach((filename) => {
         })
     }
 })
+
+// Se importa el fichero y al resolver el import se crea la ruta base
+// /api/cleanfilename para diferenciar entre direfentes propositos
+
+// ejemplo: routes/auth.js => ruta /api/auth/.....
 
 export default router
