@@ -25,4 +25,5 @@ export const MESSAGES = {
     MIME_TYPES: "Formato invalido de imagen invalido",
     BAD_REQUEST: "Solicitud incorrecta",
     UPLOAD_SUCCESS: "Imagen subida correctamente",
+    UPLOAD_NOT_FOUND: "No se han subido archivos",
 }
