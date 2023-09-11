@@ -1,6 +1,6 @@
+
 import { MESSAGES } from "../utils/http.utils.js"
 import { userModel } from "../models/user.model.js"
-
 
 export const roleValidation = (roles) => async (req, res, next) => {
 
@@ -8,8 +8,6 @@ export const roleValidation = (roles) => async (req, res, next) => {
 
         const uid = req.user.uid
         const user = await userModel.findById(uid)
-
-        console.log(user)
 
         if (!user || !roles.includes(user.role)) {
             throw { status: 401, message: MESSAGES.UNAUTHORIZED }

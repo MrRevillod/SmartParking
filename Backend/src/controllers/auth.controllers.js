@@ -35,8 +35,6 @@ export const registerController = async (req, res) => {
 
         const { username, email, password, vehicles } = req.body
 
-        console.log(req.body)
-
         let user = await userModel.findOne({ $or: [{ username }, { email }] })
         if (user) throw { status: 409, message: MESSAGES.USER_EXIST }
 
