@@ -26,4 +26,5 @@ export const MESSAGES = {
     BAD_REQUEST: "Solicitud incorrecta",
     UPLOAD_SUCCESS: "Imagen subida correctamente",
     UPLOAD_NOT_FOUND: "No se han subido archivos",
+    SERVER_ERROR: "Error interno del servidor",
 }
