@@ -40,10 +40,7 @@ export const checkValidateAccountToken = async (req, res, next) => {
         const { token } = req.params
         const user = req.foundUser
 
-        console.log(user)
-
         const secret = JWT_SECRET + user.validated.toString()
-        console.log(secret)
         verifyJwt(token, secret)
 
         next()

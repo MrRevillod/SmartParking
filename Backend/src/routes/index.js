@@ -28,7 +28,6 @@ readdirSync(ROUTER_PATH).forEach((filename) => {
 
         }).catch((error) => {
             console.error("Router: Error importando rutas")
-            console.log(error)
         })
     }
 })
