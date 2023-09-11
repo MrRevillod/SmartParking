@@ -31,22 +31,17 @@ export const loginController = async (req, res) => {
 
 export const registerController = async (req, res) => {
 
-    // TO DO !
-    // Vechiculos: Al registrarse se necesitará guardar un vehiculo
-    // Añadir la lógica para obtener los datos de vehiculo del req.body
-    // Esto requerirá actualizar el userModel y las registerRules
-
     try {
 
-        const { username, email, password } = req.body
+        const { username, email, password, vehicles } = req.body
+
+        console.log(req.body)
 
         let user = await userModel.findOne({ $or: [{ username }, { email }] })
         if (user) throw { status: 409, message: MESSAGES.USER_EXIST }
 
         const hash = await hashPassword(password)
-        const profilePicture = `/uploads/${req.file.filename}`
-
-        user = await userModel.create({ username, email, password: hash, profilePicture })
+        user = await userModel.create({ username, email, password: hash, vehicles })
 
         const payload = { uid: user.id }
         const secret = JWT_SECRET + user.validated.toString()
@@ -70,8 +65,6 @@ export const registerController = async (req, res) => {
 export const accountValidation = async (req, res) => {
 
     try {
-
-        console.log("pasó los mw")
 
         const { id } = req.params
         const validate = await userModel.findByIdAndUpdate(id,
