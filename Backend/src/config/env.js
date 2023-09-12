@@ -26,6 +26,8 @@ const JWT_SECRET = process.env.JWT_SECRET || "MY_SECRET"
 const JWT_REFRESH_SECRET = process.env.REFRESH_SECRET || "MY_REFRESH_SECRET"
 
 const RESEND_KEY = process.env.RESEND_KEY || "RESEND_KEY"
+const MAIL = process.env.MAIL_ADRESS || "MAIL"
+const MAIL_PASSWORD = process.env.MAIL_PASSWORD || "MAIL_PASSWORD"
 
 const VIEWS_PATH = path.join(process.cwd(), "src/views")
 const UPLOADS_PATH = path.join(process.cwd(), "uploads")
@@ -46,5 +48,7 @@ export {
     VIEWS_PATH,
     PUBLIC_PATH,
     UPLOADS_PATH,
-    PUBLIC_URL
+    PUBLIC_URL,
+    MAIL,
+    MAIL_PASSWORD
 }

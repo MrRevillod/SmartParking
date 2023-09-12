@@ -5,7 +5,7 @@ import router from "./routes/index.js"
 import fileUpload from "express-fileupload"
 import cookieParser from "cookie-parser"
 
-import { PUBLIC_PATH, UPLOADS_PATH } from "./config/env.js"
+import { UPLOADS_PATH, VIEWS_PATH } from "./config/env.js"
 
 export const app = express()
 
@@ -19,6 +19,9 @@ app.use(fileUpload({
 }))
 
 app.use(express.static("public"))
+
+app.set("views", VIEWS_PATH)
+app.set("view engine", "ejs")
 
 app.use(express.urlencoded({ extended: true }))
 app.use(router)
