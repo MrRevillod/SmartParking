@@ -1,23 +1,26 @@
 
 import { Router } from "express"
-import { validateRules } from "../middlewares/validator.mw.js"
-import { loginRules, userRules } from "../rules/auth.rules.js"
-import { accountValidation, loginController, registerController } from "../controllers/auth.controllers.js"
-import { checkUserExist, checkValidateAccountToken } from "../middlewares/auth.mw.js"
 import { uploadImage } from "../middlewares/upload.mw.js"
-
-// Instancia base del router de express
-// se utiliza para crear direcciones internas dentro de la aplicación
-// ejemplo: localhost:3000/api/auth/login
+import { validateRules } from "../middlewares/validator.mw.js"
+import { loginRules, passwordRules, userRules } from "../rules/auth.rules.js"
+import { checkChangePasswordToken, checkUserExist, checkValidateAccountToken } from "../middlewares/auth.mw.js"
+import { accountValidation, loginController, registerController, sendRecoveryEmail, setNewPassword, renderChangePasswordPage, renderSendEmailPage } from "../controllers/auth.controllers.js"
 
 const router = Router()
 
-// Rutas base de autenticación:
-// estructura base: router.HTTP_METHOD("/ruta", middlewares, controller)
+// route basic struct: router.HTTP_METHOD("/ruta", middlewares, controller)
 
+// Auth routes
 router.post("/login", loginRules, validateRules, loginController)
 router.post("/register", userRules, validateRules, registerController)
 router.get("/validate-account/:id/:token", checkUserExist, checkValidateAccountToken, accountValidation)
+
+// Change password routes
+router.get("/forgot-password", renderSendEmailPage)
+router.post("/forgot-password", sendRecoveryEmail)
+
+router.get("/forgot-password/:id/:token", checkUserExist, checkChangePasswordToken, renderChangePasswordPage)
+router.put("/forgot-password/:id/:token", checkUserExist, checkChangePasswordToken, passwordRules, validateRules, setNewPassword)
 
 // ruta base para subir imagenes
 

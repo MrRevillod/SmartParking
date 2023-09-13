@@ -22,7 +22,9 @@ export const MESSAGES = {
     PROFILE_UPDATED: "Perfil actualizado correctamente",
     PROFILE_UPDATE_FAILED: "Actualización de perfil fallida",
     RESOURCE_NOT_FOUND: "Recurso no encontrado",
-    MIME_TYPES: "Formato invalido de imagen invalido",
+    MIME_TYPES: "Formato de imagen invalido",
     BAD_REQUEST: "Solicitud incorrecta",
     UPLOAD_SUCCESS: "Imagen subida correctamente",
+    UPLOAD_NOT_FOUND: "No se han subido archivos",
+    SERVER_ERROR: "Error interno del servidor",
 }

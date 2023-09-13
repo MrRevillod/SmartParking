@@ -10,7 +10,7 @@ export const uploadImage = async (req, res, next) => {
     try {
 
         if (!req.files || Object.keys(req.files).length === 0) {
-            return res.status(400).send('No files were uploaded.')
+            return res.status(400).json({message: MESSAGES.UPLOAD_NOT_FOUND})
         }
 
         const { image } = req.files

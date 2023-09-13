@@ -27,8 +27,8 @@ readdirSync(ROUTER_PATH).forEach((filename) => {
             router.use(`/api/${cleanFilename}`, routerModule.default)
 
         }).catch((error) => {
-            console.error("Router: Error importando rutas")
             console.log(error)
+            console.error("Router: Error importando rutas")
         })
     }
 })
