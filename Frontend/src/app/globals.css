@@ -1,0 +1,218 @@
+*{
+    margin: 0px;
+    padding: 0px;
+
+}
+
+body{
+    background-color: #fdfeff;
+    width: 100%;
+}
+
+header{
+    display: flex;
+    flex-direction: row;
+    height: 65px;
+    max-width: 100%;
+    background-color: #0D5492;
+    position: relative;   
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.icono1 {
+    display: flex;
+    position: absolute;
+    right: 0;
+    top: 0; 
+    height: 100%;
+    width: auto; 
+    align-items: center;
+    background-color: #0D5492;
+    padding: 0 10px; 
+  }
+
+.bi-box-arrow-left{
+    height: 65px;
+    width: 80px;
+    background-color:#FDFDFD;
+    align-items: center;
+    justify-content: center;
+    font-size: 55px;
+    color: #0D5492;
+
+}
+
+.bi-mailbox{
+    height: 65px;
+    width: 80px;
+    background-color:#0D5492;
+    align-items: center;
+    justify-content: center;
+    font-size: 55px;
+    color: #FDFDFD;    
+}
+
+.to-reg-button1{
+    order: 1;
+    justify-content: flex-end;
+    background-color: #0D5492;
+    font-weight: 700;
+    font-size: larger;
+    margin: 12px;
+    text-align: center;
+}
+
+.to-reg-button2{
+    order: 2;
+    justify-content: flex-end;
+    background-color: #0D5492;
+    font-weight: 700;
+    font-size: larger;
+    margin: 12px;
+    text-align: center;
+}
+
+.to-reg-button3{
+    order: 3;
+    justify-content: flex-end;
+    background-color: #0D5492;
+    font-weight: 700;
+    font-size: larger;
+    margin: 12px;
+    text-align: center;
+}
+
+.to-reg-button4{
+    order: 4;
+    justify-content: flex-end;
+    background-color: #0D5492;
+    font-weight: 700;
+    font-size: larger;
+    margin: 12px;
+    text-align: center;
+}
+
+.to-reg-button1:hover{
+    background-color:  white;
+    color: #FDFDFD;
+    font-weight: 700;
+    font-size: larger;
+    margin: 12px;
+}
+
+.to-reg-button2:hover{
+    background-color:  white;
+    color: #FDFDFD;
+    font-weight: 700;
+    font-size: larger;
+    margin: 12px;
+}
+
+.to-reg-button3:hover{
+    background-color:  white;
+    color: #FDFDFD;
+    font-weight: 700;
+    font-size: larger;
+    margin: 12px;
+}
+
+.to-reg-button4:hover{
+    background-color:  white;
+    color: #FDFDFD;
+    font-weight: 700;
+    font-size: larger;
+    margin: 12px;
+}
+
+.grancontenedor {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: flex-start;
+}
+  
+.titulo, .titulo1 {
+    color: black;
+    font-weight: 800;
+    font-size: 80px;
+    position: relative;
+    left: 250px;
+    top: 40px;
+}
+
+h1{
+    font-style: ExtraBold 800;
+    font-size: 90px;
+}
+  
+.contenedor-flex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+}
+  
+.divlogo1, .recuadro {
+    width: 600px;
+    height: 600px;
+    background: #FDFDFD;
+}
+  
+.divlogo1 {
+    order: 2;
+    left: 500px;
+    position: relative;
+    top: -120px;
+}
+  
+.recuadro {
+    order: 1;
+    height: 300px; 
+    left: 250px;
+    position: relative;
+}
+
+.contenedorflex{
+    display: flex;
+    background-color: #FDFDFD;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+}
+
+table th tr{
+    float: left;
+    margin: 25px;
+    text-align: center;
+}
+
+.table{
+    display: flex;
+    flex-direction: column;
+    width: 900px;
+    height: 900px;
+}
+
+.table1{
+    display: flex;
+    top: 120px;
+    position: relative;
+    background-color: #0D5492;
+    width: 800px;
+    
+    
+}
+
+.table2{
+    display: flex;
+    top: 120px;
+    position: relative;
+    background-color: #0D5492;
+    width: 800px;
+    justify-content: center;
+}
+
