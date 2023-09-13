@@ -26,5 +26,7 @@ export const MESSAGES = {
     BAD_REQUEST: "Solicitud incorrecta",
     UPLOAD_SUCCESS: "Imagen subida correctamente",
     UPLOAD_NOT_FOUND: "No se han subido archivos",
-    SERVER_ERROR: "Error interno del servidor",
+    DELETE_USER_SUCCESS: "El usuario ha sido borrado con éxito",
+    DELETE_USER_ERROR: "No se ha podido eliminar al usuario",
+    UPDATE_USER_SUCCES: "Los datos del usuario se actualizaron con éxito"
 }
