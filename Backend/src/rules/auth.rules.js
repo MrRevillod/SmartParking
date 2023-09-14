@@ -37,3 +37,16 @@ export const passwordRules = [
             return true
         })
 ]
+
+export const vehicleRules = [
+    body("patente")
+    .notEmpty()
+    .matches(/^[BCDFGHJKLPQRSTVWXYZ]{4}(1[0-9]|[2-9][0-9])$/),
+    body("model")
+    .notEmpty()
+    .isLength({ max: 20})
+    .matches(/^[a-zA-Z][0-9]{2}/),
+    body("year")
+    .notEmpty()
+    .matches(/^(19[5-9][0-9]|20[0-1][0-9]|202[0-5])$/)
+]

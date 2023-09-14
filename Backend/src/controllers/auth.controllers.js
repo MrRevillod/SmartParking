@@ -83,12 +83,7 @@ export const accountValidation = async (req, res) => {
 
         if (!validate) throw { status: 500, message: MESSAGES.EMAIL_VERIFICATION_FAILED }
 
-        // TO DO !
-        // crear la vista account/validated y descomentar la linea de abajo
-        // borrar el console.log dsp de crear la vista
-
-        //res.render("account/validated")
-        console.log("cuenta validada")
+        res.render("account/validated")
 
     } catch (error) {
         res.status(error?.status || 500).json({ message: error?.message || MESSAGES.UNEXPECTED })
@@ -152,23 +147,12 @@ export const setNewPassword = async (req, res) => {
 
 export const renderSendEmailPage = (req, res) => {
 
-    // TO DO !
-    // crear la vista account/send-reset-email 
-    // y descomentar la linea de abajo
-    // borrar el console.log dsp de crear la vista
+    res.render("account/send-reset-email")
 
-    //res.render("account/send-reset-email")
-    console.log("enviar correo de recuperación de contraseña")
 }
 
 export const renderChangePasswordPage = (req, res) => {
 
-    // TO DO !
-    // crear la vista account/change-password
-    // y descomentar la linea de abajo
-    // borrar el console.log dsp de crear la vista
+    res.render("account/change-password")
 
-
-    //res.render("account/change-password")
-    console.log("cambiar contraseña")
 }

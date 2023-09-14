@@ -19,12 +19,8 @@ export const checkUserExist = async (req, res, next) => {
 
     } catch (error) {
 
-        // TO DO !
-        // crear la vista invalid-url y descomentar la linea de abajo
-        // borrar el console.log dsp de crear la vista
-
-        console.log(error)
-        //res.render("invalid-url")
+        res.render("invalid-url")
+        
     }
 }
 
@@ -43,12 +39,8 @@ export const checkValidateAccountToken = async (req, res, next) => {
 
     } catch (error) {
 
-        // TO DO !
-        // crear la vista invalid-url y descomentar la linea de abajo
-        // borrar el console.log dsp de crear la vista
+        res.render("invalid-url")
 
-        console.log(error)
-        //res.render("invalid-url")
     }
 
 }
@@ -68,11 +60,6 @@ export const checkChangePasswordToken = async (req, res, next) => {
 
     } catch (error) {
 
-        // TO DO !
-        // crear la vista invalid-url y descomentar la linea de abajo
-        // borrar el console.log dsp de crear la vista
-
-        console.log(error)
-        //res.render("invalid-url")
+        res.render("invalid-url")
     }
 }

@@ -23,5 +23,10 @@ app.use(express.static("public"))
 app.set("views", VIEWS_PATH)
 app.set("view engine", "ejs")
 
+app.use((req, res, next) => {
+    res.status(404).render("404", { titulo: "Error 404" })
+})
+
+
 app.use(express.urlencoded({ extended: true }))
 app.use(router)
