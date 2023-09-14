@@ -1,8 +1,7 @@
 
 import { Router } from "express"
-import { uploadImage } from "../middlewares/upload.mw.js"
 import { validateRules } from "../middlewares/validator.mw.js"
-import { loginRules, passwordRules, userRules } from "../rules/auth.rules.js"
+import { loginRules, passwordRules, userRules, vehicleRules } from "../rules/auth.rules.js"
 import { checkChangePasswordToken, checkUserExist, checkValidateAccountToken } from "../middlewares/auth.mw.js"
 import { accountValidation, loginController, registerController, sendRecoveryEmail, setNewPassword, renderChangePasswordPage, renderSendEmailPage } from "../controllers/auth.controllers.js"
 
@@ -12,7 +11,7 @@ const router = Router()
 
 // Auth routes
 router.post("/login", loginRules, validateRules, loginController)
-router.post("/register", userRules, validateRules, registerController)
+router.post("/register", userRules, vehicleRules, validateRules, registerController)
 router.get("/validate-account/:id/:token", checkUserExist, checkValidateAccountToken, accountValidation)
 
 // Change password routes
