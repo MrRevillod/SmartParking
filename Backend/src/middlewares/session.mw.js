@@ -1,14 +1,14 @@
 
 import { JWT_SECRET } from "../config/env.js"
-import { verifyToken } from "../utils/jwt.utils.js"
 import { MESSAGES } from "../utils/http.utils.js"
+import { verifyJwt } from "../utils/jwt.utils.js"
 
 export const sessionValidation = async (req, res, next) => {
 
     try {
 
         const token = req.headers.authorization?.split(' ').pop() || ''
-        const payload = verifyToken(token, JWT_SECRET)
+        const payload = verifyJwt(token, JWT_SECRET)
 
         req.user = payload
         next()

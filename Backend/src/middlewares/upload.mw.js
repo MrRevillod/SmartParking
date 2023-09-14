@@ -28,10 +28,11 @@ export const uploadImage = async (req, res, next) => {
             if (err) throw { status: 500, message: MESSAGES.UNEXPECTED }
         })
 
-        req.body.imageURL = `${PUBLIC_URL}/images/${image.name}`
+        req.body.profilePicture = `${PUBLIC_URL}/images/${image.name}`
         next()
 
     } catch (error) {
         res.status(error?.status || 500).json({ message: error?.message || MESSAGES.UNEXPECTED })
     }
 }
+
