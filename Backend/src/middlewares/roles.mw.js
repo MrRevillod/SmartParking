@@ -29,7 +29,7 @@ export const ownerValidation = async (req, res, next) => {
 
         const user = await userModel.findById(reqId)
 
-        if (!user || (reqId !== userId)) {
+        if (!user || (user.role !== 'ADMIN_ROLE' && reqId !== userId)) {
             throw { status: 401, message: MESSAGES.UNAUTHORIZED }
         }
 

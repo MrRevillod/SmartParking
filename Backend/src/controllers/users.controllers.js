@@ -1,7 +1,6 @@
 
-import { userModel } from "../models/user.model.js"
 import { MESSAGES } from "../utils/http.utils.js"
-import { ObjectId } from "mongoose"
+import { userModel } from "../models/user.model.js"
 
 export const getUsers = async (req, res) => {
 
@@ -23,7 +22,7 @@ export const getUser = async (req, res) => {
 
         const id = req.params.id
 
-        const user = await userModel.findOne({ _id: id })
+        const user = await userModel.findById({ _id: id })
         if (!user) throw { status: 401, message: MESSAGES.USER_NOT_FOUND}
 
         res.status(200).json({ message: MESSAGES.OK, user })
@@ -39,10 +38,8 @@ export const deleteUser = async (req, res) => {
 
         const id = req.params.id
 
-        const user = await userModel.findOne({ _id: id })
+        const user = await userModel.findByIdAndDelete({ _id: id })
         if (!user) throw { status: 401, message: MESSAGES.USER_NOT_FOUND}
-
-        await userModel.deleteOne({ _id: id })
 
         res.status(200).json({ message: MESSAGES.OK, state: MESSAGES.DELETE_USER_SUCCESS })
 
@@ -59,12 +56,27 @@ export const updateUser = async (req, res) => {
 
         const newParams = req.body
 
-        const user = await userModel.findOne({ _id: id })
+        const user = await userModel.findByIdAndUpdate({ _id: id }, { $set: newParams, $currentDate: {updatedAt: true} })
         if (!user) throw { status: 401, message: MESSAGES.USER_NOT_FOUND}
 
-        await userModel.updateOne({ _id: id }, { $set: newParams, $currentDate: {updatedAt: true} })
-
         res.status(200).json({ message: MESSAGES.OK, state: MESSAGES.UPDATE_USER_SUCCES })
+
+    } catch (error) {
+        res.status(error?.status || 500).json({ message: error?.message || MESSAGES.UNEXPECTED })
+    }
+}
+
+export const updateImage = async (req,res) => {
+
+    try {
+        
+        const id = req.params.id
+        const profilePicture = req.body
+
+        const user = await userModel.findByIdAndUpdate({ _id: id }, { $set: profilePicture, $currentDate: {updatedAt: true} })
+        if (!user) throw { status: 401, message: MESSAGES.USER_NOT_FOUND}
+
+        res.status(200).json({ message: MESSAGES.OK, state: MESSAGES.UPDATE_PROFILE_PICTURE})
 
     } catch (error) {
         res.status(error?.status || 500).json({ message: error?.message || MESSAGES.UNEXPECTED })
