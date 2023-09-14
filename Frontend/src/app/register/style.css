@@ -7,14 +7,16 @@ body{
     top: 0;
     left: 0;
     right: 0;
-    padding-inline: 35vw;
     padding-top: 10vh;
+    display: flex;
+    justify-content: center;
 }
 
 .mainform{
     background-color: #FDFDFD;
     padding: 2vh;
     border-radius: 10px;
+    width: 450px;
     
 }
 
@@ -69,3 +71,7 @@ body{
 
 
 
+.form-error{
+    color: red;
+    font-size: small;
+}
