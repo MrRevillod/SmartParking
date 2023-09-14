@@ -17,30 +17,38 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
+        <div>
         <header>
-        <nav className='container1'>
+        <div className="divlogo2">
+          <Logo className="formlogo" w={50} h={50} color={"#0D5492"} />
+        </div>
+          <div className='container1'>
+          <div>
+          <nav>
             <ul>
+            <li className="btn to-reg-button1">
+                <Link href="/"  style={{ textDecoration: 'none' }}>Home</Link>
+              </li>
               <li className="btn to-reg-button1">
-                <Link href="/"  style={{ textDecoration: 'none', color:"black" }}>Home</Link>
+                <Link href="estacionamiento" style={{ textDecoration: 'none' }}>Estacionamiento</Link>
               </li>
-              <li className="btn to-reg-button2">
-                <Link href="estacionamiento" style={{ textDecoration: 'none', color:"black"}}>Estacionamiento</Link>
+              <li className="btn to-reg-button1"> 
+                <Link href="usuario" style={{ textDecoration: 'none' }}>Usuarios</Link>
               </li>
-              <li className="btn to-reg-button3"> 
-                <Link href="usuario" style={{ textDecoration: 'none', color:"black"}}>Usuarios</Link>
-              </li>
-              <li className="btn to-reg-button4">
-                <Link href="mensajes" style={{ textDecoration: 'none', color:"black"}}>Mensajes</Link>
+              <li className="btn to-reg-button1">
+                <Link href="mensajes" style={{ textDecoration: 'none' }}>Mensajes</Link>
               </li>
             </ul>
           </nav>
+          </div>
+          </div>
           <div className='icono1'>
-              <i class="bi bi-mailbox"></i>
-              <Link href="login"><i className="bi bi-box-arrow-left"></i></Link>
+            <Link href="login"><h2 className="bi bi-box-arrow-left"></h2></Link>
           </div>
         </header>
-        {children}
         
+          {children}
+        </div>
       </body>
     </html>
   )
