@@ -4,10 +4,10 @@
 </div>
 
 <div align="center" style="margin: 2rem;">
-    <h1>Smart Parking</div>
+    <h1>Smart Parking</h1>
+    <h2>Sistema de administración de estacionamientos</h2>
 </div>
 
-## Panel de administración de estacionamientos
 
 ### Frontend NextJS
 
