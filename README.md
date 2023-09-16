@@ -7,7 +7,7 @@
     <h1>Smart Parking</div>
 </div>
 
-### Panel de administración de estacionamientos
+## Panel de administración de estacionamientos
 
 ### Frontend NextJS
 
@@ -19,11 +19,11 @@ Para ejecutar el panel en modo de desarrollo:
 
 Instalar dependencias:
 
-``` npm install ``` || ``` yarn install ``` || ``` pnpm install ```
+``` npm install ``` || ``` pnpm install ```
 
 Iniciar el servidor de desarrollo:
 
-``` npm run dev ``` || ``` yarn dev ``` || ``` pnpm run dev ```
+``` npm run dev ``` || ``` pnpm run dev ```
 
 #### Documentación de la API:
 
