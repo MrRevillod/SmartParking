@@ -1,8 +1,9 @@
-body{
+.body-login {
     background-color: #0D5492;
+    height: 100vh;
 }
 
-.maindiv{
+.maindiv {
     bottom: 0;
     top: 0;
     left: 0;
@@ -10,73 +11,78 @@ body{
     padding-top: 10vh;
     display: flex;
     justify-content: center;
+
 }
 
-.mainform{
+.mainform {
     background-color: #FDFDFD;
     padding: 2vh;
     border-radius: 10px;
     width: 450px;
-    
+
 }
 
-.formbutton{
-    background-color:  white;
+.formbutton {
+    background-color: white;
     color: black;
     border: solid #7b7b7b 1px;
     font-weight: 700;
     font-size: larger;
     width: 100%;
 }
-.formbutton:hover{
-    background-color:  #0D5492;
+
+.formbutton:hover {
+    background-color: #0D5492;
     color: #FDFDFD;
     font-weight: 700;
     font-size: larger;
     width: 100%;
 
 }
-.forminput{
+
+.forminput {
     width: 100%;
     margin-bottom: 2vh;
     padding: 2vh;
     border-radius: 10px;
     border: solid rgb(200, 200, 200) 1px;
 }
-.forminput:focus{
-    outline: solid 1px #0085f953 ;
+
+.forminput:focus {
+    outline: solid 1px #0085f953;
 }
 
-.recoverinput{
+.recoverinput {
     text-decoration: none;
-    
+
 }
 
-.to-reg-button{
-    background-color:  #0D5492;
-    color: #FDFDFD;
-    font-weight: 700;
-    font-size: larger;
-    width: 100%;
-}
-.to-reg-button:hover{
-    background-color:  #176ab4;
+.to-reg-button {
+    background-color: #0D5492;
     color: #FDFDFD;
     font-weight: 700;
     font-size: larger;
     width: 100%;
 }
 
-.divlogo{
+.to-reg-button:hover {
+    background-color: #176ab4;
+    color: #FDFDFD;
+    font-weight: 700;
+    font-size: larger;
+    width: 100%;
+}
+
+.divlogo {
     display: inline-flex;
     justify-content: center;
     margin-top: 5vh;
     margin-bottom: 5vh;
     width: 100%;
-    
+
 }
 
-.form-error{
+.form-error {
     color: red;
     font-size: small;
 }
