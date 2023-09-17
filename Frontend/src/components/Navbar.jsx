@@ -46,10 +46,10 @@ export default function Nabvar() {
                                     Mensajes
                                 </Link>
                             </li>
-                            
+
                         </ul>
                         <div className="d-flex">
-                            <Notify className=""/>
+                            <Notify className="" />
                             <Link href="../auth/login" className="me-1">
                                 <h2 className="bi bi-box-arrow-left text-light"></h2>
                             </Link>

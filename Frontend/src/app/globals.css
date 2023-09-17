@@ -1,27 +1,26 @@
-
-body{
-  min-height: 100%;
+body {
+	min-height: 100%;
 }
 
-i:hover{
-    cursor:pointer;
+i:hover {
+	cursor: pointer;
 }
 
-.back-blue{
-  background-color: #0D5492;
+.back-blue {
+	background-color: #0D5492;
 }
 
-.icon-blue{
-    color: #0D5492;
+.icon-blue {
+	color: #0D5492;
 }
 
-#noty{
-  right: 130px;
-  position: absolute;
+#noty {
+	right: 130px;
+	position: absolute;
 }
 
-.noty-list{
-  top: 80px;
-  right: -40px;
-  width: 400px;
+.noty-list {
+	top: 80px;
+	right: -40px;
+	width: 400px;
 }

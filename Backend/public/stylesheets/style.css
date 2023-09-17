@@ -1,8 +1,3 @@
-.body-login {
-    background-color: #0D5492;
-    height: 100vh;
-}
-
 .maindiv {
     bottom: 0;
     top: 0;
@@ -11,7 +6,6 @@
     padding-top: 10vh;
     display: flex;
     justify-content: center;
-
 }
 
 .mainform {
@@ -52,11 +46,6 @@
     outline: solid 1px #0085f953;
 }
 
-.recoverinput {
-    text-decoration: none;
-
-}
-
 .to-reg-button {
     background-color: #0D5492;
     color: #FDFDFD;
@@ -73,16 +62,19 @@
     width: 100%;
 }
 
-.divlogo {
-    display: inline-flex;
-    justify-content: center;
+.img-fluid {
     margin-top: 5vh;
     margin-bottom: 5vh;
-    width: 100%;
+    width: 150px;
+    height: 150px;
 
 }
 
 .form-error {
     color: red;
     font-size: small;
+}
+
+.forminput.error {
+    background-color: red;
 }

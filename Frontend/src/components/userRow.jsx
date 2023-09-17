@@ -1,3 +1,4 @@
+
 export default function userRow({ e, estacionamiento, patente }) {
     return (
         <tr key={e._id} className="rounded-4 shadow-sm    ">
@@ -25,5 +26,5 @@ export default function userRow({ e, estacionamiento, patente }) {
                 )}
             </td>
         </tr>
-    );
+    )
 }

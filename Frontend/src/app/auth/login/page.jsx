@@ -1,25 +1,27 @@
-"use client";
-import Logo from "@/components/Logo";
-import { useRouter } from "next/navigation";
-import { useForm } from "react-hook-form";
-import "./style.css";
+
+"use client"
+
+import Logo from "@/components/Logo"
+import { useRouter } from "next/navigation"
+import { useForm } from "react-hook-form"
+import "./style.css"
 
 export default function Page() {
-	const navigator = useRouter();
+	const navigator = useRouter()
 	const {
 		register,
 		handleSubmit,
 		formState: { errors },
 		reset,
-	} = useForm();
+	} = useForm()
 
-	console.log(errors);
+	console.log(errors)
 
 	const onSubmit = handleSubmit((data) => {
-		console.log(data);
-		alert("enviando datos");
-		reset();
-	});
+		console.log(data)
+		alert("enviando datos")
+		reset()
+	})
 
 	return (
 		<div className="body-login">
@@ -80,8 +82,8 @@ export default function Page() {
 					<hr />
 					<div
 						onClick={(e) => {
-							e.preventDefault();
-							navigator.push("../auth/register");
+							e.preventDefault()
+							navigator.push("../auth/register")
 						}}
 						className="btn formbutton  "
 					>
@@ -90,5 +92,5 @@ export default function Page() {
 				</form>
 			</div>
 		</div>
-	);
+	)
 }

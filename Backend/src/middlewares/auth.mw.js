@@ -5,7 +5,6 @@ import { userModel } from "../models/user.model.js"
 import { JWT_SECRET } from "../config/env.js"
 
 // Mw para verificar si el usuario solicitado (id) existe
-
 export const checkUserExist = async (req, res, next) => {
 
     try {
@@ -19,20 +18,11 @@ export const checkUserExist = async (req, res, next) => {
         next()
 
     } catch (error) {
-
-        // TO DO !
-        // Crear página que muestre algo como "URL invalida"
-        // esto por que  se esta tratando de acceder/validar 
-        // un usuario que no existe
-
-        // res.render("")
-
-        console.log(error)
+        res.render("invalid-url")
     }
 }
 
 // Mw para validar si el token de confirmación de cuenta es valido
-
 export const checkValidateAccountToken = async (req, res, next) => {
 
     try {
@@ -46,19 +36,24 @@ export const checkValidateAccountToken = async (req, res, next) => {
         next()
 
     } catch (error) {
-
-        // TO DO !
-        // Crear página que muestre algo como "URL invalida"
-        // esto por que  se esta tratando de acceder/validar 
-        // un usuario que no existe
-
-        console.log(error)
-
-        // res.render("")
+        res.render("invalid-url")
     }
-
 }
 
 // Mw para validar si el token de cambio de contraseña es valido
+export const checkChangePasswordToken = async (req, res, next) => {
 
-export const checkChangePasswordToken = async (req, res, next) => { }
+    try {
+
+        const { token } = req.params
+        const user = req.foundUser
+
+        const secret = JWT_SECRET + user.password
+        verifyJwt(token, secret)
+
+        next()
+
+    } catch (error) {
+        res.render("invalid-url")
+    }
+}

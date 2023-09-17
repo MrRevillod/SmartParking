@@ -1,5 +1,6 @@
+
 export default function estacionamiento() {
-    return (
-      <div className=''> Smart </div>
-    )
-  }
+	return (
+		<div className=''> Smart </div>
+	)
+}
