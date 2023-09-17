@@ -18,7 +18,7 @@ export default function Page(){
         alert('petición enviada')
         reset()
     })
-    return<>
+    return<div className="body-register">
         <div className="maindiv">
             <form onSubmit={onSubmit} className=" mainform">
                 <div className="row">
@@ -85,12 +85,12 @@ export default function Page(){
                 <hr />
                 <div className="text-center "><p  className="logininput"  href="">¿Ya tienes una cuenta?</p></div>
 
-                <div type="none" onClick={(e) =>{e.preventDefault();navigator.push('../login')}}  className="btn formbutton">Iniciar Sesión</div>
+                <div type="none" onClick={(e) =>{e.preventDefault();navigator.push('../auth/login')}}  className="btn formbutton">Iniciar Sesión</div>
 
 
             </form>
             
         </div>
     
-    </>
+    </div>
 }

@@ -9,7 +9,8 @@ export const loginRules = [
 // TO DO !
 // Añadir validación de datos de vehiculo
 
-// user rules == register rules
+// Las userRules tambien pueden utilizarse al registrarse
+
 export const userRules = [
     body("username").notEmpty().isLength({ min: 5 }),
     body("email").isEmail(),
@@ -36,4 +37,3 @@ export const passwordRules = [
             return true
         })
 ]
-

@@ -3,7 +3,6 @@
 import 'bootstrap-icons/font/bootstrap-icons.css'
 import './style.css'
 import { useEffect, useState } from 'react'
-import Notify from '@/components/notify'
 
 
 
@@ -79,9 +78,9 @@ export default  function Page() {
 
 
     return (<>
-        <Notify></Notify>
 
-        <div className=" ">
+
+        <div className="mt-4 ">
             <div className="d-flex flex-column justify-content-center" >
                 <div className='text-center display-5 fw-bold mb-3  ' >USUARIOS</div>
                 <div className=" d-flex border rounded-1 w-25 align-self-center mt-3 ">
@@ -116,7 +115,7 @@ export default  function Page() {
                         {
                             results.map((e, i) => {
                                 return (
-                                    <tr key={e._id} className='rounded-4 shadow-sm    '>
+                                    <tr key={e._id} className='rounded-4 shadow   '>
                                         <td className='  p-2 '><img src={e.imageUrl} className='rounded-circle profile-img'></img></td>
                                         <td className='p-2'>{e.name}</td>
                                         <td className='p-2'>{patentes[i]}</td>

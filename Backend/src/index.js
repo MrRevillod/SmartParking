@@ -11,7 +11,7 @@ const main = () => {
 
         app.listen(PORT, () => {
             console.log(`🚀 Servidor: Ejecutando en el puerto ${PORT}`)
-            console.log(`⭕ Servidor: Esperando peticiones cliente\n`)
+            console.log(`🔄 Servidor: Esperando peticiones cliente\n`)
         })
 
     }).catch(() => {
