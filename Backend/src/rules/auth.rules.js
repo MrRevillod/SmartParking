@@ -22,6 +22,11 @@ export const userRules = [
         .withMessage("El campo 'password' debe contener al menos una letra minúscula")
         .matches(/[!@#$%^&*]/)
         .withMessage("El campo 'password' debe contener al menos un carácter especial: !@#$%^&*"),
+    body("contact")
+        .notEmpty()
+        .isLength({ min: 10, max: 12 })
+        .matches(/^(\+56)?[0-9]{9}$/)
+        .withMessage("El campo no coincide con la estructura de un número telefonico válido")
 ]
 
 export const passwordRules = [
