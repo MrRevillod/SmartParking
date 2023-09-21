@@ -32,6 +32,18 @@ export const getUser = async (req, res) => {
     }
 }
 
+export const getActiveUsers = async (req, res) => {
+
+    try {
+
+        const users = await userModel.find({ active: true })
+        res.status(200).json({ message: MESSAGES.OK, users })
+
+    } catch (error) {
+        res.status(error?.status || 500).json({ message: error?.message || MESSAGES.UNEXPECTED })
+    }
+}
+
 export const deleteUser = async (req, res) => {
 
     try {
@@ -53,7 +65,6 @@ export const updateUser = async (req, res) => {
     try {
 
         const id = req.params.id
-
         const newParams = req.body
 
         const user = await userModel.findByIdAndUpdate({ _id: id }, { $set: newParams, $currentDate: { updatedAt: true } })
