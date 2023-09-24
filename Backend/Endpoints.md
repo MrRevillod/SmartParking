@@ -55,6 +55,26 @@ Un endpoint es una ruta de un servidor web que se utiliza para realizar una soli
 }
 ```
 
+### Verificar sesión
+
+- **Método**: `POST`
+- **Ruta**: `/api/auth/confirm-session`
+- **Descripción**: Verifica si el usuario tiene una sesión activa.
+
+-**Headers**:
+```json
+{
+	"Authorization": "Bearer <token>"
+}
+```
+
+- **Respuesta**: Mensaje de confirmación y código de estado.
+```json
+{
+	"message": "OK"
+}
+```
+
 ### Logout
 
 - **Método**: `GET`
