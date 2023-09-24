@@ -130,6 +130,10 @@ export const sendRecoveryEmail = async (req, res) => {
     }
 }
 
+export const confirmSession = async (req, res) => {
+    res.status(200).json({ message: MESSAGES.OK })
+}
+
 export const setNewPassword = async (req, res) => {
 
     try {
