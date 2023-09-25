@@ -29,5 +29,7 @@ export const MESSAGES = {
     DELETE_USER_SUCCESS: "El usuario ha sido borrado con éxito",
     DELETE_USER_ERROR: "No se ha podido eliminar al usuario",
     UPDATE_USER_SUCCES: "Los datos del usuario se actualizaron con éxito",
-    UPDATE_PROFILE_PICTURE: "La imagen de perfil se ha actualizado con éxito"
+    UPDATE_PROFILE_PICTURE: "La imagen de perfil se ha actualizado con éxito",
+    CONTACT_EXIST: "El número de contacto ya se encuentra registrado",
+    USER_NOT_IN_PARKING: "El usuario no se encuentra en el parking",
 }
