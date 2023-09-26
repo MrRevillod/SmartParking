@@ -18,9 +18,7 @@ export const checkUserExist = async (req, res, next) => {
         next()
 
     } catch (error) {
-
         res.render("invalid-url")
-        
     }
 }
 
@@ -38,11 +36,8 @@ export const checkValidateAccountToken = async (req, res, next) => {
         next()
 
     } catch (error) {
-
         res.render("invalid-url")
-
     }
-
 }
 
 // Mw para validar si el token de cambio de contraseña es valido
@@ -59,7 +54,6 @@ export const checkChangePasswordToken = async (req, res, next) => {
         next()
 
     } catch (error) {
-
         res.render("invalid-url")
     }
 }

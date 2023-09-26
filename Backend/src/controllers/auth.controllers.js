@@ -35,10 +35,13 @@ export const registerController = async (req, res) => {
 
     try {
 
-        const { username, email, password, vehicles } = req.body
+        const { username, email, password, contact, vehicles } = req.body
 
         let user = await userModel.findOne({ $or: [{ username }, { email }] })
         if (user) throw { status: 409, message: MESSAGES.USER_EXIST }
+
+        let contactExist = await userModel.findOne({ $or: [{ contact }] })
+        if (contactExist) throw { status: 409, message: MESSAGES.CONTACT_EXIST }
 
         const hash = await hashPassword(password)
         user = await userModel.create({ username, email, password: hash, vehicles })
@@ -127,6 +130,10 @@ export const sendRecoveryEmail = async (req, res) => {
     }
 }
 
+export const confirmSession = async (req, res) => {
+    res.status(200).json({ message: MESSAGES.OK })
+}
+
 export const setNewPassword = async (req, res) => {
 
     try {
@@ -146,13 +153,9 @@ export const setNewPassword = async (req, res) => {
 }
 
 export const renderSendEmailPage = (req, res) => {
-
     res.render("account/send-reset-email")
-
 }
 
 export const renderChangePasswordPage = (req, res) => {
-
     res.render("account/change-password")
-
 }

@@ -1,54 +1,51 @@
-<%- include("../templates/header", {titulo: "Recuperar Contraseña"}) %> 
+<%- include("../templates/header", {titulo: "Recuperar Contraseña" }) %>
 
-        <div class = "maindiv" >
-            <form action="" class="mainform" id="mailform" method="POST">
-                <div class="text-center">
-                    <img src="images/logo-transparency-bg.png" class="img-fluid" alt="">
-                </div>
-                <div>
-                    <div class="text-center" id="ierror" style="display: none; color: red;"> El correo no debe estar vacio </div>
-                    <input type="email" placeholder="Ingrese su Correo" class="forminput" id="mail" />
+    <div class="maindiv">
+        <form class="mainform" id="emailForm">
+            <div class="text-center">
+                <img src="http://localhost:3000/images/logo-transparency-bg.png"" class=" img-fluid" alt="">
+            </div>
+            <div>
+                <div class="text-center" id="messageContainer" style="display: none; color: red;"></div>
+                <input class="forminput" type="email" id="email" name="email"
+                    placeholder="Ingrese su dirección de correo electrónico" required>
+                <button type="submit" class="btn to-reg-button">Enviar</button>
+            </div>
+        </form>
+    </div>
 
-                    <button type="submit" class="btn to-reg-button">Enviar</button> 
-                </div>
-            </form>
-        </div>
+    <script>
 
-        <script>
-            document.getElementById("mailform").addEventListener("submit", async function(e){
+        const form = document.getElementById('emailForm');
+        const messageContainer = document.getElementById('messageContainer');
 
-                    var mail = document.getElementById("mail").value
-                    var ierror = document.getElementById("error").value
+        form.addEventListener('submit', async (event) => {
+            event.preventDefault();
 
-                    if (mail === ""){
-                        e.preventDefault()
-                        ierror.style.display = "block"
-                    } else {
-                        ierror.style.display = "none"
-                    }
+            const userMail = document.getElementById('email').value;
+            const response = await fetch("http://localhost:3000/api/auth/forgot-password", {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ email: userMail })
+            });
 
-                try{
-                    const response = await fetch("http://localhost:3000/api/auth/forgot-password", {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({ email: mail })
-                    })
-                    //AGREGAR TILDE A RECUPERACION NO TENGO TECLADO EN ESPANOL JEJE
+            const responseData = await response.json();
 
-                    const result = await response.json()
+            if (response.ok) {
+                form.reset()
+                messageContainer.style.display = "block"
+                messageContainer.textContent = responseData.message;
+                messageContainer.style.color = 'green';
+            } else {
+                messageContainer.style.display = "block"
+                messageContainer.textContent = responseData.message;
+                messageContainer.style.color = 'red';
+            }
+        });
 
-                        if (result.ok) {
-                            console.log("Se ha enviado correctamente de recuperacion de Contraseña")
-                        } else {
-                            console.log("No se pudo enviar el correctamente el email de recuperacion")
-                        }
-
-                } catch (error){
-                console.error('Ocurrio un error inesperado')
-                }
-            })
-        </script>
+    </script>
     </body>
-</html>
+
+    </html>

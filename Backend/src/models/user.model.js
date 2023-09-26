@@ -48,6 +48,18 @@ const userSchema = new Schema({
         default: "http://localhost:3000/images/default.jpg"
     },
 
+    contact: {
+        type: String, unique: true
+    },
+
+    active: {
+        type: Boolean, default: false, unique: false
+    },
+
+    parking: {
+        type: String, unique: false, default: ""
+    },
+
     vehicles: [vehicleSchema]
 
 },
