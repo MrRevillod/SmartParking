@@ -16,7 +16,7 @@ export default function Page() {
     } = useForm();
 
     const onSubmit = handleSubmit(async (data) => {
-        const res = await fetch(`http://localhost:3000/api/auth/login`, {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API}/auth/login`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(data),
@@ -27,6 +27,7 @@ export default function Page() {
 
         if (res.status == 200) {
             navigator.push("../dashboard");
+            localStorage.setItem('token',result.token)
         } else if (res.status == 401) {
             alert(result.message);
         }

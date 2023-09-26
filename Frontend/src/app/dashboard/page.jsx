@@ -1,8 +1,16 @@
+"use client"
+
 import Logo from "@/components/Logo";
 import Image from "next/image";
 import "./page.module.css";
-
+import { useEffect } from "react";
+import { validateSession } from "@/lib/useValidateSession";
 export default function Home() {
+
+    useEffect(()=>{
+        validateSession()
+        
+    },[])
     return (
         <div className="">
             <div className="d-flex m-5 ">
