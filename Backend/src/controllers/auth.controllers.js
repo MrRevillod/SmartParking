@@ -6,6 +6,7 @@ import { transporter } from "../utils/mailer.utils.js"
 import { JWT_SECRET, MAIL } from "../config/env.js"
 import { hashPassword, comparePassword } from "../utils/bcrypt.utils.js"
 import { changePasswordSubject, changePasswordTemplate, validationSubject, validationTemplate } from "../utils/mail.template.js"
+import { expiredTokens } from "../utils/etoken.utils.js"
 
 export const loginController = async (req, res) => {
 
@@ -130,6 +131,10 @@ export const sendRecoveryEmail = async (req, res) => {
     }
 }
 
+export const confirmSession = async (req, res) => {
+    res.status(200).json({ message: MESSAGES.OK })
+}
+
 export const setNewPassword = async (req, res) => {
 
     try {
@@ -154,4 +159,20 @@ export const renderSendEmailPage = (req, res) => {
 
 export const renderChangePasswordPage = (req, res) => {
     res.render("account/change-password")
+}
+
+export const logoutController = async (req, res) => {
+    
+    try {
+
+        const token = req.headers.authorization?.split(' ').pop() || ''
+
+        const expired = expiredTokens.push(token)
+
+        if (!expired) throw { status: 500, message: MESSAGES.INVALID_TOKEN }
+        res.status(200).json({ message: MESSAGES.OK})
+
+    } catch (error) {
+        res.status(error?.status || 500).json({ message: error?.message || MESSAGES.UNEXPECTED })
+    }
 }
