@@ -1,8 +1,17 @@
+"use client";
 import Logo from "./Logo";
 import Link from "next/link";
 import Notify from "./Notify";
+import { useRouter } from "next/navigation";
 
 export default function Nabvar() {
+
+    const router = useRouter()
+    const onClickHandler = (e) => {
+        e.preventDefault()
+        localStorage.removeItem("token");
+        router.push('./auth/login')
+    };
     return (
         <>
             <nav className="navbar navbar-expand-sm navbar-dark back-blue ">
@@ -18,7 +27,7 @@ export default function Nabvar() {
                     <div className="collapse navbar-collapse" id="mynavbar">
                         <ul className="navbar-nav me-auto">
                             <li className="nav-item">
-                                <Link href="../" className="nav-link">
+                                <Link href="../dashboard" className="nav-link">
                                     Home
                                 </Link>
                             </li>
@@ -46,11 +55,14 @@ export default function Nabvar() {
                                     Mensajes
                                 </Link>
                             </li>
-
                         </ul>
                         <div className="d-flex">
                             <Notify className="" />
-                            <Link href="../auth/login" className="me-1">
+                            <Link
+                                href="../auth/login"
+                                onClick={(e) => onClickHandler(e)}
+                                className="me-1"
+                            >
                                 <h2 className="bi bi-box-arrow-left text-light"></h2>
                             </Link>
                         </div>
