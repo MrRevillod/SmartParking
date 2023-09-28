@@ -13,13 +13,14 @@ export default function Template({ children }) {
             const validate = await validateSession();
             if (
                 !validate &&
-                 path !== "/auth/login" && path !== "/auth/register"
+                path !== "/auth/login" &&
+                path !== "/auth/register"
             ) {
                 alert("Debe iniciar sesión");
                 router.push("../auth/login");
             } else if (
                 validate &&
-                ((path === "/auth/login") || (path === "/auth/register"))
+                (path === "/auth/login" || path === "/auth/register")
             ) {
                 router.push("../dashboard");
             }
