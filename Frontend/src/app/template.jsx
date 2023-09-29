@@ -9,7 +9,6 @@ export default function Template({ children }) {
 
     useEffect(() => {
         const getValidate = async () => {
-            console.log(path);
             const validate = await validateSession();
             if (
                 !validate &&
