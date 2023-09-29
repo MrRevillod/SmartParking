@@ -17,7 +17,6 @@ export default function Notify() {
                 e.target !== document.getElementById("noty-icon") &&
                 e.target !== document.getElementById("noty-dot")
             ) {
-                console.log("click2");
                 setNoty(false);
             }
         };
@@ -43,7 +42,6 @@ export default function Notify() {
                     <i
                         onClick={(e) => {
                             e.preventDefault;
-                            console.log("click");
                             setNoty(!noty);
                         }}
                         className="position-absolute  bi bi-circle-fill text-danger  small notify-dot "
