@@ -12,4 +12,4 @@ const parkingSchema = new Schema({
     },
 })
 
-export const parkingModel = model("parking", parkingSchema)
+export const parkingModel = model("parkings", parkingSchema)
