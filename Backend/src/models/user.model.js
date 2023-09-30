@@ -66,4 +66,4 @@ const userSchema = new Schema({
     { timestamps: true, versionKey: false }
 )
 
-export const userModel = model("users", userSchema)
+export const userModel = model("user", userSchema)

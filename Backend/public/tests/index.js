@@ -1,41 +1,28 @@
 
+const socket = io("http://localhost:3000")
+const button = document.getElementById("button")
 
-// const getToken = async () => {
-//     const response = await fetch("http://localhost:3000/api/auth/login", {
-//         method: "POST",
-//         headers: {
-//             "Content-Type": "application/json",
-//         },
-//         body: JSON.stringify({
-//             email: "lrevillod2022@alu.uct.cl",
-//             password: "!a1234567A",
-//         })
-//     })
+button.addEventListener("click", (event) => {
 
-//     if (!response.ok) {
-//         const { message } = await response.json()
-//         throw new Error(message)
-//     }
+    const username = document.getElementById("username")
+    const patente = document.getElementById("patente")
+    const contacto = document.getElementById("contacto")
 
-//     const result = await response.json()
-//     return result.token
+    const data = {
+        username: username.value,
+        patente: patente.value,
+        contact: contacto.value
+    }
+    event.preventDefault()
+    console.log(data)
 
-// }
+    socket.emit("access-request", data)
+})
 
-// const token = await getToken()
+socket.on("access-denied", ({ message }) => {
+    console.log(message)
+})
 
-// const socket = io("http://localhost:3000", {
-//     auth: {
-//         token
-//     },
-// });
-
-    // socket.on("connect", () => {
-    //     console.log("Conectado al servidor de sockets");
-    // });
-
-// socket.on("disconnect", () => {
-//     console.log("Desconectado del servidor de sockets");    
-// }); 
-
-// socket.emit("miEvento", { data: "Algo importante" });
+socket.on("access-ok", ({ message, place }) => {
+    console.log(message, place)
+})

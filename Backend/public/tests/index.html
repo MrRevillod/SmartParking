@@ -4,12 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+    <title>request</title>
 </head>
 
 <body>
 
-    <button id="send-req">send request</button>
+    <form class="form">
+        <input id="username" type="text" placeholder="Nombre">
+        <input id="patente" type="text" placeholder="patente">
+        <input id="contacto" type="text" placeholder="contacto">
+        <button id="button">enviar</button>
+    </form>
 
     <script src="/socket.io/socket.io.js"></script>
     <script src="./index.js" type="module"></script>
