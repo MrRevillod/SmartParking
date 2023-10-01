@@ -25,7 +25,7 @@ export const userRules = [
     body("contact")
         .notEmpty()
         .isLength({ min: 10, max: 12 })
-        .matches(/^+569\d{8}$/)
+        .matches(/^\+569\d{8}$/)
         .withMessage("El campo no coincide con la estructura de un número telefonico válido")
 ]
 
