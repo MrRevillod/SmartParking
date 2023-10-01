@@ -45,7 +45,7 @@ export const registerController = async (req, res) => {
         if (contactExist) throw { status: 409, message: MESSAGES.CONTACT_EXIST }
 
         const hash = await hashPassword(password)
-        user = await userModel.create({ username, email, password: hash, vehicles })
+        user = await userModel.create({ username, email, password: hash, contact, vehicles })
 
         const payload = { uid: user.id }
         const secret = JWT_SECRET + user.validated.toString()

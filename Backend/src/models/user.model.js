@@ -49,7 +49,7 @@ const userSchema = new Schema({
     },
 
     contact: {
-        type: String, unique: true
+        type: String, required: true ,unique: true
     },
 
     active: {

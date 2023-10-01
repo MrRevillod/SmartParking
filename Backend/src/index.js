@@ -17,7 +17,7 @@ const main = () => {
 
         socketSetup(server)
 
-    }).catch(() => {
+    }).catch((error) => {
         console.error("❌ Database: Conexión a MongoDB fallida")
     })
 }
