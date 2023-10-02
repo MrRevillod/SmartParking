@@ -21,9 +21,9 @@ export default function Page() {
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(data),
         });
-
+        console.log(res);
         const result = await res.json();
-        console.log(result);
+
 
         if (res.status == 200) {
             navigator.push("../dashboard");
