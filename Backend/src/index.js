@@ -2,6 +2,7 @@
 import { app } from "./app.js"
 import { PORT } from "./config/env.js"
 import { dbConnect } from "./config/database.js"
+import { socketSetup } from "./sockets.js"
 
 const main = () => {
 
@@ -9,12 +10,14 @@ const main = () => {
 
         console.log("\n✅ Database: Conexión a MongoDB establecida")
 
-        app.listen(PORT, () => {
+        const server = app.listen(PORT, () => {
             console.log(`🚀 Servidor: Ejecutando en el puerto ${PORT}`)
             console.log(`🔄 Servidor: Esperando peticiones cliente\n`)
         })
 
-    }).catch(() => {
+        socketSetup(server)
+
+    }).catch((error) => {
         console.error("❌ Database: Conexión a MongoDB fallida")
     })
 }
