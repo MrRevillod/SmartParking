@@ -162,7 +162,7 @@ export const renderChangePasswordPage = (req, res) => {
 }
 
 export const logoutController = async (req, res) => {
-    
+
     try {
 
         const token = req.headers.authorization?.split(' ').pop() || ''
@@ -170,7 +170,7 @@ export const logoutController = async (req, res) => {
         const expired = expiredTokens.push(token)
 
         if (!expired) throw { status: 500, message: MESSAGES.INVALID_TOKEN }
-        res.status(200).json({ message: MESSAGES.OK})
+        res.status(200).json({ message: MESSAGES.OK })
 
     } catch (error) {
         res.status(error?.status || 500).json({ message: error?.message || MESSAGES.UNEXPECTED })
