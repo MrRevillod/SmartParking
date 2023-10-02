@@ -19,4 +19,4 @@
 */build/Release
 */package-lock.json
 */pnpm-lock.yaml
-
+src/app/auth/register/*

@@ -49,6 +49,5 @@ export const socketSetup = (server) => {
             console.log(`🔌 Socket: Cliente desconectado [id: ${socket.id}]`)
         })
     })
-    io.httpServer.on("request", cors(corsOptions)) 
 }
 
