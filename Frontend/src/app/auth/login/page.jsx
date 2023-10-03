@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import "dotenv/config";
 import "./styleLogin.css";
+import Link from "next/link";
 
 export default function Page() {
     const navigator = useRouter();
@@ -24,10 +25,9 @@ export default function Page() {
         console.log(res);
         const result = await res.json();
 
-
         if (res.status == 200) {
             navigator.push("../dashboard");
-            localStorage.setItem('token',result.token)
+            localStorage.setItem("token", result.token);
         } else if (res.status == 401) {
             alert(result.message);
         }
@@ -82,23 +82,11 @@ export default function Page() {
                             },
                         })}
                     />
-                    <button className="btn  to-reg-button">
-                        Iniciar Sesión
-                    </button>
+                    <button className="to-reg-button">Iniciar Sesión</button>
                     <div className="text-center p-3">
-                        <a className="recoverinput" href="">
+                        <Link className="recoverinput" href={`${process.env.NEXT_PUBLIC_API}/auth/forgot-password`}>
                             ¿Olvidaste tu contraseña?
-                        </a>
-                    </div>
-                    <hr />
-                    <div
-                        onClick={(e) => {
-                            e.preventDefault();
-                            navigator.push("../auth/register");
-                        }}
-                        className="btn formbutton  "
-                    >
-                        Registrarse
+                        </Link>
                     </div>
                 </form>
             </div>

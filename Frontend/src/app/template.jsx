@@ -2,7 +2,7 @@
 import { validateSession } from "@/lib/useValidateSession";
 import { useRouter, usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import Loading from "@/components/Loading";
+import Loading from "@/app/loading";
 
 export default function Template({ children }) {
     const [loading,setLoading] = useState(true)
@@ -15,12 +15,10 @@ export default function Template({ children }) {
             
             const validate = await validateSession();
 
-            if (!validate && path !== "/auth/login"){
+            if (!validate && path.startsWith("/dashboard")){
                 router.push("../auth/login")
-            }else if(path === "/auth/login" && validate){
-                router.push("../dashboard")
-            }
-            else{
+                
+            }else{
                 setLoading(false)
             }
         };
