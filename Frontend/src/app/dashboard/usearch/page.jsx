@@ -7,37 +7,6 @@ import { useEffect, useState } from 'react'
 
 
 const table_columns = ['Foto', 'Nombre', 'Registro', 'Estado', 'Ubicación', 'Chat']
-const users = [
-    {
-        _id: '1',
-        name: 'carlos',
-        email: 'carlos@gmail.com',
-        password: '1234',
-        role: 'user',
-        contacto: '123455',
-        imageUrl: 'https://dummyimage.com/300x300'
-    },
-
-    {
-        _id: '2',
-        name: 'charlie',
-        email: 'charlie@gmail.com',
-        password: '1234',
-        role: 'user',
-        contacto: '123455',
-        imageUrl: 'https://dummyimage.com/300x300',
-    },
-
-    {
-        _id: '3',
-        name: 'noobUser',
-        email: 'noobUser@gmail.com',
-        password: '1234',
-        role: 'user',
-        contacto: '123455',
-        imageUrl: 'https://dummyimage.com/300x300'
-    }
-]
 
 const patentes = ['12-12-12', 'xd-xd-xd', '33-33-33']
 const estacionamiento = ['B-12', 'null', 'B-14']
@@ -61,8 +30,25 @@ async function getData() {
 
 
 export default  function Page() {
-    const [search, setSearch] = useState('')
 
+    const [search, setSearch] = useState('')
+    const [ready, setReady] = useState(false)
+    let users = {}
+
+    useEffect(()=> {
+        async function getUsers(){
+            const res = await fetch('url',{
+                method:"GET",
+                headers:{"Authorization": `"Bearer ${localStorage.getItem("token")}`}
+            })
+
+            users = await res.json()
+            setReady(true)
+        } 
+
+    },[])
+    
+    
 
     let results = []
 
@@ -73,9 +59,6 @@ export default  function Page() {
             dato.name.toLowerCase().includes(search.toLocaleLowerCase())
         )
     }
-
-
-
 
     return (<>
 
@@ -112,7 +95,7 @@ export default  function Page() {
                         </tr>
                     </thead>
                     <tbody>
-                        {
+                        { ready ?
                             results.map((e, i) => {
                                 return (
                                     <tr key={e._id} className='rounded-4 shadow   '>
@@ -125,7 +108,7 @@ export default  function Page() {
                                             : <i className="h3 bi bi-chat-dots-fill opacity-25 h-100 "   ></i>}</td>
                                     </tr>
                                 )
-                            })
+                            }) : <div>Loading...</div>
                         }
 
                     </tbody>

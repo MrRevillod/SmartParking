@@ -8,6 +8,7 @@ export const validateSession =  async () =>{
             headers:{"Authorization":`Bearer ${localStorage.getItem('token')}`}
         })
         const response = await res.json( )
+
         return ( response?.message === 'OK' )
     } else {
         return false
