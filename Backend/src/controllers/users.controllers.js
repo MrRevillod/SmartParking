@@ -6,7 +6,7 @@ export const getUsers = async (req, res) => {
 
     try {
 
-        const users = await userModel.find()
+        const users = await userModel.find({ role: "USER_ROLE" })
         if (!users) throw { status: 404, message: MESSAGES.USER_NOT_FOUND }
 
         res.status(200).json({ message: MESSAGES.OK, users })
