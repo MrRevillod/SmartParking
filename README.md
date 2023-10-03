@@ -1,6 +1,6 @@
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/MrRevillod/SmartParking/main/Dise%C3%B1o/logo-transparency-bg.png" alt="Descripción de la imagen" width="250">
+  <img src="https://raw.githubusercontent.com/MrRevillod/SmartParking/main/Dise%C3%B1o/logo-transparency-white-bg.png" alt="Descripción de la imagen" width="250">
 </div>
 
 <div align="center" style="margin: 2rem;">
