@@ -50,7 +50,7 @@ export default function Notify() {
                 )}
 
                 {noty && (
-                    <ul className="list-group position-absolute noty-list ">
+                    <ul className="list-group position-absolute z-1 noty-list ">
                         {notificaciones.map(({ from, message, time }, i) => {
                             return (
                                 <li

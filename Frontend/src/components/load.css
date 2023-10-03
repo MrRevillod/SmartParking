@@ -1,9 +1,10 @@
 .load_body{
-    height: 100vh;
-    width: 100vw;
+
+
     display: grid;
     justify-content: center;
     align-content: center;
+    background-color: #0a7cbe;
 }
 .loader {
     height: 200px;

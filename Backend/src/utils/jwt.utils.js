@@ -16,7 +16,7 @@ const { sign, verify } = jwt
 export const createJwt = (payload, secret) => {
 
     try {
-        const expiresIn = 60 * 15
+        const expiresIn = 60 * 40
         return sign(payload, secret, { expiresIn })
 
     } catch (error) {
