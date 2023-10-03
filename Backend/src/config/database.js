@@ -1,6 +1,6 @@
 
 import { connect } from "mongoose"
-import { MDB_ATLAS_URI, MDB_LOCAL_URI, MODE,DB_NAME } from "./env.js"
+import { DB_NAME, MDB_ATLAS_URI, MDB_LOCAL_URI, MODE } from "./env.js"
 import { MESSAGES } from "../utils/http.utils.js"
 
 const URI = MODE === "DEVELOPMENT" ? MDB_LOCAL_URI : MDB_ATLAS_URI
@@ -15,6 +15,7 @@ export const dbConnect = async () => {
             useUnifiedTopology: true,
             dbName: DB_NAME,
         })
+
     } catch (error) {
         console.log(error)
         throw { status: 500, message: MESSAGES.UNEXPECTED }
