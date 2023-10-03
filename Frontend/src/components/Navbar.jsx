@@ -6,11 +6,25 @@ import { useRouter } from "next/navigation";
 
 export default function Nabvar() {
 
+    const logout = async () =>{
+        const token = localStorage.getItem("token")
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API}/auth/logout`,{
+            method:"POST",
+            headers:{"Authorization":`Bearer ${token}`}
+        })
+
+        const response = await res.json()
+        localStorage.removeItem("token");
+        router.push('../auth/login')
+        return response
+    }
+
     const router = useRouter()
     const onClickHandler = (e) => {
+        
         e.preventDefault()
-        localStorage.removeItem("token");
-        router.push('./auth/login')
+        logout()
+
     };
     return (
         <>
