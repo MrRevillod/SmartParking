@@ -15,7 +15,7 @@ export default function Nabvar() {
 
         const response = await res.json()
         localStorage.removeItem("token");
-        router.push('../auth/login')
+        router.push('/auth/login')
         return response
     }
 
@@ -41,13 +41,13 @@ export default function Nabvar() {
                     <div className="collapse navbar-collapse" id="mynavbar">
                         <ul className="navbar-nav me-auto">
                             <li className="nav-item">
-                                <Link href="../dashboard" className="nav-link">
+                                <Link href="/dashboard" className="nav-link">
                                     Home
                                 </Link>
                             </li>
                             <li className="nav-item">
                                 <Link
-                                    href="../dashboard/estacionamiento"
+                                    href="/dashboard/estacionamiento"
                                     className="nav-link"
                                 >
                                     Estacionamiento
@@ -55,7 +55,7 @@ export default function Nabvar() {
                             </li>
                             <li className="nav-item">
                                 <Link
-                                    href="../dashboard/usearch"
+                                    href="/dashboard/usearch"
                                     className="nav-link"
                                 >
                                     Usuarios
@@ -63,7 +63,7 @@ export default function Nabvar() {
                             </li>
                             <li className="nav-item">
                                 <Link
-                                    href="../dashboard/mensajes"
+                                    href="/dashboard/mensajes"
                                     className="nav-link"
                                 >
                                     Mensajes
@@ -73,7 +73,7 @@ export default function Nabvar() {
                         <div className="d-flex">
                             <Notify className="" />
                             <Link
-                                href="../auth/login"
+                                href="/auth/login"
                                 onClick={(e) => onClickHandler(e)}
                                 className="me-1"
                             >

@@ -2,7 +2,7 @@
 
 import Logo from "@/components/Logo";
 import Image from "next/image";
-import "./page.module.css";
+
 import { useEffect } from "react";
 import { validateSession } from "@/lib/useValidateSession";
 export default function Home() {
