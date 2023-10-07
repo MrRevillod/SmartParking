@@ -13,10 +13,9 @@ const { sign, verify } = jwt
 // se asigna el tiempo de expiración del token (60s * 15)
 // retorna un jwt firmado para el cliente
 
-export const createJwt = (payload, secret) => {
+export const createJwt = (payload, secret, expiresIn = 60 * 40) => {
 
     try {
-        const expiresIn = 60 * 40
         return sign(payload, secret, { expiresIn })
 
     } catch (error) {

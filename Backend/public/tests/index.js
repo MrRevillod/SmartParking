@@ -4,17 +4,17 @@ const button = document.getElementById("button")
 
 button.addEventListener("click", (event) => {
 
+    event.preventDefault()
+
     const username = document.getElementById("username")
-    const patente = document.getElementById("patente")
-    const contacto = document.getElementById("contacto")
+    const contact = document.getElementById("contact")
+    const email = document.getElementById("email")
 
     const data = {
         username: username.value,
-        patente: patente.value,
-        contact: contacto.value
+        contact: contact.value,
+        email: email.value
     }
-    event.preventDefault()
-    console.log(data)
 
     socket.emit("access-request", data)
 })
