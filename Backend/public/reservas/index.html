@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulación de reserva</title>
+</head>
+
+<body>
+
+    <button id="button">Hacer reserva</button>
+
+</body>
+
+<script src="/socket.io/socket.io.js"></script>
+
+<script>
+
+    // esto será una simulación de la app móvil y la funcionalidad de reservas
+    // para este ejemplo se utilizará fetch para ingresar a la cuenta 
+    // de la persona y obtener su token de acceso
+
+    // conexión al servidor de sockets
+
+    const socket = io("http://localhost:3000")
+    const button = document.getElementById("button")
+
+    const simulateSession = async () => {
+
+        const data = {
+            email: "csandoval@alu.uct.cl",
+            password: "!abc1234ABC"
+        }
+
+        try {
+
+            const res = await fetch("http://localhost:3000/api/auth/login", {
+                method: "POST",
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            })
+
+            return await res.json()
+
+            // si hay algún err lo capturo y muestro por consola.
+
+        } catch (error) {
+            console.log("error inesperado al loguearse:")
+            console.log(error)
+        }
+    }
+
+    button.addEventListener("click", async (event) => {
+
+        event.preventDefault()
+        const { token } = await simulateSession()
+
+        // envío un evento reservation con mi token de sesión
+
+        console.log(token)
+        socket.emit("reservation", { token })
+    })
+
+    socket.on("reservation-denied", (data) => {
+        console.log(data)
+    })
+
+    socket.on("reservation-ok", (data) => {
+        console.log(data)
+    })
+
+</script>
+
+
+</html>
