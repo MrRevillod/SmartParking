@@ -1,10 +1,10 @@
 
 import { Server } from "socket.io"
-import { saveTempUser } from "./controllers/sockets.controllers.js"
+import { userModel } from "./models/user.model.js"
 import { verifyJwt } from "./utils/jwt.utils.js"
 import { JWT_SECRET } from "./config/env.js"
-import { userModel } from "./models/user.model.js"
 import { simulateParking } from "./utils/parking.utils.js"
+import { guestAccessController, guestExitController } from "./controllers/guest.controllers.js"
 
 export const socketSetup = (server) => {
 
@@ -20,8 +20,12 @@ export const socketSetup = (server) => {
             console.log(`🔌 Socket: Cliente desconectado [id: ${socket.id}]`)
         })
 
-        socket.on("access-request", async (data) => {
-            await saveTempUser(socket, data)
+        socket.on("guest-access-request", async (data) => {
+            await guestAccessController(socket, data)
+        })
+
+        socket.on("guest-exit-request", async (data) => {
+            await guestExitController(socket, data)
         })
 
         socket.on("reservation", async ({ token }) => {
@@ -69,7 +73,7 @@ export const socketSetup = (server) => {
 
             // Luego algo similar con el parking, encuentras el doc que 
             // coincide con el nombre con simulateParking y cambias active = true
-            // status = "reservado" (operación $set de mongoose)
+            // status = "reservado" (operación $set o update de mongoose)
 
             // TO DO! 
 
