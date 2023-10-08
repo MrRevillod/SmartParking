@@ -1,21 +1,10 @@
 
 import { Server } from "socket.io"
+import { userModel } from "./models/user.model.js"
 import { verifyJwt } from "./utils/jwt.utils.js"
 import { JWT_SECRET } from "./config/env.js"
-import { userModel } from "./models/user.model.js"
-import { hashPassword } from "./utils/bcrypt.utils.js"
-import { parkingModel } from "./models/parking.model.js"
-
-const simulateParking = () => {
-
-    const random = Math.random()
-    const parking = {
-        name: "E-01",
-        active: false
-    }
-
-    return random > 0.5 ? null : parking
-}
+import { simulateParking } from "./utils/parking.utils.js"
+import { guestAccessController, guestExitController } from "./controllers/guest.controllers.js"
 
 export const socketSetup = (server) => {
 
@@ -26,59 +15,77 @@ export const socketSetup = (server) => {
         }
     })
 
-
     io.on("connection", async (socket) => {
         socket.on("disconnect", () => {
             console.log(`🔌 Socket: Cliente desconectado [id: ${socket.id}]`)
         })
 
-        socket.on("access-request", async (data) => {
+        socket.on("guest-access-request", async (data) => {
+            await guestAccessController(socket, data)
+        })
 
-            const { username, patente, contact } = data
+        socket.on("guest-exit-request", async (data) => {
+            await guestExitController(socket, data)
+        })
 
-            // TO DO! hacer un controller de parking que 
-            // permita encontrar el primer parking disponible (active: false)
-            // y luego actualizarlo a active: true
-            // obtener el name de ese parking y guardarlo en la constante place
-            // si no hay parkings disponibles, retornar un mensaje de error con socket.emit
+        socket.on("reservation", async ({ token }) => {
 
-            const parking = simulateParking()
+            // desde el front recibo el token del user que quiere reservar
+            // y lo identifico
+
+            const { uid } = verifyJwt(token, JWT_SECRET)
+            const user = userModel.findById(uid)
+
+            // si no existe envío un error, 
+            // es solo para asegurar, ya que debería existir.
+
+            if (!user) {
+                socket.emit("reservation-denied", {
+                    message: "Error interno"
+                })
+            }
+
+            // uso la función de simulación de obtención de estacionamiento 
+
+            const parking = await simulateParking()
+
+            // si no hay estacionamiento disp envio un evento 
+            // "reservation-denied" al user
 
             if (!parking) {
-                socket.emit("access-denied", { message: "No hay parkings disponibles" })
-                console.log("No hay parkings disponibles")
-                return
+                socket.emit("reservation-denied", {
+                    message: "No hay espacios disponibles"
+                })
             }
 
-            const place = parking.name
+            // de lo contrario envío un evento ok y 
+            // el nombre del estacionamiento a reservar
 
-            const tempData = {
-                username,
-                email: "temp@mail.com",
-                password: await hashPassword("temp"),
-                role: "TEMP_ROLE",
-                contact,
-                active: true,
-                parking: place,
-                vehicles: [
-                    {
-                        patente,
-                        model: "temp",
-                        year: "temp"
-                    }
-                ]
-            }
+            socket.emit("reservation-ok", {
+                message: "La reserva se ha realizado de manera correcta.",
+                place: parking.name
+            })
 
-            const user = await userModel.create(tempData)
+            // TO DO!
 
-            socket.emit("access-ok", { message: "Acceso concedido", place: user.parking })
+            // ahora se debe cambiar el estado de user a activo 
+            // y asignarle el nombre del parking que está utilizando
 
-            // TO DO (idea) para marcar salida de las personas invitadas
-            // podemos crear un one-time-link con un token el cual al clickearlo 
-            // elimine al user temporal y cambie el estado del parking a active: false
+            // Luego algo similar con el parking, encuentras el doc que 
+            // coincide con el nombre con simulateParking y cambias active = true
+            // status = "reservado" (operación $set o update de mongoose)
 
-            // lo elimino de la base de datos ahora (testing)
-            await userModel.findByIdAndDelete(user._id)
+            // TO DO! 
+
+            // al finalizar y probar esta logica con el /public/reservas/index.html 
+            // mover la logica y funcionalidad al fichero sockets.controllers.js
+
+            // el fichero index no está estilizado, se puede hacer y puede contar como tarea
+
+            // independiente de esto hay que pensar en una forma de cambiar el estado de 
+            // reservado a ocupado cuando la persona llegue, siguiendo la logica de correos que hemos usado
+            // se podría hacer así, pero no se si sea lo mejor, eso tmb podría ser otra tarea.
+
         })
     })
 }

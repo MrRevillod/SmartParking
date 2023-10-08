@@ -1,0 +1,47 @@
+<%- include("../templates/header", {titulo: "Smart Parking - Salida" }) %>
+
+    <h1>MARCAR ENTRADA !</h1>
+
+    <form class="form">
+        <input id="username" type="text" placeholder="Nombre">
+        <input id="contact" type="text" placeholder="contacto">
+        <input id="patente" type="text" placeholder="patente">
+        <button id="button">Enviar</button>
+    </form>
+
+    </body>
+    <script src="/socket.io/socket.io.js"></script>
+
+    <script>
+
+        const socket = io("http://localhost:3000")
+        const button = document.getElementById("button")
+
+        button.addEventListener("click", (event) => {
+
+            event.preventDefault()
+
+            const username = document.getElementById("username")
+            const contact = document.getElementById("contact")
+            const patente = document.getElementById("patente")
+
+            const data = {
+                username: username.value,
+                contact: contact.value,
+                patente: patente.value
+            }
+
+            socket.emit("guest-access-request", data)
+        })
+        
+        socket.on("guest-access-ok", ({ message, place }) => {
+            console.log(message, place)
+        })
+        
+        socket.on("guest-access-denied", ({ message }) => {
+            console.log(message)
+        })
+
+    </script>
+
+</html>

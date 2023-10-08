@@ -25,4 +25,8 @@ router.post("/forgot-password", sendRecoveryEmail)
 router.get("/forgot-password/:id/:token", checkUserExist, checkChangePasswordToken, renderChangePasswordPage)
 router.put("/forgot-password/:id/:token", checkUserExist, checkChangePasswordToken, passwordRules, validateRules, setNewPassword)
 
+router.get("/exit/:id/:token", (req, res) => {
+    res.render("account/change-password")
+})
+
 export default router

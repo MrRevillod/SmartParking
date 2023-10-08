@@ -10,6 +10,10 @@ const parkingSchema = new Schema({
     active: {
         type: Boolean, default: false, unique: false
     },
+
+    status: {
+        type: String, default: "libre", unique: false
+    }
 })
 
 export const parkingModel = model("parkings", parkingSchema)
