@@ -1,14 +1,22 @@
-<%- include("../templates/header", {titulo: "Smart Parking - Salida" }) %>
+<%- include("../templates/header", {titulo: "Smart Parking - Entrada" }) %>
 
-    <h1>MARCAR ENTRADA !</h1>
-
-    <form class="form">
-        <input id="username" type="text" placeholder="Nombre">
-        <input id="contact" type="text" placeholder="contacto">
-        <input id="patente" type="text" placeholder="patente">
-        <button id="button">Enviar</button>
-    </form>
-
+    <div class="maindiv">
+        <form class="mainform">
+            <div style="color: #0D5492;">
+                <h1 class="text-center">Acceso Invitado</h1>
+            </div>
+            <div class="text-center">
+                <img src="http://localhost:3000/images/logo-transparency-bg.png"" class=" img-fluid" alt="">
+            </div>
+            <div>
+                <div class="text-center" id="messageContainer" style="display: none;"></div>
+                <input style="margin-top: 0.5rem;" class="forminput" id="username" type="text" placeholder="Nombre" >
+                <input class="forminput" id="contact" type="text" placeholder="contacto" >
+                <input class="forminput" id="patente" type="text" placeholder="patente" >
+                <button class="btn to-reg-button" id="button">Enviar</button>
+            </div>
+        </form>
+    </div>
     </body>
     <script src="/socket.io/socket.io.js"></script>
 
@@ -16,6 +24,9 @@
 
         const socket = io("http://localhost:3000")
         const button = document.getElementById("button")
+        const messageContainer = document.getElementById('messageContainer')
+        const errorNone = document.getElementById('errorNone')
+
 
         button.addEventListener("click", (event) => {
 
@@ -29,18 +40,25 @@
                 username: username.value,
                 contact: contact.value,
                 patente: patente.value
-            }
+            }  
 
             socket.emit("guest-access-request", data)
+
         })
         
         socket.on("guest-access-ok", ({ message, place }) => {
-            console.log(message, place)
-        })
-        
-        socket.on("guest-access-denied", ({ message }) => {
-            console.log(message)
-        })
+                console.log(message, place)
+                messageContainer.style.display = "block"
+                messageContainer.textContent = message
+                messageContainer.style.color = 'green'
+            })
+            
+            socket.on("guest-access-denied", ({ message }) => {
+                console.log(message)
+                messageContainer.style.display = "block"
+                messageContainer.textContent = message
+                messageContainer.style.color = 'red'
+            })
 
     </script>
 
