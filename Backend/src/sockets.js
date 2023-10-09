@@ -1,9 +1,10 @@
 
 import { Server } from "socket.io"
-import { userModel } from "./models/user.model.js"
-import { verifyJwt } from "./utils/jwt.utils.js"
 import { JWT_SECRET } from "./config/env.js"
-import { simulateParking } from "./utils/parking.utils.js"
+import { verifyJwt } from "./utils/jwt.utils.js"
+import { userModel } from "./models/user.model.js"
+import { findParking } from "./utils/parking.utils.js"
+import { parkingModel } from "./models/parking.model.js"
 import { guestAccessController, guestExitController } from "./controllers/guest.controllers.js"
 
 export const socketSetup = (server) => {
@@ -47,7 +48,7 @@ export const socketSetup = (server) => {
 
             // uso la función de simulación de obtención de estacionamiento 
 
-            const parking = await simulateParking()
+            const parking = await findParking()
 
             // si no hay estacionamiento disp envio un evento 
             // "reservation-denied" al user
@@ -70,6 +71,8 @@ export const socketSetup = (server) => {
 
             // ahora se debe cambiar el estado de user a activo 
             // y asignarle el nombre del parking que está utilizando
+
+
 
             // Luego algo similar con el parking, encuentras el doc que 
             // coincide con el nombre con simulateParking y cambias active = true

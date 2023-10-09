@@ -2,7 +2,7 @@
 import { userModel } from "../models/user.model.js"
 import { hashPassword } from "../utils/bcrypt.utils.js"
 import { parkingModel } from "../models/parking.model.js"
-import { simulateParking } from "../utils/parking.utils.js"
+import { findParking } from "../utils/parking.utils.js"
 
 // TO DO! 
 // hacer una función que encuentre y retorne el primer parking 
@@ -23,7 +23,7 @@ export const guestAccessController = async (socket, data) => {
         return
     }
 
-    const parking = await simulateParking()
+    const parking = await findParking()
 
     if (!parking) {
 
