@@ -78,3 +78,43 @@ export const changePasswordTemplate = (url) => {
     `
 }
 
+export const exitSubject = "Smart Parking - Invitados"
+
+export const exitTemplate = (url) => {
+    return `
+        <body>
+            <table width="100%" bgcolor="#0D5492">
+                <tr>
+                    <td>
+                        <h1 style="color: white; padding: 20px;">Smart Parking</h1>
+                    </td>
+                </tr>
+            </table>
+            <table width="100%">
+                <tr>
+                    <td>
+                        <h2 style="color: black;">Marcar salida del estacionamiento</h2>
+                        <p style="color: black;">Haz ingresado al estacionamiento de manera exitosa, en el momento que vayas a dejarnos deberás clickear la siguiente url:</p>
+                        <p><a href="${url}">Marcar salida</a></p>
+                        <p style="color: black;">Si no haz solicitado ingreso o crees que se trata de un error, por favor ignora este mensaje.</p>
+                        <p style="color: black;">Atentamente,</p>
+                        <p style="color: black;">El equipo de Smart Parking</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table width="100%" bgcolor="#0D5492">
+                            <tr>
+                                <td>
+                                    <p style="color: white; text-align: center; padding: 10px;">© ${new Date().getFullYear()} Smart Parking</p>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </body>
+    `
+}
+
+

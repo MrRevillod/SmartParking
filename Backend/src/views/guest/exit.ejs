@@ -1,0 +1,40 @@
+<%- include("../templates/header", {titulo: "Smart Parking - Salida" }) %>
+
+    <h1>MARCAR SALIDA !</h1>
+
+    <form class="form">
+        <input id="patente" type="text" placeholder="patente">
+        <button id="button">Enviar</button>
+    </form>
+    </body>
+
+    <script src="/socket.io/socket.io.js"></script>
+
+    <script>
+
+        const socket = io("http://localhost:3000")
+        const button = document.getElementById("button")
+
+        button.addEventListener("click", (event) => {
+
+            event.preventDefault()
+            const patente = document.getElementById("patente")
+
+            const data = {
+                patente: patente.value
+            }
+
+            socket.emit("guest-exit-request", data)
+        })
+
+        socket.on("guest-exit-ok", ({ message, place }) => {
+            console.log(message)
+        })
+
+        socket.on("guest-exit-denied", ({message}) => {
+            console.log(message)
+        })
+
+    </script>
+
+</html>
