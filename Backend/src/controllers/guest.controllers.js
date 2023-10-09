@@ -12,7 +12,7 @@ import { simulateParking } from "../utils/parking.utils.js"
 export const guestAccessController = async (socket, data) => {
 
     const { username, contact, patente } = data
-    const user = await userModel.findOne({ $or: [{ username }, { contact }, { "vehicles.patente": patente }] })
+    let user = await userModel.findOne({ $or: [{ username }, { contact }, { "vehicles.patente": patente }] })
 
     if (user) {
         socket.emit("guest-access-denied", {
@@ -36,7 +36,7 @@ export const guestAccessController = async (socket, data) => {
 
     const tempData = {
         username,
-        email: "temp@mail.com",
+        email: `${username}-temp@mail.com`,
         password: await hashPassword("temp"),
         role: "TEMP_ROLE",
         contact,
@@ -51,12 +51,12 @@ export const guestAccessController = async (socket, data) => {
         ]
     }
 
-    await userModel.create(tempData)
+    user = await userModel.create(tempData)
     await parkingModel.findOneAndUpdate({ name: parking.name }, { active: true, status: "ocupado" })
 
     socket.emit("guest-access-ok", {
-        message: `Hemos dejado una url en tu correo,
-            debes ingresar a ella cuando abandones nuestro estacionamiento!`,
+        message: `Haz ingresado correctamente, que tengas una buena estadia
+         en nuestro estacionamiento!`,
         place: user.parking
     })
 }
