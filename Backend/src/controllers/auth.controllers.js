@@ -56,15 +56,15 @@ export const registerController = async (req, res) => {
         // Enviar correo de verificación de cuenta
         // EN DESARROLLO utilizar console.log para ver la url
 
-        // transporter.sendMail({
-        //     from: `Smart Parking UCT ${MAIL}`,
-        //     to: email,
-        //     subject: validationSubject,
-        //     html: validationTemplate(url)
-        // },
-        //     (error, info) => {
-        //         if (error) throw { status: 500, message: MESSAGES.EMAIL_VERIFICATION_FAILED }
-        //     })
+        transporter.sendMail({
+            from: `Smart Parking UCT ${MAIL}`,
+            to: email,
+            subject: validationSubject,
+            html: validationTemplate(url)
+        },
+            (error, info) => {
+                if (error) throw { status: 500, message: MESSAGES.EMAIL_VERIFICATION_FAILED }
+            })
 
         console.log(url)
 
@@ -112,15 +112,15 @@ export const sendRecoveryEmail = async (req, res) => {
         // Enviar correo de verificación de cuenta
         // EN DESARROLLO utilizar console.log para ver la url
 
-        // transporter.sendMail({
-        //     from: `Smart Parking UCT ${MAIL}`,
-        //     to: user.email,
-        //     subject: changePasswordSubject,
-        //     html: changePasswordTemplate(url)
-        // },
-        //     (error, info) => {
-        //         if (error) throw { status: 500, message: MESSAGES.PASSWORD_RESET_FAILED }
-        //     })
+        transporter.sendMail({
+            from: `Smart Parking UCT ${MAIL}`,
+            to: user.email,
+            subject: changePasswordSubject,
+            html: changePasswordTemplate(url)
+        },
+            (error, info) => {
+                if (error) throw { status: 500, message: MESSAGES.PASSWORD_RESET_FAILED }
+            })
 
         console.log(url)
 

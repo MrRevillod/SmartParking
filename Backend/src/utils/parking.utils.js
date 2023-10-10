@@ -1,11 +1,11 @@
 
-export const simulateParking = () => {
+import { MESSAGES } from "../utils/http.utils.js"
+import { parkingModel } from "../models/parking.model.js"
 
-    const random = Math.random()
-    const parking = {
-        name: "E-01",
-        active: false
-    }
+export const findParking = async () => {
 
-    return Promise.resolve(random > 0.5 ? null : parking)
+    const parking = await parkingModel.findOne({ active: false })
+    if (!parking) return null
+
+    return parking
 }

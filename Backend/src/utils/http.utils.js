@@ -32,4 +32,5 @@ export const MESSAGES = {
     UPDATE_PROFILE_PICTURE: "La imagen de perfil se ha actualizado con éxito",
     CONTACT_EXIST: "El número de contacto ya se encuentra registrado",
     USER_NOT_IN_PARKING: "El usuario no se encuentra en el parking",
+    PARKING_NOT_FOUND: "No se encuantran estacionamientos disponibles",
 }
