@@ -4,7 +4,6 @@ import { JWT_SECRET } from "./config/env.js"
 import { verifyJwt } from "./utils/jwt.utils.js"
 import { userModel } from "./models/user.model.js"
 import { findParking } from "./utils/parking.utils.js"
-import { parkingModel } from "./models/parking.model.js"
 import { guestAccessController, guestExitController } from "./controllers/guest.controllers.js"
 
 export const socketSetup = (server) => {
