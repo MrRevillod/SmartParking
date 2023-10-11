@@ -6,18 +6,23 @@
                 <h1 class="text-center">Acceso Invitado</h1>
             </div>
             <div class="text-center">
-                <img src="http://localhost:3000/images/logo-transparency-bg.png"" class=" img-fluid" alt="">
+                <div class="place-logo-container">
+                    <div class="text-center" id="placeContainer"></div>
+                    <img src="http://localhost:3000/images/logo-transparency-bg.png"" class=" img-fluid" alt=""
+                        id="logo">
+                </div>
             </div>
             <div>
                 <div class="text-center" id="messageContainer" style="display: none;"></div>
-                <input style="margin-top: 0.5rem;" class="forminput" id="username" type="text" placeholder="Nombre" >
-                <input class="forminput" id="contact" type="text" placeholder="contacto" >
-                <input class="forminput" id="patente" type="text" placeholder="patente" >
+                <input style="margin-top: 0.5rem;" class="forminput" id="username" type="text" placeholder="Nombre">
+                <input class="forminput" id="contact" type="text" placeholder="contacto">
+                <input class="forminput" id="patente" type="text" placeholder="patente">
                 <button class="btn to-reg-button" id="button">Enviar</button>
             </div>
         </form>
     </div>
     </body>
+
     <script src="/socket.io/socket.io.js"></script>
 
     <script>
@@ -25,11 +30,10 @@
         const socket = io("http://localhost:3000")
         const button = document.getElementById("button")
         const messageContainer = document.getElementById('messageContainer')
-        const errorNone = document.getElementById('errorNone')
-
+        const logo = document.getElementById('logo')
+        const placeContainer = document.getElementById('placeContainer')
 
         button.addEventListener("click", (event) => {
-
             event.preventDefault()
 
             const username = document.getElementById("username")
@@ -40,26 +44,39 @@
                 username: username.value,
                 contact: contact.value,
                 patente: patente.value
-            }  
+            };
 
             socket.emit("guest-access-request", data)
+        });
 
-        })
-        
         socket.on("guest-access-ok", ({ message, place }) => {
-                console.log(message, place)
-                messageContainer.style.display = "block"
-                messageContainer.textContent = message
-                messageContainer.style.color = 'green'
-            })
-            
-            socket.on("guest-access-denied", ({ message }) => {
-                console.log(message)
-                messageContainer.style.display = "block"
-                messageContainer.textContent = message
-                messageContainer.style.color = 'red'
-            })
+            console.log(message, place)
+
+            logo.style.animation = "fadeOut 0.5s ease forwards"
+
+            messageContainer.style.display = "block"
+            messageContainer.textContent = message
+            messageContainer.style.color = 'green'
+
+            setTimeout(() => {
+
+                logo.style.display = 'none'
+
+                placeContainer.textContent = `Ubicación del estacionamiento: ${place}`
+                placeContainer.style.display = 'block'
+                placeContainer.style.animation = "fadeIn 0.5s ease forwards"
+                placeContainer.classList.add('smooth-transition')
+
+            }, 500);
+        });
+
+        socket.on("guest-access-denied", ({ message }) => {
+            console.log(message)
+            messageContainer.style.display = "block"
+            messageContainer.textContent = message
+            messageContainer.style.color = 'red'
+        })
 
     </script>
 
-</html>
+    </html>

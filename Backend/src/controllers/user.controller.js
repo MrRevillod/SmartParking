@@ -32,18 +32,6 @@ export const getUser = async (req, res) => {
     }
 }
 
-export const getActiveUsers = async (req, res) => {
-
-    try {
-
-        const users = await userModel.find({ active: true })
-        res.status(200).json({ message: MESSAGES.OK, users })
-
-    } catch (error) {
-        res.status(error?.status || 500).json({ message: error?.message || MESSAGES.UNEXPECTED })
-    }
-}
-
 export const deleteUser = async (req, res) => {
 
     try {

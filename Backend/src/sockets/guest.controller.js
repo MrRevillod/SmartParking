@@ -1,13 +1,9 @@
 
 import { userModel } from "../models/user.model.js"
-import { hashPassword } from "../utils/bcrypt.utils.js"
 import { parkingModel } from "../models/parking.model.js"
-import { findParking } from "../utils/parking.utils.js"
 
-// TO DO! 
-// hacer una función que encuentre y retorne el primer parking 
-// disponible (active: false) || (status: "libre") 
-// y luego actualizarlo a active: true, status: "ocupado"
+import { findParking } from "./parking.controller.js"
+import { hashPassword } from "../utils/bcrypt.utils.js"
 
 export const guestAccessController = async (socket, data) => {
 
@@ -63,6 +59,10 @@ export const guestAccessController = async (socket, data) => {
 
 export const guestExitController = async (socket, data) => {
 
+    // ! TO DO 
+    // * crear un sistema de codigo de salida unico para cada usuario
+    // * temporal, esto para que no se marquen salidas falsas, etc
+
     const { patente } = data
     const user = await userModel.findOne({ "vehicles.patente": patente })
 
@@ -82,13 +82,4 @@ export const guestExitController = async (socket, data) => {
     socket.emit("guest-exit-ok", {
         message: `Hemos registrado tu salida del estacionamiento ${parking}`
     })
-
-}
-
-export const renderGuestAccess = (req, res) => {
-    res.render("guest/access")
-}
-
-export const renderGuestExit = (req, res) => {
-    res.render("guest/exit")
 }

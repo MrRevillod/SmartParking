@@ -13,7 +13,6 @@
     padding: 2vh;
     border-radius: 10px;
     width: 450px;
-
 }
 
 .formbutton {
@@ -31,7 +30,6 @@
     font-weight: 700;
     font-size: larger;
     width: 100%;
-
 }
 
 .forminput {
@@ -67,7 +65,6 @@
     margin-bottom: 5vh;
     width: 150px;
     height: 150px;
-
 }
 
 .form-error {
@@ -77,4 +74,35 @@
 
 .forminput.error {
     background-color: red;
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+#placeContainer {
+    font-size: 27px;
+    color: #0D5492;
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.smooth-transition {
+    transition: opacity 0.5s ease, transform 0.5s ease;
 }
