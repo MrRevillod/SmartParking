@@ -1,3 +1,8 @@
+.body-login {
+    background-color: #0D5492;
+    height: 100vh;
+}
+
 .maindiv {
     bottom: 0;
     top: 0;
@@ -6,6 +11,7 @@
     padding-top: 10vh;
     display: flex;
     justify-content: center;
+
 }
 
 .mainform {
@@ -13,6 +19,7 @@
     padding: 2vh;
     border-radius: 10px;
     width: 450px;
+
 }
 
 .formbutton {
@@ -30,6 +37,7 @@
     font-weight: 700;
     font-size: larger;
     width: 100%;
+
 }
 
 .forminput {
@@ -44,8 +52,16 @@
     outline: solid 1px #0085f953;
 }
 
+.recoverinput {
+    text-decoration: none;
+
+}
+
 .to-reg-button {
     background-color: #0D5492;
+    border-radius: 8px;
+    height: 53px;
+    border: 0px;
     color: #FDFDFD;
     font-weight: 700;
     font-size: larger;
@@ -60,49 +76,16 @@
     width: 100%;
 }
 
-.img-fluid {
+.divlogo {
+    display: inline-flex;
+    justify-content: center;
     margin-top: 5vh;
     margin-bottom: 5vh;
-    width: 150px;
-    height: 150px;
+    width: 100%;
+
 }
 
 .form-error {
     color: red;
     font-size: small;
-}
-
-.forminput.error {
-    background-color: red;
-}
-
-@keyframes fadeOut {
-    from {
-        opacity: 1;
-    }
-
-    to {
-        opacity: 0;
-    }
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
-}
-
-#placeContainer {
-    font-size: 27px;
-    color: #0D5492;
-    padding: 1rem;
-    margin-bottom: 0.5rem;
-}
-
-.smooth-transition {
-    transition: opacity 0.5s ease, transform 0.5s ease;
 }
