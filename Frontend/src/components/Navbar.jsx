@@ -1,30 +1,58 @@
-"use client";
-import Logo from "./Logo";
-import Link from "next/link";
-import Notify from "./Notify";
-import { useRouter } from "next/navigation";
 
+import Logo from "./Logo";
+import { Link } from "react-router-dom";
+import Notify from "./Notify";
+import { useNavigate } from "react-router-dom";
+import Toast from "../lib/Toast";
+import Swal from "sweetalert2";
+import "./Navbar.css"
 export default function Nabvar() {
 
     const logout = async () =>{
         const token = localStorage.getItem("token")
-        const res = await fetch(`${process.env.NEXT_PUBLIC_API}/auth/logout`,{
+        const res = await fetch(`${import.meta.env.VITE_API}/auth/logout`,{
             method:"POST",
             headers:{"Authorization":`Bearer ${token}`}
         })
 
         const response = await res.json()
-        localStorage.removeItem("token");
-        router.push('/auth/login')
-        return response
+        if(res.ok){
+            localStorage.removeItem("token");
+            router('/login')
+            Toast("Has salido correctamente")
+        }else{
+            console.log(res.text)
+        }
+
+        
     }
 
-    const router = useRouter()
+    const router = useNavigate()
     const onClickHandler = (e) => {
-        
         e.preventDefault()
-        logout()
+        Swal.fire({ 
+            title:"¿Desea cerrar sesión?",
 
+            confirmButtonText:"Salir",
+            confirmButtonColor:"",
+
+
+            showCancelButton:true,
+            cancelButtonText:"Cancelar",
+            cancelButtonColor:"red",
+
+            customClass:{
+                confirmButton:"back-blue"
+            }
+
+        }).then((res) =>{
+            if(res.isConfirmed){
+                logout()
+            }
+        })
+        
+        
+        
     };
     return (
         <>
@@ -41,13 +69,13 @@ export default function Nabvar() {
                     <div className="collapse navbar-collapse" id="mynavbar">
                         <ul className="navbar-nav me-auto">
                             <li className="nav-item">
-                                <Link href="/dashboard" className="nav-link">
+                                <Link to="/dashboard" className="nav-link">
                                     Home
                                 </Link>
                             </li>
                             <li className="nav-item">
                                 <Link
-                                    href="/dashboard/estacionamiento"
+                                    to="/dashboard/estacionamiento"
                                     className="nav-link"
                                 >
                                     Estacionamiento
@@ -55,7 +83,7 @@ export default function Nabvar() {
                             </li>
                             <li className="nav-item">
                                 <Link
-                                    href="/dashboard/usearch"
+                                    to="/dashboard/usearch"
                                     className="nav-link"
                                 >
                                     Usuarios
@@ -63,7 +91,7 @@ export default function Nabvar() {
                             </li>
                             <li className="nav-item">
                                 <Link
-                                    href="/dashboard/mensajes"
+                                    to="/dashboard/mensajes"
                                     className="nav-link"
                                 >
                                     Mensajes
@@ -73,7 +101,7 @@ export default function Nabvar() {
                         <div className="d-flex">
                             <Notify className="" />
                             <Link
-                                href="/auth/login"
+                                
                                 onClick={(e) => onClickHandler(e)}
                                 className="me-1"
                             >

@@ -32,7 +32,7 @@ const PUBLIC_URL = `http://localhost:${PORT}`
 
 // Se exportan las constantes individualmente
 // Método de uso:
-// import { CONSTANTE } from "/src/config/env.js"
+// import { CONSTANTE } from "/src/config/env.js"   
 
 export {
     PORT, MODE,

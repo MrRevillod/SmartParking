@@ -1,7 +1,6 @@
+ 
 
-"use client"
-
-export default function Logo({ w, h, color }) {
+export default function Logo({ w=50, h=50, color="#0D5492" }) {
 	return (
 
 		<svg
