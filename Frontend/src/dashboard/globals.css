@@ -1,0 +1,20 @@
+i:hover {
+    cursor: pointer;
+}
+
+.icon-blue {
+    color: #0D5492;
+}
+
+.home{
+    height: 90vh;
+}
+
+.no-border {
+    border: 0 !important;
+
+}
+
+.toasted{
+    background-color: #0D5492 !important;
+}

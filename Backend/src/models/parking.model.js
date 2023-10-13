@@ -12,7 +12,7 @@ const parkingSchema = new Schema({
     },
 
     status: {
-        type: String, default: "libre", unique: false
+        type: String, default: "Disponible", unique: false
     }
 })
 

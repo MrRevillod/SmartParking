@@ -1,11 +1,20 @@
 <%- include("../templates/header", {titulo: "Smart Parking - Salida" }) %>
 
-    <h1>MARCAR SALIDA !</h1>
-
-    <form class="form">
-        <input id="patente" type="text" placeholder="patente">
-        <button id="button">Enviar</button>
-    </form>
+    <div class="maindiv">
+        <form class="mainform">
+            <div style="color: #0D5492;">
+                <h1 class="text-center">Marcar Salida</h1>
+            </div>
+            <div class="text-center">
+                <img src="http://localhost:3000/images/logo-transparency-bg.png"" class=" img-fluid" alt="">
+            </div>
+            <div>
+                <div class="text-center" id="messageContainer" style="display: none;"></div>
+                <input style="margin-top: 0.5rem;" class="forminput" id="patente" type="text" placeholder="patente" required>
+                <button class="btn to-reg-button" id="button">Enviar</button>
+            </div>
+        </form>
+    </div>
     </body>
 
     <script src="/socket.io/socket.io.js"></script>
@@ -14,6 +23,7 @@
 
         const socket = io("http://localhost:3000")
         const button = document.getElementById("button")
+        const messageContainer = document.getElementById("messageContainer")
 
         button.addEventListener("click", (event) => {
 
@@ -29,10 +39,16 @@
 
         socket.on("guest-exit-ok", ({ message, place }) => {
             console.log(message)
+            messageContainer.style.display = "block"
+            messageContainer.textContent = message
+            messageContainer.style.color = 'green'
         })
 
         socket.on("guest-exit-denied", ({message}) => {
             console.log(message)
+            messageContainer.style.display = "block"
+            messageContainer.textContent = message
+            messageContainer.style.color = 'red'
         })
 
     </script>
