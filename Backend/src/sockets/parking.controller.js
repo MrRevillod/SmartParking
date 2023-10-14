@@ -63,6 +63,7 @@ export const parkingAccessController = async (io, socket, data) => {
     }
 
     parking.active = true
+    parking.status = "ocupado"
     await parking.save()
 
     user.active = true
@@ -121,6 +122,7 @@ export const parkingExitController = async (io, socket, data) => {
     }
 
     parking.active = false
+    parking.status = "libre"
     await parking.save()
 
     user.active = false
