@@ -25,9 +25,8 @@ export const socketSetup = (server) => {
     io.on("connection", async (socket) => {
 
         socket.on("join-admin", async () => {
-
             socket.join("administradores")
-
+            
             io.to("administradores").emit("all-reservations", {
                 reservations: await getReservations()
             })

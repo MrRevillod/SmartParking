@@ -2,19 +2,13 @@ import Logo from "../components/Logo";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { motion } from "framer-motion";
-import { ReactDOM } from "react";
 import "./styleLogin.css";
 import { Link } from "react-router-dom";
 import { Suspense, useLayoutEffect, useState } from "react";
 import validateSession from "../lib/useValidateSession";
-import Swal from "sweetalert2";
 import Toast from "../lib/Toast";
 
 export default function Page() {
-    
-    
-
-    
     const [loading, setLoading] = useState(true);
     const navigator = useNavigate();
     const {
@@ -34,8 +28,9 @@ export default function Page() {
 
         if (res.status == 200) {
             localStorage.setItem("token", result.token);
+            await Toast({msg:"Sesion iniciada correctamente"})
             navigator("/dashboard");
-            Toast("Sesion iniciada correctamente")
+            
 
         } else {
             alert(result.message);

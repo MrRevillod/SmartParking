@@ -1,58 +1,54 @@
-
 import Logo from "./Logo";
 import { Link } from "react-router-dom";
 import Notify from "./Notify";
 import { useNavigate } from "react-router-dom";
 import Toast from "../lib/Toast";
 import Swal from "sweetalert2";
-import "./Navbar.css"
+import "./Navbar.css";
+import { disconnectSocket } from "../socket";
+
+
 export default function Nabvar() {
+    const logout = async () => {
+        const token = localStorage.getItem("token");
+        const res = await fetch(`${import.meta.env.VITE_API}/auth/logout`, {
+            method: "POST",
+            headers: { Authorization: `Bearer ${token}` },
+        });
 
-    const logout = async () =>{
-        const token = localStorage.getItem("token")
-        const res = await fetch(`${import.meta.env.VITE_API}/auth/logout`,{
-            method:"POST",
-            headers:{"Authorization":`Bearer ${token}`}
-        })
-
-        const response = await res.json()
-        if(res.ok){
+        const response = await res.json();
+        if (res.ok) {
+           
             localStorage.removeItem("token");
-            router('/login')
-            Toast("Has salido correctamente")
-        }else{
-            console.log(res.text)
+            await Toast({msg:"Has salido correctamente"});
+            router("/login");
+            
+        } else {
+            console.log(res.text);
         }
+    };
 
-        
-    }
-
-    const router = useNavigate()
+    const router = useNavigate();
     const onClickHandler = (e) => {
-        e.preventDefault()
-        Swal.fire({ 
-            title:"¿Desea cerrar sesión?",
+        e.preventDefault();
+        Swal.fire({
+            title: "¿Desea cerrar sesión?",
 
-            confirmButtonText:"Salir",
-            confirmButtonColor:"",
+            confirmButtonText: "Salir",
+            confirmButtonColor: "",
 
+            showCancelButton: true,
+            cancelButtonText: "Cancelar",
+            cancelButtonColor: "red",
 
-            showCancelButton:true,
-            cancelButtonText:"Cancelar",
-            cancelButtonColor:"red",
-
-            customClass:{
-                confirmButton:"back-blue"
+            customClass: {
+                confirmButton: "back-blue",
+            },
+        }).then((res) => {
+            if (res.isConfirmed) {
+                logout();
             }
-
-        }).then((res) =>{
-            if(res.isConfirmed){
-                logout()
-            }
-        })
-        
-        
-        
+        });
     };
     return (
         <>
@@ -91,17 +87,16 @@ export default function Nabvar() {
                             </li>
                             <li className="nav-item">
                                 <Link
-                                    to="/dashboard/mensajes"
+                                    to={"/dashboard/peticiones"}
                                     className="nav-link"
                                 >
-                                    Mensajes
+                                    Peticiones
                                 </Link>
                             </li>
                         </ul>
                         <div className="d-flex">
                             <Notify className="" />
                             <Link
-                                
                                 onClick={(e) => onClickHandler(e)}
                                 className="me-1"
                             >
