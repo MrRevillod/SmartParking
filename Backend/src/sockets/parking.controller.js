@@ -134,6 +134,6 @@ export const parkingExitController = async (io, socket, data) => {
     })
 
     io.to("administradores").emit("parking-exit-notification", {
-        message: `El estacionamiento ${parking.name} a sido liberado`,
+        message: `El estacionamiento ${parking.name} a sido liberado`
     })
 }
