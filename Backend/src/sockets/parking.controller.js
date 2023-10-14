@@ -63,6 +63,7 @@ export const parkingAccessController = async (io, socket, data) => {
     }
 
     parking.active = true
+    parking.status = "ocupado"
     await parking.save()
 
     user.active = true
@@ -121,6 +122,7 @@ export const parkingExitController = async (io, socket, data) => {
     }
 
     parking.active = false
+    parking.status = "libre"
     await parking.save()
 
     user.active = false
@@ -129,5 +131,9 @@ export const parkingExitController = async (io, socket, data) => {
 
     socket.emit("parking-exit-ok", {
         message: `Salida del estacionamiento ${parking.name} registrada con éxito`
+    })
+
+    io.to("administradores").emit("parking-exit-notification", {
+        message: `El estacionamiento ${parking.name} a sido liberado`,
     })
 }

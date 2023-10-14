@@ -63,7 +63,7 @@ export const userReservationController = async (io, socket, data) => {
     })
 
     parking.active = true
-    parking.status = "Reservado"
+    parking.status = "reservado"
     await parking.save()
 
     user.active = true
@@ -108,7 +108,7 @@ export const reservationCancelController = async (io, socket, data) => {
     await parkingModel.findByIdAndUpdate(reservation.parkingId, {
         $set: {
             active: false,
-            status: "Disponible"
+            status: "disponible"
         }
     })
 
@@ -155,7 +155,7 @@ export const reservationArrivalController = async (io, socket, data) => {
     await parkingModel.findByIdAndUpdate(reservation.parkingId, {
         $set: {
             active: false,
-            status: "Disponible"
+            status: "libre"
         }
     })
 
