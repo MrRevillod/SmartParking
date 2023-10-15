@@ -2,7 +2,7 @@
 import { Server } from "socket.io"
 
 import { guestAccessController, guestExitController } from "./sockets/guest.controller.js"
-import { parkingAccessController, parkingExitController } from "./sockets/parking.controller.js"
+import { getParkings, parkingAccessController, parkingExitController } from "./sockets/parking.controller.js"
 import { getReservations, reservationCancelController, userReservationController, reservationArrivalController } from "./sockets/reservation.controller.js"
 
 export const socketSetup = (server) => {
@@ -27,6 +27,10 @@ export const socketSetup = (server) => {
         socket.on("join-admin", async () => {
 
             socket.join("administradores")
+
+            io.to("administradores").emit("all-parkings", {
+                parkings: await getParkings()
+            })
 
             io.to("administradores").emit("all-reservations", {
                 reservations: await getReservations()
@@ -60,8 +64,5 @@ export const socketSetup = (server) => {
         socket.on("user-exit-req", async (data) => {
             await parkingExitController(io, socket, data)
         })
-
-        // ! TO DO
-        // * Idear sistema de chat entre usuarios y administradores
     })
 }

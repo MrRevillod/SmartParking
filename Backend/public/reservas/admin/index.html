@@ -24,11 +24,11 @@
     const root = document.getElementById("reservations")
 
     const setResponse = (message) => {
-        const root = document.getElementById("response")
-        root.innerHTML = message
+        const response = document.getElementById("response")
+        response.innerHTML = message
 
         setTimeout(() => {
-            root.innerHTML = ""
+            response.innerHTML = ""
         }, 3000)
     }
 
@@ -77,7 +77,7 @@
         addNewReservation(data)
     })
 
-    socket.on("parking-exit-notification", async ({ message }) => {
+    socket.on("parking-free-notification", async ({ message }) => {
         await setResponse(message)
     })
 
