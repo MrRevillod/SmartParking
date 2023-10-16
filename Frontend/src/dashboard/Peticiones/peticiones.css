@@ -1,0 +1,16 @@
+.cardy::after{
+    animation:sw 2s ;
+}
+
+@keyframes sw {
+    0%{
+        opacity: 1;
+    }
+
+    100%{
+        opacity: 0;
+    }
+
+}
+
+

@@ -1,41 +1,25 @@
-import {  motion } from "framer-motion";
-
-const rowStyle = {
-    borderRadius: "5px",
-    padding: "2vw",
-    margin: "1vw",
-    gap: "10vw",
-    display: "grid",
-    gridTemplateColumns: "1fr 1fr 1fr",
-    alignItems: "left",
-    color: "white",
-    fontSize: "1.5rem",
-    fontWeight: "bold",
-    fontFamily: "sans-serif",
-    boxShadow: "6px 6px 15px 0px rgba(0,0,0,0.3)",
-    cursor: "pointer",
-    minWidth: "100%",
-    border:"1px white solid"
-};
+import { motion } from "framer-motion";
 
 
-export default function Cardy({ _id, username, patente, parking }) {
+export default function Cardy({ reservas }) {
     return (
-        <motion.div
-            key={_id}
-            className="    
-                back-blue
+        reservas.map(({ _id, username, patente, parking }) => (
+            <motion.div
+                key={_id}
+                className="     
+                 row fs-3 icon-blue  w-100 py-3  border-blue border rounded-bottom
                 "
-            style={rowStyle}
-            
-            initial={{ y: 30 }}
-            animate={{ y: 0 }}
-            transition={{duration: 0.3}}
-            exit={{ opacity: 0 }}
-        >
-            <p className="col text-start">{username}</p>
-            <p className="col text-start "> {patente}</p>
-            <p className="col text-start">{parking}</p>
-        </motion.div>
-    );
+
+                initial={{ x: -60, borderWidth:"10px" }}
+                animate={{ x: 0 , borderWidth:"10px"}}
+                transition={{ duration: 0.3 }}
+                exit={{ opacity: 0 }}
+            >
+                <p className="col-4 ">{username}</p>
+                <p className="col-4  "> {patente}</p>
+                <p className="col-4">{parking}</p>
+            </motion.div>
+        )
+        )
+    )
 }

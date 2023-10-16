@@ -1,6 +1,6 @@
 
 
- 
+
 
 import Logo from "../components/Logo"
 import "./globals.css"
@@ -13,7 +13,7 @@ export default function Home() {
                 <div className="col-6 d-grid align-content-center mb-5">
                     <div className="">
                         <h1 className="display-1  fw-bold">Smart</h1>
-                    
+
                         <h1 className="display-1 fw-bold">Parking</h1>
                     </div>
                     <p className=" w-100 h4 mb-4">

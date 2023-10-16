@@ -1,36 +1,37 @@
-import Logo from "./Logo";
-import { Link } from "react-router-dom";
-import Notify from "./Notify";
-import { useNavigate } from "react-router-dom";
-import Toast from "../lib/Toast";
-import Swal from "sweetalert2";
-import "./Navbar.css";
-import { disconnectSocket } from "../socket";
+import Logo from "./Logo"
+import { Link } from "react-router-dom"
+import Notify from "./Notify"
+import { useNavigate } from "react-router-dom"
+import Toast from "../lib/Toast"
+import Swal from "sweetalert2"
+import "./Navbar.css"
+import { socket } from "../socket"
+
 
 
 export default function Nabvar() {
     const logout = async () => {
-        const token = localStorage.getItem("token");
+        const token = localStorage.getItem("token")
         const res = await fetch(`${import.meta.env.VITE_API}/auth/logout`, {
             method: "POST",
             headers: { Authorization: `Bearer ${token}` },
-        });
+        })
 
-        const response = await res.json();
         if (res.ok) {
-           
-            localStorage.removeItem("token");
-            await Toast({msg:"Has salido correctamente"});
-            router("/login");
-            
-        } else {
-            console.log(res.text);
-        }
-    };
 
-    const router = useNavigate();
+            localStorage.removeItem("token")
+            await Toast({ msg: "Has salido correctamente" })
+            socket.disconnect()
+            router("/login")
+
+        } else {
+            console.log(res.text)
+        }
+    }
+
+    const router = useNavigate()
     const onClickHandler = (e) => {
-        e.preventDefault();
+        e.preventDefault()
         Swal.fire({
             title: "¿Desea cerrar sesión?",
 
@@ -46,10 +47,10 @@ export default function Nabvar() {
             },
         }).then((res) => {
             if (res.isConfirmed) {
-                logout();
+                logout()
             }
-        });
-    };
+        })
+    }
     return (
         <>
             <nav className="navbar navbar-expand-sm navbar-dark back-blue ">
@@ -107,5 +108,5 @@ export default function Nabvar() {
                 </div>
             </nav>
         </>
-    );
+    )
 }

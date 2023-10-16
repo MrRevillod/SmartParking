@@ -8,6 +8,7 @@ import { Suspense, useLayoutEffect, useState } from "react";
 import validateSession from "../lib/useValidateSession";
 import Toast from "../lib/Toast";
 
+
 export default function Page() {
     const [loading, setLoading] = useState(true);
     const navigator = useNavigate();
