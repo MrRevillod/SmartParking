@@ -9,6 +9,11 @@
 </head>
 
 <body>
+    <section>
+        <h1>Respuesta del servidor</h1>
+        <div id="response"></div>
+    </section>
+
     <div id="reservations"></div>
 </body>
 
@@ -17,6 +22,15 @@
 <script>
     const socket = io("http://localhost:3000")
     const root = document.getElementById("reservations")
+
+    const setResponse = (message) => {
+        const response = document.getElementById("response")
+        response.innerHTML = message
+
+        setTimeout(() => {
+            response.innerHTML = ""
+        }, 3000)
+    }
 
     const renderReservations = (data) => {
         root.innerHTML = ""
@@ -61,6 +75,10 @@
 
     socket.on("new-reservation", (data) => {
         addNewReservation(data)
+    })
+
+    socket.on("parking-free-notification", async ({ message }) => {
+        await setResponse(message)
     })
 
 </script>

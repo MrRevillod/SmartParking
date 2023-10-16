@@ -57,7 +57,7 @@ export const guestAccessController = async (socket, data) => {
     })
 }
 
-export const guestExitController = async (socket, data) => {
+export const guestExitController = async (io, socket, data) => {
 
     // ! TO DO 
     // * crear un sistema de codigo de salida unico para cada usuario
@@ -82,4 +82,5 @@ export const guestExitController = async (socket, data) => {
     socket.emit("guest-exit-ok", {
         message: `Hemos registrado tu salida del estacionamiento ${parking}`
     })
+    
 }
