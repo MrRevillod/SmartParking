@@ -79,6 +79,10 @@ export const parkingAccessController = async (io, socket, data) => {
         message: `Entrada al estacionamiento ${parking.name} registrada con éxito`
     })
 
+    io.to("administradores").emit("all-parkings", {
+        parkings: await getParkings()
+    })
+
 }
 
 export const parkingExitController = async (io, socket, data) => {
