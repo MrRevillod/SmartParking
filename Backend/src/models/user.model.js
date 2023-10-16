@@ -60,7 +60,11 @@ const userSchema = new Schema({
         type: String, unique: false, default: ""
     },
 
-    vehicles: [vehicleSchema]
+    vehicles: [vehicleSchema],
+
+    verificationCode : {
+        type: Number, required: false, unique: true
+    }
 
 },
     { timestamps: true, versionKey: false }
