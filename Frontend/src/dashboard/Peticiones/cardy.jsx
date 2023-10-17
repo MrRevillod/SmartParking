@@ -3,11 +3,11 @@ import { motion } from "framer-motion";
 
 export default function Cardy({ reservas }) {
     return (
-        reservas.map(({ _id, username, patente, parking }) => (
+        reservas.map(({ _id, username, patente, parking,status }) => (
             <motion.div
                 key={_id}
                 className="     
-                 row fs-3 icon-blue  w-100 py-3  border-blue border rounded-bottom
+                 row fs-4 icon-blue  w-100 py-3  border-blue border rounded-bottom
                 "
 
                 initial={{ x: -60, borderWidth:"10px" }}
@@ -15,9 +15,10 @@ export default function Cardy({ reservas }) {
                 transition={{ duration: 0.3 }}
                 exit={{ opacity: 0 }}
             >
-                <p className="col-4 ">{username}</p>
-                <p className="col-4  "> {patente}</p>
-                <p className="col-4">{parking}</p>
+                <p className="col-3 ">{username}</p>
+                <p className="col-3  "> {patente}</p>
+                <p className="col-3">{parking}</p>
+                <p className="col-3">{status}</p>
             </motion.div>
         )
         )

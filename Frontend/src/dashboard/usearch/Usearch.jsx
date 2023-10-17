@@ -1,6 +1,6 @@
 import "bootstrap-icons/font/bootstrap-icons.css";
 import "./style.css";
-import {useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 import Tbody from "./tbody";
 
@@ -14,24 +14,21 @@ const table_columns = [
     "Administrar",
 ];
 
-const patentes = ["12-12-12", "xd-xd-xd", "33-33-33"];
-const estacionamiento = ["B-12", "null", "B-14"];
+
 
 export default function Usearch() {
     const [search, setSearch] = useState("");
     const [loading, setLoading] = useState(true)
     const [users, setUsers] = useState();
 
-    const getUsers = async() =>{
-
-        
-        const res =  await fetch(`${import.meta.env.VITE_API}/users`, {
+    const getUsers = async () => {
+        const res = await fetch(`${import.meta.env.VITE_API}/users`, {
             method: "GET",
             headers: {
                 Authorization: `Bearer ${localStorage.getItem("token")}`,
             },
         });
-        
+
         const response = await res.json();
 
         setUsers(response.users);
@@ -53,7 +50,7 @@ export default function Usearch() {
     }
 
     return (
-    <>{!loading &&
+        <>{!loading &&
             <div className="mt-4 ">
                 <div className="d-flex flex-column justify-content-center">
                     <div className="text-center display-5 fw-bold mb-3  ">

@@ -1,0 +1,19 @@
+
+.disponible{
+    background-color: rgb(236, 234, 234);
+}
+
+.ocupado{
+    background-color: rgb(252, 57, 57);
+}
+
+.reservado{
+    background-color: #8eb4ff;
+}
+
+.parkingSlot:hover{
+    opacity: 0.6;
+    cursor: pointer;
+}
+
+

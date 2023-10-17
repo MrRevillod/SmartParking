@@ -8,7 +8,7 @@ export default function UsuarioId() {
     const params = useParams()
     const [user, setUser] = useState(false);
     const [loading, setLoading] = useState(true);
-    
+
     async function getUser() {
         const res = await fetch(
             `${import.meta.env.VITE_API}/users/${params.id}`,
@@ -48,10 +48,10 @@ export default function UsuarioId() {
                                     </button>
                                 </div>
                                 <div className="card-body">
-                                    <h5 className="card-title ml-5 display-5 text-center">
-                                        {user.username}
+                                    <h5 className=" ml-5 fw-bold display-3 text-center icon-blue">
+                                        {user.username.toUpperCase()}
                                     </h5>
-                                    <div className="d-grid">
+                                    <div className="d-grid fs-4">
                                         <ul className="list-group ">
                                             <li className="list-group-item back-blue text-light">
                                                 <b>Correo: </b> {user.email}
@@ -70,16 +70,28 @@ export default function UsuarioId() {
                                                     : "inactivo"}
                                             </li>
                                         </ul>
-                                        <h5 className=" text-center  mb-0 mt-3">
-                                            Vehículos
-                                        </h5>
-                                        <ul className="list-group ">
+
+                                        <ul className="list-group back-blue mt-5">
+                                            <div className=" display-6 text-center text-light fw-semibold p-4  ">
+                                                Vehículos
+                                            </div>
+                                            
+                                            <li className="list-group-item back-blue text-light " >
+                                                <div className="row">
+                                                    <div className="col-6 fw-bold ">Modelo</div>
+                                                    <div className="col-6 fw-bold">Patente</div>
+                                                </div>
+                                            </li>
                                             {user.vehicles.map((v) => (
                                                 <li
-                                                    className="list-group-item back-blue text-light"
+                                                    className="list-group-item back-blue text-light "
                                                     key={v._id}
                                                 >
-                                                    {v.model} | {v.patente}
+                                                    <div className="row">
+                                                        <div className="col-6">{v.model}</div>
+                                                        <div className="col-6">{v.patente}</div>
+                                                    </div>
+
                                                 </li>
                                             ))}
                                         </ul>
