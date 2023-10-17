@@ -13,6 +13,10 @@ const parkingSchema = new Schema({
 
     status: {
         type: String, default: "Disponible", unique: false
+    },
+
+    userId: {
+        type: String, unique: true
     }
 })
 
