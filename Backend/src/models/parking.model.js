@@ -16,7 +16,7 @@ const parkingSchema = new Schema({
     },
 
     userId: {
-        type: String, unique: true
+        type: String
     }
 })
 

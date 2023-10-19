@@ -4,11 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simulación de reserva</title>
-    <link rel="stylesheet" href="http://localhost:3000/stylesheets/client_index.css">
+    <title>Smart Parking - Mobile</title>
+    <link rel="stylesheet" href="http://localhost:3000/stylesheets/mobile.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="http://localhost:3000/images/logo-transparency-bg.png">
 </head>
 
 <body>
@@ -20,11 +21,10 @@
     <section>
         <h1>Simulación de reservas</h1>
         <div>
-            <button id="button">Solicitar reserva</button>
+            <button id="button1">Solicitar reserva</button>
             <button id="button2">Cancelar reserva</button>
             <button id="button3">Marcar llegada a la reserva</button>
         </div>
-
     </section>
 
     <section>
@@ -40,21 +40,14 @@
         <div id="response"></div>
     </section>
 
-
 </body>
 
 <script src="/socket.io/socket.io.js"></script>
 
 <script>
 
-    // esto será una simulación de la app móvil y la funcionalidad de reservas
-    // para este ejemplo se utilizará fetch para ingresar a la cuenta 
-    // de la persona y obtener su token de acceso
-
-    // conexión al servidor de sockets
-
     const socket = io("http://localhost:3000")
-    const button = document.getElementById("button")
+    const button = document.getElementById("button1")
     const button2 = document.getElementById("button2")
     const button3 = document.getElementById("button3")
     const button4 = document.getElementById("button4")
@@ -66,6 +59,8 @@
             email: "lrevillod2022@alu.uct.cl",
             password: "!abc1234ABC"
         }
+
+        //resto de sesiones
 
         // const data = {
         //     email: "cmedel2021@alu.uct.cl",
@@ -100,8 +95,7 @@
             // si hay algún err lo capturo y muestro por consola.
 
         } catch (error) {
-            console.log("error inesperado al loguearse:")
-            console.log(error)
+            setResponse("Error al iniciar sesión")
         }
     }
 
@@ -190,6 +184,5 @@
     })
 
 </script>
-
 
 </html>

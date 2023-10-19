@@ -69,7 +69,7 @@ export const guestAccessController = async (io, socket, data) => {
     })
 }
 
-export const guestExitController = async (socket, data) => {
+export const guestExitController = async (io, socket, data) => {
 
     const { patente, verificationCode } = data
     const user = await userModel.findOne({ "role": "TEMP_ROLE", "vehicles.patente": patente, "verificationCode": verificationCode })

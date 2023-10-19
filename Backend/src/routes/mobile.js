@@ -5,6 +5,6 @@ import { renderReservationClient } from "../controllers/reservation.controller.j
 
 const router = Router()
 
-router.get("/client", renderReservationClient)
+router.get("/", renderReservationClient)
 
 export default router
