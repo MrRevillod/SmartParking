@@ -3,7 +3,7 @@ import "./style.css";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion"
 import UserCard from "../../components/UserCard";
-import UsuarioId from "./usuario/UsuarioId";
+
 
 const table_columns = [
     "Nombre",
@@ -63,7 +63,7 @@ export default function Usearch() {
             dato.username.toLowerCase().includes(search.toLocaleLowerCase())
         );
     }
-    
+
     return (
         <>{!loading &&
             <div className=" pt-4" style={{ height: "vh" }}>
