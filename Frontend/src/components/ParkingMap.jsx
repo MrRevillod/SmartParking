@@ -11,7 +11,7 @@ const mapStyles = {
 
 export const ParkingMap = ({ parkings }) => {
     return (
-        <div style={mapStyles} className="col m-5 px-5"  >
+        <div style={mapStyles} className="col-4 my-5 px-5 "  >
             {parkings && parkings.map((parking) => {
                 return (
                     <ParkingSlot   parking={parking} key={parking._id}/>

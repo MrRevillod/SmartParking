@@ -24,7 +24,7 @@ export const checkUserExist = async (req, res, next) => {
 
 // Mw para validar si el token de confirmación de cuenta es valido
 export const checkValidateAccountToken = async (req, res, next) => {
-
+    
     try {
 
         const { token } = req.params

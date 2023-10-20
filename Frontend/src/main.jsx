@@ -12,7 +12,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <React.StrictMode>
         <BrowserRouter>
             <Routes>
-                <Route path="/dashboard/*" element={<App />} />
+                <Route path="/panel/*" element={<App />} />
                 <Route path="/" element={<App />} />
                 <Route path="/login" element={<Login />}></Route>
                 <Route path="*" element={<Navigate to={"/"} replace />}></Route>

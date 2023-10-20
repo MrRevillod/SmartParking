@@ -1,15 +1,20 @@
+
+import Swal from "sweetalert2"
+import { socket } from "../socket"
+import { motion } from "framer-motion"
+
+
 import Logo from "./Logo"
 import { Link } from "react-router-dom"
-import Notify from "./Notify"
 import { useNavigate } from "react-router-dom"
 import Toast from "../lib/Toast"
-import Swal from "sweetalert2"
+
 import "./Navbar.css"
-import { socket } from "../socket"
 
 
 
-export default function Nabvar() {
+export default function NavBar() {
+
     const logout = async () => {
         const token = localStorage.getItem("token")
         const res = await fetch(`${import.meta.env.VITE_API}/auth/logout`, {
@@ -18,7 +23,6 @@ export default function Nabvar() {
         })
 
         if (res.ok) {
-
             localStorage.removeItem("token")
             await Toast({ msg: "Has salido correctamente" })
             socket.disconnect()
@@ -53,26 +57,30 @@ export default function Nabvar() {
     }
     return (
         <>
-            <nav className="navbar navbar-expand-sm navbar-dark back-blue ">
-                <div className="container-fluid">
+            <motion.nav
+                initial={{ y: -250 }}
+                animate={{ y: 0 }}
+                transition={{ duration:0.3, }}
+                className="navbar navbar-expand-sm navbar-dark back-blue ">
+                <div className="container-fluid p-3">
                     <a className="navbar-brand" href="">
                         <Logo
-                            className="formlogo"
-                            w={50}
-                            h={50}
+                            className="formlogo "
+                            w={60}
+                            h={60}
                             color={"#FFFFFF"}
                         />
                     </a>
                     <div className="collapse navbar-collapse" id="mynavbar">
-                        <ul className="navbar-nav me-auto">
+                        <ul className="navbar-nav me-auto gap-3 fs-5">
                             <li className="nav-item">
-                                <Link to="/dashboard" className="nav-link">
+                                <Link to="/panel" className="nav-link ">
                                     Home
                                 </Link>
                             </li>
                             <li className="nav-item">
                                 <Link
-                                    to="/dashboard/estacionamiento"
+                                    to="/panel/estacionamiento"
                                     className="nav-link"
                                 >
                                     Estacionamiento
@@ -80,7 +88,7 @@ export default function Nabvar() {
                             </li>
                             <li className="nav-item">
                                 <Link
-                                    to="/dashboard/usearch"
+                                    to="/panel/usearch"
                                     className="nav-link"
                                 >
                                     Usuarios
@@ -88,7 +96,7 @@ export default function Nabvar() {
                             </li>
                             <li className="nav-item">
                                 <Link
-                                    to={"/dashboard/peticiones"}
+                                    to={"/panel/peticiones"}
                                     className="nav-link"
                                 >
                                     Peticiones
@@ -96,7 +104,6 @@ export default function Nabvar() {
                             </li>
                         </ul>
                         <div className="d-flex">
-                            <Notify className="" />
                             <Link
                                 onClick={(e) => onClickHandler(e)}
                                 className="me-1"
@@ -106,7 +113,7 @@ export default function Nabvar() {
                         </div>
                     </div>
                 </div>
-            </nav>
+            </motion.nav>
         </>
     )
 }

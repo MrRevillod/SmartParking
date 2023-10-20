@@ -7,7 +7,7 @@ export default function Cardy({ reservas }) {
             <motion.div
                 key={_id}
                 className="     
-                 row fs-4 icon-blue  w-100 py-3  border-blue border rounded-bottom
+                 row fs-4 icon-blue bg-white w-100 py-3  border-blue border rounded-bottom
                 "
 
                 initial={{ x: -60, borderWidth:"10px" }}

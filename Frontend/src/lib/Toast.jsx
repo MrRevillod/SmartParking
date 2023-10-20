@@ -2,11 +2,11 @@ import Swal from "sweetalert2";
 
 export default function Toast(
     { msg = "Bien Hecho", pos = "bottom-right" },
-    callback = () => {}
 ) {
     Swal.fire({
         text: msg,
         position: pos,
+        backdrop:false,
         iconHtml:
             "<img src='../../public/logo_.png' class=' card-img overflow-hidden' ><img/>",
         width: "300px",

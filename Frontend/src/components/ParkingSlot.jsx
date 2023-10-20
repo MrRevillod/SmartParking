@@ -10,8 +10,8 @@ const slotStyle = {
 export const ParkingSlot = ({ parking }) => {
     const [hover, setHover] = useState(false)
     return (<>
-    
-        <div className={`${parking.status} rounded-top-2 p-2 parkingSlot fs-6 fw-bold  `}
+
+        <div className={`${parking.status} rounded-top-4 p-2 rounded-start-0 parkingSlot fs-6 fw-bold shadow-sm `}
             style={slotStyle}
             onMouseOver={(e) => { e.preventDefault;setHover(true); }}
             onMouseLeave={(e) => { e.preventDefault; setHover(false) }}>

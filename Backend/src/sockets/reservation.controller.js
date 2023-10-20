@@ -41,9 +41,17 @@ export const userReservationController = async (io, socket, data) => {
     const isIn = await isInside(user.id)
     const hasReserv = await hasReservation(user.id, patente)
 
-    if (isIn || hasReserv) {
+    if (isIn) {
         socket.emit("reservation-denied", {
-            message: "Ya tienes una reserva activa o te encuentras dentro de un estacionamiento"
+            message: "Ya te encuentras dentro de un estacionamiento"
+        })
+
+        return
+    }
+
+    if (hasReserv) {
+        socket.emit("reservation-denied", {
+            message: "Ya tienes una reserva activa"
         })
 
         return
@@ -69,6 +77,7 @@ export const userReservationController = async (io, socket, data) => {
 
     parking.active = true
     parking.status = "reservado"
+    parking.userId = user.id
     await parking.save()
 
     user.active = true
@@ -117,7 +126,8 @@ export const reservationCancelController = async (io, socket, data) => {
     await parkingModel.findByIdAndUpdate(reservation.parkingId, {
         $set: {
             active: false,
-            status: "disponible"
+            status: "disponible",
+            userId: ""
         }
     })
 
@@ -168,7 +178,8 @@ export const reservationArrivalController = async (io, socket, data) => {
     await parkingModel.findByIdAndUpdate(reservation.parkingId, {
         $set: {
             active: true,
-            status: "ocupado"
+            status: "ocupado",
+            userId: user.id
         }
     })
 

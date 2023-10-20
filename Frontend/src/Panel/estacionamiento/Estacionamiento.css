@@ -1,14 +1,17 @@
 
 .disponible{
     background-color: rgb(236, 234, 234);
+    border:  solid 0.1cap rgba(0, 0, 0,0.2);
 }
 
 .ocupado{
     background-color: rgb(252, 57, 57);
+    border:  solid 0.1cap rgba(0, 0, 0,0.2);
 }
 
 .reservado{
     background-color: #8eb4ff;
+    border:  solid 0.1cap rgba(0, 0, 0,0.2);
 }
 
 .parkingSlot:hover{

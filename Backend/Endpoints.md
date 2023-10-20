@@ -34,15 +34,15 @@ Un endpoint es una ruta de un servidor web que se utiliza para realizar una soli
 
 ```json
 {
-    "username": "John Doe", // Nombres y apellidos del usuario.
-    "email": "your_email@domain.com",
-    "password": "!abc1234ABC",
-    "contact": "+56912345678", // Número de contacto válido y con formato CL (+56xxxxxxxxx).
-    "vehicles": {
-        "patente": "VZFP23", // Placa válida y con formato XXXX00 (4 letras y 2 números)
-        "model": "Toyota Corolla",
-        "year": 2019 // Año de fabricación del vehículo. (1950 <= año <= 2023)
-    }
+	"username": "John Doe", // Nombres y apellidos del usuario.
+	"email": "your_email@domain.com",
+	"password": "!abc1234ABC",
+	"contact": "+56912345678", // Número de contacto válido y con formato CL (+56xxxxxxxxx).
+	"vehicles": {
+		"patente": "VZFP23", // Placa válida y con formato XXXX00 (4 letras y 2 números)
+		"model": "Toyota Corolla",
+		"year": 2019 // Año de fabricación del vehículo. (1950 <= año <= 2023)
+	}
 }
 ```
 
@@ -78,9 +78,9 @@ Un endpoint es una ruta de un servidor web que se utiliza para realizar una soli
 
 ### Logout
 
--   **Método**: `POST`
--   **Ruta**: `/api/auth/logout`
--   **Descripción**: Cierra la sesión del usuario actual.
+- **Método**: `POST`
+- **Ruta**: `/api/auth/logout` 
+- **Descripción**: Cierra la sesión del usuario actual.
 
 -   **Headers**:
 
@@ -124,25 +124,26 @@ Un endpoint es una ruta de un servidor web que se utiliza para realizar una soli
 
 ```json
 {
-    "_id": "651b09dabbabb01fc6975195", // ID del usuario.
-    "username": "John Doe",
-    "email": "johndoe@alu.uct.cl",
-    "password": "$2a$08$ZQzT93",
-    "role": "USER_ROLE",
-    "validated": true,
-    "profilePicture": "http://localhost:3000/images/default.jpg",
-    "contact": "+56933484506",
-    "active": false,
-    "parking": "",
-    "vehicles": [
-        {
-            "_id": "651b09dabbabb01fc6975196",
-            "patente": "ANXM77",
-            "model": "Toyota Corolla",
-            "year": "2019"
-        }
-    ]
+	"_id": "651b09dabbabb01fc6975195", // ID del usuario.
+	"username": "John Doe",
+	"email": "johndoe@alu.uct.cl",
+	"password": "$2a$08$ZQzT93",
+	"role": "USER_ROLE",
+	"validated": true,
+	"profilePicture": "http://localhost:3000/images/default.jpg",
+	"contact": "+56933484506",
+	"active": false,
+	"parking": "",
+	"vehicles": [
+		{
+		"_id": "651b09dabbabb01fc6975196",
+		"patente": "ANXM77",
+		"model": "Toyota Corolla",
+		"year": "2019",
+		}
+  	],
 }
+
 ```
 
 ### Obtener información de todos los usuarios
@@ -240,45 +241,42 @@ Un endpoint es una ruta de un servidor web que se utiliza para realizar una soli
 
 ### Actualizar imagen de perfil
 
--   **Método**: `PUT`
--   **Ruta**: `/api/users/update-image/:id`
--   **Descripción**: Actualiza la imagen de perfil del usuario (id). Requiere pertenencia o rol de administrador.
+- **Método**: `PUT`
+- **Ruta**: `/api/users/update-image/:id`
+- **Descripción**: Actualiza la imagen de perfil del usuario (id). Requiere pertenencia o rol de administrador.
 
--   **Headers**:
-
+- **Headers**:
 ```json
 {
     'Content-Type': 'multipart/form-data',
 },
 ```
-
--   \*\*Ejemplo:
-
+- **Ejemplo:
 ```javascript
 const updateImage = async (url, image) => {
-    const body = new FormData();
-    body.append("image", image);
+
+    const body = new FormData()
+    body.append('image', image)
 
     const response = await fetch(url, {
         body,
         method: "POST",
         headers: {
-            "Content-Type": "multipart/form-data",
-        },
-    });
+            'Content-Type': 'multipart/form-data',
+        }
+    })
 
-    return await response.json();
-};
+    return await response.json()
+}
 ```
 
 ### Actualizar imagen de perfil
 
--   **Método**: `DELETE`
--   **Ruta**: `/api/users/:id`
--   **Descripción**: Elimina el usuario (id). Requiere pertenencia o rol de administrador.
+- **Método**: `DELETE`
+- **Ruta**: `/api/users/:id`
+- **Descripción**: Elimina el usuario (id). Requiere pertenencia o rol de administrador.
 
--   **Headers**:
-
+- **Headers**: 
 ```json
 {
     "Authorization": "Bearer <token>"

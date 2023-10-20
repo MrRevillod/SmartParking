@@ -9,7 +9,7 @@ export const ParkingCard = ({ parking }) => {
             <div className="row " style={{width:"30vw",height:"3vh"}}>
                 <div className="col"><b> nombre:</b>   <br /> {  parking.name}</div>
                 <div className="col"><b> estado: <br /> </b> {parking.status}</div>
-                <div className="col"><b> ID:</b> {parking._id}</div>
+                <div className="col"><b> UserID:</b> {parking.userId}</div>
           
             </div>
 

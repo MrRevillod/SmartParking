@@ -1,7 +1,7 @@
 <%- include("../templates/header", {titulo: "Smart Parking - Salida" }) %>
 
     <div class="maindiv">
-        <form class="mainform">
+        <form class="mainform" id="mainform">
             <div style="color: #0D5492;">
                 <h1 class="text-center">Marcar Salida</h1>
             </div>
@@ -10,7 +10,8 @@
             </div>
             <div>
                 <div class="text-center" id="messageContainer" style="display: none;"></div>
-                <input style="margin-top: 0.5rem;" class="forminput" id="patente" type="text" placeholder="patente" required>
+                <input style="margin-top: 0.5rem;" class="forminput" id="patente" type="text" placeholder="Patente" required>
+                <input style="margin-top: 0.5rem;" class="forminput" id="verificationCode" type="text" placeholder="Codigo de Verificacion" required>
                 <button class="btn to-reg-button" id="button">Enviar</button>
             </div>
         </form>
@@ -22,6 +23,7 @@
     <script>
 
         const socket = io("http://localhost:3000")
+        const form = document.getElementById("mainform")
         const button = document.getElementById("button")
         const messageContainer = document.getElementById("messageContainer")
 
@@ -29,23 +31,24 @@
 
             event.preventDefault()
             const patente = document.getElementById("patente")
+            const verificationCode = document.getElementById("verificationCode")
 
             const data = {
-                patente: patente.value
+                patente: patente.value,
+                verificationCode: verificationCode.value
             }
 
             socket.emit("guest-exit-request", data)
         })
 
         socket.on("guest-exit-ok", ({ message, place }) => {
-            console.log(message)
             messageContainer.style.display = "block"
             messageContainer.textContent = message
             messageContainer.style.color = 'green'
+            form.reset()
         })
 
         socket.on("guest-exit-denied", ({message}) => {
-            console.log(message)
             messageContainer.style.display = "block"
             messageContainer.textContent = message
             messageContainer.style.color = 'red'

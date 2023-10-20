@@ -6,7 +6,7 @@ export const getUsers = async (req, res) => {
 
     try {
 
-        const users = await userModel.find({ role: "USER_ROLE" })
+        const users = await userModel.find({ $or: [{ role: "USER_ROLE" }, { role: "TEMP_ROLE" }] })
         if (!users) throw { status: 404, message: MESSAGES.USER_NOT_FOUND }
 
         res.status(200).json({ message: MESSAGES.OK, users })
@@ -22,7 +22,7 @@ export const getUser = async (req, res) => {
 
         const id = req.params.id
 
-        const user = await userModel.findById({ _id: id })
+        const user = await userModel.findById(id)
         if (!user) throw { status: 401, message: MESSAGES.USER_NOT_FOUND }
 
         res.status(200).json({ message: MESSAGES.OK, user })
@@ -38,7 +38,7 @@ export const deleteUser = async (req, res) => {
 
         const id = req.params.id
 
-        const user = await userModel.findByIdAndDelete({ _id: id })
+        const user = await userModel.findByIdAndDelete(id)
         if (!user) throw { status: 401, message: MESSAGES.USER_NOT_FOUND }
 
         res.status(200).json({ message: MESSAGES.OK, state: MESSAGES.DELETE_USER_SUCCESS })
@@ -55,7 +55,10 @@ export const updateUser = async (req, res) => {
         const id = req.params.id
         const newParams = req.body
 
-        const user = await userModel.findByIdAndUpdate({ _id: id }, { $set: newParams, $currentDate: { updatedAt: true } })
+        const user = await userModel.findByIdAndUpdate((id), {
+            $set: newParams
+        })
+
         if (!user) throw { status: 401, message: MESSAGES.USER_NOT_FOUND }
 
         res.status(200).json({ message: MESSAGES.OK, state: MESSAGES.UPDATE_USER_SUCCES })
@@ -72,7 +75,10 @@ export const updateImage = async (req, res) => {
         const id = req.params.id
         const profilePicture = req.body
 
-        const user = await userModel.findByIdAndUpdate({ _id: id }, { $set: profilePicture, $currentDate: { updatedAt: true } })
+        const user = await userModel.findByIdAndUpdate((id), {
+            $set: profilePicture,
+        })
+
         if (!user) throw { status: 401, message: MESSAGES.USER_NOT_FOUND }
 
         res.status(200).json({ message: MESSAGES.OK, state: MESSAGES.UPDATE_PROFILE_PICTURE })
