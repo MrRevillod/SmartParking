@@ -7,14 +7,6 @@ import { getReservations, reservationCancelController, userReservationController
 
 export const socketSetup = (server) => {
 
-    // ! TO DO
-
-    // * Crear un controller (no req, res) en sockets/parking.controller
-    // * debe retornar todos los estacionamientos (usar .find()) 
-    // * llamarlo en el evento "join-admin" y emitirlo a "administradores"
-    // * emitirlo cada vez que haya un cambio en el ingreso, reserva, salida o cancelación de un estacionamiento
-    // * basicamente en la mayoría de los sockets actuales
-
     const io = new Server(server, {
         cors: {
             origin: "*",
@@ -38,11 +30,11 @@ export const socketSetup = (server) => {
         })
 
         socket.on("guest-access-request", async (data) => {
-            await guestAccessController(socket, data)
+            await guestAccessController(io, socket, data)
         })
 
         socket.on("guest-exit-request", async (data) => {
-            await guestExitController(socket, data)
+            await guestExitController(io, socket, data)
         })
 
         socket.on("user-reservation-req", async (data) => {

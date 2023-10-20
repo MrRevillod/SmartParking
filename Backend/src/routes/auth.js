@@ -5,7 +5,7 @@ import { sessionValidation } from "../middlewares/session.mw.js"
 import { loginRules, passwordRules, userRules, vehicleRules } from "../rules/auth.rules.js"
 import { checkChangePasswordToken, checkUserExist, checkValidateAccountToken } from "../middlewares/auth.mw.js"
 
-import { loginController, registerController, confirmSession, logoutController } from "../controllers/auth.controller.js"
+import { adminLoginController, loginController, registerController, confirmSession, logoutController } from "../controllers/auth.controller.js"
 import { accountValidation, renderSendEmailPage, renderChangePasswordPage, sendRecoveryEmail, setNewPassword } from "../controllers/account.controller.js"
 
 const router = Router()
@@ -15,6 +15,7 @@ const router = Router()
 // Auth routes
 
 router.post("/login", loginRules, validateRules, loginController)
+router.post("/admin-login", loginRules, validateRules, adminLoginController)
 router.post("/logout", sessionValidation, logoutController)
 router.post("/register", userRules, vehicleRules, validateRules, registerController)
 

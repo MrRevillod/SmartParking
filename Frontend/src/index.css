@@ -14,6 +14,10 @@ i:hover {
 	color: #0D5492;
 }
 
+.border-blue{
+    border-color: #0D5492 !important;
+}
+
 #noty {
 	right: 130px;
 	position: absolute;
@@ -25,3 +29,8 @@ i:hover {
 	width: 400px;
 }
 
+
+#dark-theme-icon {
+    display: none;
+}
+  

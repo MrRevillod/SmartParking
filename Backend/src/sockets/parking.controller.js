@@ -19,7 +19,8 @@ export const getParkings = async () => {
 
 export const isInside = async (userId) => {
     const user = await userModel.findById(userId)
-    return user.active || user.parking !== "" ? true : false
+    const parking = await parkingModel.findOne({ name: user.parking })
+    return (user.active || user.parking !== "") && (parking.status === "ocupado")
 }
 
 export const parkingAccessController = async (io, socket, data) => {
@@ -69,6 +70,7 @@ export const parkingAccessController = async (io, socket, data) => {
 
     parking.active = true
     parking.status = "ocupado"
+    parking.userId = user.id
     await parking.save()
 
     user.active = true
@@ -80,9 +82,8 @@ export const parkingAccessController = async (io, socket, data) => {
     })
 
     io.to("administradores").emit("all-parkings", {
-        parkings: await getParkings()
+        parkings: await getParkings(),
     })
-
 }
 
 export const parkingExitController = async (io, socket, data) => {
@@ -132,6 +133,7 @@ export const parkingExitController = async (io, socket, data) => {
 
     parking.active = false
     parking.status = "disponible"
+    parking.userId = ""
     await parking.save()
 
     user.active = false
@@ -145,7 +147,7 @@ export const parkingExitController = async (io, socket, data) => {
     io.to("administradores").emit("parking-free-notification", {
         message: `El estacionamiento ${parking.name} se encuentra disponible`
     })
-    
+
     io.to("administradores").emit("all-parkings", {
         parkings: await getParkings()
     })
