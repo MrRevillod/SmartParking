@@ -1,81 +1,86 @@
 
-import Logo from "./Logo";
-import { Link } from "react-router-dom";
-import Notify from "./Notify";
-import { useNavigate } from "react-router-dom";
-import Toast from "../lib/Toast";
-import Swal from "sweetalert2";
-import "./Navbar.css"
-export default function Nabvar() {
+import Swal from "sweetalert2"
+import { socket } from "../socket"
+import { motion } from "framer-motion"
 
-    const logout = async () =>{
+
+import Logo from "./Logo"
+import { Link } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
+import Toast from "../lib/Toast"
+
+import "./Navbar.css"
+
+
+
+export default function NavBar() {
+
+    const logout = async () => {
         const token = localStorage.getItem("token")
-        const res = await fetch(`${import.meta.env.VITE_API}/auth/logout`,{
-            method:"POST",
-            headers:{"Authorization":`Bearer ${token}`}
+        const res = await fetch(`${import.meta.env.VITE_API}/auth/logout`, {
+            method: "POST",
+            headers: { Authorization: `Bearer ${token}` },
         })
 
-        const response = await res.json()
-        if(res.ok){
-            localStorage.removeItem("token");
-            router('/login')
-            Toast("Has salido correctamente")
-        }else{
+        if (res.ok) {
+            localStorage.removeItem("token")
+            await Toast({ msg: "Has salido correctamente" })
+            socket.disconnect()
+            router("/login")
+
+        } else {
             console.log(res.text)
         }
-
-        
     }
 
     const router = useNavigate()
     const onClickHandler = (e) => {
         e.preventDefault()
-        Swal.fire({ 
-            title:"¿Desea cerrar sesión?",
+        Swal.fire({
+            title: "¿Desea cerrar sesión?",
 
-            confirmButtonText:"Salir",
-            confirmButtonColor:"",
+            confirmButtonText: "Salir",
+            confirmButtonColor: "",
 
+            showCancelButton: true,
+            cancelButtonText: "Cancelar",
+            cancelButtonColor: "red",
 
-            showCancelButton:true,
-            cancelButtonText:"Cancelar",
-            cancelButtonColor:"red",
-
-            customClass:{
-                confirmButton:"back-blue"
-            }
-
-        }).then((res) =>{
-            if(res.isConfirmed){
+            customClass: {
+                confirmButton: "back-blue",
+            },
+        }).then((res) => {
+            if (res.isConfirmed) {
                 logout()
             }
         })
-        
-        
-        
-    };
+    }
     return (
         <>
-            <nav className="navbar navbar-expand-sm navbar-dark back-blue ">
-                <div className="container-fluid">
+            <motion.nav
+                initial={{ y: -250 }}
+                animate={{ y: 0 }}
+                transition={{ duration:0.3, }}
+                className="navbar navbar-expand-sm navbar-dark back-blue ">
+                <div className="container-fluid p-3">
                     <a className="navbar-brand" href="">
                         <Logo
-                            className="formlogo"
-                            w={50}
-                            h={50}
+                            className="formlogo "
+                            w={60}
+                            h={60}
                             color={"#FFFFFF"}
                         />
                     </a>
                     <div className="collapse navbar-collapse" id="mynavbar">
-                        <ul className="navbar-nav me-auto">
+                        <ul className="navbar-nav me-auto gap-3 fs-5">
                             <li className="nav-item">
-                                <Link to="/dashboard" className="nav-link">
+                                <Link to="/panel" className="nav-link ">
                                     Home
                                 </Link>
                             </li>
                             <li className="nav-item">
                                 <Link
-                                    to="/dashboard/estacionamiento"
+                                    to="/panel/estacionamiento"
                                     className="nav-link"
                                 >
                                     Estacionamiento
@@ -83,7 +88,7 @@ export default function Nabvar() {
                             </li>
                             <li className="nav-item">
                                 <Link
-                                    to="/dashboard/usearch"
+                                    to="/panel/usearch"
                                     className="nav-link"
                                 >
                                     Usuarios
@@ -91,17 +96,15 @@ export default function Nabvar() {
                             </li>
                             <li className="nav-item">
                                 <Link
-                                    to="/dashboard/mensajes"
+                                    to={"/panel/peticiones"}
                                     className="nav-link"
                                 >
-                                    Mensajes
+                                    Peticiones
                                 </Link>
                             </li>
                         </ul>
                         <div className="d-flex">
-                            <Notify className="" />
                             <Link
-                                
                                 onClick={(e) => onClickHandler(e)}
                                 className="me-1"
                             >
@@ -110,7 +113,7 @@ export default function Nabvar() {
                         </div>
                     </div>
                 </div>
-            </nav>
+            </motion.nav>
         </>
-    );
+    )
 }

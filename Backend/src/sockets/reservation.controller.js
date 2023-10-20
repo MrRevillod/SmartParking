@@ -13,6 +13,11 @@ export const getReservations = async () => {
     return reservations ? reservations : null
 }
 
+export const getParkings = async () => {
+    const parkings = await parkingModel.find()
+    return parkings ? parkings : null
+}
+
 export const hasReservation = async (userId, patente) => {
     const reservation = await reservationModel.findOne({ $or: [{ userId }, { patente }] })
     return reservation ? true : false
@@ -36,9 +41,17 @@ export const userReservationController = async (io, socket, data) => {
     const isIn = await isInside(user.id)
     const hasReserv = await hasReservation(user.id, patente)
 
-    if (isIn || hasReserv) {
+    if (isIn) {
         socket.emit("reservation-denied", {
-            message: "Ya tienes una reserva activa o te encuentras dentro de un estacionamiento"
+            message: "Ya te encuentras dentro de un estacionamiento"
+        })
+
+        return
+    }
+
+    if (hasReserv) {
+        socket.emit("reservation-denied", {
+            message: "Ya tienes una reserva activa"
         })
 
         return
@@ -63,7 +76,8 @@ export const userReservationController = async (io, socket, data) => {
     })
 
     parking.active = true
-    parking.status = "Reservado"
+    parking.status = "reservado"
+    parking.userId = user.id
     await parking.save()
 
     user.active = true
@@ -77,6 +91,10 @@ export const userReservationController = async (io, socket, data) => {
 
     io.to("administradores").emit("new-reservation", {
         reservation
+    })
+
+    io.to("administradores").emit("all-parkings", {
+        parkings: await getParkings()
     })
 }
 
@@ -108,7 +126,8 @@ export const reservationCancelController = async (io, socket, data) => {
     await parkingModel.findByIdAndUpdate(reservation.parkingId, {
         $set: {
             active: false,
-            status: "Disponible"
+            status: "disponible",
+            userId: ""
         }
     })
 
@@ -124,6 +143,10 @@ export const reservationCancelController = async (io, socket, data) => {
 
     io.to("administradores").emit("all-reservations", {
         reservations: await getReservations()
+    })
+
+    io.to("administradores").emit("all-parkings", {
+        parkings: await getParkings()
     })
 }
 
@@ -154,8 +177,9 @@ export const reservationArrivalController = async (io, socket, data) => {
 
     await parkingModel.findByIdAndUpdate(reservation.parkingId, {
         $set: {
-            active: false,
-            status: "Disponible"
+            active: true,
+            status: "ocupado",
+            userId: user.id
         }
     })
 
@@ -167,5 +191,9 @@ export const reservationArrivalController = async (io, socket, data) => {
 
     io.to("administradores").emit("all-reservations", {
         reservations: await getReservations()
+    })
+
+    io.to("administradores").emit("all-parkings", {
+        parkings: await getParkings()
     })
 }

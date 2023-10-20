@@ -9,7 +9,6 @@ import { renderGuestAccess, renderGuestExit } from "../controllers/guest.control
 
 const router = Router()
 
-
 router.get("/guest-access", renderGuestAccess)
 router.get("/guest-exit", renderGuestExit)
 

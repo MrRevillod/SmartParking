@@ -96,7 +96,7 @@
     }
 }
 
-#placeContainer {
+#placeContainer, #verificationContainer {
     font-size: 27px;
     color: #0D5492;
     padding: 1rem;

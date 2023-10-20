@@ -1,77 +1,134 @@
-import { Routes, Route, useNavigate } from "react-router-dom";
-import { useLayoutEffect, useState } from "react";
-import useTimeout from "./lib/useTimeout";
+import { Routes, Route, useNavigate } from "react-router-dom"
+import { useEffect, useLayoutEffect, useState } from "react"
+import usTimeout from "./lib/useTimeout"
+import { motion } from "framer-motion"
 
-import { AnimatePresence, motion } from "framer-motion";
-import Swal from "sweetalert2";
+import NavBar from "./components/Navbar"
+import Inicio from "./Panel/Inicio"
+import Usearch from "./Panel/usearch/Usearch"
+import Estacionamiento from "./Panel/estacionamiento/Estacionamiento"
+
+import UsuarioId from "./Panel/usearch/usuario/UsuarioId"
+import { Peticiones } from "./Panel/Peticiones/Reservas"
+import Loading from "./components/Loading"
+
+import validateSession from "./lib/useValidateSession"
+import Toast from "./lib/Toast"
+import {
+    socket
+} from "./socket"
 
 
-import NavBar from "./components/Navbar";
-import Home from "./dashboard/Home.jsx";
-import Usearch from "./dashboard/usearch/Usearch";
-import Estacionamiento from "./dashboard/estacionamiento/Estacionamiento";
-import Mensajes from "./dashboard/mensajes/Mensajes";
-import UsuarioId from "./dashboard/usearch/usuario/UsuarioId";
-import validateSession from "./lib/useValidateSession";
 
-import Loading from "./components/Loading";
-import Toast from "./lib/Toast";
 
-function App() {
-    const [loaded, setLoaded] = useState(false);
-    const navigator = useNavigate();
 
-    async function validation() {
-        setLoaded(false);
-        await useTimeout(1000);
-        const validated = await validateSession();
-        if (!validated) {
+export const App = () => {
+    const [loaded, setLoaded] = useState(false)
+    const [reservas, setReservas] = useState([])
+    const [parkings, setParkings] = useState([])
 
-            navigator("/login");
-            Toast("Debes iniciar sesión")
-        } else {
-            setLoaded(true);
-        }
-    }
+    const navigator = useNavigate()
 
     useLayoutEffect(() => {
-        validation();
-        return;
-    }, [navigator]);
+        const validation = async () => {
+            setLoaded(false)
+            const validated = await validateSession()
+            await usTimeout(1000)
+
+            if (!validated) {
+                navigator("/login")
+                Toast({ msg: "Debes iniciar sesión" })
+                socket.disconnect()
+            } else {
+                setLoaded(true)
+            }
+        }
+        validation()
+    }, [navigator])
+
+    useEffect(() => {
+        
+
+        socket.connect()
+        const onConnect = () => {
+            socket.emit("join-admin")
+            Toast({ msg: "Socket Connected" })
+        }
+
+        const onDisconnect = () => {
+            Toast({ msg: "Socket Disconnected" })
+        }
+
+        const renderReservations = (data) => {
+            setReservas(data.reservations)
+        }
+
+        const newReserva = (data) => {
+            setReservas([...reservas, data.reservation])
+            Toast({ msg: "Nueva reserva" })
+        }
+
+
+        const renderParkings = (data) => {
+            setParkings(data.parkings)
+            
+        }
+
+        socket.on("connect", onConnect)
+        socket.on("disconnect", onDisconnect)
+        socket.on("all-reservations", renderReservations)
+        socket.on("new-reservation", newReserva)
+        socket.on("all-parkings", renderParkings)
+
+
+        return () => {
+            socket.off("all-reservations", renderReservations)
+            socket.off("new-reservation", newReserva)
+            socket.off("all-parkings", renderParkings)
+            socket.off("connect", onConnect)
+            socket.off("disconnect", onDisconnect)
+        }
+    }, [reservas])
 
     return (
-        <>
-            <NavBar></NavBar>
-            <AnimatePresence>
-                {loaded ? (
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{duration:0.5 }}
-                        exit={{ opacity: 0 }}
-                    >
-                        <Routes>
-                            <Route path="/" element={<Home />} />
-                            <Route path="/usearch" element={<Usearch />} />
-                            <Route
-                                path="/usearch/:id"
-                                element={<UsuarioId />}
-                            />
-                            <Route
-                                path="/estacionamiento"
-                                element={<Estacionamiento />}
-                            />
+        <div className="overflow-hidden">
+            <NavBar />
+            <div className="overflow-hidden position-absolute d-grid justify-content-end align-content-end opacity-25 p-3 pb-0" style={{ width: "100vw", height: "90vh", top: "10vh", zIndex: -10 }}>
+                <img src="../../public/auto.svg" className="w-75 opacity-50"></img>
+            </div>
 
-                            <Route path="/mensajes" element={<Mensajes />} />
-                            <Route path="/usuario" element={<Mensajes />} />
-                        </Routes>
-                    </motion.div>
-                ) : (
-                    <Loading />
-                )}
-            </AnimatePresence>
-        </>
-    );
+            {loaded ? (
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.5 }}
+                    exit={{ opacity: 0 }}
+                    className="z"
+                >
+                    <Routes>
+                        <Route path="/" element={<Inicio/>} />
+                        <Route path="/usearch" element={<Usearch />} />
+                        <Route path="/usearch/:id" element={<UsuarioId />} />
+                        <Route
+                            path="/estacionamiento"
+                            element={<Estacionamiento parkings={parkings} />}
+                        />
+
+                        <Route
+                            path="/peticiones"
+                            element={<Peticiones reservas={reservas} />}
+                        />
+                    </Routes>
+                </motion.div>
+            ) : (
+                <Loading />
+            )}
+
+
+
+        </div>
+
+    )
 }
 
-export default App;
+
