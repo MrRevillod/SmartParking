@@ -15,5 +15,4 @@ router.put("/:id", sessionValidation, ownerValidation, updateUser)
 router.put("/update-image/:id", sessionValidation, ownerValidation, uploadImage, updateImage)
 router.get("/", sessionValidation, roleValidation(["ADMIN_ROLE"]), getUsers)
 
-
 export default router

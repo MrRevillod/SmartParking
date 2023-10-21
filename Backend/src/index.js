@@ -11,13 +11,14 @@ const main = () => {
         console.log("\n✅ Database: Conexión a MongoDB establecida")
 
         const server = app.listen(PORT, () => {
-            console.log(`🚀 Servidor: Ejecutando en el puerto ${PORT}`)
+            console.log(`✅ Servidor: Ejecutando en el puerto ${PORT}`)
             console.log(`🔄 Servidor: Esperando peticiones cliente\n`)
         })
 
         socketSetup(server)
 
     }).catch((error) => {
+        console.log(error)
         console.error("❌ Database: Conexión a MongoDB fallida")
     })
 }

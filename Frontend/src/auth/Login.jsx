@@ -1,60 +1,57 @@
-import Logo from "../components/Logo";
-import { useNavigate } from "react-router-dom";
-import { useForm } from "react-hook-form";
-import { motion } from "framer-motion";
-import { ReactDOM } from "react";
-import "./styleLogin.css";
-import { Link } from "react-router-dom";
-import { Suspense, useLayoutEffect, useState } from "react";
-import validateSession from "../lib/useValidateSession";
-import Swal from "sweetalert2";
-import Toast from "../lib/Toast";
 
-export default function Page() {
-    
-    
+import { motion } from "framer-motion"
+import { useForm } from "react-hook-form"
+import { Link, useNavigate } from "react-router-dom"
+import { Suspense, useLayoutEffect, useState } from "react"
 
-    
-    const [loading, setLoading] = useState(true);
-    const navigator = useNavigate();
-    const {
-        register,
-        handleSubmit,
-        formState: { errors },
-        reset,
-    } = useForm();
+import { Logo } from "../components/Logo"
+import { Toast } from "../lib/Toast"
+import { validateSession } from "../lib/useValidateSession"
+
+import "./Login.css"
+
+export const Login = () => {
+
+    const navigator = useNavigate()
+    const [error, setError] = useState('')
+    const [loading, setLoading] = useState(true)
+
+    const { register, handleSubmit, formState: { errors }, reset } = useForm()
 
     const onSubmit = handleSubmit(async (data) => {
-        const res = await fetch(`${import.meta.env.VITE_API}/auth/login`, {
+
+        const res = await fetch(`${import.meta.env.VITE_API}/auth/admin-login`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(data),
-        });
-        const result = await res.json();
+        })
 
-        if (res.status == 200) {
-            localStorage.setItem("token", result.token);
-            navigator("/dashboard");
-            Toast("Sesion iniciada correctamente")
+        const result = await res.json()
+
+        if (res.status === 200) {
+
+            localStorage.setItem("token", result.token)
+            await Toast({ msg: "Sesion iniciada correctamente" })
+            navigator("/dashboard")
 
         } else {
-            alert(result.message);
-            reset();
+            setError(result.message)
+            reset()
         }
-    });
+    })
 
     useLayoutEffect(() => {
-        const validation = async () => {
-            const validated = await validateSession();
-            console.log(validated);
-            if (validated) {
-                navigator("/");
-            }
-            setLoading(false);
-        };
 
-        validation();
-    });
+        const validation = async () => {
+            const validated = await validateSession()
+            if (validated) {
+                navigator("/")
+            }
+            setLoading(false)
+        }
+
+        validation()
+    })
 
     return (
         <>
@@ -70,12 +67,12 @@ export default function Page() {
                                 className=" mainform"
                             >
                                 <div className="divlogo">
-                                    <Logo
+                                    {error.length === 0 ? <Logo
                                         className="formlogo"
                                         w={150}
                                         h={150}
                                         color={"#0D5492"}
-                                    />
+                                    /> : <div className="text-danger">{error}</div>}
                                 </div>
                                 {errors.email && (
                                     <span className="form-error">
@@ -120,9 +117,8 @@ export default function Page() {
                                 <div className="text-center p-3">
                                     <Link
                                         className="recoverinput"
-                                        to={`${
-                                            import.meta.env.VITE_API
-                                        }/auth/forgot-password`}
+                                        to={`${import.meta.env.VITE_API
+                                            }/auth/forgot-password`}
                                     >
                                         ¿Olvidaste tu contraseña?
                                     </Link>
@@ -133,5 +129,5 @@ export default function Page() {
                 </div>
             )}
         </>
-    );
+    )
 }

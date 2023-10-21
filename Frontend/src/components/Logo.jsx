@@ -1,8 +1,7 @@
- 
 
-export default function Logo({ w=50, h=50, color="#0D5492" }) {
+export const Logo = ({ w = 50, h = 50, color = "#0D5492" }) => {
+
 	return (
-
 		<svg
 			width={w}
 			height={h}
@@ -51,6 +50,5 @@ export default function Logo({ w=50, h=50, color="#0D5492" }) {
 				fill={color}
 			/>
 		</svg>
-
 	)
 }
