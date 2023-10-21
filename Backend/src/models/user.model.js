@@ -45,11 +45,11 @@ const userSchema = new Schema({
     profilePicture: {
         type: String,
         unique: false,
-        default: "http://localhost:3000/images/default.jpg"
+        default: "http://localhost:3000/images/default.jpeg"
     },
 
     contact: {
-        type: String, required: true ,unique: true
+        type: String, required: true, unique: true
     },
 
     active: {
@@ -62,8 +62,8 @@ const userSchema = new Schema({
 
     vehicles: [vehicleSchema],
 
-    verificationCode : {
-        type: Number, required: false, unique: true
+    verificationCode: {
+        type: Number, required: false
     }
 
 },

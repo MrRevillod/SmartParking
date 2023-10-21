@@ -1,11 +1,8 @@
 
-
- 
-
-import Logo from "../components/Logo"
 import "./globals.css"
+import { Logo } from "../components/Logo"
 
-export default function Home() {
+export const Inicio = () => {
 
     return (
         <div className="home ">
@@ -13,9 +10,10 @@ export default function Home() {
                 <div className="col-6 d-grid align-content-center mb-5">
                     <div className="">
                         <h1 className="display-1  fw-bold">Smart</h1>
-                    
+
                         <h1 className="display-1 fw-bold">Parking</h1>
                     </div>
+
                     <p className=" w-100 h4 mb-4">
                         Smart parking es un software semi autónomo del manejo
                         del espacio de la institución de UCT de la ciudad de
@@ -33,14 +31,15 @@ export default function Home() {
                     </p>
                 </div>
 
-                <div className=" col-6    d-grid  h-100 justify-content-center align-content-center  ">
+                <div className=" col-6 bg-white    d-grid  h-100 justify-content-center align-content-center  ">
                     <Logo
                         w={500}
                         h={540}
                         color={"#0D5492"}
+                        className=""
                     />
                 </div>
             </div>
         </div>
-    );
+    )
 }

@@ -5,6 +5,7 @@ import { parkingModel } from "../models/parking.model.js"
 import { findParking } from "./parking.controller.js"
 import { hashPassword } from "../utils/bcrypt.utils.js"
 import { stringToBinary, guestCode } from "../utils/guestcode.utils.js"
+import { getParkings } from "./reservation.controller.js"
 
 export const guestAccessController = async (io, socket, data) => {
 

@@ -31,6 +31,31 @@ export const loginController = async (req, res) => {
     }
 }
 
+export const adminLoginController = async (req, res) => {
+
+    try {
+
+        const { email, password } = req.body
+
+        const user = await userModel.findOne({ email })
+        if (!user) throw { status: 401, message: MESSAGES.INVALID_CREDENTIALS }
+
+        const hash = await comparePassword(password, user.password)
+        if (!hash) throw { status: 401, message: MESSAGES.INVALID_CREDENTIALS }
+
+        if (!user.validated) throw { status: 403, message: MESSAGES.EMAIL_NOT_VERIFIED }
+        if (user.role !== "ADMIN_ROLE") throw { status: 403, message: MESSAGES.UNAUTHORIZED }
+
+        const payload = { uid: user.id }
+
+        const token = createJwt(payload, JWT_SECRET)
+        res.status(200).json({ message: MESSAGES.OK, token })
+
+    } catch (error) {
+        res.status(error?.status || 500).json({ message: error?.message || MESSAGES.UNEXPECTED })
+    }
+}
+
 export const registerController = async (req, res) => {
 
     try {
@@ -83,7 +108,6 @@ export const logoutController = async (req, res) => {
     try {
 
         const token = req.headers.authorization?.split(' ').pop() || ''
-
         const expired = expiredTokens.push(token)
 
         if (!expired) throw { status: 500, message: MESSAGES.INVALID_TOKEN }
