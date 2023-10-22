@@ -1,10 +1,11 @@
-import { useNavigate } from "react-router-dom"
-import { motion} from "framer-motion"
 
-export default function UserCard({ e,item }) {
-    const router = useNavigate()
+import { motion } from "framer-motion"
+// import { useNavigate } from "react-router-dom"
+
+export const UserCard = ({ e, item }) => {
+    // const router = useNavigate()
     return (
-        
+
         <motion.li
 
             className="w-100  "

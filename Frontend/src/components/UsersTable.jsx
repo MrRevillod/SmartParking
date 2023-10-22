@@ -1,4 +1,5 @@
-const columns =[
+
+const columns = [
     "Perfil",
     "Nombre",
     "Registro",
@@ -7,12 +8,10 @@ const columns =[
     "Acciones"
 ]
 
-
 export const UsersTable = ({ users }) => {
 
-    return(
+    return (
         <div className="row">
-            
 
         </div>
     )

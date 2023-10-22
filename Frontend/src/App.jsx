@@ -1,39 +1,36 @@
+
+import { socket } from "./socket"
+import { motion } from "framer-motion"
 import { Routes, Route, useNavigate } from "react-router-dom"
 import { useEffect, useLayoutEffect, useState } from "react"
-import usTimeout from "./lib/useTimeout"
-import { motion } from "framer-motion"
 
-import NavBar from "./components/Navbar"
-import Inicio from "./Panel/Inicio"
-import Usearch from "./Panel/usearch/Usearch"
-import Estacionamiento from "./Panel/estacionamiento/Estacionamiento"
+import { Toast } from "./lib/Toast"
+import { customUseTimeout } from "./lib/useTimeout"
+import { validateSession } from "./lib/useValidateSession"
 
-import UsuarioId from "./Panel/usearch/usuario/UsuarioId"
+import { Inicio } from "./Panel/Inicio"
+import { Navbar } from "./components/Navbar"
+import { Loading } from "./components/Loading"
+import { Usearch } from "./Panel/usearch/Usearch"
+import { UsuarioId } from "./Panel/usearch/usuario/UsuarioId"
 import { Peticiones } from "./Panel/Peticiones/Reservas"
-import Loading from "./components/Loading"
-
-import validateSession from "./lib/useValidateSession"
-import Toast from "./lib/Toast"
-import {
-    socket
-} from "./socket"
-
-
-
-
+import { Estacionamiento } from "./Panel/estacionamiento/Estacionamiento"
 
 export const App = () => {
+
+    const navigator = useNavigate()
+
     const [loaded, setLoaded] = useState(false)
     const [reservas, setReservas] = useState([])
     const [parkings, setParkings] = useState([])
 
-    const navigator = useNavigate()
-
     useLayoutEffect(() => {
+
         const validation = async () => {
+
             setLoaded(false)
             const validated = await validateSession()
-            await usTimeout(1000)
+            await customUseTimeout(1000)
 
             if (!validated) {
                 navigator("/login")
@@ -43,13 +40,15 @@ export const App = () => {
                 setLoaded(true)
             }
         }
+
         validation()
+
     }, [navigator])
 
     useEffect(() => {
-        
 
         socket.connect()
+
         const onConnect = () => {
             socket.emit("join-admin")
             Toast({ msg: "Socket Connected" })
@@ -71,7 +70,6 @@ export const App = () => {
 
         const renderParkings = (data) => {
             setParkings(data.parkings)
-            
         }
 
         socket.on("connect", onConnect)
@@ -80,7 +78,6 @@ export const App = () => {
         socket.on("new-reservation", newReserva)
         socket.on("all-parkings", renderParkings)
 
-
         return () => {
             socket.off("all-reservations", renderReservations)
             socket.off("new-reservation", newReserva)
@@ -88,11 +85,12 @@ export const App = () => {
             socket.off("connect", onConnect)
             socket.off("disconnect", onDisconnect)
         }
+
     }, [reservas])
 
     return (
         <div className="overflow-hidden">
-            <NavBar />
+            <Navbar />
             <div className="overflow-hidden position-absolute d-grid justify-content-end align-content-end opacity-25 p-3 pb-0" style={{ width: "100vw", height: "90vh", top: "10vh", zIndex: -10 }}>
                 <img src="../../public/auto.svg" className="w-75 opacity-50"></img>
             </div>
@@ -106,7 +104,7 @@ export const App = () => {
                     className="z"
                 >
                     <Routes>
-                        <Route path="/" element={<Inicio/>} />
+                        <Route path="/" element={<Inicio />} />
                         <Route path="/usearch" element={<Usearch />} />
                         <Route path="/usearch/:id" element={<UsuarioId />} />
                         <Route
@@ -123,12 +121,6 @@ export const App = () => {
             ) : (
                 <Loading />
             )}
-
-
-
         </div>
-
     )
 }
-
-

@@ -1,3 +1,4 @@
-export default function usTimeout(ms){
+
+export const customUseTimeout = (ms) => {
     return new Promise(res => setTimeout(res, ms))
 }

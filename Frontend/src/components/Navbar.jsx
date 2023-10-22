@@ -1,21 +1,20 @@
 
 import Swal from "sweetalert2"
-import { socket } from "../socket"
 import { motion } from "framer-motion"
+import { Link, useNavigate } from "react-router-dom"
 
-
-import Logo from "./Logo"
-import { Link } from "react-router-dom"
-import { useNavigate } from "react-router-dom"
-import Toast from "../lib/Toast"
+import { Logo } from "./Logo"
+import { Toast } from "../lib/Toast"
+import { socket } from "../socket"
 
 import "./Navbar.css"
 
+export const Navbar = () => {
 
-
-export default function NavBar() {
+    const router = useNavigate()
 
     const logout = async () => {
+
         const token = localStorage.getItem("token")
         const res = await fetch(`${import.meta.env.VITE_API}/auth/logout`, {
             method: "POST",
@@ -28,12 +27,9 @@ export default function NavBar() {
             socket.disconnect()
             router("/login")
 
-        } else {
-            console.log(res.text)
         }
     }
 
-    const router = useNavigate()
     const onClickHandler = (e) => {
         e.preventDefault()
         Swal.fire({
@@ -55,12 +51,13 @@ export default function NavBar() {
             }
         })
     }
+
     return (
         <>
             <motion.nav
                 initial={{ y: -250 }}
                 animate={{ y: 0 }}
-                transition={{ duration:0.3, }}
+                transition={{ duration: 0.3, }}
                 className="navbar navbar-expand-sm navbar-dark back-blue ">
                 <div className="container-fluid p-3">
                     <a className="navbar-brand" href="">

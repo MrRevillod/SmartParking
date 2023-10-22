@@ -51,7 +51,7 @@ export const guestAccessController = async (io, socket, data) => {
                 model: "temp",
                 year: "temp"
             }
-        ],        
+        ],
         verificationCode: verCode
     }
 
