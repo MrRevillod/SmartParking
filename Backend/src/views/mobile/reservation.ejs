@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Parking - Mobile</title>
+    <link rel="stylesheet" href="http://localhost:3000/stylesheets/mobile.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="http://localhost:3000/images/logo-transparency-bg.png">
+</head>
+
+<body>
+
+    <div id="spinner" style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+        Cargando...
+    </div>
+
+    <div id="content">
+        <header>
+            <h1>Smart Parking</h1>
+        </header>
+
+        <section>
+            <h1>Simulación de reservas</h1>
+            <div>
+                <button id="button1">Solicitar reserva</button>
+                <button id="button2">Cancelar reserva</button>
+                <button id="button3">Marcar llegada a la reserva</button>
+            </div>
+        </section>
+
+        <section>
+            <h1>Simulación de ingreso y salida</h1>
+            <div>
+                <button id="button4">Solicitar ingreso</button>
+                <button id="button5">Marcar salida</button>
+            </div>
+        </section>
+
+        <section>
+            <h1>Respuesta del servidor</h1>
+            <div id="response"></div>
+        </section>
+
+        <section>
+            <strong id="logout"> Cerrar sesión </strong>
+        </section>
+    </div>
+
+
+</body>
+
+<script src="/socket.io/socket.io.js"></script>
+
+<script>
+
+    window.addEventListener("load", async (e) => {
+        e.preventDefault();
+        const token = localStorage.getItem("token");
+
+        if (!token) {
+            window.location.href = "http://localhost:3000/api/mobile";
+        }
+
+        const res = await fetch("http://localhost:3000/api/auth/confirm-session", {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            },
+        });
+
+        if (!res.ok) {
+            window.location.href = "http://localhost:3000/api/mobile";
+        }
+
+        document.getElementById('spinner').style.display = 'none';
+        document.getElementById('content').style.display = 'flex';
+    });
+
+    const socket = io("http://localhost:3000")
+    const button = document.getElementById("button1")
+    const button2 = document.getElementById("button2")
+    const button3 = document.getElementById("button3")
+    const button4 = document.getElementById("button4")
+    const button5 = document.getElementById("button5")
+    const logoutbtn = document.getElementById("logout")
+
+    logoutbtn.addEventListener("click", async (e) => {
+
+        const token = localStorage.getItem("token")
+
+        const res = await fetch("http://localhost:3000/api/auth/logout", {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            },
+        })
+
+        if (res.ok) {
+            localStorage.removeItem("token")
+            window.location.href = "http://localhost:3000/api/mobile"
+
+        } else {
+            setResponse("Error al cerrar sesión")
+        }
+    })
+
+    const setResponse = (message) => {
+        const root = document.getElementById("response")
+        root.innerHTML = message
+
+        setTimeout(() => {
+            root.innerHTML = ""
+        }, 3000)
+    }
+
+    button.addEventListener("click", async (event) => {
+
+        event.preventDefault()
+        const token  = localStorage.getItem("token")
+        socket.emit("user-reservation-req", { token, patente: "ACXB42" })
+    })
+
+    button2.addEventListener("click", async (event) => {
+
+        event.preventDefault()
+        const token  = localStorage.getItem("token")
+        socket.emit("user-cancel-reservation", { token, patente: "ACXB42" })
+    })
+
+    button3.addEventListener("click", async (event) => {
+
+        event.preventDefault()
+        const token  = localStorage.getItem("token")
+        socket.emit("user-reservation-arrival", { token, patente: "ACXB42" })
+    })
+
+    button4.addEventListener("click", async (event) => {
+
+        event.preventDefault()
+        const token  = localStorage.getItem("token")
+        socket.emit("user-access-req", { token, patente: "ACXB42" })
+    })
+
+    button5.addEventListener("click", async (event) => {
+
+        event.preventDefault()
+        const token  = localStorage.getItem("token")
+        socket.emit("user-exit-req", { token, patente: "ACXB42" })
+    })
+
+    socket.on("reservation-ok", ({ message }) => {
+        setResponse(message)
+    })
+
+    socket.on("reservation-denied", ({ message }) => {
+        setResponse(message)
+    })
+
+    socket.on("reservation-cancel-ok", ({ message }) => {
+        setResponse(message)
+    })
+
+    socket.on("reservation-cancel-denied", ({ message }) => {
+        setResponse(message)
+    })
+
+    socket.on("reservation-arrival-ok", ({ message }) => {
+        setResponse(message)
+    })
+
+    socket.on("reservation-arrival-denied", ({ message }) => {
+        setResponse(message)
+    })
+
+    socket.on("parking-access-ok", ({ message }) => {
+        setResponse(message)
+    })
+
+    socket.on("parking-access-denied", ({ message }) => {
+        setResponse(message)
+    })
+
+    socket.on("parking-exit-ok", ({ message }) => {
+        setResponse(message)
+    })
+
+    socket.on("parking-exit-denied", ({ message }) => {
+        setResponse(message)
+    })
+
+</script>
+
+</html>

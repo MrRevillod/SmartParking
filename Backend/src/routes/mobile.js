@@ -1,10 +1,11 @@
 
-import { Router } from "express"
+import { Router } from "express";
+import { renderReservationClient, renderReservationPage } from "../controllers/reservation.controller.js";
+import { sessionValidation } from "../middlewares/session.mw.js";
 
-import { renderReservationClient } from "../controllers/reservation.controller.js"
+const router = Router();
 
-const router = Router()
+router.get("/", renderReservationClient);
+router.get("/reservation", renderReservationPage);
 
-router.get("/", renderReservationClient)
-
-export default router
+export default router;

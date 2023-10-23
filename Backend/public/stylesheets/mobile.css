@@ -1,12 +1,23 @@
 body {
     font-family: 'Montserrat',
         sans-serif;
+    height: 96vh;
+    background-color: #0D5492;
+
     display: flex;
+
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 96vh;
-    background-color: #0D5492;
+}
+
+#content {
+
+    width: 80%;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     gap: 1rem;
 }
 
@@ -50,6 +61,12 @@ body section div button {
     font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
+}
+
+section strong {
+
+    padding: 1rem;
+    color: red;
 }
 
 #response {
