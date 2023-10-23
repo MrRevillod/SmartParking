@@ -8,7 +8,7 @@ import { Table } from "../../../components/Table.jsx"
 
 import "./user.css"
 
-export const UsuarioId = ({ id }) => {
+export const UserId = ({ id }) => {
 
     const router = useNavigate()
 

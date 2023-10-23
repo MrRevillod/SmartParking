@@ -1,8 +1,8 @@
 
-import "./globals.css"
-import { Logo } from "../components/Logo"
+import "./Globals.css"
+import { Logo } from "../../components/Logo"
 
-export const Inicio = () => {
+export const Home = () => {
 
     return (
         <div className="home ">

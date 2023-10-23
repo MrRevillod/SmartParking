@@ -47,7 +47,7 @@ export const StatusCircle2 = ({ percent, label }) => {
 
     return (
         <div className=" mx-3 col" style={{ height: "25vh" }} >
-            <div style={mainStyle} className="border rounded-circle ">
+            <div style={mainStyle} className="rounded-circle ">
                 <motion.div
                     initial={{ background: bg1 }}
                     animate={{ background: bg2 }}

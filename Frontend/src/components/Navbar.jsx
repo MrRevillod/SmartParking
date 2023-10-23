@@ -5,7 +5,7 @@ import { Link, useNavigate } from "react-router-dom"
 
 import { Logo } from "./Logo"
 import { Toast } from "../lib/Toast"
-import { socket } from "../socket"
+import { socket } from "../lib/socket"
 
 import "./Navbar.css"
 
@@ -60,7 +60,7 @@ export const Navbar = () => {
                 transition={{ duration: 0.3, }}
                 className="navbar navbar-expand-sm navbar-dark back-blue ">
                 <div className="container-fluid p-3">
-                    <a className="navbar-brand" href="">
+                    <a className="navbar-brand" href="/dashboard">
                         <Logo
                             className="formlogo "
                             w={60}
@@ -71,13 +71,13 @@ export const Navbar = () => {
                     <div className="collapse navbar-collapse" id="mynavbar">
                         <ul className="navbar-nav me-auto gap-3 fs-5">
                             <li className="nav-item">
-                                <Link to="/panel" className="nav-link ">
+                                <Link to="/dashboard" className="nav-link ">
                                     Home
                                 </Link>
                             </li>
                             <li className="nav-item">
                                 <Link
-                                    to="/panel/estacionamiento"
+                                    to="/dashboard/parking"
                                     className="nav-link"
                                 >
                                     Estacionamiento
@@ -85,7 +85,7 @@ export const Navbar = () => {
                             </li>
                             <li className="nav-item">
                                 <Link
-                                    to="/panel/usearch"
+                                    to="/dashboard/users"
                                     className="nav-link"
                                 >
                                     Usuarios
@@ -93,10 +93,10 @@ export const Navbar = () => {
                             </li>
                             <li className="nav-item">
                                 <Link
-                                    to={"/panel/peticiones"}
+                                    to={"/dashboard/stats"}
                                     className="nav-link"
                                 >
-                                    Peticiones
+                                    Estadísticas
                                 </Link>
                             </li>
                         </ul>

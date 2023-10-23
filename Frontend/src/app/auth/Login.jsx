@@ -4,9 +4,9 @@ import { useForm } from "react-hook-form"
 import { Link, useNavigate } from "react-router-dom"
 import { Suspense, useLayoutEffect, useState } from "react"
 
-import { Logo } from "../components/Logo"
-import { Toast } from "../lib/Toast"
-import { validateSession } from "../lib/useValidateSession"
+import { Logo } from "../../components/Logo"
+import { Toast } from "../../lib/Toast"
+import { validateSession } from "../../lib/useValidateSession"
 
 import "./Login.css"
 
@@ -34,10 +34,6 @@ export const Login = () => {
             await Toast({ msg: "Sesion iniciada correctamente" })
             navigator("/dashboard")
 
-        if (res.status === 200) {
-            localStorage.setItem("token", result.token);
-            await Toast({msg:"Sesion iniciada correctamente"})
-            navigator("/dashboard");
         } else {
             setError(result.message)
             reset()
