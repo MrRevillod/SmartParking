@@ -49,7 +49,7 @@ const userSchema = new Schema({
     },
 
     contact: {
-        type: String, required: true ,unique: true
+        type: String, required: true, unique: true
     },
 
     active: {
@@ -62,8 +62,8 @@ const userSchema = new Schema({
 
     vehicles: [vehicleSchema],
 
-    verificationCode : {
-        type: Number, required: false, unique: true
+    verificationCode: {
+        type: Number, required: false
     }
 
 },

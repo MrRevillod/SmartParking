@@ -13,8 +13,8 @@
             "$oid": "6529f6930e248fe9c326022f"
         },
         "name": "E-02",
-        "active": true,
-        "status": "ocupado",
+        "active": false,
+        "status": "disponible",
         "userId": ""
     },
     {
@@ -22,8 +22,8 @@
             "$oid": "6529f6930e248fe9c3260230"
         },
         "name": "E-03",
-        "active": true,
-        "status": "ocupado",
+        "active": false,
+        "status": "disponible",
         "userId": ""
     },
     {
@@ -31,8 +31,8 @@
             "$oid": "6529f6930e248fe9c3260231"
         },
         "name": "E-04",
-        "active": true,
-        "status": "ocupado",
+        "active": false,
+        "status": "disponible",
         "userId": ""
     },
     {

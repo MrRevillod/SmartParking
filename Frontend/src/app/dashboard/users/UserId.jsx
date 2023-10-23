@@ -1,22 +1,19 @@
 
+import Swal from "sweetalert2"
+import { useEffect, useState, } from "react"
+import { useNavigate } from "react-router-dom"
 
-import { useEffect, useState, } from "react";
-import { useNavigate } from "react-router-dom";
+import { Toast } from "../../../lib/Toast"
+import { Table } from "../../../components/Table.jsx"
 
+import "./user.css"
 
-import Toast from "../../../lib/Toast";
+export const UserId = ({ id }) => {
 
-import "./user.css";
-import Swal from "sweetalert2";
-import { Table } from "../../../components/table";
-
-export default function UsuarioId({ id }) {
-
-
-    const [user, setUser] = useState(false);
-    const [loading, setLoading] = useState(true);
     const router = useNavigate()
 
+    const [user, setUser] = useState(false)
+    const [loading, setLoading] = useState(true)
 
     const deleteUser = async () => {
         const res = await fetch(`${import.meta.env.VITE_API}/users/${id}`, {
@@ -34,6 +31,7 @@ export default function UsuarioId({ id }) {
 
     const onClickHandler = async (e) => {
         e.preventDefault()
+
         Swal.fire({
             title: "¿Desea eliminar este usuario?",
             confirmButtonText: "Eliminar",
@@ -44,14 +42,12 @@ export default function UsuarioId({ id }) {
             customClass: {
                 confirmButton: "back-blue",
             },
+
         }).then(async (res) => {
             if (res.isConfirmed) {
                 deleteUser()
             }
-
         })
-
-
     }
 
     useEffect(() => {
@@ -64,19 +60,21 @@ export default function UsuarioId({ id }) {
                         Authorization: `Bearer ${localStorage.getItem("token")}`,
                     },
                 }
-            );
-            const data = await res.json();
-            console.log(data.user);
-            setUser(data.user);
+            )
+
+            const data = await res.json()
+            setUser(data.user)
             setLoading(false)
         }
-        getUser();
-    }, [id]);
+
+        getUser()
+
+    }, [id])
 
     return (
         <>
             {loading ? <div>Loading.. </div> :
-                <div className=" p-5  " style={{height:"60vh"}}>
+                <div className=" p-5  " style={{ height: "60vh" }}>
                     <div className="shadow-sm  card p-4 mb-4 overflow-scroll">
                         <div className="row">
                             <div className="col-4">
@@ -116,7 +114,6 @@ export default function UsuarioId({ id }) {
                                             Vehículos
                                         </div>
                                         <Table data={user.vehicles} columns={["Modelo", "Patente"]} />
-
                                     </div>
                                 </div>
                             </div>
@@ -125,5 +122,5 @@ export default function UsuarioId({ id }) {
                 </div>
             }
         </>
-    );
+    )
 }
