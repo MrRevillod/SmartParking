@@ -35,6 +35,7 @@ export const App = () => {
             if (!validated) {
                 navigator("/login")
                 Toast({ msg: "Debes iniciar sesión" })
+
                 socket.disconnect()
             } else {
                 setLoaded(true)
@@ -53,21 +54,16 @@ export const App = () => {
             socket.emit("join-admin")
             Toast({ msg: "Socket Connected" })
         }
-
         const onDisconnect = () => {
             Toast({ msg: "Socket Disconnected" })
         }
-
         const renderReservations = (data) => {
             setReservas(data.reservations)
         }
-
         const newReserva = (data) => {
             setReservas([...reservas, data.reservation])
             Toast({ msg: "Nueva reserva" })
         }
-
-
         const renderParkings = (data) => {
             setParkings(data.parkings)
         }

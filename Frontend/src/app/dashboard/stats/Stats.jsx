@@ -3,7 +3,7 @@
 
 import "./Stats.css"
 
-import Cardy from "./cardy"
+import Cardy from "./Cardy"
 
 export const Stats = ({ reservas }) => {
     return (

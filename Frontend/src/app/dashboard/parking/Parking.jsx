@@ -15,7 +15,6 @@ export const Parking = ({ parkings }) => {
 
     useEffect(() => {
         const total = parkings.length
-
         const disp = parkings.filter(parking => parking.status === "disponible").length
         const res = parkings.filter(parking => parking.status === "reservado").length
         const ocu = parkings.filter(parking => parking.status === "ocupado").length
@@ -36,6 +35,7 @@ export const Parking = ({ parkings }) => {
     return (
         <div className='row w-100'>
             <div className='col d-grid align-content-center justify-content-center   '>
+                
                 <h1 className="text-center display-3 fw-bold mt-5">Estacionamiento</h1>
                 <p className="text-center fs-5  ">Estado de los estacionamientos</p>
 

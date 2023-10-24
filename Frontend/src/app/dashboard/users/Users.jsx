@@ -2,9 +2,13 @@
 import { motion } from "framer-motion"
 import { useEffect, useState } from "react"
 
-import { UserCard } from "../../../components/UserCard"
 
-import "./style.css"
+
+import { UserCard } from "../../../components/UserCard"
+import { Header } from "../../../components/Header"
+import { Filters } from "../../../components/Filters"
+
+import "./Style.css"
 import "bootstrap-icons/font/bootstrap-icons.css"
 
 const table_columns = [
@@ -39,6 +43,11 @@ export const Users = () => {
     const [search, setSearch] = useState("")
     const [loading, setLoading] = useState(true)
     const [users, setUsers] = useState()
+    const [filters, setFilters] = useState({
+        active: true,
+        inactive: false,
+    })
+
 
     const getUsers = async () => {
         const res = await fetch(`${import.meta.env.VITE_API}/users`, {
@@ -53,18 +62,20 @@ export const Users = () => {
         setLoading(false)
     }
 
+    const filterUsers = (users) => {
+        return users?.filter((user) => (
+            user.username.toLowerCase().includes(search.toLocaleLowerCase()) &&
+            (user.active && filters.active || !user.active && filters.inactive
+            )
+        ))
+    }
+
     useEffect(() => {
         getUsers()
     }, [])
 
-    let results = []
-    if (!search) {
-        results = users
-    } else {
-        results = users.filter((dato) =>
-            dato.username.toLowerCase().includes(search.toLocaleLowerCase())
-        )
-    }
+
+    const usersFiltered = filterUsers(users)
 
     return (
         <>{!loading &&
@@ -76,19 +87,27 @@ export const Users = () => {
                             <h1 className="fw-bold display-4">Administración de Usuarios</h1>
                         </div>
 
-                        <div className="search-container d-flex border rounded-2 w-75 fs-5 mt-2 mb-4">
-                            <input
-                                type="text"
-                                value={search}
-                                placeholder="Ingrese nombre de usuario"
-                                onChange={(e) => { setSearch(e.target.value) }}
-                                className="searchbar bg-transparent col-11 pe-0 border-0 px-3 py-1"
-                            />
 
-                            <div className="searchIcon col-1 border border-0 p-2     justify-content-center align-content-center d-grid">
-                                <i className="bi bi-search icon-blue"></i>
+                        <div className="w-100  row px-3">
+
+                            <div className="search-container d-flex border rounded-2 w-75  fs-5 mt-2 mb-4" style={{height:"6vh"}}>
+                                <input
+                                    type="text"
+                                    value={search}
+                                    placeholder="Ingrese nombre de usuario"
+                                    onChange={(e) => { setSearch(e.target.value) }}
+                                    className="searchbar bg-transparent col-11 pe-0 border-0 px-3 py-1"
+                                />
+
+                                <div className="searchIcon col-1 border border-0 p-2     justify-content-center align-content-center d-grid">
+                                    <i className="bi bi-search icon-blue"></i>
+                                </div>
                             </div>
+                            <Header  >
+                                <Filters setFilters={setFilters} filters={filters}  ></Filters>
+                            </Header>
                         </div>
+
 
                         {users && (
                             <motion.div className="row w-full justify-content-center list-unstyled"
@@ -114,8 +133,8 @@ export const Users = () => {
                                     </motion.div>
                                 </div>
                                 <div className="overflow-scroll border-bottom border-1 row w-full justify-content-center" style={{ maxHeight: '55vh' }}>
-                                    {results.map((e) => (
-                                        <UserCard key={e._id} e={e}  item={item} />
+                                    {usersFiltered.map((e) => (
+                                        <UserCard key={e._id} e={e} item={item} />
 
                                     ))}
                                 </div>
