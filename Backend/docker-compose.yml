@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  backend:
+    container_name: smart-parking-backend
+    restart: always
+    build: .
+    ports:
+      - "3000:3000"
+    links:
+      - mongo
+  
+  mongo:
+    container_name: smart-parking-db
+    image: mongo:4.4.6
+    ports:
+      - "27020:27017"
