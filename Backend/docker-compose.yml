@@ -9,9 +9,20 @@ services:
       - "3000:3000"
     links:
       - mongo
+    depends_on:
+      - mongo
   
   mongo:
     container_name: smart-parking-db
     image: mongo:4.4.6
     ports:
       - "27020:27017"
+    volumes:
+      - mongo-data:/data/db
+    environment:
+      MONGO_INITDB_USERNAME: root
+      MONGO_INITDB_PASSWORD: !abc1234ABCsp
+      MONGO_INITDB_DATABASE: SmartParking
+
+volumes:
+  mongo-data:

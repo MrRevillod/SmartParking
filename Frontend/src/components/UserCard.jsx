@@ -5,9 +5,8 @@ import { motion } from "framer-motion"
 export const UserCard = ({ e, item }) => {
     // const router = useNavigate()
     return (
-
-        <motion.li
-
+        
+        <motion.div
             className="w-100  "
             // initial={{ y: 60 }}
             // animate={{ y: 0 }}
@@ -16,7 +15,6 @@ export const UserCard = ({ e, item }) => {
             variants={item}
         >
             <div
-                key={e._id}
                 className=" userCard row rounded-1 my-1 shadow-sm bg-white border icon-blue fs-4 p-2 "
             >
                 {/* <div className="col text-start ">
@@ -48,6 +46,6 @@ export const UserCard = ({ e, item }) => {
                     </button>
                 </div> */}
             </div>
-        </motion.li>
+        </motion.div>
     )
 }   

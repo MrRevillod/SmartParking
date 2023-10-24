@@ -2,9 +2,9 @@
 import { motion } from "framer-motion"
 import { useEffect, useState } from "react"
 
-import { UserCard } from "../../components/UserCard"
+import { UserCard } from "../../../components/UserCard"
 
-import "./style.css"
+import "./Style.css"
 import "bootstrap-icons/font/bootstrap-icons.css"
 
 const table_columns = [
@@ -34,7 +34,7 @@ const item = {
     hidden: { opacity: 0, },
 }
 
-export const Usearch = () => {
+export const Users = () => {
 
     const [search, setSearch] = useState("")
     const [loading, setLoading] = useState(true)
@@ -91,7 +91,7 @@ export const Usearch = () => {
                         </div>
 
                         {users && (
-                            <motion.list className="row w-full justify-content-center list-unstyled"
+                            <motion.div className="row w-full justify-content-center list-unstyled"
 
                                 initial="hidden"
                                 animate="visible"
@@ -99,7 +99,7 @@ export const Usearch = () => {
 
                             >
                                 <div className="row w-full justify-content-center">
-                                    <motion.li variants={item} className=" row back-blue p-2 w-100 rounded-top-3 fs-5 " >
+                                    <motion.div variants={item} className=" row back-blue p-2 w-100 rounded-top-3 fs-5 " >
                                         {table_columns.map((e, i) => {
                                             return (
                                                 <div
@@ -111,16 +111,16 @@ export const Usearch = () => {
                                             )
                                         })}
 
-                                    </motion.li>
+                                    </motion.div>
                                 </div>
                                 <div className="overflow-scroll border-bottom border-1 row w-full justify-content-center" style={{ maxHeight: '55vh' }}>
-                                    {results.map((e) => (<>
-                                        <UserCard e={e} key={e._id} item={item} />
-                                    </>
+                                    {results.map((e) => (
+                                        <UserCard key={e._id} e={e} item={item} />
+
                                     ))}
                                 </div>
 
-                            </motion.list>
+                            </motion.div>
                         )}
                     </div>
                 </div>

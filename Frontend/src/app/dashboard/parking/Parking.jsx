@@ -1,13 +1,13 @@
 
 import { useEffect, useState } from "react"
 
-import { Legend } from "../../components/Legend"
-import { ParkingMap } from "../../components/ParkingMap"
-import { StatusCircle2 } from "../../components/StatusCircle2"
+import { Legend } from "../../../components/Legend"
+import { ParkingMap } from "../../../components/ParkingMap"
+import { StatusCircle2 } from "../../../components/StatusCircle2"
 
-import "./Estacionamiento.css"
+import "./Parking.css"
 
-export const Estacionamiento = ({ parkings }) => {
+export const Parking = ({ parkings }) => {
 
     const [disponibles, setDisponibles] = useState(0)
     const [reservados, setReservados] = useState(0)
