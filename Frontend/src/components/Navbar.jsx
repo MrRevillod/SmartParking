@@ -1,21 +1,20 @@
 
 import Swal from "sweetalert2"
-import { socket } from "../socket"
 import { motion } from "framer-motion"
+import { Link, useNavigate } from "react-router-dom"
 
-
-import Logo from "./Logo"
-import { Link } from "react-router-dom"
-import { useNavigate } from "react-router-dom"
-import Toast from "../lib/Toast"
+import { Logo } from "./Logo"
+import { Toast } from "../lib/Toast"
+import { socket } from "../lib/socket"
 
 import "./Navbar.css"
 
+export const Navbar = () => {
 
-
-export default function NavBar() {
+    const router = useNavigate()
 
     const logout = async () => {
+
         const token = localStorage.getItem("token")
         const res = await fetch(`${import.meta.env.VITE_API}/auth/logout`, {
             method: "POST",
@@ -28,12 +27,9 @@ export default function NavBar() {
             socket.disconnect()
             router("/login")
 
-        } else {
-            console.log(res.text)
         }
     }
 
-    const router = useNavigate()
     const onClickHandler = (e) => {
         e.preventDefault()
         Swal.fire({
@@ -55,15 +51,16 @@ export default function NavBar() {
             }
         })
     }
+
     return (
         <>
             <motion.nav
                 initial={{ y: -250 }}
                 animate={{ y: 0 }}
-                transition={{ duration:0.3, }}
+                transition={{ duration: 0.3, }}
                 className="navbar navbar-expand-sm navbar-dark back-blue ">
                 <div className="container-fluid p-3">
-                    <a className="navbar-brand" href="">
+                    <a className="navbar-brand" href="/dashboard">
                         <Logo
                             className="formlogo "
                             w={60}
@@ -74,13 +71,13 @@ export default function NavBar() {
                     <div className="collapse navbar-collapse" id="mynavbar">
                         <ul className="navbar-nav me-auto gap-3 fs-5">
                             <li className="nav-item">
-                                <Link to="/panel" className="nav-link ">
+                                <Link to="/dashboard" className="nav-link ">
                                     Home
                                 </Link>
                             </li>
                             <li className="nav-item">
                                 <Link
-                                    to="/panel/estacionamiento"
+                                    to="/dashboard/parking"
                                     className="nav-link"
                                 >
                                     Estacionamiento
@@ -88,7 +85,7 @@ export default function NavBar() {
                             </li>
                             <li className="nav-item">
                                 <Link
-                                    to="/panel/usearch"
+                                    to="/dashboard/users"
                                     className="nav-link"
                                 >
                                     Usuarios
@@ -96,10 +93,10 @@ export default function NavBar() {
                             </li>
                             <li className="nav-item">
                                 <Link
-                                    to={"/panel/peticiones"}
+                                    to={"/dashboard/stats"}
                                     className="nav-link"
                                 >
-                                    Peticiones
+                                    Estadísticas
                                 </Link>
                             </li>
                         </ul>
