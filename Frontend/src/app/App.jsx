@@ -5,7 +5,6 @@ import { Routes, Route, useNavigate } from "react-router-dom"
 import { useEffect, useLayoutEffect, useState } from "react"
 import { QueryClient, QueryClientProvider } from "react-query"
 
-
 import { Toast } from "../lib/Toast"
 import { customUseTimeout } from "../lib/useTimeout"
 import { validateSession } from "../lib/useValidateSession"
@@ -17,7 +16,6 @@ import { Users } from "./dashboard/users/Users.jsx"
 import { UserId } from "./dashboard/users/UserId.jsx"
 import { Stats } from "./dashboard/stats/Stats.jsx"
 import { Parking } from "./dashboard/parking/Parking.jsx"
-
 
 const queryClient = new QueryClient()
 

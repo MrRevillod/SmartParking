@@ -13,8 +13,6 @@ const URI = URIS[MODE]
 
 export const dbConnect = async () => {
 
-    console.log(URI)
-
     try {
         return await connect(URI, {
             useNewUrlParser: true,
@@ -23,7 +21,6 @@ export const dbConnect = async () => {
         })
 
     } catch (error) {
-        console.log(error)
         throw { status: 500, message: MESSAGES.UNEXPECTED }
     }
 }
