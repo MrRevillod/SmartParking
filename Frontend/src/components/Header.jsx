@@ -1,6 +1,6 @@
 export const Header = ({ children }) => {
     return (
-        <div className=" col  d-grid align-content-end  "  style={{height:"6vh"}}>
+        <div className=" col-4   d-grid  justify-content-center  "  style={{height:"6vh"}}>
         {children}
         </div>
 

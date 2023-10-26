@@ -1,30 +1,30 @@
 
-import { Checkbox } from "./Checkbox"
+//import { Checkbox } from "./Checkbox"
 import { Checkbox2 } from "./Checkbox"
 
 export const Filters = ({ filters, setFilters }) => {
 
 
-    const onCheckHandlerActive = (ev) => {
-        if (ev.target.checked) {
-            setFilters({ ...filters, active: true })
-        } else {
-            setFilters({ ...filters, active: false })
-        }
+    // const onCheckHandlerActive = (ev) => {
+    //     if (ev.target.checked) {
+    //         setFilters({ ...filters, active: true })
+    //     } else {
+    //         setFilters({ ...filters, active: false })
+    //     }
 
 
-    }
+    // }
 
-    const onCheckHandlerInactive = (ev) => {
+    // const onCheckHandlerInactive = (ev) => {
 
-        if (ev.target.checked) {
-            setFilters({ ...filters, inactive: true })
-        }
-        else {
-            setFilters({ ...filters, inactive: false })
-        }
+    //     if (ev.target.checked) {
+    //         setFilters({ ...filters, inactive: true })
+    //     }
+    //     else {
+    //         setFilters({ ...filters, inactive: false })
+    //     }
 
-    }
+    // }
 
 
     const onCheckHandlerInactive2 = (ev) => {
@@ -40,7 +40,7 @@ export const Filters = ({ filters, setFilters }) => {
     }
 
     return (
-        <div className="d-flex w-100  ">
+        <div className="row   ">
 
             
             <div className="col   ">

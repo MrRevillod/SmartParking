@@ -3,6 +3,8 @@ import { socket } from "../lib/socket"
 import { motion } from "framer-motion"
 import { Routes, Route, useNavigate } from "react-router-dom"
 import { useEffect, useLayoutEffect, useState } from "react"
+import { QueryClient, QueryClientProvider } from "react-query"
+
 
 import { Toast } from "../lib/Toast"
 import { customUseTimeout } from "../lib/useTimeout"
@@ -15,6 +17,9 @@ import { Users } from "./dashboard/users/Users.jsx"
 import { UserId } from "./dashboard/users/UserId.jsx"
 import { Stats } from "./dashboard/stats/Stats.jsx"
 import { Parking } from "./dashboard/parking/Parking.jsx"
+
+
+const queryClient = new QueryClient()
 
 export const App = () => {
 
@@ -99,21 +104,24 @@ export const App = () => {
                     exit={{ opacity: 0 }}
                     className="z"
                 >
-                    <Routes>
-                        <Route path="/" element={<Home />} />
-                        <Route path="/dashboard" element={<Home />} />
-                        <Route path="/users" element={<Users />} />
-                        <Route path="/users/:id" element={<UserId />} />
-                        <Route
-                            path="/parking"
-                            element={<Parking parkings={parkings} />}
-                        />
+                    <QueryClientProvider client={queryClient}>
+                        <Routes>
+                            <Route path="/" element={<Home />} />
+                            <Route path="/dashboard" element={<Home />} />
+                            <Route path="/users" element={<Users />} />
+                            <Route path="/users/:id" element={<UserId />} />
+                            <Route
+                                path="/parking"
+                                element={<Parking parkings={parkings} />}
+                            />
 
-                        <Route
-                            path="/stats"
-                            element={<Stats reservas={reservas} />}
-                        />
-                    </Routes>
+                            <Route
+                                path="/stats"
+                                element={<Stats reservas={reservas} />}
+                            />
+
+                        </Routes>
+                    </QueryClientProvider>
                 </motion.div>
             ) : (
                 <Loading />
