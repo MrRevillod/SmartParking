@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  mongo:
+    container_name: smart-parking-db
+    image: mongo:4.4.6
+    restart: always
+    command:
+    volumes:
+      - mongo-data:/data/db
+      - ./Backend/scripts/initMongoDB.js:/docker-entrypoint-initdb.d/initMongoDB.js:ro
+    ports:
+      - "27020:27017"
+
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_ROOT_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_ROOT_PASSWORD}
+      MONGO_INITDB_DATABASE: ${DB_NAME}
+  
+  backend:
+    container_name: smart-parking-backend
+    restart: always
+    build: ./Backend
+    ports:
+      - "3000:3000"
+    links:
+      - mongo
+    depends_on:
+      - mongo
+
+  frontend:
+    container_name: smart-parking-frontend
+    restart: always
+    build: ./Frontend
+    ports:
+      - "8000:8000"
+
+volumes:
+  mongo-data:

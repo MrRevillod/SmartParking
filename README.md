@@ -27,5 +27,5 @@ Iniciar el servidor de desarrollo:
 
 #### Documentación de la API:
 
-- [Endpoints](./Backend/Endpoints.md)
-- [Estructura de carpetas](./Backend/Docs.md)
+- [Endpoints](./Backend/docs/Endpoints.md)
+- [Estructura de carpetas](./Backend/docs/Docs.md)

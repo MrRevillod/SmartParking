@@ -1,13 +1,24 @@
 body {
-    font-family: 'Montserrat',
-        sans-serif;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #050505;
+    height: 96vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#mobile {
+    width: 28%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 96vh;
+    height: 80vh;
     background-color: #0D5492;
     gap: 1rem;
+    border: white 0.1rem solid;
+    border-radius: 0.2rem;
+
 }
 
 header {
@@ -21,7 +32,7 @@ header {
     background-color: #f5f5f5;
 }
 
-body section {
+#mobile section {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -33,7 +44,7 @@ body section {
     background-color: #f5f5f5;
 }
 
-body section div {
+#mobile section div {
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -42,7 +53,7 @@ body section div {
     gap: 1rem;
 }
 
-body section div button {
+#mobile section div button {
     padding: 1rem;
     border: none;
     border-radius: 0.5rem;

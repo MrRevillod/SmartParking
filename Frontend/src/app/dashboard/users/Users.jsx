@@ -82,7 +82,7 @@ export const Users = () => {
                             <h1 className="fw-bold display-4">Administración de Usuarios</h1>
                         </div>
                         <div className="  row p-4">
-                            <SearchBar   search={search} setSearch={setSearch}></SearchBar>
+                            <SearchBar search={search} setSearch={setSearch}></SearchBar>
                             <Header >
                                 <Filters setFilters={setFilters} filters={filters}  ></Filters>
                             </Header>

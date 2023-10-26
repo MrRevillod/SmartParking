@@ -1,6 +1,4 @@
 
-
-
 import "./Stats.css"
 
 import Cardy from "./Cardy"
