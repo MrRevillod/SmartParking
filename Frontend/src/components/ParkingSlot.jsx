@@ -12,9 +12,25 @@ const slotStyle = {
 }
 
 export const ParkingSlot = ({ parking }) => {
-    const [view,setView] = useState(false)   
+    const [view, setView] = useState(false)
     const [hover, setHover] = useState(false)
+    const [user, setUser] = useState({})
 
+    const onClickHandler = async (ev) => {
+        ev.preventDefault()
+        if (parking.status !== "disponible") {
+            const token = localStorage.getItem('token')
+            const res = await fetch(`${import.meta.env.VITE_API}/users/${parking.userId}`, {
+                headers: {
+                    "Authorization": `Bearer ${token}`
+                }
+            })
+            const response = await res.json()
+            console.log(response)
+            setUser(response.user)
+            setView(true)
+        }
+    }
 
 
     return (
@@ -23,19 +39,20 @@ export const ParkingSlot = ({ parking }) => {
                 style={slotStyle}
                 onMouseOver={(e) => { e.preventDefault; setHover(true); }}
                 onMouseLeave={(e) => { e.preventDefault; setHover(false) }}
-                onClick={(e) => { e.preventDefault; setView(true) }}
-                >
-                
+                onClick={onClickHandler}
+            >
+
                 {parking.name}
             </div>
-            
+
             {hover && parking.status !== "disponible" &&
                 <div className="position-absolute bottom-0  mb-4">
-                    <Pill bakgroundClass={"bg-secondary p-3 opacity-50 fs-5 "}>Presione para ver usuario</Pill>
+                    <Pill bakgroundClass={"bg-secondary p-3 opacity-50 fs-5 "}>
+                        Presione para ver usuario
+                    </Pill>
                 </div>
             }
-
-            {view && parking.status !== "disponible" && <UserModal userId={parking.userId} setIsModalVisible={setView} isModalVisible={view} />}
+            {view && <UserModal user={user} setIsModalVisible={setView} isModalVisible={view} />}
         </>
     )
 }
