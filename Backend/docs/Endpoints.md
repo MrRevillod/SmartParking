@@ -4,16 +4,17 @@ Un endpoint es una ruta de un servidor web que se utiliza para realizar una soli
 
 ## Auth endpoints
 
-### Login
+### Iniciar sesión
 
 -   **Metodo**: `POST`
--   **Ruta**: `/api/auth/login`
--   **Descripción**: Inicia sesión en la aplicación.
+-   **Ruta común**: `/api/auth/login`
+-   **Ruta administador**: `/api/auth/admin-login`
+-   **Descripción**: Inicia sesión en la aplicación. El usuario debe estar validado para iniciar sesión.
 
 ```json
 {
-    "email": "your_email@domain.com", // Email válido.
-    "password": "!abc1234ABC" // 8 caracteres, mayúsculas, minúsculas, números y caracteres especiales.
+    "email": "your_email@domain.com", 
+    "password": "asc9283MSHB&" 
 }
 ```
 
@@ -21,12 +22,12 @@ Un endpoint es una ruta de un servidor web que se utiliza para realizar una soli
 
 ```json
 {
-    "message": "Login successfull",
+    "message": "OK",
     "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NTBiOWEzNGRmMGMwMmI0M2RjMGMwMTAiLCJpYXQiOjE2O"
 }
 ```
 
-### Register
+### Registro en la aplicación
 
 -   **Método**: `POST`
 -   **Ruta**: `/api/auth/register`
@@ -34,14 +35,14 @@ Un endpoint es una ruta de un servidor web que se utiliza para realizar una soli
 
 ```json
 {
-	"username": "John Doe", // Nombres y apellidos del usuario.
+	"username": "John Doe",
 	"email": "your_email@domain.com",
 	"password": "!abc1234ABC",
-	"contact": "+56912345678", // Número de contacto válido y con formato CL (+56xxxxxxxxx).
+	"contact": "+56912345678",
 	"vehicles": {
-		"patente": "VZFP23", // Placa válida y con formato XXXX00 (4 letras y 2 números)
+		"patente": "VZFP23",
 		"model": "Toyota Corolla",
-		"year": 2019 // Año de fabricación del vehículo. (1950 <= año <= 2023)
+		"year": 2019 
 	}
 }
 ```
@@ -58,7 +59,7 @@ Un endpoint es una ruta de un servidor web que se utiliza para realizar una soli
 
 -   **Método**: `POST`
 -   **Ruta**: `/api/auth/confirm-session`
--   **Descripción**: Verifica si el usuario tiene una sesión activa.
+-   **Descripción**: Verifica si el usuario tiene una sesión válida/activa.
 
 -**Headers**:
 
@@ -76,7 +77,7 @@ Un endpoint es una ruta de un servidor web que se utiliza para realizar una soli
 }
 ```
 
-### Logout
+### Cerar sesión
 
 - **Método**: `POST`
 - **Ruta**: `/api/auth/logout` 
@@ -94,7 +95,7 @@ Un endpoint es una ruta de un servidor web que se utiliza para realizar una soli
 
 ```json
 {
-    "message": "Logout successfull"
+    "message": "OK"
 }
 ```
 
