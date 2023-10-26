@@ -9,9 +9,10 @@ import { Pill } from "./Pill"
 
 export const UserCard = ({ e, item }) => {
     const [isModalVisible, setIsModalVisible] = useState(false)
+
     const [hover, setHover] = useState(false)
 
-    const onClickHandler = (ev) => {
+    const onClickHandler = async (ev) => {
         ev.preventDefault()
         setIsModalVisible(true)
 

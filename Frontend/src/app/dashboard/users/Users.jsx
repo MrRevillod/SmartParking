@@ -15,6 +15,24 @@ const table_columns = [
     "Estado",
 ]
 
+function orderByUsername(usuarios) {
+    // Utiliza el método sort para ordenar el arreglo de usuarios según la propiedad "username".
+    usuarios.sort((a, b) => {
+      const usernameA = a.username.toLowerCase(); // Convierte a minúsculas para asegurarse de que la comparación sea insensible a mayúsculas.
+      const usernameB = b.username.toLowerCase();
+      
+      if (usernameA < usernameB) {
+        return -1;
+      }
+      if (usernameA > usernameB) {
+        return 1;
+      }
+      return 0;
+    });
+  }
+  
+
+  
 
 export const Users = () => {
 
@@ -23,9 +41,8 @@ export const Users = () => {
     const [users, setUsers] = useState()
     const [filters, setFilters] = useState({
         active: true,
-        inactive: false,
+        inactive: true,
     })
-
 
     const getUsers = async () => {
         const res = await fetch(`${import.meta.env.VITE_API}/users`, {
@@ -41,7 +58,8 @@ export const Users = () => {
     }
 
     const filterUsers = (users) => {
-        return users?.filter((user) => (
+        users && orderByUsername(users)
+        return users?.sort().filter((user) => (
             user.username.toLowerCase().includes(search.toLocaleLowerCase()) &&
             (user.active && filters.active || !user.active && filters.inactive
             )

@@ -23,3 +23,9 @@
     align-items: center;
     outline: none;
   }
+
+
+.close-button:hover{
+    opacity: 1 !important;
+
+}
