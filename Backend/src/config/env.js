@@ -1,26 +1,16 @@
+
 import "dotenv/config"
 import path from "node:path"
-
-// Variables de entorno importadas desde .env
-
-// PORT: Puerto a utilizar para servir la aplicación
-// MODE: Modo de ejecución de la aplicación
-
-// MDB_URI: String de conexión local a mongodb
-// JWT_SECRET: Clave encriptación de los tokens
-
-// VIEWS_PATH: Path de la carpeta src/views 
-// (almacena los ficheros estaticos que renderizará el servidor)
 
 const PORT = process.env.PORT || 3001
 const MODE = process.env.MODE || "DEVELOPMENT"
 
+const MDB_PROD_URI = process.env.MDB_PROD_URI || "MONGODB_URI"
 const MDB_LOCAL_URI = process.env.MDB_LOCAL_URI || "MONGODB_URI"
-const MDB_PROD_URI = process.env.MDB_ATLAS_URI || "MONGODB_URI"
-const DB_NAME = process.env.DB_NAME || "DB_NAME"
+const MDB_DOCKER_URI = process.env.MDB_DOCKER_URI || "MONGODB_URI"
 
+const DB_NAME = process.env.DB_NAME || "DB_NAME"
 const JWT_SECRET = process.env.JWT_SECRET || "MY_SECRET"
-const JWT_REFRESH_SECRET = process.env.REFRESH_SECRET || "MY_REFRESH_SECRET"
 
 const MAIL = process.env.MAIL_ADRESS || "MAIL"
 const MAIL_PASSWORD = process.env.MAIL_PASSWORD || "MAIL_PASSWORD"
@@ -38,9 +28,9 @@ export {
     PORT, MODE,
     MDB_LOCAL_URI,
     MDB_PROD_URI,
+    MDB_DOCKER_URI,
     DB_NAME,
     JWT_SECRET,
-    JWT_REFRESH_SECRET,
     VIEWS_PATH,
     PUBLIC_PATH,
     UPLOADS_PATH,
