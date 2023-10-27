@@ -1,4 +1,5 @@
 
+import { IP, PORT, PUBLIC_URL } from "../config/env.js"
 import { MESSAGES } from "../utils/http.utils.js"
 import { userModel } from "../models/user.model.js"
 
@@ -14,7 +15,7 @@ export const accountValidation = async (req, res) => {
 
         if (!validate) throw { status: 500, message: MESSAGES.EMAIL_VERIFICATION_FAILED }
 
-        res.render("account/validated")
+        res.render("account/validated", { baseUrl: PUBLIC_URL })
 
     } catch (error) {
         res.status(error?.status || 500).json({ message: error?.message || MESSAGES.UNEXPECTED })
@@ -22,7 +23,7 @@ export const accountValidation = async (req, res) => {
 }
 
 export const renderSendEmailPage = (req, res) => {
-    res.render("account/send-reset-email")
+    res.render("account/send-reset-email", { baseUrl: PUBLIC_URL, adress: IP })
 }
 
 export const sendRecoveryEmail = async (req, res) => {
@@ -38,22 +39,17 @@ export const sendRecoveryEmail = async (req, res) => {
         const payload = { uid: user.id }
 
         const token = createJwt(payload, secret)
-        const url = `http://localhost:3000/api/auth/forgot-password/${user.id}/${token}`
+        const url = `http://${IP}:${PORT}/api/auth/forgot-password/${user.id}/${token}`
 
-        // Enviar correo de verificación de cuenta
-        // EN DESARROLLO utilizar console.log para ver la url
-
-        //transporter.sendMail({
-        //    from: `Smart Parking UCT ${MAIL}`,
-        //    to: user.email,
-        //    subject: changePasswordSubject,
-        //    html: changePasswordTemplate(url)
-        //},
-        //    (error, info) => {
-        //        if (error) throw { status: 500, message: MESSAGES.PASSWORD_RESET_FAILED }
-        //    })
-
-        console.log(url)
+        transporter.sendMail({
+            from: `Smart Parking UCT ${MAIL}`,
+            to: user.email,
+            subject: changePasswordSubject,
+            html: changePasswordTemplate(url)
+        },
+            (error, info) => {
+                if (error) throw { status: 500, message: MESSAGES.PASSWORD_RESET_FAILED }
+            })
 
         res.status(200).json({ message: MESSAGES.PASSWORD_RESET_SENT })
 
@@ -63,7 +59,7 @@ export const sendRecoveryEmail = async (req, res) => {
 }
 
 export const renderChangePasswordPage = (req, res) => {
-    res.render("account/change-password")
+    res.render("account/change-password", { baseUrl: PUBLIC_URL })
 }
 
 export const setNewPassword = async (req, res) => {

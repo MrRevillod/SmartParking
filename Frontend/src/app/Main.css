@@ -14,8 +14,8 @@ i:hover {
 	color: #0D5492;
 }
 
-.border-blue{
-    border-color: #0D5492 !important;
+.border-blue {
+	border-color: #0D5492 !important;
 }
 
 #noty {
@@ -31,6 +31,5 @@ i:hover {
 
 
 #dark-theme-icon {
-    display: none;
+	display: none;
 }
-  

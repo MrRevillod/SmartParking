@@ -1,4 +1,4 @@
-<%- include("../templates/header", {titulo: "Smart Parking - Salida" }) %>
+<%- include("../templates/header", {titulo: "Smart Parking - Salida" , baseUrl: baseUrl}) %>
 
     <div class="maindiv">
         <form class="mainform" id="mainform">
@@ -6,12 +6,14 @@
                 <h1 class="text-center">Marcar Salida</h1>
             </div>
             <div class="text-center">
-                <img src="http://localhost:3000/images/logo-transparency-bg.png"" class=" img-fluid" alt="">
+                <img src="<%= baseUrl %>/images/logo-transparency-bg.png"" class=" img-fluid" alt="">
             </div>
             <div>
                 <div class="text-center" id="messageContainer" style="display: none;"></div>
-                <input style="margin-top: 0.5rem;" class="forminput" id="patente" type="text" placeholder="Patente" required>
-                <input style="margin-top: 0.5rem;" class="forminput" id="verificationCode" type="text" placeholder="Codigo de Verificacion" required>
+                <input style="margin-top: 0.5rem;" class="forminput" id="patente" type="text" placeholder="Patente"
+                    required>
+                <input style="margin-top: 0.5rem;" class="forminput" id="verificationCode" type="text"
+                    placeholder="Codigo de Verificacion" required>
                 <button class="btn to-reg-button" id="button">Enviar</button>
             </div>
         </form>
@@ -22,7 +24,7 @@
 
     <script>
 
-        const socket = io("http://localhost:3000")
+        const socket = io("<%= baseUrl %>")
         const form = document.getElementById("mainform")
         const button = document.getElementById("button")
         const messageContainer = document.getElementById("messageContainer")
@@ -48,7 +50,7 @@
             form.reset()
         })
 
-        socket.on("guest-exit-denied", ({message}) => {
+        socket.on("guest-exit-denied", ({ message }) => {
             messageContainer.style.display = "block"
             messageContainer.textContent = message
             messageContainer.style.color = 'red'
@@ -56,4 +58,4 @@
 
     </script>
 
-</html>
+    </html>

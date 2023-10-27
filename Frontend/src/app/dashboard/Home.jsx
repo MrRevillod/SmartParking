@@ -8,7 +8,7 @@ export const Home = () => {
         <div className="home ">
             <div className="row mx-5 h-100">
                 <div className="col-6 d-grid align-content-center mb-5">
-                    <div className="">
+                    <div className="mb-4">
                         <h1 className="display-1  fw-bold">Smart</h1>
 
                         <h1 className="display-1 fw-bold">Parking</h1>

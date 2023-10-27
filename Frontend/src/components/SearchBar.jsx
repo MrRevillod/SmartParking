@@ -10,11 +10,11 @@ export const SearchBar = ({ search, setSearch }) => {
                 type="text"
                 value={search}
                 placeholder="Ingrese nombre de usuario"
-                onChange={onChangeHandler} 
+                onChange={onChangeHandler}
                 className="searchbar bg-transparent col-11 pe-0 border-0 px-3 py-1"
             />
 
-            <div className="searchIcon col-1 border border-0 p-2     justify-content-center align-content-center d-grid">
+            <div className="searchIcon col-1 border border-0 p-2 justify-content-center align-content-center d-grid">
                 <i className="bi bi-search icon-blue"></i>
             </div>
         </div>

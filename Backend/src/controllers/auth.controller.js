@@ -3,8 +3,8 @@ import { MESSAGES } from "../utils/http.utils.js"
 import { userModel } from "../models/user.model.js"
 import { createJwt } from "../utils/jwt.utils.js"
 import { transporter } from "../utils/mailer.utils.js"
-import { JWT_SECRET, MAIL } from "../config/env.js"
 import { expiredTokens } from "../utils/etoken.utils.js"
+import { JWT_SECRET, MAIL } from "../config/env.js"
 import { hashPassword, comparePassword } from "../utils/bcrypt.utils.js"
 
 export const loginController = async (req, res) => {
@@ -75,22 +75,17 @@ export const registerController = async (req, res) => {
         const secret = JWT_SECRET + user.validated.toString()
 
         const token = createJwt(payload, secret)
-        const url = `http://localhost:3000/api/auth/validate-account/${user.id}/${token}`
+        const url = `http://${IP}:${PORT}/api/auth/validate-account/${user.id}/${token}`
 
-        // Enviar correo de verificación de cuenta
-        // EN DESARROLLO utilizar console.log para ver la url
-
-        //transporter.sendMail({
-        //    from: `Smart Parking UCT ${MAIL}`,
-        //    to: email,
-        //    subject: validationSubject,
-        //    html: validationTemplate(url)
-        //},
-        //    (error, info) => {
-        //        if (error) throw { status: 500, message: MESSAGES.EMAIL_VERIFICATION_FAILED }
-        //    })
-
-        console.log(url)
+        transporter.sendMail({
+            from: `Smart Parking UCT ${MAIL}`,
+            to: email,
+            subject: validationSubject,
+            html: validationTemplate(url)
+        },
+            (error, info) => {
+                if (error) throw { status: 500, message: MESSAGES.EMAIL_VERIFICATION_FAILED }
+            })
 
         res.status(200).json({ message: MESSAGES.EMAIL_VERIFICATION_SENT })
 

@@ -4,7 +4,7 @@ import { Vehicles } from "./Vehicles"
 export const UserCardBody = ({ user }) => {
 
     return (
-        <section className=" px-5 pb-5  fs-5" style={{height:'60%'}} >
+        <section className=" px-5 pb-5  fs-5" style={{ height: '60%' }} >
             <div className="row h-50 align-content-start justify-content-center w-100 m-0 ">
                 <div className="text-center fw-bold fs-1 ">{user.username}</div>
                 <div className="text-center text-secondary ">{user.email}</div>
@@ -22,9 +22,6 @@ export const UserCardBody = ({ user }) => {
 
             </div>
             {(user.active || user.role === "USER_ROLE") && <Vehicles user={user} />}
-
-
-
         </section>
     )
 }

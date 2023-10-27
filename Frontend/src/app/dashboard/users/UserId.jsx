@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom"
 
 import { Toast } from "../../../lib/Toast"
 import { Table } from "../../../components/Table.jsx"
+import { API_URL } from "../../../lib/env.js"
 
 import "./User.css"
 
@@ -16,7 +17,7 @@ export const UserId = ({ id }) => {
     const [loading, setLoading] = useState(true)
 
     const deleteUser = async () => {
-        const res = await fetch(`${import.meta.env.VITE_API}/users/${id}`, {
+        const res = await fetch(`${API_URL}/users/${id}`, {
             method: "DELETE",
             headers: {
                 Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -53,7 +54,7 @@ export const UserId = ({ id }) => {
     useEffect(() => {
         async function getUser() {
             const res = await fetch(
-                `${import.meta.env.VITE_API}/users/${id}`,
+                `${API_URL}/users/${id}`,
                 {
                     method: "GET",
                     headers: {

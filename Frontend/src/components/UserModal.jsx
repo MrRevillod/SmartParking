@@ -1,3 +1,4 @@
+
 import Modal from 'react-modal'
 
 import { UserCardBody } from './UserCardBody'
@@ -20,8 +21,6 @@ export const UserModal = ({ user, isModalVisible, setIsModalVisible }) => {
             <UserCardHeader user={user} isModalVisible={isModalVisible} setIsModalVisible={setIsModalVisible} />
             <UserCardBody user={user} />
             <UserCardFooter user={user} />
-
         </Modal>
-
     )
 }

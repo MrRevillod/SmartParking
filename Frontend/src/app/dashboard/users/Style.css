@@ -1,51 +1,39 @@
-.searchbar:focus{
+.searchbar:focus {
     outline: none;
-
-
 }
 
-
-
-.icon-blue{
+.icon-blue {
     color: #0D5492;
 }
 
-.backblue{
+.backblue {
     background-color: #0D5492 !important;
 }
 
-
-
-table{
+table {
     width: 100%;
-    border-collapse: separate ;
+    border-collapse: separate;
     border-spacing: 0 6px;
 }
 
-table th:first-child{
-    border-radius:10px 0 0 10px;
-  }
-  
-  table th:last-child{
-    border-radius:0 10px 10px 0;
-  }
-
-
-
-i:hover{
-    cursor:pointer;
+table th:first-child {
+    border-radius: 10px 0 0 10px;
 }
 
-.profile-img{
+table th:last-child {
+    border-radius: 0 10px 10px 0;
+}
+
+i:hover {
+    cursor: pointer;
+}
+
+.profile-img {
     width: 50px;
-
 }
 
-
-
-.userCard:hover{
-    background-color:rgb(235, 235, 235) !important;
+.userCard:hover {
+    background-color: rgb(235, 235, 235) !important;
     opacity: 0.7;
     cursor: pointer;
-    
 }

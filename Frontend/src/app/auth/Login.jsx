@@ -6,6 +6,7 @@ import { Suspense, useLayoutEffect, useState } from "react"
 
 import { Logo } from "../../components/Logo"
 import { Toast } from "../../lib/Toast"
+import { API_URL } from "../../lib/env.js"
 import { validateSession } from "../../lib/useValidateSession"
 
 import "./Login.css"
@@ -20,7 +21,7 @@ export const Login = () => {
 
     const onSubmit = handleSubmit(async (data) => {
 
-        const res = await fetch(`${import.meta.env.VITE_API}/auth/admin-login`, {
+        const res = await fetch(`${API_URL}/auth/admin-login`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(data),

@@ -1,9 +1,8 @@
 
 import { useState } from "react"
-
-
 import { UserModal } from "./UserModal"
 import { Pill } from "./Pill"
+import { API_URL } from "../lib/env"
 
 const slotStyle = {
     width: '5vw',
@@ -20,7 +19,7 @@ export const ParkingSlot = ({ parking }) => {
         ev.preventDefault()
         if (parking.status !== "disponible") {
             const token = localStorage.getItem('token')
-            const res = await fetch(`${import.meta.env.VITE_API}/users/${parking.userId}`, {
+            const res = await fetch(`${API_URL}/users/${parking.userId}`, {
                 headers: {
                     "Authorization": `Bearer ${token}`
                 }
@@ -35,7 +34,7 @@ export const ParkingSlot = ({ parking }) => {
 
     return (
         <>
-            <div className={`${parking.status}  rounded-top-4 p-2 rounded-start-0 parkingSlot fs-6 fw-bold shadow-sm `}
+            <div className={`${parking.status} rounded-top-4 p-2 rounded-start-0 parkingSlot fs-6 fw-bold shadow-sm `}
                 style={slotStyle}
                 onMouseOver={(e) => { e.preventDefault; setHover(true); }}
                 onMouseLeave={(e) => { e.preventDefault; setHover(false) }}
