@@ -3,41 +3,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <title>Document</title>
 </head>
+<style>
+    body {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+    }
+    
+    .flex-container {
+        background-color: black;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .boton {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    button {
+        background-color: #007bff;
+        color: white;
+    }
+    
+    a {
+        text-decoration: none;
+        color: #007bff;
+    }
+    
+    h1 {
+        text-align: center;
+        color: white;
+    }
+</style>
 <body>
-    <div>
-        <div>
-            <div>
-                <form id="registerForm" action="/api/auth/register" method="POST">
-                    <h1>Registro</h1>
-                    <input type="text" name="username" id="username" placeholder="Nombres y Apellidos" required>
-                    <input type="email" name="email" id="email" placeholder="Correo Electrónico" required>
-                    <input type="password" name="password" id="password" placeholder="Contraseña" required>
-                    <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirmar Contraseña" required>
-                    <input type="tel" name="contact" id="contact" placeholder="Número de Contacto" required>
-                    <input type="text" name="vehicles.patente" id="patente" placeholder="Placa del Vehículo" required>
-                    <input type="text" name="vehicles.model" id="model" placeholder="Modelo del Vehículo" required>
-                    <input type="number" name="vehicles.year" id="year" placeholder="Año del Vehículo" required>
-                    <button type="submit">Registrar</button>
-                </form>
+    <div class="flex-container">            
+        <form class="mainform-2" id="Regform">
+            <h1>Registro</h1>
+            <div class="text-center" id="ierror" style="display: none; color: red;"> Las Contraseñas debencoincidir. </div>
+            <div class="text-center" id="errorwithout" style="display: none; color: red;"> No puede dejar espaciosen blanco. </div>
+            <div class="text-center" id="passwordregex" style="display: none; color: red;"> La contraseña debe contener al menos un número, una letra minúscula y un carácter especial: (! @ # $ % ^ & *)</div>
+            <div class="text-center" id="messageContainer" style="display: none;"></div>
+            
+            <input type="text" name="username" id="username" style="margin-top: 0.5rem;" minlength="8" placeholder="Nombres y Apellidos" required>
+            <input type="email" name="email" id="email" style="margin-top: 0.5rem;" minlength="8" placeholder="Correo Electrónico" required>
+            <input type="password" name="password" id="password" style="margin-top: 0.5rem;" minlength="8" placeholder="Contraseña" required>
+            <input type="password" name="confirmPassword" id="confirmPassword" style="margin-top: 0.5rem;" minlength="8" placeholder="Confirmar Contraseña" required>
+            <input type="tel" name="contact" id="contact" style="margin-top: 0.5rem;" minlength="8" placeholder="Número de Contacto" required>
+            <input type="text" name="vehicles.patente" id="patente" style="margin-top: 0.5rem;" minlength="8" placeholder="Placa del Vehículo" required>
+            <input type="text" name="vehicles.model" id="model" style="margin-top: 0.5rem;" minlength="8" placeholder="Modelo del Vehículo" required>
+            <input type="number" name="vehicles.year" id="year" style="margin-top: 0.5rem;" minlength="8" placeholder="Año del Vehículo" required>
+            <div class="boton">
+                <button id="button-2" style="margin-top: 0.5rem;" minlength="8">Registrarse</button>
             </div>
-        </div>
+            <a href="http://localhost:3000/api/mobile">Volver al login</a>
+        </form>
+        <section>
+            <div id="Respuesta" style="color: white;"></div>
+        </section>  
     </div>
 </body>
 
 <script>
-    document.getElementById('registerForm').addEventListener('submit', async (event) => {
+    const button = document.getElementById("button-2");
+    const form = document.getElementById("Regform");
+    const messageContainer = document.getElementById('messageContainer');
+    const ierror = document.getElementById("ierror");
+    const errorwithout = document.getElementById("errorwithout");
+    const passwordregex = document.getElementById("passwordregex");
+    const respuestaDiv = document.getElementById("Respuesta"); // Obtén el div de respuesta.
+
+    button.addEventListener("click", async (e) => {
         event.preventDefault(); // Evitar que el formulario se envíe de forma convencional.
-    
+
         const password = document.getElementById('password').value;
         const confirmPassword = document.getElementById('confirmPassword').value;
-    
+
         if (password !== confirmPassword) {
             alert('Las contraseñas no coinciden. Por favor, inténtalo nuevamente.');
             return; // No enviar el formulario si las contraseñas no coinciden.
         }
-    
+
         const data = {
             username: document.getElementById('username').value,
             email: document.getElementById('email').value,
@@ -49,50 +112,28 @@
                 year: parseInt(document.getElementById('year').value)
             }
         };
-    
-        const res = await fetch("http://localhost:3000/api/register", {
+
+        const res = await fetch("http://localhost:3000/api/auth/register", {
             method: "POST",
-            headers: { 'Content-Type': 'application/json' },
+            headers: {
+                'Content-Type': 'application/json'
+            },
             body: JSON.stringify(data)
         });
-    
+
         const result = await res.json();
-    
-        if (result.success) {
-            alert('Registro exitoso. Ahora puedes iniciar sesión.');
+
+        if (res.ok) {
+            // Mostrar el div de respuesta y establecer su contenido con el mensaje del servidor.
+            respuestaDiv.style.display = "block";
+            respuestaDiv.textContent = result.message; // Utiliza el mensaje del servidor.
         } else {
-            alert('Error al registrar. Verifica tus datos e inténtalo nuevamente.');
+            // En caso de error, mostrar el mensaje de error en el div de respuesta.
+            respuestaDiv.style.display = "block";
+            respuestaDiv.textContent = 'Error al registrar. Verifica tus datos e inténtalo nuevamente.';
         }
     });
-
-    const express = require('express');
-    const app = express();
-    const bodyParser = require('body-parser');
-
-    // Middleware para procesar JSON en las solicitudes.
-    app.use(bodyParser.json());
-
-    // Ruta para el registro de usuario.
-    app.post('/api/auth/register', (req, res) => {
-        const { username, email, password, contact, vehicles } = req.body;
-
-        // Realiza las validaciones y el registro de usuario aquí, de acuerdo a los criterios especificados.
-        
-        // Si el registro es exitoso, responde con un objeto JSON que indique el éxito.
-        const success = true;
-        if (success) {
-            res.json({ success: true });
-        } else {
-            res.status(400).json({ success: false });
-        }
-    });
-
-    // Resto de la configuración del servidor...
-
-    const port = 3000;
-    app.listen(port, () => {
-        console.log(`Servidor en ejecución en el puerto ${port}`);
-    });
-
 </script>
+
+
 </html>

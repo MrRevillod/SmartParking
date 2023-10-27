@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom"
 import { Toast } from "../../../lib/Toast"
 import { Table } from "../../../components/Table.jsx"
 
-import "./user.css"
+import "./User.css"
 
 export const UserId = ({ id }) => {
 

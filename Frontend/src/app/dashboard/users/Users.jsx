@@ -4,7 +4,7 @@ import { useEffect, useState } from "react"
 
 import { UserCard } from "../../../components/UserCard"
 
-import "./style.css"
+import "./Style.css"
 import "bootstrap-icons/font/bootstrap-icons.css"
 
 const table_columns = [
