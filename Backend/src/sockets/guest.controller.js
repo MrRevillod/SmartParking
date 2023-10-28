@@ -86,7 +86,7 @@ export const guestExitController = async (io, socket, data) => {
     const { id, parking } = user
 
     await userModel.findByIdAndDelete(id)
-    await parkingModel.findOneAndUpdate({ name: parking }, { active: false, status: "libre", userId: "" })
+    await parkingModel.findOneAndUpdate({ name: parking }, { active: false, status: "disponible", userId: "" })
 
     socket.emit("guest-exit-ok", {
         message: `Hemos registrado tu salida del estacionamiento ${parking}`

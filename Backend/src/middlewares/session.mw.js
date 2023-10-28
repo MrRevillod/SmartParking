@@ -2,6 +2,7 @@
 import { JWT_SECRET } from "../config/env.js"
 import { MESSAGES } from "../utils/http.utils.js"
 import { verifyJwt } from "../utils/jwt.utils.js"
+import { saveError } from "../utils/error.txt.js"
 import { expiredTokens } from "../utils/etoken.utils.js"
 
 export const sessionValidation = async (req, res, next) => {
@@ -19,5 +20,6 @@ export const sessionValidation = async (req, res, next) => {
 
     } catch (error) {
         return res.status(401).json({ message: MESSAGES.UNAUTHORIZED })
+        saveError(error)
     }
 }

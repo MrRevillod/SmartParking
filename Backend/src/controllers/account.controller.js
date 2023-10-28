@@ -1,5 +1,6 @@
 
 import { MESSAGES } from "../utils/http.utils.js"
+import { saveError } from "../utils/error.txt.js"
 import { userModel } from "../models/user.model.js"
 
 export const accountValidation = async (req, res) => {
@@ -18,6 +19,7 @@ export const accountValidation = async (req, res) => {
 
     } catch (error) {
         res.status(error?.status || 500).json({ message: error?.message || MESSAGES.UNEXPECTED })
+        saveError(error)
     }
 }
 
@@ -59,6 +61,7 @@ export const sendRecoveryEmail = async (req, res) => {
 
     } catch (error) {
         res.status(error?.status || 500).json({ message: error?.message || MESSAGES.UNEXPECTED })
+        saveError(error)
     }
 }
 
@@ -81,5 +84,6 @@ export const setNewPassword = async (req, res) => {
 
     } catch (error) {
         res.status(error?.status || 500).json({ message: error?.message || MESSAGES.UNEXPECTED })
+        saveError(error)
     }
 }

@@ -1,5 +1,6 @@
 
 import { MESSAGES } from "../utils/http.utils.js"
+import { saveError } from "../utils/error.txt.js"
 import { userModel } from "../models/user.model.js"
 
 export const getUsers = async (req, res) => {
@@ -13,6 +14,7 @@ export const getUsers = async (req, res) => {
 
     } catch (error) {
         res.status(error?.status || 500).json({ message: error?.message || MESSAGES.UNEXPECTED })
+        saveError(error)
     }
 }
 
@@ -29,6 +31,7 @@ export const getUser = async (req, res) => {
 
     } catch (error) {
         res.status(error?.status || 500).json({ message: error?.message || MESSAGES.UNEXPECTED })
+        saveError(error)
     }
 }
 
@@ -45,6 +48,7 @@ export const deleteUser = async (req, res) => {
 
     } catch (error) {
         res.status(error?.status || 500).json({ message: error?.message || MESSAGES.UNEXPECTED })
+        saveError(error)
     }
 }
 
@@ -65,6 +69,7 @@ export const updateUser = async (req, res) => {
 
     } catch (error) {
         res.status(error?.status || 500).json({ message: error?.message || MESSAGES.UNEXPECTED })
+        saveError(error)
     }
 }
 
@@ -85,5 +90,6 @@ export const updateImage = async (req, res) => {
 
     } catch (error) {
         res.status(error?.status || 500).json({ message: error?.message || MESSAGES.UNEXPECTED })
+        saveError(error)
     }
 }

@@ -116,8 +116,7 @@ export default function Usearch() {
                                 <div className="overflow-scroll border-bottom border-1   row w-full  justify-content-center  " style={{ maxHeight: '55vh' }}>
                                     {results.map((e) => (<>
                                         <UserCard e={e} key={e._id} item={item} />
-                                        <UserCard e={e} key={e._id + "2"} item={item} />
-                                        <UserCard e={e} key={e._id + "3"} item={item} />
+                                    
                                     </>
                                     ))}
                                 </div>

@@ -1,6 +1,7 @@
 
 import { MESSAGES } from "../utils/http.utils.js"
 import { verifyJwt } from "../utils/jwt.utils.js"
+import { saveError } from "../utils/error.txt.js"
 import { userModel } from "../models/user.model.js"
 import { JWT_SECRET } from "../config/env.js"
 
@@ -19,6 +20,7 @@ export const checkUserExist = async (req, res, next) => {
 
     } catch (error) {
         res.render("invalid-url")
+        saveError(error)
     }
 }
 
@@ -37,6 +39,7 @@ export const checkValidateAccountToken = async (req, res, next) => {
 
     } catch (error) {
         res.render("invalid-url")
+        saveError(error)
     }
 }
 
@@ -55,5 +58,6 @@ export const checkChangePasswordToken = async (req, res, next) => {
 
     } catch (error) {
         res.render("invalid-url")
+        saveError(error)
     }
 }
