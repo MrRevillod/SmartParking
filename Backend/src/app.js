@@ -23,3 +23,7 @@ app.set("view engine", "ejs")
 
 app.use(express.urlencoded({ extended: true }))
 app.use(router)
+
+app.use((req, res) => {
+    res.status(404).render('404', { title: '404 - Página no encontrada' })
+})

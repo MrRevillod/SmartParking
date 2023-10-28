@@ -1,11 +1,9 @@
 
+import "./Stats.css"
 
+import Cardy from "./Cardy"
 
-import "./peticiones.css"
-
-import Cardy from "./cardy"
-
-export const Peticiones = ({ reservas }) => {
+export const Stats = ({ reservas }) => {
     return (
         <div className="col w-full row justify-content-center  ">
             <div className="text-center display-2 fw-bold m-3 mt-5">Reservas</div>

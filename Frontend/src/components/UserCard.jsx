@@ -1,36 +1,41 @@
 
+import { useState } from "react"
+
 import { motion } from "framer-motion"
 // import { useNavigate } from "react-router-dom"
 
+import { UserModal } from "./UserModal"
+import { Pill } from "./Pill"
+
 export const UserCard = ({ e, item }) => {
-    // const router = useNavigate()
+    const [isModalVisible, setIsModalVisible] = useState(false)
+
+    const [hover, setHover] = useState(false)
+
+    const onClickHandler = async (ev) => {
+        ev.preventDefault()
+        setIsModalVisible(true)
+
+    }
+
     return (
 
-        <motion.li
-
-            className="w-100  "
-            // initial={{ y: 60 }}
-            // animate={{ y: 0 }}
-            // exit={{ y: 60 }}
-            // transition={{ duration: 0.1 }}
+        <motion.div
+            className="w-100   "
             variants={item}
+
         >
-            <div
-                key={e._id}
+            <div onClick={onClickHandler}
                 className=" userCard row rounded-1 my-1 shadow-sm bg-white border icon-blue fs-4 p-2 "
+                onMouseOver={(e) => { e.preventDefault; setHover(true); }}
+                onMouseLeave={(e) => { e.preventDefault; setHover(false) }}
             >
-                {/* <div className="col text-start ">
-                    <img
-                        src={e.profilePicture}
-                        className="rounded-circle profile-img"
-                    ></img>
-                </div> */}
                 <div className="col text-start">{e.username}</div>
                 <div className="col text-start">
                     {e.vehicles[0].patente}
                 </div>
                 <div className="col text-start">
-                    {e.active ? e.parking : "desconocida"}
+                    {e.active ? e.parking : <div className="text-secondary">--</div>}
                 </div>
                 <div className="col text-start ">
                     {e.active ? (
@@ -39,15 +44,14 @@ export const UserCard = ({ e, item }) => {
                         <i className="bi bi-circle-fill text-danger h3"></i>
                     )}
                 </div>
-                {/* <div className="col text-start">
-                    <button className="btn bt " onClick={(ev) => {
-                        ev.preventDefault()
-                        router(`/dashboard/usearch/${e._id}`)
-                    }}>
-                        <i className="bi bi-pencil-square  icon-blue h-75  h3" />
-                    </button>
-                </div> */}
             </div>
-        </motion.li>
+            {
+                hover && <div className="position-absolute   end-0 bottom-0 m-4">
+                    <Pill bakgroundClass={"bg-secondary p-3 opacity-50 fs-5 "}>Presione para ver usuario</Pill>
+                </div>
+            }
+
+            {<UserModal isModalVisible={isModalVisible} setIsModalVisible={setIsModalVisible} user={e} />}
+        </motion.div>
     )
 }   

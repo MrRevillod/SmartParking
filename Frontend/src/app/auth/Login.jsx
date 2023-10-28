@@ -4,9 +4,9 @@ import { useForm } from "react-hook-form"
 import { Link, useNavigate } from "react-router-dom"
 import { Suspense, useLayoutEffect, useState } from "react"
 
-import { Logo } from "../components/Logo"
-import { Toast } from "../lib/Toast"
-import { validateSession } from "../lib/useValidateSession"
+import { Logo } from "../../components/Logo"
+import { Toast } from "../../lib/Toast"
+import { validateSession } from "../../lib/useValidateSession"
 
 import "./Login.css"
 

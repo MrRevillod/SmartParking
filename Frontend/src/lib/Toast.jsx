@@ -7,7 +7,7 @@ export const Toast = ({ msg = "Bien Hecho", pos = "bottom-right" }) => {
         position: pos,
         backdrop: false,
         iconHtml:
-            "<img src='../../public/logo_.png' class=' card-img overflow-hidden' ><img/>",
+            "<img src='../../logo_.png' class=' card-img overflow-hidden' ><img/>",
         width: "300px",
         customClass: {
             icon: "no-border",
@@ -15,6 +15,7 @@ export const Toast = ({ msg = "Bien Hecho", pos = "bottom-right" }) => {
         showConfirmButton: false,
         timer: 800,
     })
-
     return new Promise((resolve) => setTimeout(resolve, 800))
 }
+
+
