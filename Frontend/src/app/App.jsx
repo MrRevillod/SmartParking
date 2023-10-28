@@ -53,7 +53,7 @@ export const App = () => {
         socket.connect()
 
         const onConnect = () => {
-            socket.emit("join-admin")
+            socket.emit("join-admin", { token: localStorage.getItem("token") })
             Toast({ msg: "Socket Connected" })
         }
         const onDisconnect = () => {
