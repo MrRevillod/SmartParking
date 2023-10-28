@@ -61,7 +61,11 @@ const userSchema = new Schema({
 
     verificationCode: {
         type: Number, required: false
-    }
+    },
+
+    expiredTokens: [{
+        type: String, unique: true
+    }]
 
 },
     { timestamps: true, versionKey: false }

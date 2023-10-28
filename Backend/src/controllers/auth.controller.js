@@ -1,9 +1,8 @@
 
 import { MESSAGES } from "../utils/http.utils.js"
 import { userModel } from "../models/user.model.js"
-import { createJwt } from "../utils/jwt.utils.js"
+import { createJwt, verifyJwt } from "../utils/jwt.utils.js"
 import { transporter } from "../utils/mailer.utils.js"
-import { expiredTokens } from "../utils/etoken.utils.js"
 import { JWT_SECRET, MAIL, PUBLIC_URL } from "../config/env.js"
 import { hashPassword, comparePassword } from "../utils/bcrypt.utils.js"
 import { validationSubject, validationTemplate } from "../utils/mail.template.js"
@@ -105,9 +104,17 @@ export const logoutController = async (req, res) => {
     try {
 
         const token = req.headers.authorization?.split(' ').pop() || ''
-        const expired = expiredTokens.push(token)
+        const payload = verifyJwt(token, JWT_SECRET)
+        const uid = payload.uid
 
+        const user = await userModel.findById(uid)
+        if (!user) throw { status: 401, message: MESSAGES.USER_NOT_FOUND }
+
+        const expired = user.expiredTokens.push(token)
         if (!expired) throw { status: 500, message: MESSAGES.INVALID_TOKEN }
+
+        await user.save()
+
         res.status(200).json({ message: MESSAGES.OK })
 
     } catch (error) {
