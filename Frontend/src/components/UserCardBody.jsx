@@ -3,6 +3,12 @@ import { Vehicles } from "./Vehicles"
 
 export const UserCardBody = ({ user }) => {
 
+    const roles = {
+        "ADMIN_ROLE": "Administrador",
+        "USER_ROLE": "Usuario móvil",
+        "TEMP_USER_ROLE": "Usuario temporal"
+    }
+
     return (
         <section className=" px-5 pb-5  fs-5" style={{ height: '60%' }} >
             <div className="row h-50 align-content-start justify-content-center w-100 m-0 ">
@@ -12,7 +18,7 @@ export const UserCardBody = ({ user }) => {
 
                 <div className="row w-100 m-0 justify-content-center gap-2 mt-3">
                     <Pill bakgroundClass={'bg-primary'}>
-                        {user.role === 'USER_ROLE' ? "Usuario" : "Usuario temporal"}
+                        {roles[user.role]}
                     </Pill>
                     {user.active ?
                         <Pill bakgroundClass="bg-success ">Activo</Pill> :

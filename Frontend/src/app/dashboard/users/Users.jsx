@@ -7,7 +7,7 @@ import { Filters } from "../../../components/Filters"
 import { SearchBar } from "../../../components/SearchBar"
 import { TableUsers } from "../../../components/TableUsers"
 
-import "./Style.css"
+import "./Users.css"
 import "bootstrap-icons/font/bootstrap-icons.css"
 
 const table_columns = [

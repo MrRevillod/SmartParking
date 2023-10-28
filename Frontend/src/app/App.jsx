@@ -13,7 +13,6 @@ import { Home } from "./dashboard/Home.jsx"
 import { Navbar } from "../components/Navbar.jsx"
 import { Loading } from "../components/Loading.jsx"
 import { Users } from "./dashboard/users/Users.jsx"
-import { UserId } from "./dashboard/users/UserId.jsx"
 import { Stats } from "./dashboard/stats/Stats.jsx"
 import { Parking } from "./dashboard/parking/Parking.jsx"
 
@@ -107,17 +106,8 @@ export const App = () => {
                             <Route path="/" element={<Home />} />
                             <Route path="/dashboard" element={<Home />} />
                             <Route path="/users" element={<Users />} />
-                            <Route path="/users/:id" element={<UserId />} />
-                            <Route
-                                path="/parking"
-                                element={<Parking parkings={parkings} />}
-                            />
-
-                            <Route
-                                path="/stats"
-                                element={<Stats reservas={reservas} />}
-                            />
-
+                            <Route path="/parking" element={<Parking parkings={parkings} />} />
+                            <Route path="/stats" element={<Stats reservas={reservas} />} />
                         </Routes>
                     </QueryClientProvider>
                 </motion.div>

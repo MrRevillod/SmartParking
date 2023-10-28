@@ -11,7 +11,7 @@ i:hover {
 }
 
 .icon-blue {
-	color: #0D5492;
+	color: #0D5492 !important;
 }
 
 .border-blue {

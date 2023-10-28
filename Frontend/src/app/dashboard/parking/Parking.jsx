@@ -34,19 +34,18 @@ export const Parking = ({ parkings }) => {
 
     return (
         <div className='row w-100'>
-            <div className='col d-grid align-content-center justify-content-center   '>
-                
+            <div className='col d-grid align-content-center justify-content-center'>
+
                 <h1 className="text-center display-3 fw-bold mt-5">Estacionamiento</h1>
-                <p className="text-center fs-5  ">Estado de los estacionamientos</p>
+                <p className="text-center fs-5">Estado de los estacionamientos</p>
 
-
-                <div className="row  py-5   ">
+                <div className="row py-5">
                     <StatusCircle2 percent={ocupados} label={"ocupado"} />
                     <StatusCircle2 percent={disponibles} label={"disponible"} />
                     <StatusCircle2 percent={reservados} label={"reservado"} />
 
                 </div>
-                <div className="row border  rounded">
+                <div className="row border rounded">
                     <Legend status={"ocupado"} />
                     <Legend status={"disponible"} />
                     <Legend status={"reservado"} />

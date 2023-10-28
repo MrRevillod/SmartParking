@@ -118,8 +118,7 @@ export const Login = () => {
                                 <div className="text-center p-3">
                                     <Link
                                         className="recoverinput"
-                                        to={`${import.meta.env.VITE_API
-                                            }/auth/forgot-password`}
+                                        to={`${API_URL}/auth/forgot-password`}
                                     >
                                         ¿Olvidaste tu contraseña?
                                     </Link>

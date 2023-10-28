@@ -3,14 +3,16 @@
     <div class="maindiv">
         <form class="mainform" id="emailForm">
             <div class="text-center">
-                <img src="<%= baseUrl %>/images/logo-transparency-bg.png" class="img-fluid" alt="">
+                <img src="<%= baseUrl %>/images/logo-blue.png" class="img-fluid" alt="">
             </div>
             <div>
                 <div class="text-center" id="messageContainer" style="display: none;"></div>
                 <input style="margin-top: 0.5rem;" class="forminput" type="email" id="email" name="email"
                     placeholder="Ingrese su dirección de correo electrónico" required>
                 <button type="submit" class="btn to-reg-button">Enviar</button>
-                <a href="http://<%= adress %>:8000/auth/login" class="pe-auto">Volver al login</a>
+                <div style="margin-top: 1rem; text-decoration: none;">
+                    <a href="http://<%= adress %>:8000/auth/login">Volver al login</a>
+                </div>
             </div>
         </form>
     </div>
@@ -33,6 +35,8 @@
             });
 
             const responseData = await response.json();
+
+            console.log(responseData);
 
             if (response.ok) {
                 form.reset()

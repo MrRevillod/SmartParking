@@ -4,8 +4,9 @@ import { userModel } from "../models/user.model.js"
 import { createJwt } from "../utils/jwt.utils.js"
 import { transporter } from "../utils/mailer.utils.js"
 import { expiredTokens } from "../utils/etoken.utils.js"
-import { JWT_SECRET, MAIL } from "../config/env.js"
+import { JWT_SECRET, MAIL, PUBLIC_URL } from "../config/env.js"
 import { hashPassword, comparePassword } from "../utils/bcrypt.utils.js"
+import { validationSubject, validationTemplate } from "../utils/mail.template.js"
 
 export const loginController = async (req, res) => {
 
@@ -75,7 +76,7 @@ export const registerController = async (req, res) => {
         const secret = JWT_SECRET + user.validated.toString()
 
         const token = createJwt(payload, secret)
-        const url = `http://${IP}:${PORT}/api/auth/validate-account/${user.id}/${token}`
+        const url = `${PUBLIC_URL}/api/auth/validate-account/${user.id}/${token}`
 
         transporter.sendMail({
             from: `Smart Parking UCT ${MAIL}`,
@@ -84,6 +85,7 @@ export const registerController = async (req, res) => {
             html: validationTemplate(url)
         },
             (error, info) => {
+                console.log(error ? error : info)
                 if (error) throw { status: 500, message: MESSAGES.EMAIL_VERIFICATION_FAILED }
             })
 
