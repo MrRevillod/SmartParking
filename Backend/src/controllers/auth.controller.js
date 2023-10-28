@@ -4,7 +4,6 @@ import { userModel } from "../models/user.model.js"
 import { createJwt, verifyJwt } from "../utils/jwt.utils.js"
 import { transporter } from "../utils/mailer.utils.js"
 import { JWT_SECRET, MAIL } from "../config/env.js"
-import { expiredTokens } from "../utils/etoken.utils.js"
 import { hashPassword, comparePassword } from "../utils/bcrypt.utils.js"
 
 export const loginController = async (req, res) => {
@@ -118,7 +117,7 @@ export const logoutController = async (req, res) => {
         if (!expired) throw { status: 500, message: MESSAGES.INVALID_TOKEN }
 
         await user.save()
-        
+
         res.status(200).json({ message: MESSAGES.OK })
 
     } catch (error) {
