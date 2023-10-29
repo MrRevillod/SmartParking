@@ -1,8 +1,8 @@
 
 import { MESSAGES } from "../utils/http.utils.js"
 import { userModel } from "../models/user.model.js"
-import { createJwt, verifyJwt } from "../utils/jwt.utils.js"
 import { transporter } from "../utils/mailer.utils.js"
+import { createJwt, verifyJwt } from "../utils/jwt.utils.js"
 import { JWT_SECRET, MAIL, PUBLIC_URL } from "../config/env.js"
 import { hashPassword, comparePassword } from "../utils/bcrypt.utils.js"
 import { validationSubject, validationTemplate } from "../utils/mail.template.js"
@@ -114,7 +114,6 @@ export const logoutController = async (req, res) => {
         if (!expired) throw { status: 500, message: MESSAGES.INVALID_TOKEN }
 
         await user.save()
-
         res.status(200).json({ message: MESSAGES.OK })
 
     } catch (error) {
