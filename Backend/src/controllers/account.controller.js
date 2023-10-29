@@ -1,6 +1,12 @@
 
 import { MESSAGES } from "../utils/http.utils.js"
+import { saveError } from "../utils/error.utils.js"
 import { userModel } from "../models/user.model.js"
+import { createJwt } from "../utils/jwt.utils.js"
+import { transporter } from "../utils/mailer.utils.js"
+import { hashPassword } from "../utils/bcrypt.utils.js"
+import { IP, PORT, PUBLIC_URL, JWT_SECRET, MAIL } from "../config/env.js"
+import { changePasswordSubject, changePasswordTemplate } from "../utils/mail.template.js"
 
 export const accountValidation = async (req, res) => {
 
@@ -14,15 +20,16 @@ export const accountValidation = async (req, res) => {
 
         if (!validate) throw { status: 500, message: MESSAGES.EMAIL_VERIFICATION_FAILED }
 
-        res.render("account/validated")
+        res.render("account/validated", { baseUrl: PUBLIC_URL })
 
     } catch (error) {
         res.status(error?.status || 500).json({ message: error?.message || MESSAGES.UNEXPECTED })
+        saveError(error)
     }
 }
 
 export const renderSendEmailPage = (req, res) => {
-    res.render("account/send-reset-email")
+    res.render("account/send-reset-email", { baseUrl: PUBLIC_URL, adress: IP })
 }
 
 export const sendRecoveryEmail = async (req, res) => {
@@ -38,32 +45,28 @@ export const sendRecoveryEmail = async (req, res) => {
         const payload = { uid: user.id }
 
         const token = createJwt(payload, secret)
-        const url = `http://localhost:3000/api/auth/forgot-password/${user.id}/${token}`
+        const url = `http://${IP}:${PORT}/api/auth/forgot-password/${user.id}/${token}`
 
-        // Enviar correo de verificación de cuenta
-        // EN DESARROLLO utilizar console.log para ver la url
-
-        //transporter.sendMail({
-        //    from: `Smart Parking UCT ${MAIL}`,
-        //    to: user.email,
-        //    subject: changePasswordSubject,
-        //    html: changePasswordTemplate(url)
-        //},
-        //    (error, info) => {
-        //        if (error) throw { status: 500, message: MESSAGES.PASSWORD_RESET_FAILED }
-        //    })
-
-        console.log(url)
+        transporter.sendMail({
+            from: `Smart Parking UCT ${MAIL}`,
+            to: user.email,
+            subject: changePasswordSubject,
+            html: changePasswordTemplate(url)
+        },
+            (error, info) => {
+                if (error) throw { status: 500, message: MESSAGES.PASSWORD_RESET_FAILED }
+            })
 
         res.status(200).json({ message: MESSAGES.PASSWORD_RESET_SENT })
 
     } catch (error) {
         res.status(error?.status || 500).json({ message: error?.message || MESSAGES.UNEXPECTED })
+        saveError(error)
     }
 }
 
 export const renderChangePasswordPage = (req, res) => {
-    res.render("account/change-password")
+    res.render("account/change-password", { baseUrl: PUBLIC_URL })
 }
 
 export const setNewPassword = async (req, res) => {
@@ -77,9 +80,10 @@ export const setNewPassword = async (req, res) => {
         const updated = await userModel.findByIdAndUpdate(id, { $set: { password: hash } }, { new: true })
 
         if (!updated) throw { status: 500, message: MESSAGES.PASSWORD_RESET_FAILED }
-        res.status(200).json({ message: MESSAGES.OK })
+        res.status(200).json({ message: MESSAGES.PASSWORD_CHANGED })
 
     } catch (error) {
         res.status(error?.status || 500).json({ message: error?.message || MESSAGES.UNEXPECTED })
+        saveError(error)
     }
 }

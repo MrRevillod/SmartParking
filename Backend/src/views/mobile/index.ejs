@@ -4,105 +4,121 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <title>Document</title>
+    <title>Smart Parking - Mobile</title>
+    <link rel="stylesheet" href="<%= baseUrl %>/stylesheets/mobile.login.css">
+    <link rel="stylesheet" href="<%= baseUrl %>/stylesheets/mobile.base.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="<%= baseUrl %>/images/logo-white.png">
+    <script src="<%= baseUrl %>/scripts/mobile.functions.js"></script>
 </head>
-<style>
-    body {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: 0;
-    }
-    
-    .flex-container {
-        background-color: black;
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-    
-    form {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .boton {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    button {
-        background-color: #007bff;
-        color: white;
-    }
-    
-    a {
-        text-decoration: none;
-        color: #007bff;
-        margin-top: 10px; /* Agrega un margen superior para separar "a" de los demás elementos */
-    }
-    
-    h1 {
-        text-align: center;
-        color: white;
-    }
-</style>
-<body>    
-    <div class="flex-container">
-        <form id="form-login">
-            <h1 style="margin-top: 0.5rem;" minlength="8">login</h1>
-            <input id="email" style="margin-top: 0.5rem;" minlength="8" type="text" placeholder="Email" required>
-            <input id="password" style="margin-top: 0.5rem;" minlength="8" type="password" placeholder="Contaseña" required>
-        </form>
-        <div class="boton">
-            <button id="button-1" style="margin-top: 0.5rem;" minlength="8">Iniciar sesión</button>
-            <a style="margin-top: 0.5rem;" minlength="8" href="http://localhost:3000/api/auth/forgot-password">¿olvidaste tu contraseña?</a>
-            <a style="margin-top: 0.5rem;" minlength="8" href="http://localhost:3000/api/mobile/register">Registrarse</a>
+
+<body>
+
+    <div id="load"></div>
+
+    <div id="mobile">
+        <div id="main-cont">
+            <form id="form-login">
+                <div id="logo-cont">
+                    <img src="<%= baseUrl%>/images/logo-blue.png" alt="SmartParking Logo" width="150" height="150">
+                    <div id="res-cont"></div>
+                </div>
+                <div id="response"></div>
+                <input id="email" type="email" placeholder="Correo electrónico">
+                <input id="password" type="password" placeholder="Contraseña">
+                <button id="button-1">Iniciar sesión</button>
+            </form>
+            <div id="a-cont">
+                <a href="<%= baseUrl %>/api/auth/forgot-password">¿Olvidaste tu contraseña?</a>
+                <a href="<%= baseUrl %>/api/mobile/register">Registrarme</a>
+            </div>
         </div>
     </div>
+
 </body>
+
 <script>
 
-    const button = document.getElementById("button-1");
+    window.addEventListener("load", async () => {
 
-    button.addEventListener("click", async (e) => {
-        const email = document.getElementById("email").value;
-        const password = document.getElementById("password").value;
+        const load = document.getElementById('load')
+        const mobile = document.getElementById('mobile')
 
-        if (email.trim() === "" || password.trim() === "") {
-            alert("Por favor, completa todos los campos");
-        } else {
-            const data = {
-                email,
-                password
-            };
+        if (localStorage.getItem("token")) {
 
-            const res = await fetch("http://localhost:3000/api/auth/login", {
+            const token = localStorage.getItem("token")
+            const res = await fetch("<% baseUrl %>/api/auth/confirm-session", {
                 method: "POST",
                 headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(data)
-            });
-
-            const result = await res.json();
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                }
+            })
 
             if (res.ok) {
-                localStorage.setItem("token", result.token);
-                window.location.href = "http://localhost:3000/api/mobile/reservation";
+                window.location.href = "<%= baseUrl %>/api/mobile/home"
+
             } else {
-                window.location.href = "http://localhost:3000/api/mobile/login";
+                localStorage.removeItem("token")
+                load.style.display = "none"
+                mobile.style.display = "flex"
             }
         }
-    });
+
+        load.style.display = "none"
+        mobile.style.display = "flex"
+    })
+
+    const button = document.getElementById("button-1")
+
+    button.addEventListener("click", async (e) => {
+
+        e.preventDefault()
+
+        const email = document.getElementById("email").value
+        const password = document.getElementById("password").value
+
+        if (!email || !password) {
+            setResponse("No puedes dejar espacios en blanco")
+            return
+        }
+
+        if (!isValidEmail(email)) {
+            setResponse("El correo electrónico no es válido")
+            return
+        }
+
+        if (!isValidPassword(password)) {
+            setResponse("La contraseña no es válida")
+            return
+        }
+
+        const data = {
+            email,
+            password
+        }
+
+        const res = await fetch("<%= baseUrl %>/api/auth/login", {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+
+            body: JSON.stringify(data)
+        })
+
+        const result = await res.json()
+
+        if (res.ok) {
+            localStorage.setItem("token", result.token)
+            window.location.href = "<%= baseUrl %>/api/mobile/home"
+
+        } else {
+            setResponse(result.message)
+        }
+    })
 
 </script>
 

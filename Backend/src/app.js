@@ -4,7 +4,7 @@ import express from "express"
 import router from "./routes/index.js"
 import fileUpload from "express-fileupload"
 
-import { UPLOADS_PATH, VIEWS_PATH } from "./config/env.js"
+import { PUBLIC_URL, UPLOADS_PATH, VIEWS_PATH } from "./config/env.js"
 
 export const app = express()
 
@@ -23,3 +23,7 @@ app.set("view engine", "ejs")
 
 app.use(express.urlencoded({ extended: true }))
 app.use(router)
+
+app.use((req, res) => {
+    res.status(404).render('404', { title: '404 - Página no encontrada', baseUrl: PUBLIC_URL })
+})

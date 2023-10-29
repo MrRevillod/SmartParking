@@ -1,106 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <title>Document</title>
+    <title>Smart Parking - Mobile</title>
+    <link rel="stylesheet" href="<%= baseUrl %>/stylesheets/mobile.base.css">
+    <link rel="stylesheet" href="<%= baseUrl %>/stylesheets/mobile.login.css">
+    <link rel="stylesheet" href="<%= baseUrl %>/stylesheets/mobile.register.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="<%= baseUrl %>/images/logo-white.png">
+    <script src="<%= baseUrl %>/scripts/mobile.functions.js"></script>
 </head>
-<style>
-    body {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: 0;
-    }
-    
-    .flex-container {
-        background-color: black;
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-    
-    form {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .boton {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    button {
-        background-color: #007bff;
-        color: white;
-    }
-    
-    a {
-        text-decoration: none;
-        color: #007bff;
-    }
-    
-    h1 {
-        text-align: center;
-        color: white;
-    }
-</style>
+
 <body>
-    <div class="flex-container">            
-        <form class="mainform-2" id="Regform">
-            <h1>Registro</h1>
-            <div class="text-center" id="ierror" style="display: none; color: red;"> Las Contraseñas debencoincidir. </div>
-            <div class="text-center" id="errorwithout" style="display: none; color: red;"> No puede dejar espaciosen blanco. </div>
-            <div class="text-center" id="passwordregex" style="display: none; color: red;"> La contraseña debe contener al menos un número, una letra minúscula y un carácter especial: (! @ # $ % ^ & *)</div>
-            <div class="text-center" id="messageContainer" style="display: none;"></div>
-            
-            <input type="text" name="username" id="username" style="margin-top: 0.5rem;" minlength="8" placeholder="Nombres y Apellidos" required>
-            <input type="email" name="email" id="email" style="margin-top: 0.5rem;" minlength="8" placeholder="Correo Electrónico" required>
-            <input type="password" name="password" id="password" style="margin-top: 0.5rem;" minlength="8" placeholder="Contraseña" required>
-            <input type="password" name="confirmPassword" id="confirmPassword" style="margin-top: 0.5rem;" minlength="8" placeholder="Confirmar Contraseña" required>
-            <input type="tel" name="contact" id="contact" style="margin-top: 0.5rem;" minlength="8" placeholder="Número de Contacto" required>
-            <input type="text" name="vehicles.patente" id="patente" style="margin-top: 0.5rem;" minlength="8" placeholder="Placa del Vehículo" required>
-            <input type="text" name="vehicles.model" id="model" style="margin-top: 0.5rem;" minlength="8" placeholder="Modelo del Vehículo" required>
-            <input type="number" name="vehicles.year" id="year" style="margin-top: 0.5rem;" minlength="8" placeholder="Año del Vehículo" required>
-            <div class="boton">
-                <button id="button-2" style="margin-top: 0.5rem;" minlength="8">Registrarse</button>
+
+    <div id="load"></div>
+
+    <div id="mobile">
+
+        <div id="main-cont" style="height: 78vh; width: 25vw; max-height: 75vh;">
+            <h1>Registrarte</h1>
+
+            <form id="register-form">
+                <div id="response"></div>
+
+                <div class="input-wrapper">
+                    <label for="username">Nombre Completo:</label>
+                    <input id="username" type="text" placeholder="Esteban Castro Martínez" required>
+                </div>
+
+                <div class="input-wrapper">
+                    <label for="email">Email:</label>
+                    <input id="email" type="email" placeholder="emartinez@dominio.com" required>
+                </div>
+
+                <div class="input-wrapper">
+                    <label for="password">Contraseña:</label>
+                    <input id="password" type="password" placeholder="Mínimo 8 caracteres" required>
+                </div>
+
+                <div class="input-wrapper">
+                    <label for="confirmPassword">Confirmar Contraseña:</label>
+                    <input id="confirmPassword" type="password" placeholder="Mínimo 8 caracteres" required>
+                </div>
+
+                <div class="input-wrapper">
+                    <label for="contact">Teléfono de Contacto:</label>
+                    <input id="contact" type="tel" placeholder="+56934219872" required>
+                </div>
+
+                <div class="input-wrapper">
+                    <label for="patente">Patente:</label>
+                    <input id="patente" type="text" placeholder="BGJF76" required>
+                </div>
+
+                <div class="input-wrapper">
+                    <label for="model">Modelo del Auto:</label>
+                    <input id="model" type="text" placeholder="Toyota Yaris" required>
+                </div>
+
+                <div class="input-wrapper">
+                    <label for="year">Año:</label>
+                    <input id="year" type="number" placeholder="2018" required>
+                </div>
+
+            </form>
+            <div id="buttons-div">
+                <a href="<%= baseUrl %>/api/mobile">¿Ya posees una cuenta?</a>
+                <button id="reg-button">Registrarme</button>
             </div>
-            <a href="http://localhost:3000/api/mobile">Volver al login</a>
-        </form>
-        <section>
-            <div id="Respuesta" style="color: white;"></div>
-        </section>  
+
+        </div>
+
     </div>
+
 </body>
 
 <script>
-    const button = document.getElementById("button-2");
-    const form = document.getElementById("Regform");
-    const messageContainer = document.getElementById('messageContainer');
-    const ierror = document.getElementById("ierror");
-    const errorwithout = document.getElementById("errorwithout");
-    const passwordregex = document.getElementById("passwordregex");
-    const respuestaDiv = document.getElementById("Respuesta"); // Obtén el div de respuesta.
 
-    button.addEventListener("click", async (e) => {
-        event.preventDefault(); // Evitar que el formulario se envíe de forma convencional.
+    window.addEventListener("load", async () => {
 
-        const password = document.getElementById('password').value;
-        const confirmPassword = document.getElementById('confirmPassword').value;
+        const load = document.getElementById('load')
+        const mobile = document.getElementById('mobile')
 
-        if (password !== confirmPassword) {
-            alert('Las contraseñas no coinciden. Por favor, inténtalo nuevamente.');
-            return; // No enviar el formulario si las contraseñas no coinciden.
+        if (localStorage.getItem("token")) {
+
+            const token = localStorage.getItem("token")
+            const res = await fetch("<% baseUrl %>/api/auth/confirm-session", {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                }
+            })
+
+            if (res.ok) {
+                window.location.href = "<%= baseUrl %>/api/mobile/home"
+
+            } else {
+                localStorage.removeItem("token")
+                load.style.display = "none"
+                mobile.style.display = "flex"
+            }
         }
 
+        load.style.display = "none"
+        mobile.style.display = "flex"
+    })
+
+    const button = document.getElementById("reg-button")
+
+    button.addEventListener("click", async (e) => {
+        const form = document.getElementById("register-form")
+        const respuestaDiv = document.getElementById("response")
+        event.preventDefault()
+
+        const password = document.getElementById('password').value
+        const confirmPassword = document.getElementById('confirmPassword').value
         const data = {
             username: document.getElementById('username').value,
             email: document.getElementById('email').value,
@@ -111,28 +130,40 @@
                 model: document.getElementById('model').value,
                 year: parseInt(document.getElementById('year').value)
             }
-        };
+        }
 
-        const res = await fetch("http://localhost:3000/api/auth/register", {
+        if (!isValidEmail(data.email)) {
+            alert('El correo electrónico no es válido. Por favor, inténtalo nuevamente.')
+            return
+        }
+
+        if (password !== confirmPassword) {
+            alert('Las contraseñas no coinciden. Por favor, inténtalo nuevamente.')
+            return
+        }
+
+        if (!isValidPassword(password)) {
+            alert('La contraseña no es válida. Por favor, inténtalo nuevamente.')
+            return
+        }
+
+        const res = await fetch("<%= baseUrl %>/api/auth/register", {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(data)
-        });
+        })
 
-        const result = await res.json();
+        const result = await res.json()
 
         if (res.ok) {
-            // Mostrar el div de respuesta y establecer su contenido con el mensaje del servidor.
-            respuestaDiv.style.display = "block";
-            respuestaDiv.textContent = result.message; // Utiliza el mensaje del servidor.
+            alert(result.message)
+            form.reset()
         } else {
-            // En caso de error, mostrar el mensaje de error en el div de respuesta.
-            respuestaDiv.style.display = "block";
-            respuestaDiv.textContent = 'Error al registrar. Verifica tus datos e inténtalo nuevamente.';
+            alert("Error al registrarse. Revisa tus datos e inténtalo nuevamente.")
         }
-    });
+    })
 </script>
 
 

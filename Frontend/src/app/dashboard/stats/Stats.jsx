@@ -1,9 +1,6 @@
 
-
-
+import { Cardy } from "./Cardy"
 import "./Stats.css"
-
-import Cardy from "./Cardy"
 
 export const Stats = ({ reservas }) => {
     return (
@@ -20,7 +17,6 @@ export const Stats = ({ reservas }) => {
                 </div>
                 <Cardy reservas={reservas} />
             </div> : <div className="text-center display-4 text-danger fw-bold">No hay Reservas </div>}
-
         </div>
     )
 }

@@ -19,6 +19,7 @@ export const MESSAGES = {
     EMAIL_VERIFICATION_FAILED: "Verificación de email fallida",
     PASSWORD_RESET_SENT: "Instrucciones para restablecer la contraseña enviadas",
     PASSWORD_RESET_FAILED: "Restablecimiento de contraseña fallido",
+    PASSWORD_CHANGED: "Se ha cambiado la contraseña correctamente",
     PROFILE_UPDATED: "Perfil actualizado correctamente",
     PROFILE_UPDATE_FAILED: "Actualización de perfil fallida",
     RESOURCE_NOT_FOUND: "Recurso no encontrado",

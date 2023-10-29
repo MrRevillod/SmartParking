@@ -1,0 +1,34 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #050505;
+    height: 96vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+#mobile {
+    background-color: #0D5492;
+    width: 60vw;
+    height: 80vh;
+    max-width: 500px;
+    border: white 0.1rem solid;
+    border-radius: 0.2rem;
+    display: none;
+}
+
+#load {
+    width: 60vw;
+    height: 80vh;
+    max-width: 500px;
+    background-color: #0D5492;
+    color: #FFFF;
+    font-weight: bolder;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: white 0.1rem solid;
+    border-radius: 0.2rem;
+}

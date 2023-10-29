@@ -1,11 +1,13 @@
 
 import { userModel } from "../models/user.model.js"
-import { parkingModel } from "../models/parking.model.js"
-
+import { getLogs } from "./log.controller.js"
 import { findParking } from "./parking.controller.js"
+import { getParkings } from "./reservation.controller.js"
+import { parkingModel } from "../models/parking.model.js"
 import { hashPassword } from "../utils/bcrypt.utils.js"
 import { stringToBinary, guestCode } from "../utils/guestcode.utils.js"
-import { getParkings } from "./reservation.controller.js"
+
+import { userAccessLogController, userExitLogController } from "./log.controller.js"
 
 export const guestAccessController = async (io, socket, data) => {
 
@@ -65,6 +67,12 @@ export const guestAccessController = async (io, socket, data) => {
         verify: user.verificationCode
     })
 
+    await userAccessLogController(socket, username, parking.name, patente)
+
+    io.to("administradores").emit("all-logs", {
+        logs: await getLogs()
+    })
+
     io.to("administradores").emit("all-parkings", {
         parkings: await getParkings(),
     })
@@ -86,10 +94,16 @@ export const guestExitController = async (io, socket, data) => {
     const { id, parking } = user
 
     await userModel.findByIdAndDelete(id)
-    await parkingModel.findOneAndUpdate({ name: parking }, { active: false, status: "libre", userId: "" })
+    await parkingModel.findOneAndUpdate({ name: parking }, { active: false, status: "disponible", userId: "" })
 
     socket.emit("guest-exit-ok", {
         message: `Hemos registrado tu salida del estacionamiento ${parking}`
+    })
+
+    await userExitLogController(socket, user.username, parking)
+
+    io.to("administradores").emit("all-logs", {
+        logs: await getLogs()
     })
 
     io.to("administradores").emit("all-parkings", {
