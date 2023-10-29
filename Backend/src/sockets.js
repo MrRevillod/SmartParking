@@ -1,10 +1,11 @@
 
 import { Server } from "socket.io"
 
+import { getLogs } from "./sockets/log.controller.js"
+import { validateAdmin } from "./sockets/sockets.mw.js"
 import { guestAccessController, guestExitController } from "./sockets/guest.controller.js"
 import { getParkings, parkingAccessController, parkingExitController } from "./sockets/parking.controller.js"
 import { getReservations, reservationCancelController, userReservationController, reservationArrivalController } from "./sockets/reservation.controller.js"
-import { validateAdmin } from "./sockets/sockets.mw.js"
 
 export const socketSetup = (server) => {
 
@@ -61,6 +62,13 @@ export const socketSetup = (server) => {
                 users: await userModel.find({
                     $or: [{ role: "USER_ROLE" }, { role: "TEMP_ROLE" }]
                 })
+            })
+        })
+
+        socket.on("get-logs", async (data) => {
+
+            io.to("administradores").emit("all-logs", {
+                logs: await getLogs()
             })
         })
 

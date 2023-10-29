@@ -1,5 +1,6 @@
 
 import { MESSAGES } from "../utils/http.utils.js"
+import { saveError } from "../utils/error.utils.js"
 import { userModel } from "../models/user.model.js"
 import { transporter } from "../utils/mailer.utils.js"
 import { createJwt, verifyJwt } from "../utils/jwt.utils.js"
@@ -28,6 +29,7 @@ export const loginController = async (req, res) => {
 
     } catch (error) {
         res.status(error?.status || 500).json({ message: error?.message || MESSAGES.UNEXPECTED })
+        saveError(error)
     }
 }
 
@@ -53,6 +55,7 @@ export const adminLoginController = async (req, res) => {
 
     } catch (error) {
         res.status(error?.status || 500).json({ message: error?.message || MESSAGES.UNEXPECTED })
+        saveError(error)
     }
 }
 
@@ -92,6 +95,7 @@ export const registerController = async (req, res) => {
 
     } catch (error) {
         res.status(error?.status || 500).json({ message: error?.message || MESSAGES.UNEXPECTED })
+        saveError(error)
     }
 }
 
@@ -118,5 +122,6 @@ export const logoutController = async (req, res) => {
 
     } catch (error) {
         res.status(error?.status || 500).json({ message: error?.message || MESSAGES.UNEXPECTED })
+        saveError(error)
     }
 }
