@@ -25,15 +25,13 @@ export const getUser = async (req, res) => {
         const id = req.params.id
         const user = await userModel.findById(id)
 
-        console.log(user)
-
         if (!user) throw { status: 401, message: MESSAGES.USER_NOT_FOUND }
 
         res.status(200).json({ message: MESSAGES.OK, user })
 
     } catch (error) {
+        saveError(error?.message || MESSAGES.UNEXPECTED)
         res.status(error?.status || 500).json({ message: error?.message || MESSAGES.UNEXPECTED })
-        saveError(error)
     }
 }
 
@@ -50,7 +48,7 @@ export const deleteUser = async (req, res) => {
 
     } catch (error) {
         res.status(error?.status || 500).json({ message: error?.message || MESSAGES.UNEXPECTED })
-        saveError(error)
+        saveError(error?.message || MESSAGES.UNEXPECTED)
     }
 }
 
