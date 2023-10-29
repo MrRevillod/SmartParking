@@ -1,6 +1,6 @@
 
 import { MESSAGES } from "../utils/http.utils.js"
-import { saveError } from "../utils/error.txt.js"
+import { saveError } from "../utils/error.utils.js"
 import { parkingModel } from "../models/parking.model.js"
 
 export const getParkings = async (req, res) => {

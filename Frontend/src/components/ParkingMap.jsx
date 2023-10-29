@@ -1,3 +1,4 @@
+
 import { ParkingSlot } from "./ParkingSlot"
 
 const mapStyles = {
@@ -7,14 +8,12 @@ const mapStyles = {
     maxHeight: '70vh',
 }
 
-
-
 export const ParkingMap = ({ parkings }) => {
     return (
         <div style={mapStyles} className="col-4 my-5 px-5 "  >
             {parkings && parkings.map((parking) => {
                 return (
-                    <ParkingSlot   parking={parking} key={parking._id}/>
+                    <ParkingSlot parking={parking} key={parking._id} />
                 )
             })}
         </div >

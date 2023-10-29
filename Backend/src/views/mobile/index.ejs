@@ -5,182 +5,119 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Smart Parking - Mobile</title>
-    <link rel="stylesheet" href="http://localhost:3000/stylesheets/mobile.css">
+    <link rel="stylesheet" href="<%= baseUrl %>/stylesheets/mobile.login.css">
+    <link rel="stylesheet" href="<%= baseUrl %>/stylesheets/mobile.base.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/x-icon" href="http://localhost:3000/images/logo-transparency-bg.png">
+    <link rel="icon" type="image/x-icon" href="<%= baseUrl %>/images/logo-white.png">
+    <script src="<%= baseUrl %>/scripts/mobile.functions.js"></script>
 </head>
 
 <body>
 
-    <header>
-        <h1>Smart Parking</h1>
-    </header>
+    <div id="load"></div>
 
-    <section>
-        <h1>Simulación de reservas</h1>
-        <div>
-            <button id="button1">Solicitar reserva</button>
-            <button id="button2">Cancelar reserva</button>
-            <button id="button3">Marcar llegada a la reserva</button>
+    <div id="mobile">
+        <div id="main-cont">
+            <form id="form-login">
+                <div id="logo-cont">
+                    <img src="<%= baseUrl%>/images/logo-blue.png" alt="SmartParking Logo" width="150" height="150">
+                    <div id="res-cont"></div>
+                </div>
+                <div id="response"></div>
+                <input id="email" type="email" placeholder="Correo electrónico">
+                <input id="password" type="password" placeholder="Contraseña">
+                <button id="button-1">Iniciar sesión</button>
+            </form>
+            <div id="a-cont">
+                <a href="<%= baseUrl %>/api/auth/forgot-password">¿Olvidaste tu contraseña?</a>
+                <a href="<%= baseUrl %>/api/mobile/register">Registrarme</a>
+            </div>
         </div>
-    </section>
-
-    <section>
-        <h1>Simulación de ingreso y salida</h1>
-        <div>
-            <button id="button4">Solicitar ingreso</button>
-            <button id="button5">Marcar salida</button>
-        </div>
-    </section>
-
-    <section>
-        <h1>Respuesta del servidor</h1>
-        <div id="response"></div>
-    </section>
+    </div>
 
 </body>
 
-<script src="/socket.io/socket.io.js"></script>
-
 <script>
 
-    const socket = io("http://localhost:3000")
-    const button = document.getElementById("button1")
-    const button2 = document.getElementById("button2")
-    const button3 = document.getElementById("button3")
-    const button4 = document.getElementById("button4")
-    const button5 = document.getElementById("button5")
+    window.addEventListener("load", async () => {
 
-    const simulateSession = async () => {
+        const load = document.getElementById('load')
+        const mobile = document.getElementById('mobile')
 
-        const data = {
-            email: "lrevillod2022@alu.uct.cl",
-            password: "!abc1234ABC"
-        }
+        if (localStorage.getItem("token")) {
 
-        //resto de sesiones
-
-        // const data = {
-        //     email: "cmedel2021@alu.uct.cl",
-        //     password: "!abc1234ABC"
-        // }
-
-        // const data = {
-        //     email: "tcurihual2022@alu.uct.cl",
-        //     password: "!abc1234ABC"
-        // }
-
-        // const data = {
-        //     email: "mvallejo2019@alu.uct.cl",
-        //     password: "!abc1234ABC"
-        // }
-
-        // const data = {
-        //     email: "criquelme2022@alu.uct.cl",
-        //     password: "!abc1234ABC"
-        // }
-
-        try {
-
-            const res = await fetch("http://localhost:3000/api/auth/login", {
+            const token = localStorage.getItem("token")
+            const res = await fetch("<% baseUrl %>/api/auth/confirm-session", {
                 method: "POST",
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(data)
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                }
             })
 
-            return await res.json()
+            if (res.ok) {
+                window.location.href = "<%= baseUrl %>/api/mobile/home"
 
-            // si hay algún err lo capturo y muestro por consola.
-
-        } catch (error) {
-            setResponse("Error al iniciar sesión")
+            } else {
+                localStorage.removeItem("token")
+                load.style.display = "none"
+                mobile.style.display = "flex"
+            }
         }
-    }
 
-    const setResponse = (message) => {
-        const root = document.getElementById("response")
-        root.innerHTML = message
-
-        setTimeout(() => {
-            root.innerHTML = ""
-        }, 3000)
-    }
-
-    button.addEventListener("click", async (event) => {
-
-        event.preventDefault()
-        const { token } = await simulateSession()
-        socket.emit("user-reservation-req", { token, patente: "ACXB42" })
+        load.style.display = "none"
+        mobile.style.display = "flex"
     })
 
-    button2.addEventListener("click", async (event) => {
+    const button = document.getElementById("button-1")
 
-        event.preventDefault()
-        const { token } = await simulateSession()
-        socket.emit("user-cancel-reservation", { token, patente: "ACXB42" })
-    })
+    button.addEventListener("click", async (e) => {
 
-    button3.addEventListener("click", async (event) => {
+        e.preventDefault()
 
-        event.preventDefault()
-        const { token } = await simulateSession()
-        socket.emit("user-reservation-arrival", { token, patente: "ACXB42" })
-    })
+        const email = document.getElementById("email").value
+        const password = document.getElementById("password").value
 
-    button4.addEventListener("click", async (event) => {
+        if (!email || !password) {
+            setResponse("No puedes dejar espacios en blanco")
+            return
+        }
 
-        event.preventDefault()
-        const { token } = await simulateSession()
-        socket.emit("user-access-req", { token, patente: "ACXB42" })
-    })
+        if (!isValidEmail(email)) {
+            setResponse("El correo electrónico no es válido")
+            return
+        }
 
-    button5.addEventListener("click", async (event) => {
+        if (!isValidPassword(password)) {
+            setResponse("La contraseña no es válida")
+            return
+        }
 
-        event.preventDefault()
-        const { token } = await simulateSession()
-        socket.emit("user-exit-req", { token, patente: "ACXB42" })
-    })
+        const data = {
+            email,
+            password
+        }
 
-    socket.on("reservation-ok", ({ message }) => {
-        setResponse(message)
-    })
+        const res = await fetch("<%= baseUrl %>/api/auth/login", {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
 
-    socket.on("reservation-denied", ({ message }) => {
-        setResponse(message)
-    })
+            body: JSON.stringify(data)
+        })
 
-    socket.on("reservation-cancel-ok", ({ message }) => {
-        setResponse(message)
-    })
+        const result = await res.json()
 
-    socket.on("reservation-cancel-denied", ({ message }) => {
-        setResponse(message)
-    })
+        if (res.ok) {
+            localStorage.setItem("token", result.token)
+            window.location.href = "<%= baseUrl %>/api/mobile/home"
 
-    socket.on("reservation-arrival-ok", ({ message }) => {
-        setResponse(message)
-    })
-
-    socket.on("reservation-arrival-denied", ({ message }) => {
-        setResponse(message)
-    })
-
-    socket.on("parking-access-ok", ({ message }) => {
-        setResponse(message)
-    })
-
-    socket.on("parking-access-denied", ({ message }) => {
-        setResponse(message)
-    })
-
-    socket.on("parking-exit-ok", ({ message }) => {
-        setResponse(message)
-    })
-
-    socket.on("parking-exit-denied", ({ message }) => {
-        setResponse(message)
+        } else {
+            setResponse(result.message)
+        }
     })
 
 </script>

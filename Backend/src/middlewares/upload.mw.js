@@ -1,6 +1,6 @@
 
 import { MESSAGES } from "../utils/http.utils.js"
-import { saveError } from "../utils/error.txt.js"
+import { saveError } from "../utils/error.utils.js"
 import { MIME_TYPES } from "../rules/upload.rules.js"
 import { PUBLIC_PATH, PUBLIC_URL } from "../config/env.js"
 
@@ -11,7 +11,7 @@ export const uploadImage = async (req, res, next) => {
     try {
 
         if (!req.files || Object.keys(req.files).length === 0) {
-            return res.status(400).json({message: MESSAGES.UPLOAD_NOT_FOUND})
+            return res.status(400).json({ message: MESSAGES.UPLOAD_NOT_FOUND })
         }
 
         const { image } = req.files

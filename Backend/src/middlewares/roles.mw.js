@@ -1,9 +1,7 @@
 
 import { MESSAGES } from "../utils/http.utils.js"
 import { userModel } from "../models/user.model.js"
-import { verifyJwt } from "../utils/jwt.utils.js"
-import { JWT_SECRET } from "../config/env.js"
-import { saveError } from "../utils/error.txt.js"
+import { saveError } from "../utils/error.utils.js"
 
 export const roleValidation = (roles) => async (req, res, next) => {
 
@@ -32,6 +30,8 @@ export const ownerValidation = async (req, res, next) => {
         const userId = req.params.id
 
         const user = await userModel.findById(reqId)
+
+        console.log(user)
 
         if (!user || (user.role !== 'ADMIN_ROLE' && reqId !== userId)) {
             throw { status: 401, message: MESSAGES.UNAUTHORIZED }

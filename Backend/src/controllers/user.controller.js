@@ -1,6 +1,6 @@
 
 import { MESSAGES } from "../utils/http.utils.js"
-import { saveError } from "../utils/error.txt.js"
+import { saveError } from "../utils/error.utils.js"
 import { userModel } from "../models/user.model.js"
 
 export const getUsers = async (req, res) => {
@@ -23,8 +23,10 @@ export const getUser = async (req, res) => {
     try {
 
         const id = req.params.id
-
         const user = await userModel.findById(id)
+
+        console.log(user)
+
         if (!user) throw { status: 401, message: MESSAGES.USER_NOT_FOUND }
 
         res.status(200).json({ message: MESSAGES.OK, user })

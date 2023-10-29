@@ -1,13 +1,13 @@
+
 import { motion } from "framer-motion"
 
 const colors = {
     "disponible": "rgb(200, 200, 200)",
     "ocupado": "rgb(252, 57, 57)",
     "reservado": "#8eb9ff",
-
 }
 
-export const StatusCircle2 = ({ percent, label  }) => {
+export const StatusCircle2 = ({ percent, label }) => {
 
     const bg1 = `conic-gradient(
         #fff 0% 0%, 
@@ -18,6 +18,7 @@ export const StatusCircle2 = ({ percent, label  }) => {
         ${colors[label]} 0% ${percent}%, 
         transparent 0% 100%  
     )`
+
     const mainStyle = {
         display: "flex",
         justifyContent: "center",
@@ -34,7 +35,6 @@ export const StatusCircle2 = ({ percent, label  }) => {
         // )`,
         color: colors[label],
         borderRadius: "100%",
-
     }
 
     const loaderFillStyle = {
@@ -43,11 +43,9 @@ export const StatusCircle2 = ({ percent, label  }) => {
         width: "74%",
         height: "74%",
         borderRadius: "100%",
-        
     }
 
     return (
-
         <div className=" mx-3 col" style={{ height: "25vh" }} >
             <div style={mainStyle} className="rounded-circle ">
                 <motion.div
@@ -62,7 +60,5 @@ export const StatusCircle2 = ({ percent, label  }) => {
                 </motion.div>
             </div>
         </div>
-
-
     )
 }
