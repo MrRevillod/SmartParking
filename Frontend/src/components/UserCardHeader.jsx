@@ -31,7 +31,7 @@ export const UserCardHeader = ({ user, setIsModalVisible }) => {
                     alt="" />
             </div>
             <div className="position-absolute text-end w-100 h-100 pt-2 pe-3 top-0 ">
-                <i onClick={onClickHandler} className="close-button opacity-75 bi bi-x-circle-fill h1 text-shadow text-light"/>
+                <i onClick={onClickHandler} className="close-button opacity-75 bi bi-x-circle-fill h1 text-shadow text-light" />
             </div>
         </section>
     )

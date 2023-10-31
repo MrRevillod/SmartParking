@@ -1,11 +1,11 @@
 
 import { userModel } from "../models/user.model.js"
-import { parkingModel } from "../models/parking.model.js"
-
+import { getLogs } from "./log.controller.js"
 import { findParking } from "./parking.controller.js"
+import { getParkings } from "./reservation.controller.js"
+import { parkingModel } from "../models/parking.model.js"
 import { hashPassword } from "../utils/bcrypt.utils.js"
 import { stringToBinary, guestCode } from "../utils/guestcode.utils.js"
-import { getParkings } from "./reservation.controller.js"
 
 import { userAccessLogController, userExitLogController } from "./log.controller.js"
 

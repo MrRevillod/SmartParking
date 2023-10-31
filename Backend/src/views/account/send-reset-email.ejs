@@ -1,17 +1,18 @@
-<%- include("../templates/header", {titulo: "Recuperar Contraseña" }) %>
+<%- include("../templates/header", {titulo: "Recuperar Contraseña" , baseUrl: baseUrl }) %>
 
     <div class="maindiv">
         <form class="mainform" id="emailForm">
             <div class="text-center">
-                <img src="http://localhost:3000/images/logo-transparency-bg.png"" class=" img-fluid" alt="">
+                <img src="<%= baseUrl %>/images/logo-blue.png" class="img-fluid" alt="">
             </div>
             <div>
                 <div class="text-center" id="messageContainer" style="display: none;"></div>
                 <input style="margin-top: 0.5rem;" class="forminput" type="email" id="email" name="email"
                     placeholder="Ingrese su dirección de correo electrónico" required>
                 <button type="submit" class="btn to-reg-button">Enviar</button>
-                <hr>
-                <a   href="http://localhost:3001/auth/login" class="pe-auto">Volver al login</a>
+                <div style="margin-top: 1rem; text-decoration: none;">
+                    <a href="http://<%= adress %>:8000/auth/login">Volver al login</a>
+                </div>
             </div>
         </form>
     </div>
@@ -25,7 +26,7 @@
             event.preventDefault();
 
             const userMail = document.getElementById('email').value;
-            const response = await fetch("http://localhost:3000/api/auth/forgot-password", {
+            const response = await fetch("<%= baseUrl %>/api/auth/forgot-password", {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -34,6 +35,8 @@
             });
 
             const responseData = await response.json();
+
+            console.log(responseData);
 
             if (response.ok) {
                 form.reset()

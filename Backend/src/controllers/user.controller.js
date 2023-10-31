@@ -1,5 +1,6 @@
 
 import { MESSAGES } from "../utils/http.utils.js"
+import { saveError } from "../utils/error.utils.js"
 import { userModel } from "../models/user.model.js"
 
 export const getUsers = async (req, res) => {
@@ -13,6 +14,7 @@ export const getUsers = async (req, res) => {
 
     } catch (error) {
         res.status(error?.status || 500).json({ message: error?.message || MESSAGES.UNEXPECTED })
+        saveError(error)
     }
 }
 
@@ -21,13 +23,14 @@ export const getUser = async (req, res) => {
     try {
 
         const id = req.params.id
-
         const user = await userModel.findById(id)
+
         if (!user) throw { status: 401, message: MESSAGES.USER_NOT_FOUND }
 
         res.status(200).json({ message: MESSAGES.OK, user })
 
     } catch (error) {
+        saveError(error?.message || MESSAGES.UNEXPECTED)
         res.status(error?.status || 500).json({ message: error?.message || MESSAGES.UNEXPECTED })
     }
 }
@@ -45,6 +48,7 @@ export const deleteUser = async (req, res) => {
 
     } catch (error) {
         res.status(error?.status || 500).json({ message: error?.message || MESSAGES.UNEXPECTED })
+        saveError(error?.message || MESSAGES.UNEXPECTED)
     }
 }
 
@@ -65,6 +69,7 @@ export const updateUser = async (req, res) => {
 
     } catch (error) {
         res.status(error?.status || 500).json({ message: error?.message || MESSAGES.UNEXPECTED })
+        saveError(error)
     }
 }
 
@@ -85,5 +90,6 @@ export const updateImage = async (req, res) => {
 
     } catch (error) {
         res.status(error?.status || 500).json({ message: error?.message || MESSAGES.UNEXPECTED })
+        saveError(error)
     }
 }

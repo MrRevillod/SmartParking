@@ -1,6 +1,5 @@
 
 import { logModel } from "../models/log.model.js"
-
 import { formattedTime } from "../utils/date.utils.js"
 
 export const getLogs = async () => {
@@ -28,25 +27,13 @@ export const userAccessLogController = async (socket, username, parking, patente
     }
 
     await logModel.create(logSchema)
-
 }
 
 export const userExitLogController = async (socket, username, parking) => {
 
     const log = await logModel.findOne({ username, parking, access: { $ne: null }, exit: null })
 
-    if (log) {
-
-        await logModel.updateOne(
-            {
-                _id: log.id
-            },
-            {
-                $set: {
-                    exit: formattedTime()
-                }
-            })
-    } else {
+    if (!log) {
         socket.emit("guest-exit-denied", {
             message: "No se ha encontrado un registro de ingreso"
         })
@@ -54,11 +41,7 @@ export const userExitLogController = async (socket, username, parking) => {
         return
     }
 
-    //        await logModel.updateOne(
-    //            {
-    //                $set: {
-    //                    exit: formattedTime()
-    //                }
-    //            }))
-
+    await logModel.findByIdAndUpdate(log.id, {
+        exit: formattedTime()
+    })
 }

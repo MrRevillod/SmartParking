@@ -1,10 +1,11 @@
 
 import { Router } from "express"
-
-import { renderReservationClient } from "../controllers/reservation.controller.js"
+import { renderMobileLogin, renderMobileRegister, renderMobileHome } from "../controllers/mobile.controller.js"
 
 const router = Router()
 
-router.get("/", renderReservationClient)
+router.get("/", renderMobileLogin)
+router.get("/register", renderMobileRegister)
+router.get("/home", renderMobileHome)
 
 export default router

@@ -1,3 +1,4 @@
+
 import { motion } from "framer-motion"
 import { UserCard } from "./UserCard"
 
@@ -23,8 +24,6 @@ const item = {
 
 
 export const TableUsers = ({ table_columns, usersFiltered }) => {
-    
-
 
     return (
         <motion.div className="row w-full justify-content-center list-unstyled"
@@ -55,8 +54,6 @@ export const TableUsers = ({ table_columns, usersFiltered }) => {
 
                 ))}
             </div>
-
-           
 
         </motion.div>
     )

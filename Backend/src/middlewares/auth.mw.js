@@ -1,8 +1,9 @@
 
 import { MESSAGES } from "../utils/http.utils.js"
 import { verifyJwt } from "../utils/jwt.utils.js"
+import { saveError } from "../utils/error.utils.js"
 import { userModel } from "../models/user.model.js"
-import { JWT_SECRET } from "../config/env.js"
+import { JWT_SECRET, PUBLIC_URL } from "../config/env.js"
 
 // Mw para verificar si el usuario solicitado (id) existe
 export const checkUserExist = async (req, res, next) => {
@@ -18,13 +19,14 @@ export const checkUserExist = async (req, res, next) => {
         next()
 
     } catch (error) {
-        res.render("invalid-url")
+        res.render("invalid-url", { baseUrl: PUBLIC_URL })
+        saveError(error)
     }
 }
 
 // Mw para validar si el token de confirmación de cuenta es valido
 export const checkValidateAccountToken = async (req, res, next) => {
-    
+
     try {
 
         const { token } = req.params
@@ -36,7 +38,8 @@ export const checkValidateAccountToken = async (req, res, next) => {
         next()
 
     } catch (error) {
-        res.render("invalid-url")
+        res.render("invalid-url", { baseUrl: PUBLIC_URL })
+        saveError(error)
     }
 }
 
@@ -54,6 +57,7 @@ export const checkChangePasswordToken = async (req, res, next) => {
         next()
 
     } catch (error) {
-        res.render("invalid-url")
+        res.render("invalid-url", { baseUrl: PUBLIC_URL })
+        saveError(error)
     }
 }
