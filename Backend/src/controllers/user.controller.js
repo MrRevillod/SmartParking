@@ -7,14 +7,16 @@ export const getUsers = async (req, res) => {
 
     try {
 
-        const users = await userModel.find({ $or: [{ role: "USER_ROLE" }, { role: "TEMP_ROLE" }] })
+        // const users = await userModel.find({ $or: [{ role: "USER_ROLE" }, { role: "TEMP_ROLE" }] })
+
+        const users = await userModel.find()
         if (!users) throw { status: 404, message: MESSAGES.USER_NOT_FOUND }
 
         res.status(200).json({ message: MESSAGES.OK, users })
 
     } catch (error) {
-        res.status(error?.status || 500).json({ message: error?.message || MESSAGES.UNEXPECTED })
         saveError(error)
+        res.status(error?.status || 500).json({ message: error?.message || MESSAGES.UNEXPECTED })
     }
 }
 
@@ -30,7 +32,24 @@ export const getUser = async (req, res) => {
         res.status(200).json({ message: MESSAGES.OK, user })
 
     } catch (error) {
-        saveError(error?.message || MESSAGES.UNEXPECTED)
+        saveError(error)
+        res.status(error?.status || 500).json({ message: error?.message || MESSAGES.UNEXPECTED })
+    }
+}
+
+export const getProfile = async (req, res) => {
+
+    try {
+
+        const { uid } = req.user
+        const user = await userModel.findById(uid)
+
+        if (!user) throw { status: 404, message: MESSAGES.USER_NOT_FOUND }
+
+        res.status(200).json({ message: MESSAGES.OK, user })
+
+    } catch (error) {
+        saveError(error)
         res.status(error?.status || 500).json({ message: error?.message || MESSAGES.UNEXPECTED })
     }
 }
@@ -47,8 +66,8 @@ export const deleteUser = async (req, res) => {
         res.status(200).json({ message: MESSAGES.OK, state: MESSAGES.DELETE_USER_SUCCESS })
 
     } catch (error) {
+        saveError(error)
         res.status(error?.status || 500).json({ message: error?.message || MESSAGES.UNEXPECTED })
-        saveError(error?.message || MESSAGES.UNEXPECTED)
     }
 }
 
@@ -68,8 +87,8 @@ export const updateUser = async (req, res) => {
         res.status(200).json({ message: MESSAGES.OK, state: MESSAGES.UPDATE_USER_SUCCES })
 
     } catch (error) {
-        res.status(error?.status || 500).json({ message: error?.message || MESSAGES.UNEXPECTED })
         saveError(error)
+        res.status(error?.status || 500).json({ message: error?.message || MESSAGES.UNEXPECTED })
     }
 }
 
@@ -89,7 +108,7 @@ export const updateImage = async (req, res) => {
         res.status(200).json({ message: MESSAGES.OK, state: MESSAGES.UPDATE_PROFILE_PICTURE })
 
     } catch (error) {
-        res.status(error?.status || 500).json({ message: error?.message || MESSAGES.UNEXPECTED })
         saveError(error)
+        res.status(error?.status || 500).json({ message: error?.message || MESSAGES.UNEXPECTED })
     }
 }

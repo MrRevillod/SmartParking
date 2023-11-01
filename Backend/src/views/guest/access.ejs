@@ -75,14 +75,12 @@
                 socket.emit("guest-access-request", data)
                 messageErrorContainer.style.display = "none"
                 form.reset()
-
             }
-        });
+        })
 
         socket.on("guest-access-ok", ({ message, place, verify }) => {
 
             logo.style.animation = "fadeOut 0.5s ease forwards"
-
             messageContainer.style.display = "block"
             messageContainer.textContent = message
             messageContainer.style.color = 'green'
@@ -98,15 +96,13 @@
 
                 verificationContainer.textContent = `Codigo de verificacion: ${verify}`
 
-            }, 500);
-        });
+            }, 500)
+        })
 
         socket.on("guest-access-denied", ({ message }) => {
-
             messageContainer.style.display = "block"
             messageContainer.textContent = message
             messageContainer.style.color = 'red'
-
         })
 
     </script>
