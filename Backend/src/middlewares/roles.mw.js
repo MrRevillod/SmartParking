@@ -1,7 +1,7 @@
 
 import { MESSAGES } from "../utils/http.utils.js"
-import { userModel } from "../models/user.model.js"
 import { saveError } from "../utils/error.utils.js"
+import { userModel } from "../models/user.model.js"
 
 export const roleValidation = (roles) => async (req, res, next) => {
 

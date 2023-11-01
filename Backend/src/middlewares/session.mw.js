@@ -1,9 +1,10 @@
 
-import { JWT_SECRET } from "../config/env.js"
 import { MESSAGES } from "../utils/http.utils.js"
 import { verifyJwt } from "../utils/jwt.utils.js"
 import { saveError } from "../utils/error.utils.js"
+
 import { userModel } from "../models/user.model.js"
+import { JWT_SECRET } from "../config/env.js"
 
 export const sessionValidation = async (req, res, next) => {
 

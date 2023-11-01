@@ -2,10 +2,11 @@
 import { Router } from "express"
 
 import { uploadImage } from "../middlewares/upload.mw.js"
+import { validateMongoUid } from "../middlewares/validator.mw.js"
 import { sessionValidation } from "../middlewares/session.mw.js"
 import { ownerValidation, roleValidation } from "../middlewares/roles.mw.js"
+
 import { getUsers, getUser, deleteUser, updateUser, updateImage } from "../controllers/user.controller.js"
-import { validateMongoUid } from "../middlewares/validator.mw.js"
 
 const router = Router()
 
