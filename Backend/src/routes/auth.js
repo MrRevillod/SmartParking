@@ -1,9 +1,11 @@
 
 import { Router } from "express"
+
 import { validateRules } from "../middlewares/validator.mw.js"
 import { sessionValidation } from "../middlewares/session.mw.js"
-import { loginRules, passwordRules, userRules, vehicleRules } from "../rules/auth.rules.js"
 import { checkChangePasswordToken, checkUserExist, checkValidateAccountToken } from "../middlewares/auth.mw.js"
+
+import { loginRules, passwordRules, userRules, vehicleRules } from "../rules/auth.rules.js"
 
 import { adminLoginController, loginController, registerController, confirmSession, logoutController } from "../controllers/auth.controller.js"
 import { accountValidation, renderSendEmailPage, renderChangePasswordPage, sendRecoveryEmail, setNewPassword } from "../controllers/account.controller.js"

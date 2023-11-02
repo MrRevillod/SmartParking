@@ -9,7 +9,7 @@ export const loginRules = [
 export const userRules = [
     body("username")
         .notEmpty()
-        .isLength({ min: 5 })
+        .isLength({ min: 8 })
         .withMessage("El campo 'username' debe tener al menos 5 caracteres"),
     body("email").isEmail().withMessage("El campo 'email' debe ser una dirección de correo electrónico válida"),
     body("password")

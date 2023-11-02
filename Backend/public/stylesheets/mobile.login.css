@@ -16,6 +16,12 @@
     border-radius: 0.7rem;
 }
 
+@media screen and (max-width: 800px) {
+    #main-cont {
+        width: 90vw !important;
+    }
+}
+
 #form-login {
     display: flex;
     flex-direction: column;

@@ -1,10 +1,11 @@
 
+import { userModel } from "../models/user.model.js"
+import { JWT_SECRET, MAIL, PUBLIC_URL } from "../config/env.js"
+
 import { MESSAGES } from "../utils/http.utils.js"
 import { saveError } from "../utils/error.utils.js"
-import { userModel } from "../models/user.model.js"
 import { transporter } from "../utils/mailer.utils.js"
 import { createJwt, verifyJwt } from "../utils/jwt.utils.js"
-import { JWT_SECRET, MAIL, PUBLIC_URL } from "../config/env.js"
 import { hashPassword, comparePassword } from "../utils/bcrypt.utils.js"
 import { validationSubject, validationTemplate } from "../utils/mail.template.js"
 

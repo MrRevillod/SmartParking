@@ -3,10 +3,10 @@ import { connect } from "mongoose"
 import { MESSAGES } from "../utils/http.utils.js"
 import { DB_NAME, URI } from "./env.js"
 
-
 export const dbConnect = async () => {
 
     try {
+
         return await connect(URI, {
             useNewUrlParser: true,
             useUnifiedTopology: true,

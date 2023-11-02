@@ -29,7 +29,7 @@ export const accountValidation = async (req, res) => {
 }
 
 export const renderSendEmailPage = (req, res) => {
-    res.render("account/send-reset-email", { baseUrl: PUBLIC_URL, adress: IP })
+    res.render("account/send-reset-email", { baseUrl: PUBLIC_URL })
 }
 
 export const sendRecoveryEmail = async (req, res) => {
