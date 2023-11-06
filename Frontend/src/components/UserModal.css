@@ -27,5 +27,6 @@
 
 .close-button:hover{
     opacity: 1 !important;
+    color:crimson !important;
 
 }

@@ -112,7 +112,6 @@ export const App = () => {
                                 path="/parking"
                                 element={<Parking parkings={parkings} />}
                             />
-
                             <Route
                                 path="/stats"
                                 element={<Stats reservas={reservas} />}
