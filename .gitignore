@@ -22,4 +22,7 @@
 src/app/auth/register/*
 */mongo-seed/
 Backend/scripts/
+.env/
+.env
+env
 ./.env

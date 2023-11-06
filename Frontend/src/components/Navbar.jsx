@@ -6,6 +6,7 @@ import { Link, useNavigate } from "react-router-dom"
 import { Logo } from "./Logo"
 import { Toast } from "../lib/Toast"
 import { socket } from "../lib/socket"
+import { API_URL } from "../lib/env.js"
 
 import "./Navbar.css"
 
@@ -16,7 +17,7 @@ export const Navbar = () => {
     const logout = async () => {
 
         const token = localStorage.getItem("token")
-        const res = await fetch(`${import.meta.env.VITE_API}/auth/logout`, {
+        const res = await fetch(`${API_URL}/auth/logout`, {
             method: "POST",
             headers: { Authorization: `Bearer ${token}` },
         })

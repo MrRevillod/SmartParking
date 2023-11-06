@@ -3,13 +3,15 @@ export const Table = ({ data, columns }) => {
 
     return (
         <div className=" ">
+
             <div className="row back-blue rounded-top-2 text-light" >
-                {
-                    columns.map((c, i) =>
-                    (<div key={i} className="col fw-bold  text-start">
+
+                {columns.map((c, i) => (
+                    <div key={i} className="col fw-bold  text-start">
                         {c}
-                    </div>))
-                }
+                    </div>
+                ))}
+
             </div >
 
             {data.map((v) => (
@@ -18,6 +20,7 @@ export const Table = ({ data, columns }) => {
                     <div className="col text-start icon-blue">{v.patente}</div>
                 </div>
             ))}
+
         </div >
     )
 }

@@ -8,7 +8,7 @@
     overflow: hidden;
     outline: none;
     box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
-} 
+}
 
 
 .Overlay {
@@ -19,13 +19,13 @@
     bottom: 0;
     background-color: rgba(255, 255, 255, 0.3);
     display: grid;
-    justify-items:center;
+    justify-items: center;
     align-items: center;
     outline: none;
-  }
+}
 
 
-.close-button:hover{
+.close-button:hover {
     opacity: 1 !important;
     color:crimson !important;
 

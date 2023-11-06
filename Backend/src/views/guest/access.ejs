@@ -1,4 +1,4 @@
-<%- include("../templates/header", {titulo: "Smart Parking - Entrada" }) %>
+<%- include("../templates/header", {titulo: "Smart Parking - Entrada" , baseUrl: baseUrl }) %>
 
     <div class="maindiv">
         <form class="mainform" id="mainform">
@@ -8,8 +8,7 @@
             <div class="text-center">
                 <div class="place-logo-container">
                     <div class="text-center" id="placeContainer"></div>
-                    <img src="http://localhost:3000/images/logo-transparency-bg.png"" class=" img-fluid" alt=""
-                        id="logo">
+                    <img src="<%= baseUrl %>/images/logo-blue.png"" class=" img-fluid" alt="" id="logo">
                 </div>
             </div>
             <div>
@@ -29,7 +28,7 @@
 
     <script>
 
-        const socket = io("http://localhost:3000")
+        const socket = io("<%= baseUrl %>")
         const form = document.getElementById("mainform")
         const button = document.getElementById("button")
         const messageContainer = document.getElementById('messageContainer')
@@ -47,43 +46,41 @@
             const regexPatente = (/^[BCDFGHJKLPQRSTVWXYZ]{4}(1[0-9]|[2-9][0-9])$/)
             const regexContacto = (/^\+569\d{8}$/)
 
-            if((username.value === "") || (contact.value === "") || (patente.value === "") ){
+            if ((username.value === "") || (contact.value === "") || (patente.value === "")) {
                 socket.emit("guest-access-denied")
                 username.style.marginTop = "1.5rem"
                 messageErrorContainer.style.display = "block"
                 messageErrorContainer.textContent = "No puedes dejar espacios en blanco"
                 messageErrorContainer.style.color = 'red'
-            }else if(!regexContacto.test(contact.value)){
+            } else if (!regexContacto.test(contact.value)) {
                 socket.emit("guest-access-denied")
                 username.style.marginTop = "1.5rem"
                 messageErrorContainer.style.display = "block"
                 messageErrorContainer.textContent = "El numero de contacto no es valido"
                 messageErrorContainer.style.color = 'red'
-            }else if (!regexPatente.test(patente.value)){
+            } else if (!regexPatente.test(patente.value)) {
                 socket.emit("guest-access-denied")
                 username.style.marginTop = "1.5rem"
                 messageErrorContainer.style.display = "block"
                 messageErrorContainer.textContent = "La patente ingresada no es valida"
                 messageErrorContainer.style.color = 'red'
-            }     
-            else{
+            }
+            else {
                 const data = {
-                username: username.value,
-                contact: contact.value,
-                patente: patente.value
+                    username: username.value,
+                    contact: contact.value,
+                    patente: patente.value
                 }
 
                 socket.emit("guest-access-request", data)
                 messageErrorContainer.style.display = "none"
                 form.reset()
-                
             }
-        });
+        })
 
         socket.on("guest-access-ok", ({ message, place, verify }) => {
 
             logo.style.animation = "fadeOut 0.5s ease forwards"
-
             messageContainer.style.display = "block"
             messageContainer.textContent = message
             messageContainer.style.color = 'green'
@@ -96,18 +93,16 @@
                 placeContainer.style.display = 'block'
                 placeContainer.style.animation = "fadeIn 0.5s ease forwards"
                 placeContainer.classList.add('smooth-transition')
-                
+
                 verificationContainer.textContent = `Codigo de verificacion: ${verify}`
 
-            }, 500);
-        });
+            }, 500)
+        })
 
         socket.on("guest-access-denied", ({ message }) => {
-
             messageContainer.style.display = "block"
             messageContainer.textContent = message
             messageContainer.style.color = 'red'
-            
         })
 
     </script>

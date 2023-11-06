@@ -30,25 +30,24 @@ export const Filters = ({ filters, setFilters }) => {
     const onCheckHandlerInactive2 = (ev) => {
         ev.preventDefault()
         setFilters({ ...filters, inactive: !filters.inactive })
-        
+
     }
 
     const onCheckHandlerActive2 = (ev) => {
         ev.preventDefault()
         setFilters({ ...filters, active: !filters.active })
-        
+
     }
 
     return (
         <div className="row   ">
 
-            
             <div className="col   ">
                 <Checkbox2 onChange={onCheckHandlerInactive2} isChecked={filters.inactive} label={"Inactivos"} />
-                
+
             </div>
             <div className="col">
-                <Checkbox2 onChange={onCheckHandlerActive2} isChecked={filters.active} label={"Activos"}/>
+                <Checkbox2 onChange={onCheckHandlerActive2} isChecked={filters.active} label={"Activos"} />
             </div>
 
         </div>

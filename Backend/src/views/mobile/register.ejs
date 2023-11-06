@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <title>Smart Parking - Mobile</title>
+    <link rel="stylesheet" href="<%= baseUrl %>/stylesheets/mobile.base.css">
+    <link rel="stylesheet" href="<%= baseUrl %>/stylesheets/mobile.login.css">
+    <link rel="stylesheet" href="<%= baseUrl %>/stylesheets/mobile.register.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="<%= baseUrl %>/images/logo-white.png">
+    <script src="<%= baseUrl %>/scripts/mobile.functions.js"></script>
+</head>
+
+<body>
+
+    <div id="load"></div>
+
+    <div id="mobile">
+
+        <div id="main-cont">
+            <h1>Registrarte</h1>
+
+            <form id="register-form">
+                <div id="response"></div>
+
+                <div class="input-wrapper">
+                    <label for="username">Nombre Completo:</label>
+                    <input id="username" type="text" placeholder="Esteban Castro Martínez" required>
+                </div>
+
+                <div class="input-wrapper">
+                    <label for="email">Email:</label>
+                    <input id="email" type="email" placeholder="emartinez@dominio.com" required>
+                </div>
+
+                <div class="input-wrapper">
+                    <label for="password">Contraseña:</label>
+                    <input id="password" type="password" placeholder="Mínimo 8 caracteres" required>
+                </div>
+
+                <div class="input-wrapper">
+                    <label for="confirmPassword">Confirmar Contraseña:</label>
+                    <input id="confirmPassword" type="password" placeholder="Mínimo 8 caracteres" required>
+                </div>
+
+                <div class="input-wrapper">
+                    <label for="contact">Teléfono de Contacto:</label>
+                    <input id="contact" type="tel" placeholder="+56934219872" required>
+                </div>
+
+                <div class="input-wrapper">
+                    <label for="patente">Patente:</label>
+                    <input id="patente" type="text" placeholder="BGJF76" required>
+                </div>
+
+                <div class="input-wrapper">
+                    <label for="model">Modelo del Auto:</label>
+                    <input id="model" type="text" placeholder="Toyota Yaris" required>
+                </div>
+
+                <div class="input-wrapper">
+                    <label for="year">Año:</label>
+                    <input id="year" type="number" value="1970" max="2023" min="1970" required>
+                </div>
+
+            </form>
+            <div id="buttons-div">
+                <a href="<%= baseUrl %>/api/mobile">¿Ya posees una cuenta?</a>
+                <button id="reg-button">Registrarme</button>
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+<script>
+
+    window.addEventListener("load", async () => {
+
+        const load = document.getElementById('load')
+        const mobile = document.getElementById('mobile')
+
+        if (localStorage.getItem("token")) {
+
+            const token = localStorage.getItem("token")
+            const res = await fetch("<% baseUrl %>/api/auth/confirm-session", {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                }
+            })
+
+            if (res.ok) {
+                window.location.href = "<%= baseUrl %>/api/mobile/home"
+
+            } else {
+                localStorage.removeItem("token")
+                load.style.display = "none"
+                mobile.style.display = "flex"
+            }
+        }
+
+        load.style.display = "none"
+        mobile.style.display = "flex"
+    })
+
+    const button = document.getElementById("reg-button")
+
+    button.addEventListener("click", async (e) => {
+        const form = document.getElementById("register-form")
+        const respuestaDiv = document.getElementById("response")
+        event.preventDefault()
+
+        const password = document.getElementById('password').value
+        const confirmPassword = document.getElementById('confirmPassword').value
+        const data = {
+            username: document.getElementById('username').value,
+            email: document.getElementById('email').value,
+            password: password,
+            contact: document.getElementById('contact').value,
+            vehicles: {
+                patente: document.getElementById('patente').value,
+                model: document.getElementById('model').value,
+                year: parseInt(document.getElementById('year').value)
+            }
+        }
+
+        if (!isValidEmail(data.email)) {
+            alert('El correo electrónico no es válido. Por favor, inténtalo nuevamente.')
+            return
+        }
+
+        if (password !== confirmPassword) {
+            alert('Las contraseñas no coinciden. Por favor, inténtalo nuevamente.')
+            return
+        }
+
+        if (!isValidPassword(password)) {
+            alert('La contraseña no es válida. Por favor, inténtalo nuevamente.')
+            return
+        }
+
+        const res = await fetch("<%= baseUrl %>/api/auth/register", {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+
+        const result = await res.json()
+
+        if (res.ok) {
+            alert(result.message)
+            form.reset()
+        } else {
+            alert("Error al registrarse. Revisa tus datos e inténtalo nuevamente.")
+        }
+    })
+</script>
+
+
+</html>

@@ -1,9 +1,11 @@
 
+import { API_URL } from "./env.js"
+
 export const validateSession = async () => {
 
     if (localStorage.getItem('token')) {
 
-        const res = await fetch(`${import.meta.env.VITE_API}/auth/confirm-session`, {
+        const res = await fetch(`${API_URL}/auth/confirm-session`, {
             method: 'POST',
             headers: {
                 "Authorization": `Bearer ${localStorage.getItem('token')}`

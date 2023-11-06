@@ -1,15 +1,15 @@
 # Endpoints
 
-Un endpoint es una ruta de un servidor web que se utiliza para realizar una solicitud. En este caso, los endpoints son las rutas que se utilizan para realizar las solicitudes a la API.
+En entornos de desarrollo backend un **endpoint** es una ruta publica del servidor web. Estas rutas son interactivas y pueden variar en su funcionalidad dependiendo de los distintos metodos HTTP. Gran parte de estas peticiones reciben datos con un formato especifico, este formato es validado con [expreciones regulares](./Regex.md).
 
-## Auth endpoints
-
-### Iniciar sesión
+## Iniciar sesión
 
 -   **Metodo**: `POST`
 -   **Ruta común**: `/api/auth/login`
 -   **Ruta administador**: `/api/auth/admin-login`
 -   **Descripción**: Inicia sesión en la aplicación. El usuario debe estar validado para iniciar sesión.
+
+- **Cuerpo de la petición:** 
 
 ```json
 {
@@ -23,15 +23,17 @@ Un endpoint es una ruta de un servidor web que se utiliza para realizar una soli
 ```json
 {
     "message": "OK",
-    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NTBiOWEzNGRmMGMwMmI0M2RjMGMwMTAiLCJpYXQiOjE2O"
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9"
 }
 ```
 
-### Registro en la aplicación
+## Registro en la aplicación
 
 -   **Método**: `POST`
 -   **Ruta**: `/api/auth/register`
 -   **Descripción**: Registra un nuevo usuario en la aplicación.
+
+- **Cuerpo de la petición:**
 
 ```json
 {
@@ -47,7 +49,7 @@ Un endpoint es una ruta de un servidor web que se utiliza para realizar una soli
 }
 ```
 
--   **Respuesta**: Código de estado 200 y mensaje de confirmación.
+- **Respuesta**: Código de estado 200 y mensaje de confirmación.
 
 ```json
 {
@@ -55,13 +57,13 @@ Un endpoint es una ruta de un servidor web que se utiliza para realizar una soli
 }
 ```
 
-### Verificar sesión
+## Verificar sesión
 
 -   **Método**: `POST`
 -   **Ruta**: `/api/auth/confirm-session`
 -   **Descripción**: Verifica si el usuario tiene una sesión válida/activa.
 
--**Headers**:
+- **Encabezados de la petición**:
 
 ```json
 {
@@ -69,7 +71,7 @@ Un endpoint es una ruta de un servidor web que se utiliza para realizar una soli
 }
 ```
 
--   **Respuesta**: Mensaje de confirmación y código de estado.
+- **Respuesta**: Mensaje de confirmación y código de estado.
 
 ```json
 {
@@ -77,13 +79,13 @@ Un endpoint es una ruta de un servidor web que se utiliza para realizar una soli
 }
 ```
 
-### Cerar sesión
+## Cerar sesión
 
 - **Método**: `POST`
 - **Ruta**: `/api/auth/logout` 
 - **Descripción**: Cierra la sesión del usuario actual.
 
--   **Headers**:
+- **Encabezados de la petición**:
 
 ```json
 {
@@ -91,7 +93,7 @@ Un endpoint es una ruta de un servidor web que se utiliza para realizar una soli
 }
 ```
 
--   **Respuesta**: Mensaje de confirmación.
+- **Respuesta**: Mensaje de confirmación.
 
 ```json
 {
@@ -99,21 +101,19 @@ Un endpoint es una ruta de un servidor web que se utiliza para realizar una soli
 }
 ```
 
-### Recuperación de contraseña
+## Recuperación de contraseña
 
 -   **Método**: `GET`
 -   **Ruta**: `/api/auth/forgot-password`
 -   **Descripción**: Redirecciona a un sistema embebido de EJS en el backend. Se solicitará el email de la cuenta a restablecer contraseña.
 -   **Respuesta**: Email con un one time link para restablecer contraseña.
 
-## User endpoints
-
-### Obtener información del usuario
+## Obtener información de un usuario
 
 -   **Método**: `GET`
 -   **Ruta**: `/api/users/:id`
 -   **Descripción**: Obtiene la información del usuario (id). Requiere pertenencia o rol de administrador.
--   **Headers**:
+- **Encabezados de la petición**:
 
 ```json
 {
@@ -121,11 +121,11 @@ Un endpoint es una ruta de un servidor web que se utiliza para realizar una soli
 }
 ```
 
--   **Respuesta**: Información del usuario.
+- **Respuesta**: Información del usuario.
 
 ```json
 {
-	"_id": "651b09dabbabb01fc6975195", // ID del usuario.
+	"_id": "651b09dabbabb01fc6975195",
 	"username": "John Doe",
 	"email": "johndoe@alu.uct.cl",
 	"password": "$2a$08$ZQzT93",
@@ -147,13 +147,13 @@ Un endpoint es una ruta de un servidor web que se utiliza para realizar una soli
 
 ```
 
-### Obtener información de todos los usuarios
+## Obtener información de todos los usuarios
 
 -   **Método**: `GET`
 -   **Ruta**: `/api/users`
 -   **Descripción**: Obtiene la información de todos los usuarios. Requiere rol de administrador.
 
--   **Headers**:
+- **Encabezados de la petición**:
 
 ```json
 {
@@ -161,7 +161,7 @@ Un endpoint es una ruta de un servidor web que se utiliza para realizar una soli
 }
 ```
 
--   **Respuesta**: Información del usuario.
+- **Respuesta**: Información del usuario.
 
 ```json
 
@@ -208,13 +208,13 @@ Un endpoint es una ruta de un servidor web que se utiliza para realizar una soli
 
 ```
 
-### Actualizar información del usuario
+## Actualizar información del usuario
 
 -   **Método**: `PUT`
 -   **Ruta**: `/api/users/:id`
 -   **Descripción**: Actualiza la información del usuario (id). Requiere pertenencia o rol de administrador.
 
--   **Headers**:
+- **Encabezados de la petición**:
 
 ```json
 {
@@ -222,7 +222,7 @@ Un endpoint es una ruta de un servidor web que se utiliza para realizar una soli
 }
 ```
 
--   **Body**:
+- **Cuerpo de la petición**:
     Ejemplo de actualización de username y número de contacto
 
 ```json
@@ -232,7 +232,7 @@ Un endpoint es una ruta de un servidor web que se utiliza para realizar una soli
 }
 ```
 
--   **Respuesta**: Código de estado 200 y mensaje de confirmación.
+- **Respuesta**: Código de estado 200 y mensaje de confirmación.
 
 ```json
 {
@@ -240,19 +240,22 @@ Un endpoint es una ruta de un servidor web que se utiliza para realizar una soli
 }
 ```
 
-### Actualizar imagen de perfil
+## Actualizar imagen de perfil
 
 - **Método**: `PUT`
 - **Ruta**: `/api/users/update-image/:id`
 - **Descripción**: Actualiza la imagen de perfil del usuario (id). Requiere pertenencia o rol de administrador.
 
-- **Headers**:
+- **Encabezados de la petición**:
+
 ```json
 {
     'Content-Type': 'multipart/form-data',
 },
 ```
-- **Ejemplo:
+
+- **Ejemplo de uso con Javascript**:
+
 ```javascript
 const updateImage = async (url, image) => {
 
@@ -271,7 +274,7 @@ const updateImage = async (url, image) => {
 }
 ```
 
-### Actualizar imagen de perfil
+## Eliminar cuenta de usuario
 
 - **Método**: `DELETE`
 - **Ruta**: `/api/users/:id`
@@ -284,26 +287,10 @@ const updateImage = async (url, image) => {
 }
 ```
 
--   **Respuesta**: Código de estado 200 y mensaje de confirmación.
+- **Respuesta**: Código de estado 200 y mensaje de confirmación.
 
 ```json
 {
     "message": "account deleted successfully"
-}
-```
-
-## Parking endpoints
-
-### Obtener información de todos los estacionamientos activos
-
--   **Método**: `GET`
--   **Ruta**: `/api/parking/active`
--   **Descripción**: Obtiene la información de todos los estacionamientos activos. Requiere rol de administrador.
-
--   **Headers**:
-
-```json
-{
-    "Authorization": "Bearer <token>"
 }
 ```

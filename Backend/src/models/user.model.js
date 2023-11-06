@@ -1,9 +1,6 @@
 
 import { model, Schema } from "mongoose"
-
-// userSchema es una struct base del usuario
-// es requerida para realizar operaciones en la base de datos
-// ejemplo: userModel.findById()
+import { PUBLIC_URL } from "../config/env.js"
 
 const vehicleSchema = new Schema({
 
@@ -45,7 +42,7 @@ const userSchema = new Schema({
     profilePicture: {
         type: String,
         unique: false,
-        default: "http://localhost:3000/images/default.jpeg"
+        default: `http://${PUBLIC_URL}/images/default.jpeg`
     },
 
     contact: {
@@ -64,7 +61,11 @@ const userSchema = new Schema({
 
     verificationCode: {
         type: Number, required: false
-    }
+    },
+
+    expiredTokens: [{
+        type: String, unique: true
+    }]
 
 },
     { timestamps: true, versionKey: false }
