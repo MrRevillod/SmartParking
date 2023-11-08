@@ -59,9 +59,6 @@ Iniciar el servidor de desarrollo:
   }
 </style>
 
-</head>
-<body>
-
 <div class="flex-container">
   <div class="flex-item">
     <img src="./Backend/public/images/qr-guest-access.png" alt="">
@@ -72,6 +69,3 @@ Iniciar el servidor de desarrollo:
     <label for="img2">Salida Invitados</label>
   </div>
 </div>
-
-</body>
-</html>
