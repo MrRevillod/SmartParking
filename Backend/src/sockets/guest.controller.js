@@ -8,7 +8,7 @@ import { hashPassword } from "../utils/bcrypt.utils.js"
 import { stringToBinary, guestCode } from "../utils/guestcode.utils.js"
 import { verificationCodeSubject, verificationCodeTemplate } from "../utils/mail.template.js"
 import { transporter } from "../utils/mailer.utils.js"
-import { MAIL } from "../config/env.js"
+import { MAIL, PUBLIC_URL } from "../config/env.js"
 import { userAccessLogController, userExitLogController } from "./log.controller.js"
 import { MESSAGES } from "../utils/http.utils.js"
 
@@ -70,7 +70,7 @@ export const guestAccessController = async (io, socket, data) => {
         verify: user.verificationCode
     })
 
-    const url = `http://localhost:3000/api/parking/guest-exit?patente=${patente}&verificationCode=${verCode}`
+    const url = `${PUBLIC_URL}}/api/parking/guest-exit?patente=${patente}&verificationCode=${verCode}`
 
     transporter.sendMail({
         from: `Smart Parking UCT ${MAIL}`,
