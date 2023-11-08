@@ -34,38 +34,13 @@ Iniciar el servidor de desarrollo:
     <h2>Codigos QR</h2>
 </div>
 
-<style>
-  .flex-container {
-    display: flex; /* Activa Flexbox */
-    gap: 5rem; /* Espacio entre los elementos del flex */
-    justify-content: center; /* Centra los elementos horizontalmente */
-    align-items: center; /* Centra los elementos verticalmente */
-    flex-wrap: wrap; /* Permite que los elementos se pasen a la línea siguiente si no caben */
-  }
-
-  .flex-item {
-    text-align: center; /* Centra el texto debajo de la imagen */
-  }
-
-  .flex-item img {
-    width: 100%; /* Ajusta la imagen al ancho del contenedor */
-    max-width: 350px; /* Máximo ancho de la imagen */
-    height: auto; /* Ajusta la altura automáticamente para mantener la proporción */
-  }
-
-  label {
-    display: block; /* Hace que el label se comporte como un bloque y ocupe su propia línea */
-    margin-top: 0.5rem; /* Espacio entre la imagen y el texto */
-  }
-</style>
-
-<div class="flex-container">
-  <div class="flex-item">
-    <img src="./Backend/public/images/qr-guest-access.png" alt="">
-    <label for="img1">Acceso Invitados</label>
+<div class="flex-container" style="width: 100%; gap: 5rem; justify-content: center; align-items: center; flex-wrap: wrap;">
+  <div class="flex-item" style="text-align: center;">
+    <img style="width: 100%; max-width: 350px; height: auto; " src="./Backend/public/images/qr-guest-access.png" alt="">
+    <label style="display: block; margin-top: 0.5rem;" for="img2">Acceso Invitados</label>
   </div>
-  <div class="flex-item">
-    <img src="./Backend/public/images/qr-guest-exit.png" alt="">
-    <label for="img2">Salida Invitados</label>
+  <div class="flex-item" style="text-align: center;">
+    <img style="width: 100%; max-width: 350px; height: auto; " src="./Backend/public/images/qr-guest-access.png" alt="">
+    <label style="display: block; margin-top: 0.5rem;" for="img2">Salida Invitados</label>
   </div>
 </div>
