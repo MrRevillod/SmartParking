@@ -12,3 +12,7 @@ export const renderMobileRegister = (req, res) => {
 export const renderMobileHome = (req, res) => {
     res.render("mobile/home", { baseUrl: PUBLIC_URL })
 }
+
+export const renderMobileProfile = (req, res) => {
+    res.render("mobile/profile", { baseUrl: PUBLIC_URL })
+}

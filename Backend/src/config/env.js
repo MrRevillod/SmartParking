@@ -9,6 +9,15 @@ const MDB_PROD_URI = process.env.MDB_PROD_URI || "MONGODB_URI"
 const MDB_LOCAL_URI = process.env.MDB_LOCAL_URI || "MONGODB_URI"
 const MDB_DOCKER_URI = process.env.MDB_DOCKER_URI || "MONGODB_URI"
 
+const DB_NAME = process.env.DB_NAME || "DB_NAME"
+const JWT_SECRET = process.env.JWT_SECRET || "MY_SECRET"
+
+const LOCAL_IP_ADDRESS = process.env.LOCAL_IP_ADRESS
+const DEPLOY_IP_ADDRESS = process.env.DEPLOY_IP_ADRESS
+
+const MAIL = process.env.MAIL_ADRESS || "MAIL"
+const MAIL_PASSWORD = process.env.MAIL_PASSWORD || "MAIL_PASSWORD"
+
 const URIS = {
     "DOCKER": MDB_DOCKER_URI,
     "PRODUCTION": MDB_PROD_URI,
@@ -17,9 +26,6 @@ const URIS = {
 
 const URI = URIS[MODE]
 
-const LOCAL_IP_ADDRESS = process.env.LOCAL_IP_ADRESS
-const DEPLOY_IP_ADDRESS = process.env.DEPLOY_IP_ADRESS
-
 const IPS = {
     "DEVELOPMENT": LOCAL_IP_ADDRESS,
     "PRODUCTION": DEPLOY_IP_ADDRESS,
@@ -27,12 +33,6 @@ const IPS = {
 }
 
 const IP = IPS[MODE]
-
-const DB_NAME = process.env.DB_NAME || "DB_NAME"
-const JWT_SECRET = process.env.JWT_SECRET || "MY_SECRET"
-
-const MAIL = process.env.MAIL_ADRESS || "MAIL"
-const MAIL_PASSWORD = process.env.MAIL_PASSWORD || "MAIL_PASSWORD"
 
 const VIEWS_PATH = path.join(process.cwd(), "src/views")
 const UPLOADS_PATH = path.join(process.cwd(), "uploads")

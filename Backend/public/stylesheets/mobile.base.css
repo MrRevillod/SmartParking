@@ -9,6 +9,22 @@ body {
     padding: 0;
 }
 
+@media screen and (max-width: 800px) {
+    body {
+        background-color: #0D5492;
+    }
+
+    #mobile {
+        border: none !important;
+        width: 95vw !important;
+    }
+
+    #load {
+        border: none !important;
+        width: 95vw !important;
+    }
+}
+
 #mobile {
     background-color: #0D5492;
     width: 60vw;
