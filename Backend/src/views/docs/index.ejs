@@ -1,0 +1,383 @@
+<%- include("head", {baseUrl: baseUrl}) %>
+<body>
+
+    <h1 id="endpoints">Endpoints</h1>
+    <p>En entornos de desarrollo backend un <strong>endpoint</strong> es una ruta publica del servidor web. Estas rutas
+        son interactivas y pueden variar en su funcionalidad dependiendo de los distintos metodos HTTP. Gran parte de
+        estas peticiones reciben datos con un formato especifico, este formato es validado con <a
+            href="<%= baseUrl %>/api/docs/regex">expreciones regulares</a>.</p>
+    <h2 id="iniciar-sesión">Iniciar sesión</h2>
+    <ul>
+        <li>
+            <p><strong>Metodo</strong>: <code>POST</code></p>
+        </li>
+        <li>
+            <p><strong>Ruta común</strong>: <code>/api/auth/login</code></p>
+        </li>
+        <li>
+            <p><strong>Ruta administador</strong>: <code>/api/auth/admin-login</code></p>
+        </li>
+        <li>
+            <p><strong>Descripción</strong>: Inicia sesión en la aplicación. El usuario debe estar validado para iniciar
+                sesión.</p>
+        </li>
+        <li>
+            <p><strong>Cuerpo de la petición:</strong></p>
+        </li>
+    </ul>
+    <pre><code class="language-json">{
+    &quot;email&quot;: &quot;your_email@domain.com&quot;, 
+    &quot;password&quot;: &quot;asc9283MSHB&amp;&quot; 
+}
+</code></pre>
+    <ul>
+        <li><strong>Respuesta</strong>: Mensaje y token de autenticación.</li>
+    </ul>
+    <pre><code class="language-json">{
+    &quot;message&quot;: &quot;OK&quot;,
+    &quot;token&quot;: &quot;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9&quot;
+}
+</code></pre>
+    <h2 id="registro-en-la-aplicación">Registro en la aplicación</h2>
+    <ul>
+        <li>
+            <p><strong>Método</strong>: <code>POST</code></p>
+        </li>
+        <li>
+            <p><strong>Ruta</strong>: <code>/api/auth/register</code></p>
+        </li>
+        <li>
+            <p><strong>Descripción</strong>: Registra un nuevo usuario en la aplicación.</p>
+        </li>
+        <li>
+            <p><strong>Cuerpo de la petición:</strong></p>
+        </li>
+    </ul>
+    <pre><code class="language-json">{
+    &quot;username&quot;: &quot;John Doe&quot;,
+    &quot;email&quot;: &quot;your_email@domain.com&quot;,
+    &quot;password&quot;: &quot;!abc1234ABC&quot;,
+    &quot;contact&quot;: &quot;+56912345678&quot;,
+    &quot;vehicles&quot;: {
+        &quot;patente&quot;: &quot;VZFP23&quot;,
+        &quot;model&quot;: &quot;Toyota Corolla&quot;,
+        &quot;year&quot;: 2019 
+    }
+}
+</code></pre>
+    <ul>
+        <li><strong>Respuesta</strong>: Código de estado 200 y mensaje de confirmación.</li>
+    </ul>
+    <pre><code class="language-json">{
+    &quot;message&quot;: &quot;Link de verificación enviado al correo electrónico&quot;
+}
+</code></pre>
+    <h2 id="verificar-sesión">Verificar sesión</h2>
+    <ul>
+        <li>
+            <p><strong>Método</strong>: <code>POST</code></p>
+        </li>
+        <li>
+            <p><strong>Ruta</strong>: <code>/api/auth/confirm-session</code></p>
+        </li>
+        <li>
+            <p><strong>Descripción</strong>: Verifica si el usuario tiene una sesión válida/activa.</p>
+        </li>
+        <li>
+            <p><strong>Encabezados de la petición</strong>:</p>
+        </li>
+    </ul>
+    <pre><code class="language-json">{
+    &quot;Authorization&quot;: &quot;Bearer &lt;token&gt;&quot;
+}
+</code></pre>
+    <ul>
+        <li><strong>Respuesta</strong>: Mensaje de confirmación y código de estado.</li>
+    </ul>
+    <pre><code class="language-json">{
+    &quot;message&quot;: &quot;OK&quot;
+}
+</code></pre>
+    <h2 id="cerar-sesión">Cerar sesión</h2>
+    <ul>
+        <li>
+            <p><strong>Método</strong>: <code>POST</code></p>
+        </li>
+        <li>
+            <p><strong>Ruta</strong>: <code>/api/auth/logout</code> </p>
+        </li>
+        <li>
+            <p><strong>Descripción</strong>: Cierra la sesión del usuario actual.</p>
+        </li>
+        <li>
+            <p><strong>Encabezados de la petición</strong>:</p>
+        </li>
+    </ul>
+    <pre><code class="language-json">{
+    &quot;Authorization&quot;: &quot;Bearer &lt;token&gt;&quot;
+}
+</code></pre>
+    <ul>
+        <li><strong>Respuesta</strong>: Mensaje de confirmación.</li>
+    </ul>
+    <pre><code class="language-json">{
+    &quot;message&quot;: &quot;OK&quot;
+}
+</code></pre>
+    <h2 id="recuperación-de-contraseña">Recuperación de contraseña</h2>
+    <ul>
+        <li><strong>Método</strong>: <code>GET</code></li>
+        <li><strong>Ruta</strong>: <code>/api/auth/forgot-password</code></li>
+        <li><strong>Descripción</strong>: Redirecciona a un sistema embebido de EJS en el backend. Se solicitará el
+            email de la cuenta a restablecer contraseña.</li>
+        <li><strong>Respuesta</strong>: Email con un one time link para restablecer contraseña.</li>
+    </ul>
+    <h2 id="obtener-información-de-un-usuario">Obtener información de un usuario</h2>
+    <ul>
+        <li><strong>Método</strong>: <code>GET</code></li>
+        <li><strong>Ruta</strong>: <code>/api/users/:id</code></li>
+        <li><strong>Descripción</strong>: Obtiene la información del usuario (id). Requiere pertenencia o rol de
+            administrador.</li>
+        <li><strong>Encabezados de la petición</strong>:</li>
+    </ul>
+    <pre><code class="language-json">{
+    &quot;Authorization&quot;: &quot;Bearer &lt;token&gt;&quot;
+}
+</code></pre>
+    <ul>
+        <li><strong>Respuesta</strong>: Información del usuario.</li>
+    </ul>
+    <pre><code class="language-json">{
+    &quot;_id&quot;: &quot;651b09dabbabb01fc6975195&quot;,
+    &quot;username&quot;: &quot;John Doe&quot;,
+    &quot;email&quot;: &quot;johndoe@alu.uct.cl&quot;,
+    &quot;password&quot;: &quot;$2a$08$ZQzT93&quot;,
+    &quot;role&quot;: &quot;USER_ROLE&quot;,
+    &quot;validated&quot;: true,
+    &quot;profilePicture&quot;: &quot;http://localhost:3000/images/default.jpg&quot;,
+    &quot;contact&quot;: &quot;+56933484506&quot;,
+    &quot;active&quot;: false,
+    &quot;parking&quot;: &quot;&quot;,
+    &quot;vehicles&quot;: [
+        {
+        &quot;_id&quot;: &quot;651b09dabbabb01fc6975196&quot;,
+        &quot;patente&quot;: &quot;ANXM77&quot;,
+        &quot;model&quot;: &quot;Toyota Corolla&quot;,
+        &quot;year&quot;: &quot;2019&quot;,
+        }
+      ],
+}
+</code></pre>
+    <h2 id="obtener-información-de-perfil-de-un-usuario">Obtener información de perfil de un usuario</h2>
+    <ul>
+        <li>
+            <p><strong>Método</strong>: <code>GET</code></p>
+        </li>
+        <li>
+            <p><strong>Ruta</strong>: <code>/api/users/profile/</code></p>
+        </li>
+        <li>
+            <p><strong>Descripción</strong>: Obtiene la información del usuario actual. Requiere sesión activa y token
+                de pertenencia.</p>
+        </li>
+        <li>
+            <p><strong>Encabezados de la petición</strong>:</p>
+        </li>
+    </ul>
+    <pre><code class="language-json">{
+    &quot;Authorization&quot;: &quot;Bearer &lt;token&gt;&quot;
+}
+</code></pre>
+    <ul>
+        <li><strong>Respuesta</strong>: Información del usuario.</li>
+    </ul>
+    <pre><code class="language-json">{
+    &quot;_id&quot;: &quot;651b09dabbabb01fc6975195&quot;,
+    &quot;username&quot;: &quot;John Doe&quot;,
+    &quot;email&quot;: &quot;johndoe@alu.uct.cl&quot;,
+    &quot;password&quot;: &quot;$2a$08$ZQzT93&quot;,
+    &quot;role&quot;: &quot;USER_ROLE&quot;,
+    &quot;validated&quot;: true,
+    &quot;profilePicture&quot;: &quot;http://localhost:3000/images/default.jpg&quot;,
+    &quot;contact&quot;: &quot;+56933484506&quot;,
+    &quot;active&quot;: false,
+    &quot;parking&quot;: &quot;&quot;,
+    &quot;vehicles&quot;: [
+        {
+        &quot;_id&quot;: &quot;651b09dabbabb01fc6975196&quot;,
+        &quot;patente&quot;: &quot;ANXM77&quot;,
+        &quot;model&quot;: &quot;Toyota Corolla&quot;,
+        &quot;year&quot;: &quot;2019&quot;,
+        }
+      ],
+}
+</code></pre>
+    <h2 id="obtener-información-de-todos-los-usuarios">Obtener información de todos los usuarios</h2>
+    <ul>
+        <li>
+            <p><strong>Método</strong>: <code>GET</code></p>
+        </li>
+        <li>
+            <p><strong>Ruta</strong>: <code>/api/users</code></p>
+        </li>
+        <li>
+            <p><strong>Descripción</strong>: Obtiene la información de todos los usuarios. Requiere rol de
+                administrador.</p>
+        </li>
+        <li>
+            <p><strong>Encabezados de la petición</strong>:</p>
+        </li>
+    </ul>
+    <pre><code class="language-json">{
+    &quot;Authorization&quot;: &quot;Bearer &lt;token&gt;&quot;
+}
+</code></pre>
+    <ul>
+        <li><strong>Respuesta</strong>: Información del usuario.</li>
+    </ul>
+    <pre><code class="language-json">
+{
+    &quot;_id&quot;: &quot;651b09dabbabb01fc6975195&quot;, // ID del usuario.
+    &quot;username&quot;: &quot;John Doe&quot;,
+    &quot;email&quot;: &quot;johndoe@alu.uct.cl&quot;,
+    &quot;password&quot;: &quot;$2a$08$ZQzT93&quot;,
+    &quot;role&quot;: &quot;USER_ROLE&quot;,
+    &quot;validated&quot;: true,
+    &quot;profilePicture&quot;: &quot;http://localhost:3000/images/default.jpg&quot;,
+    &quot;contact&quot;: &quot;+56933484506&quot;,
+    &quot;active&quot;: false,
+    &quot;parking&quot;: &quot;&quot;,
+    &quot;vehicles&quot;: [
+        {
+        &quot;_id&quot;: &quot;651b09dabbabb01fc6975196&quot;,
+        &quot;patente&quot;: &quot;ANXM77&quot;,
+        &quot;model&quot;: &quot;Toyota Corolla&quot;,
+        &quot;year&quot;: &quot;2019&quot;,
+        }
+      ],
+},
+{
+    &quot;_id&quot;: &quot;651b09dabbabb01fc6975195&quot;, // ID del usuario.
+    &quot;username&quot;: &quot;Jane Doe&quot;,
+    &quot;email&quot;: &quot;janedoe@alu.uct.cl&quot;,
+    &quot;password&quot;: &quot;$2a$08$ZQzT93&quot;,
+    &quot;role&quot;: &quot;TEMP_ROLE&quot;,
+    &quot;validated&quot;: true,
+    &quot;profilePicture&quot;: &quot;http://localhost:3000/images/default.jpg&quot;,
+    &quot;contact&quot;: &quot;+56912345678&quot;,
+    &quot;active&quot;: false,
+    &quot;parking&quot;: &quot;&quot;,
+    &quot;vehicles&quot;: [
+        {
+        &quot;_id&quot;: &quot;651b09dabbabb01fc69012&quot;,
+        &quot;patente&quot;: &quot;KBGF77&quot;,
+        &quot;model&quot;: &quot;Toyota Corolla&quot;,
+        &quot;year&quot;: &quot;2019&quot;,
+        }
+      ],
+},
+</code></pre>
+    <h2 id="actualizar-información-del-usuario">Actualizar información del usuario</h2>
+    <ul>
+        <li>
+            <p><strong>Método</strong>: <code>PUT</code></p>
+        </li>
+        <li>
+            <p><strong>Ruta</strong>: <code>/api/users/:id</code></p>
+        </li>
+        <li>
+            <p><strong>Descripción</strong>: Actualiza la información del usuario (id). Requiere pertenencia o rol de
+                administrador.</p>
+        </li>
+        <li>
+            <p><strong>Encabezados de la petición</strong>:</p>
+        </li>
+    </ul>
+    <pre><code class="language-json">{
+    &quot;Authorization&quot;: &quot;Bearer &lt;token&gt;&quot;
+}
+</code></pre>
+    <ul>
+        <li><strong>Cuerpo de la petición</strong>:
+            Ejemplo de actualización de username y número de contacto</li>
+    </ul>
+    <pre><code class="language-json">{
+    &quot;username&quot;: &quot;John Doe&quot;,
+    &quot;contacto&quot;: &quot;+56912345678&quot;
+}
+</code></pre>
+    <ul>
+        <li><strong>Respuesta</strong>: Código de estado 200 y mensaje de confirmación.</li>
+    </ul>
+    <pre><code class="language-json">{
+    &quot;message&quot;: &quot;User updated successfully&quot;
+}
+</code></pre>
+    <h2 id="actualizar-imagen-de-perfil">Actualizar imagen de perfil</h2>
+    <ul>
+        <li>
+            <p><strong>Método</strong>: <code>PUT</code></p>
+        </li>
+        <li>
+            <p><strong>Ruta</strong>: <code>/api/users/update-image/:id</code></p>
+        </li>
+        <li>
+            <p><strong>Descripción</strong>: Actualiza la imagen de perfil del usuario (id). Requiere pertenencia o rol
+                de administrador.</p>
+        </li>
+        <li>
+            <p><strong>Encabezados de la petición</strong>:</p>
+        </li>
+    </ul>
+    <pre><code class="language-json">{
+    &#39;Content-Type&#39;: &#39;multipart/form-data&#39;,
+    &quot;Authorization&quot;: &quot;Bearer &lt;token&gt;&quot;
+},
+</code></pre>
+    <ul>
+        <li><strong>Ejemplo de uso con Javascript</strong>:</li>
+    </ul>
+    <pre><code class="language-javascript">const updateImage = async (url, image) =&gt; {
+
+    const body = new FormData()
+    body.append(&#39;image&#39;, image)
+
+    const response = await fetch(url, {
+        body,
+        method: &quot;POST&quot;,
+        headers: {
+            &#39;Content-Type&#39;: &#39;multipart/form-data&#39;,
+        }
+    })
+
+    return await response.json()
+}
+</code></pre>
+    <h2 id="eliminar-cuenta-de-usuario">Eliminar cuenta de usuario</h2>
+    <ul>
+        <li>
+            <p><strong>Método</strong>: <code>DELETE</code></p>
+        </li>
+        <li>
+            <p><strong>Ruta</strong>: <code>/api/users/:id</code></p>
+        </li>
+        <li>
+            <p><strong>Descripción</strong>: Elimina el usuario (id). Requiere pertenencia o rol de administrador.</p>
+        </li>
+        <li>
+            <p><strong>Headers</strong>:</p>
+        </li>
+    </ul>
+    <pre><code class="language-json">{
+    &quot;Authorization&quot;: &quot;Bearer &lt;token&gt;&quot;
+}
+</code></pre>
+    <ul>
+        <li><strong>Respuesta</strong>: Código de estado 200 y mensaje de confirmación.</li>
+    </ul>
+    <pre><code class="language-json">{
+    &quot;message&quot;: &quot;account deleted successfully&quot;
+}
+</code></pre>
+
+</body>
