@@ -147,6 +147,46 @@ En entornos de desarrollo backend un **endpoint** es una ruta publica del servid
 
 ```
 
+## Obtener información de perfil de un usuario
+
+-   **Método**: `GET`
+-   **Ruta**: `/api/users/profile/`
+-   **Descripción**: Obtiene la información del usuario actual. Requiere sesión activa y token de pertenencia.
+
+- **Encabezados de la petición**:
+
+```json
+{
+    "Authorization": "Bearer <token>"
+}
+```
+
+- **Respuesta**: Información del usuario.
+
+```json
+{
+	"_id": "651b09dabbabb01fc6975195",
+	"username": "John Doe",
+	"email": "johndoe@alu.uct.cl",
+	"password": "$2a$08$ZQzT93",
+	"role": "USER_ROLE",
+	"validated": true,
+	"profilePicture": "http://localhost:3000/images/default.jpg",
+	"contact": "+56933484506",
+	"active": false,
+	"parking": "",
+	"vehicles": [
+		{
+		"_id": "651b09dabbabb01fc6975196",
+		"patente": "ANXM77",
+		"model": "Toyota Corolla",
+		"year": "2019",
+		}
+  	],
+}
+
+```
+
 ## Obtener información de todos los usuarios
 
 -   **Método**: `GET`
@@ -251,6 +291,7 @@ En entornos de desarrollo backend un **endpoint** es una ruta publica del servid
 ```json
 {
     'Content-Type': 'multipart/form-data',
+	"Authorization": "Bearer <token>"
 },
 ```
 

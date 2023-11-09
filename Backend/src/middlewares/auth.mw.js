@@ -20,8 +20,8 @@ export const checkUserExist = async (req, res, next) => {
         next()
 
     } catch (error) {
-        res.render("invalid-url", { baseUrl: PUBLIC_URL })
         saveError(error)
+        res.render("invalid-url", { baseUrl: PUBLIC_URL })
     }
 }
 
@@ -39,8 +39,8 @@ export const checkValidateAccountToken = async (req, res, next) => {
         next()
 
     } catch (error) {
-        res.render("invalid-url", { baseUrl: PUBLIC_URL })
         saveError(error)
+        res.render("invalid-url", { baseUrl: PUBLIC_URL })
     }
 }
 
@@ -58,7 +58,7 @@ export const checkChangePasswordToken = async (req, res, next) => {
         next()
 
     } catch (error) {
-        res.render("invalid-url", { baseUrl: PUBLIC_URL })
         saveError(error)
+        res.render("invalid-url", { baseUrl: PUBLIC_URL })
     }
 }

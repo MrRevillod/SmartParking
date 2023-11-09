@@ -1,0 +1,48 @@
+<%- include("head", {baseUrl: baseUrl}) %>
+
+    <body>
+        <h1 id="expreciones-regulares">Expreciones regulares</h1>
+        <p>Una expreción regular es una cadena de caracteres que representa el formato y los valores que debe poseer un
+            dato requerido.</p>
+        <h2 id="nombre-de-usuario">Nombre de usuario</h2>
+        <ul>
+            <li>Longitud: mínimo 8 caracteres</li>
+            <li>Se espera nombre - apellido paterno - apellido materno</li>
+        </ul>
+        <h2 id="correo-electronico">Correo electronico</h2>
+        <pre><code class="language-javascript">   ([a-zA-Z0-9_.+-]+)@[a-zA-Z0-9_.+-]+\.[a-zA-Z0-9_.+-]
+</code></pre>
+        <h2 id="contraseña">Contraseña</h2>
+        <ul>
+            <li>Longitud: mínimo 8 caracteres</li>
+            <li>Al menos un número, minúscula, mayúscula y carácter especial</li>
+        </ul>
+        <pre><code class="language-javascript">   /^(?=.*\d)(?=.*[a-z])(?=.*[!@#$%^&amp;*])/
+</code></pre>
+        <h2 id="número-de-contacto">Número de contacto</h2>
+        <ul>
+            <li>Longitud: 12 caracteres</li>
+        </ul>
+        <pre><code class="language-javascript">   /^\+569\d{8}$/
+</code></pre>
+        <h2 id="patente">Patente</h2>
+        <ul>
+            <li>Longitud: 6 caracteres</li>
+        </ul>
+        <pre><code class="language-javascript">   /^[BCDFGHJKLPQRSTVWXYZ]{4}(1[0-9]|[2-9][0-9])$/
+</code></pre>
+        <h2 id="modelo-del-vehiculo">Modelo del vehiculo</h2>
+        <ul>
+            <li>Longitud: Máximo 20 caracteres</li>
+        </ul>
+        <h2 id="año-del-vehiculo">Año del vehiculo</h2>
+        <ul>
+            <li>Rango: Entre 1950 y 2023</li>
+        </ul>
+        <pre><code class="language-javascript">   /^[BCDFGHJKLPQRSTVWXYZ]{4}(1[0-9]|[2-9][0-9])$/
+</code></pre>
+
+
+    </body>
+
+    </html>

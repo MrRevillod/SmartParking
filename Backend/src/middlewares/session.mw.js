@@ -23,10 +23,7 @@ export const sessionValidation = async (req, res, next) => {
         next()
 
     } catch (error) {
-
-        console.log(error)
-
-        res.status(401).json({ message: MESSAGES.UNAUTHORIZED })
         saveError(error)
+        res.status(error?.status || 500).json({ message: error?.message || MESSAGES.UNEXPECTED })
     }
 }
