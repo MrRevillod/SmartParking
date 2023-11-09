@@ -2,16 +2,7 @@
 import jwt from "jsonwebtoken"
 import { MESSAGES } from "./http.utils.js"
 
-// Se importan las funciones sign y verify de jwt
-
 const { sign, verify } = jwt
-
-// ejemplo payload:
-// payload = {uid: user.id}
-
-// Función que recibe un payload con información de usuario y la clave de encriptación
-// se asigna el tiempo de expiración del token (60s * 15)
-// retorna un jwt firmado para el cliente
 
 export const createJwt = (payload, secret, expiresIn = 60 * 40) => {
 
@@ -23,16 +14,18 @@ export const createJwt = (payload, secret, expiresIn = 60 * 40) => {
     }
 }
 
-// Función que recibe un token desde el cliente 
-// y lo verifica usando una clave correspondiente
-// si la verificación es exitosa retorna la información guardada en el payload
-
 export const verifyJwt = (token, secret) => {
 
     try {
-        return verify(token, secret)
+        const payload = verify(token, secret)
+        return payload
 
     } catch (error) {
+
+        if (error instanceof jwt.TokenExpiredError || error instanceof jwt.JsonWebTokenError) {
+            throw { status: 401, message: MESSAGES.UNAUTHORIZED }
+        }
+
         throw { status: 500, message: MESSAGES.UNEXPECTED }
     }
 }
