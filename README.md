@@ -29,3 +29,18 @@ Iniciar el servidor de desarrollo:
 
 - [Endpoints](./Backend/docs/Endpoints.md)
 - [Estructura de carpetas](./Backend/docs/Docs.md)
+
+<div align="center" style="margin: 2rem;">
+    <h2>Codigos QR</h2>
+</div>
+
+<div class="flex-container" style="width: 100%; gap: 5rem; justify-content: center; align-items: center; flex-wrap: wrap;">
+  <div class="flex-item" style="text-align: center;">
+    <img style="width: 100%; max-width: 350px; height: auto; " src="./Backend/public/images/qr-guest-access.png" alt="">
+    <label style="display: block; margin-top: 0.5rem;" for="img2">Acceso Invitados</label>
+  </div>
+  <div class="flex-item" style="text-align: center;">
+    <img style="width: 100%; max-width: 350px; height: auto; " src="./Backend/public/images/qr-guest-access.png" alt="">
+    <label style="display: block; margin-top: 0.5rem;" for="img2">Salida Invitados</label>
+  </div>
+</div>

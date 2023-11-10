@@ -24,6 +24,15 @@
 
     <script>
 
+        const urlParams = new URLSearchParams(window.location.search)
+        const patenteParam = urlParams.get("patente")
+        const verificationCodeParam = urlParams.get("verificationCode")
+
+        if (patenteParam && verificationCodeParam) {
+            document.getElementById("patente").value = patenteParam
+            document.getElementById("verificationCode").value = verificationCodeParam
+        }
+
         const socket = io("<%= baseUrl %>")
         const form = document.getElementById("mainform")
         const button = document.getElementById("button")

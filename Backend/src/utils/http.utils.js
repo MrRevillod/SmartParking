@@ -34,4 +34,5 @@ export const MESSAGES = {
     CONTACT_EXIST: "El número de contacto ya se encuentra registrado",
     USER_NOT_IN_PARKING: "El usuario no se encuentra en el parking",
     PARKING_NOT_FOUND: "No se encuantran estacionamientos disponibles",
+    EMAIL_UNEXPECTED_ERROR: "Error inesperado al enviar el email, vuelva a intentarlo"
 }
