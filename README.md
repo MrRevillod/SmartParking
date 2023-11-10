@@ -36,13 +36,8 @@ Un sitio web para los usuarios móviles, este es accesible desde [SmartParking M
 
 ### Acceso y salida de invitados mediante códigos QR
 
-<div style="display: flex; flex-direction: row; width: 100%; gap: 5rem; justify-content: flex-start; align-items: center; flex-wrap: wrap;">
-  <div style="text-align: center; margin-top: 2rem;">
-    <img style="width: 100%; max-width: 250px; height: auto; " src="./Backend/public/images/qr-guest-access.png" alt="">
-    <label style="display: block; margin-top: 0.5rem;" for="img2">Acceso Invitados</label>
-  </div>
-  <div style="text-align: center; margin-top: 2rem;">
-    <img style="width: 100%; max-width: 250px; height: auto; " src="./Backend/public/images/qr-guest-access.png" alt="">
-    <label style="display: block; margin-top: 0.5rem;" for="img2">Salida Invitados</label>
-  </div>
+Para el acceso y salida de invitados se ha implementado un sistema de códigos QR, los cuales están presentes en las entradas y salidas de los estacionamientos y redirigen a un sistema embedido para registrar una entrada o salida del recinto. 
+
+<div align="center">
+  <img src="./Backend/public/images/qrs.png" alt="Descripción de la imagen" >
 </div>
