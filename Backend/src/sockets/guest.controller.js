@@ -3,7 +3,9 @@ import { userModel } from "../models/user.model.js"
 import { parkingModel } from "../models/parking.model.js"
 
 import { MAIL, PUBLIC_URL } from "../config/env.js"
-import { userAccessLogController, userExitLogController } from "./log.controller.js"
+
+import { getParkings, findParking } from "./parking.controller.js"
+import { getLogs, userAccessLogController, userExitLogController } from "./log.controller.js"
 
 import { MESSAGES } from "../utils/http.utils.js"
 import { transporter } from "../utils/mailer.utils.js"
@@ -78,11 +80,14 @@ export const guestAccessController = async (io, socket, data) => {
         html: verificationCodeTemplate(user.username, verCode, url)
     },
         (error, info) => {
-            socket.emit("guest-access-denied", {
-                message: MESSAGES.EMAIL_UNEXPECTED_ERROR
-            })
+            if (error) {
 
-            return
+                socket.emit("guest-access-denied", {
+                    message: MESSAGES.EMAIL_UNEXPECTED_ERROR
+                })
+
+                return
+            }
         }
     )
 
