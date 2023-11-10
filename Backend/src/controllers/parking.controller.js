@@ -1,5 +1,6 @@
 
 import { MESSAGES } from "../utils/http.utils.js"
+import { saveError } from "../utils/error.utils.js"
 import { parkingModel } from "../models/parking.model.js"
 
 export const getParkings = async (req, res) => {
@@ -13,6 +14,7 @@ export const getParkings = async (req, res) => {
 
     } catch (error) {
         res.status(error?.status || 500).json({ message: error?.message || MESSAGES.UNEXPECTED })
+        saveError(error)
     }
 }
 
@@ -29,5 +31,6 @@ export const getParking = async (req, res) => {
 
     } catch (error) {
         res.status(error?.status || 500).json({ message: error?.message || MESSAGES.UNEXPECTED })
+        saveError(error)
     }
 }

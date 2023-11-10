@@ -1,12 +1,14 @@
+
 import { useEffect, useState } from "react"
 
 import { Header } from "../../../components/Header"
+import { API_URL } from "../../../lib/env.js"
 import { Filters } from "../../../components/Filters"
-
-import "./Style.css"
-import "bootstrap-icons/font/bootstrap-icons.css"
 import { SearchBar } from "../../../components/SearchBar"
 import { TableUsers } from "../../../components/TableUsers"
+
+import "./Users.css"
+import "bootstrap-icons/font/bootstrap-icons.css"
 
 const table_columns = [
     "Nombre",
@@ -16,23 +18,22 @@ const table_columns = [
 ]
 
 function orderByUsername(usuarios) {
-    // Utiliza el método sort para ordenar el arreglo de usuarios según la propiedad "username".
     usuarios.sort((a, b) => {
-      const usernameA = a.username.toLowerCase(); // Convierte a minúsculas para asegurarse de que la comparación sea insensible a mayúsculas.
-      const usernameB = b.username.toLowerCase();
-      
-      if (usernameA < usernameB) {
-        return -1;
-      }
-      if (usernameA > usernameB) {
-        return 1;
-      }
-      return 0;
-    });
-  }
-  
 
-  
+        const usernameA = a.username.toLowerCase()
+        const usernameB = b.username.toLowerCase()
+
+        if (usernameA < usernameB) {
+            return -1
+        }
+
+        if (usernameA > usernameB) {
+            return 1
+        }
+
+        return 0
+    })
+}
 
 export const Users = () => {
 
@@ -45,7 +46,7 @@ export const Users = () => {
     })
 
     const getUsers = async () => {
-        const res = await fetch(`${import.meta.env.VITE_API}/users`, {
+        const res = await fetch(`${API_URL}/users`, {
             method: "GET",
             headers: {
                 Authorization: `Bearer ${localStorage.getItem("token")}`,

@@ -1,7 +1,8 @@
 
 import { motion } from "framer-motion"
 
-export default function Cardy({ reservas }) {
+export const Cardy = ({ reservas }) => {
+
     return (
         reservas.map(({ _id, username, patente, parking, status }) => (
             <motion.div
@@ -9,7 +10,6 @@ export default function Cardy({ reservas }) {
                 className="     
                  row fs-4 icon-blue bg-white w-100 py-3  border-blue border rounded-bottom
                 "
-
                 initial={{ x: -60, borderWidth: "10px" }}
                 animate={{ x: 0, borderWidth: "10px" }}
                 transition={{ duration: 0.3 }}

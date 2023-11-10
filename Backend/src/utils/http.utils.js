@@ -19,6 +19,7 @@ export const MESSAGES = {
     EMAIL_VERIFICATION_FAILED: "Verificación de email fallida",
     PASSWORD_RESET_SENT: "Instrucciones para restablecer la contraseña enviadas",
     PASSWORD_RESET_FAILED: "Restablecimiento de contraseña fallido",
+    PASSWORD_CHANGED: "Se ha cambiado la contraseña correctamente",
     PROFILE_UPDATED: "Perfil actualizado correctamente",
     PROFILE_UPDATE_FAILED: "Actualización de perfil fallida",
     RESOURCE_NOT_FOUND: "Recurso no encontrado",
@@ -33,4 +34,5 @@ export const MESSAGES = {
     CONTACT_EXIST: "El número de contacto ya se encuentra registrado",
     USER_NOT_IN_PARKING: "El usuario no se encuentra en el parking",
     PARKING_NOT_FOUND: "No se encuantran estacionamientos disponibles",
+    EMAIL_UNEXPECTED_ERROR: "Error inesperado al enviar el email, vuelva a intentarlo"
 }

@@ -1,0 +1,167 @@
+#main-cont {
+    height: 80vh;
+    max-width: 500px;
+    max-height: 75vh;
+    width: 90% !important;
+}
+
+#main-cont h1 {
+    margin: 2rem 0;
+}
+
+#register-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 70%;
+    width: 100%;
+    gap: 0.5rem;
+}
+
+@media screen and (max-width: 800px) {
+
+    #main-cont {
+        width: 90vw !important;
+        height: 90vh !important;
+        max-height: 90vh !important;
+    }
+
+    #main-cont h1 {
+        margin: 0rem;
+    }
+
+    #register-form {
+        width: 90vw !important;
+        margin: 1rem 0rem !important;
+    }
+
+    #dialog {
+        max-width: 80vw !important;
+    }
+}
+
+.grid-cont {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    place-items: center;
+    width: 90%;
+    gap: 0.5rem;
+}
+
+.input-wrapper-flex {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    width: 90%;
+}
+
+.input-wrapper-flex label,
+.input-wrapper-grid label {
+    font-weight: bold;
+    font-size: small;
+}
+
+.input-wrapper-grid {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 0.5rem;
+}
+
+.input-wrapper-grid .icon-cont {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.input-wrapper-grid .icon-cont .input-grid {
+    width: 100%;
+    position: relative;
+}
+
+.input-wrapper-grid .icon-cont .input-grid {
+    width: 100%;
+    position: relative;
+}
+
+.input-wrapper-grid .icon-cont i {
+    position: absolute;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.input-wrapper-flex .icon-cont {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.input-wrapper-flex .icon-cont .input-flex {
+    width: 100%;
+    position: relative;
+}
+
+.input-wrapper-flex .icon-cont i {
+    position: absolute;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.input {
+    border: 1px solid #0D5492;
+    border-radius: 0.5rem;
+    height: 2.2rem;
+    width: 100%;
+    padding: 0 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+#buttons-div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+    margin-top: 1rem;
+}
+
+#reg-button {
+    height: 2.5rem;
+    border-radius: 0.5rem;
+    border: none;
+    width: 40%;
+    background-color: #0D5492;
+    color: #F5F5F5;
+    font-weight: bold;
+    font-size: large;
+}
+
+#dialog {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 0.5rem;
+    gap: 1rem;
+    max-width: 20vw;
+    text-align: center;
+}
+
+#dialog button {
+    margin: 0.5rem 0;
+    border-radius: 0.5rem;
+    border: none;
+    width: 40%;
+    background-color: #0D5492;
+    color: #F5F5F5;
+    font-weight: bold;
+    height: 2rem;
+    width: 50%;
+}

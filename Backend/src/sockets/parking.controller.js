@@ -1,11 +1,12 @@
 
-import { JWT_SECRET } from "../config/env.js"
 import { verifyJwt } from "../utils/jwt.utils.js"
+import { JWT_SECRET } from "../config/env.js"
 
 import { userModel } from "../models/user.model.js"
 import { parkingModel } from "../models/parking.model.js"
 
 import { hasReservation } from "./reservation.controller.js"
+import { userAccessLogController, userExitLogController, getLogs } from "./log.controller.js"
 
 export const findParking = async () => {
     const parking = await parkingModel.findOne({ active: false })
@@ -81,9 +82,16 @@ export const parkingAccessController = async (io, socket, data) => {
         message: `Entrada al estacionamiento ${parking.name} registrada con éxito`
     })
 
+    await userAccessLogController(socket, user.username, parking.name, patente)
+
+    io.to("administradores").emit("all-logs", {
+        logs: await getLogs()
+    })
+
     io.to("administradores").emit("all-parkings", {
         parkings: await getParkings(),
     })
+
 }
 
 export const parkingExitController = async (io, socket, data) => {
@@ -142,6 +150,12 @@ export const parkingExitController = async (io, socket, data) => {
 
     socket.emit("parking-exit-ok", {
         message: `Salida del estacionamiento ${parking.name} registrada con éxito`
+    })
+
+    await userExitLogController(io, user.username, parking.name)
+
+    io.to("administradores").emit("all-logs", {
+        logs: await getLogs()
     })
 
     io.to("administradores").emit("parking-free-notification", {

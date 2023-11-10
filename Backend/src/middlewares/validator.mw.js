@@ -1,10 +1,8 @@
 
+import { Types } from "mongoose"
+import { MESSAGES } from "../utils/http.utils.js"
+import { saveError } from "../utils/error.utils.js"
 import { validationResult } from "express-validator"
-
-// MW tipo express-validator
-// verifica los campos de la req y las rules por cada uno de ellos
-// si alguno de ellos incumple estas rules retorna un 400 (Bad Request)
-// de lo contrario pasa al controlador o mw siguiente por la función next()
 
 export const validateRules = (req, res, next) => {
 
@@ -15,4 +13,19 @@ export const validateRules = (req, res, next) => {
     }
 
     next()
+}
+
+export const validateMongoUid = (req, res, next) => {
+
+    try {
+
+        const { id } = req.params
+
+        if (!Types.ObjectId.isValid(id)) throw { status: 400, message: MESSAGES.USER_NOT_FOUND }
+        next()
+
+    } catch (error) {
+        saveError(error)
+        res.status(error?.status || 500).json({ message: error?.message || MESSAGES.UNEXPECTED })
+    }
 }
