@@ -3,7 +3,7 @@
 </div>
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/MrRevillod/SmartParking/main/Dise%C3%B1o/logo-transparency-white-bg.png" alt="Descripción de la imagen" width="250">
+  <img src="./Backend/public/images/logo-white.png" alt="Descripción de la imagen" width="200">
 </div>
 
 <div align="center" style="margin: 2rem;">
@@ -42,4 +42,4 @@ Un rest endpoint es una URL que identifica un recurso. Cuando se accede a un res
 
 Para el acceso y salida de invitados se ha implementado un sistema de códigos QR, los cuales están presentes en las entradas y salidas de los estacionamientos y redirigen a un sistema embedido para registrar una entrada o salida del recinto. 
 
-<img src="./Backend/public/images/qrs.png" alt="Descripción de la imagen" >
+<img src="./Backend/public/images/Qrs.png" alt="Descripción de la imagen" width="800">
