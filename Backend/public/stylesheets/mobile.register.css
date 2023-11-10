@@ -23,7 +23,12 @@
 
     #main-cont {
         width: 90vw !important;
-        height: 80vh !important;
+        height: 90vh !important;
+        max-height: 90vh !important;
+    }
+
+    #main-cont h1 {
+        margin: 0rem;
     }
 
     #register-form {
@@ -71,6 +76,11 @@
     align-items: center;
     justify-content: flex-end;
     width: 100%;
+}
+
+.input-wrapper-grid .icon-cont .input-grid {
+    width: 100%;
+    position: relative;
 }
 
 .input-wrapper-grid .icon-cont .input-grid {
