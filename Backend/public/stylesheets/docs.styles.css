@@ -1,4 +1,3 @@
-/* Reset básico para asegurar consistencia entre navegadores */
 * {
     margin: 0;
     padding: 0;
@@ -7,10 +6,10 @@
 
 body {
     font-family: 'Montserrat', sans-serif;
-    background-color: #ffffff;
+    background-color: #F5F5F5;
     color: #333;
     line-height: 1.6;
-    padding: 4rem 15rem;
+    padding: 4rem 25rem;
 }
 
 h1,
@@ -19,7 +18,6 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
     color: #0F6AB4;
     margin-top: 1.5rem;
     margin-bottom: 0.5rem;
@@ -52,10 +50,9 @@ a:hover {
     text-decoration: underline;
 }
 
-/* Código y Preformato */
 code,
 pre {
-    font-family: 'Courier New', monospace;
+    font-family: 'Source Code Pro', monospace;
     background-color: #f4f4f4;
     color: #333;
     page-break-inside: avoid;
@@ -77,14 +74,12 @@ pre {
     margin: 2rem 0rem;
 }
 
-/* Listas */
 ul,
 ol {
     margin-left: 2rem;
     margin-bottom: 1rem;
 }
 
-/* Botones y Enlaces de Acción */
 button,
 .button {
     background-color: #0F6AB4;
@@ -103,7 +98,6 @@ button:hover,
     background-color: #0D5492;
 }
 
-/* Espaciado para secciones y elementos de formulario */
 section,
 article,
 aside,
@@ -112,7 +106,6 @@ footer {
     margin-bottom: 2rem;
 }
 
-/* Diseño Responsive */
 @media (max-width: 768px) {
     body {
         padding: 2rem !important;
@@ -129,6 +122,13 @@ footer {
     h3 {
         font-size: 1.25rem;
     }
+}
+
+.hljs-keyword,
+.hljs-attribute,
+.hljs-title,
+.hljs-name {
+    font-weight: 600;
 }
 
 .hljs {
