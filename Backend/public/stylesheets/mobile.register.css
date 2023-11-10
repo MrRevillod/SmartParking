@@ -23,6 +23,7 @@
 
     #main-cont {
         width: 90vw !important;
+        height: 80vh !important;
     }
 
     #register-form {
