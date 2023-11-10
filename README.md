@@ -3,7 +3,7 @@
 </div>
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/MrRevillod/SmartParking/main/Dise%C3%B1o/logo-transparency-white-bg.png" alt="Descripción de la imagen" width="250">
+  <img src="./Backend/public/images/logo-white.png" alt="Descripción de la imagen" width="200">
 </div>
 
 <div align="center" style="margin: 2rem;">
@@ -34,10 +34,12 @@ Un sitio web de administración y gestión el cual es accesible desde [SmartPark
 
 Un sitio web para los usuarios móviles, este es accesible desde [SmartParking Mobile](http://190.114.253.237:3000/api/mobile). Este sitio es una simulación de la aplicación móvil, por lo que se recomienda acceder desde un dispositivo móvil.
 
+## Documentación y endpoints
+
+Un rest endpoint es una URL que identifica un recurso. Cuando se accede a un rest endpoint, el servidor devolverá una representación del recurso solicitado. En este caso, el servidor devuelve un JSON con la información solicitada. La documentación web sobre los endpoints se encuentra en [SmartParking Docs](http://190.114.253.237:3000/api/docs/)
+
 ### Acceso y salida de invitados mediante códigos QR
 
 Para el acceso y salida de invitados se ha implementado un sistema de códigos QR, los cuales están presentes en las entradas y salidas de los estacionamientos y redirigen a un sistema embedido para registrar una entrada o salida del recinto. 
 
-<div align="center">
-  <img src="./Backend/public/images/qrs.png" alt="Descripción de la imagen" >
-</div>
+<img src="./Backend/public/images/Qrs.png" alt="Descripción de la imagen" width="800">
