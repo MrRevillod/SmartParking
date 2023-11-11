@@ -1,6 +1,6 @@
 
-import { JWT_SECRET } from "../config/env.js"
 import { verifyJwt } from "../utils/jwt.utils.js"
+import { JWT_SECRET } from "../config/env.js"
 
 import { userModel } from "../models/user.model.js"
 import { parkingModel } from "../models/parking.model.js"

@@ -1,7 +1,7 @@
 
 import { MESSAGES } from "../utils/http.utils.js"
-import { userModel } from "../models/user.model.js"
 import { saveError } from "../utils/error.utils.js"
+import { userModel } from "../models/user.model.js"
 
 export const roleValidation = (roles) => async (req, res, next) => {
 
@@ -17,8 +17,8 @@ export const roleValidation = (roles) => async (req, res, next) => {
         next()
 
     } catch (error) {
-        res.status(error?.status || 500).json({ message: error?.message || MESSAGES.UNEXPECTED })
         saveError(error)
+        res.status(error?.status || 500).json({ message: error?.message || MESSAGES.UNEXPECTED })
     }
 }
 

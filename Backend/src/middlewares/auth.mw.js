@@ -2,6 +2,7 @@
 import { MESSAGES } from "../utils/http.utils.js"
 import { verifyJwt } from "../utils/jwt.utils.js"
 import { saveError } from "../utils/error.utils.js"
+
 import { userModel } from "../models/user.model.js"
 import { JWT_SECRET, PUBLIC_URL } from "../config/env.js"
 
@@ -19,8 +20,8 @@ export const checkUserExist = async (req, res, next) => {
         next()
 
     } catch (error) {
-        res.render("invalid-url", { baseUrl: PUBLIC_URL })
         saveError(error)
+        res.render("invalid-url", { baseUrl: PUBLIC_URL })
     }
 }
 
@@ -38,8 +39,8 @@ export const checkValidateAccountToken = async (req, res, next) => {
         next()
 
     } catch (error) {
-        res.render("invalid-url", { baseUrl: PUBLIC_URL })
         saveError(error)
+        res.render("invalid-url", { baseUrl: PUBLIC_URL })
     }
 }
 
@@ -57,7 +58,7 @@ export const checkChangePasswordToken = async (req, res, next) => {
         next()
 
     } catch (error) {
-        res.render("invalid-url", { baseUrl: PUBLIC_URL })
         saveError(error)
+        res.render("invalid-url", { baseUrl: PUBLIC_URL })
     }
 }

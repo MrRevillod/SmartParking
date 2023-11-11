@@ -1,16 +1,17 @@
 
 import { userModel } from "../models/user.model.js"
-import { getLogs } from "./log.controller.js"
-import { findParking } from "./parking.controller.js"
-import { getParkings } from "./reservation.controller.js"
 import { parkingModel } from "../models/parking.model.js"
+
+import { MAIL, PUBLIC_URL } from "../config/env.js"
+
+import { getParkings, findParking } from "./parking.controller.js"
+import { getLogs, userAccessLogController, userExitLogController } from "./log.controller.js"
+
+import { MESSAGES } from "../utils/http.utils.js"
+import { transporter } from "../utils/mailer.utils.js"
 import { hashPassword } from "../utils/bcrypt.utils.js"
 import { stringToBinary, guestCode } from "../utils/guestcode.utils.js"
 import { verificationCodeSubject, verificationCodeTemplate } from "../utils/mail.template.js"
-import { transporter } from "../utils/mailer.utils.js"
-import { MAIL, PUBLIC_URL } from "../config/env.js"
-import { userAccessLogController, userExitLogController } from "./log.controller.js"
-import { MESSAGES } from "../utils/http.utils.js"
 
 export const guestAccessController = async (io, socket, data) => {
 
@@ -79,8 +80,16 @@ export const guestAccessController = async (io, socket, data) => {
         html: verificationCodeTemplate(user.username, verCode, url)
     },
         (error, info) => {
-            if (error) throw { status: 500, message: MESSAGES.PASSWORD_RESET_FAILED }
-        })
+            if (error) {
+
+                socket.emit("guest-access-denied", {
+                    message: MESSAGES.EMAIL_UNEXPECTED_ERROR
+                })
+
+                return
+            }
+        }
+    )
 
     await userAccessLogController(socket, username, parking.name, patente)
 

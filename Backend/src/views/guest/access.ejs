@@ -47,64 +47,57 @@
             const regexPatente = (/^[BCDFGHJKLPQRSTVWXYZ]{4}(1[0-9]|[2-9][0-9])$/)
             const regexContacto = (/^\+569\d{8}$/)
 
-            // if ((username.value === "") || (contact.value === "") || (patente.value === "")) {
-            //     socket.emit("guest-access-denied")
-            //     username.style.marginTop = "1.5rem"
-            //     messageErrorContainer.style.display = "block"
-            //     messageErrorContainer.textContent = "No puedes dejar espacios en blanco"
-            //     messageErrorContainer.style.color = 'red'
-            // } else if (!regexContacto.test(contact.value)) {
-            //     socket.emit("guest-access-denied")
-            //     username.style.marginTop = "1.5rem"
-            //     messageErrorContainer.style.display = "block"
-            //     messageErrorContainer.textContent = "El numero de contacto no es valido"
-            //     messageErrorContainer.style.color = 'red'
-            // } else if (!regexPatente.test(patente.value)) {
-            //     socket.emit("guest-access-denied")
-            //     username.style.marginTop = "1.5rem"
-            //     messageErrorContainer.style.display = "block"
-            //     messageErrorContainer.textContent = "La patente ingresada no es valida"
-            //     messageErrorContainer.style.color = 'red'
-            // }
-            // else {
-            const data = {
-                username: username.value,
-                contact: contact.value,
-                email: email.value,
-                patente: patente.value
+            if ((username.value === "") || (contact.value === "") || (patente.value === "")) {
+                socket.emit("guest-access-denied")
+                username.style.marginTop = "1.5rem"
+                messageErrorContainer.style.display = "block"
+                messageErrorContainer.textContent = "No puedes dejar espacios en blanco"
+                messageErrorContainer.style.color = 'red'
+            } else if (!regexContacto.test(contact.value)) {
+                socket.emit("guest-access-denied")
+                username.style.marginTop = "1.5rem"
+                messageErrorContainer.style.display = "block"
+                messageErrorContainer.textContent = "El numero de contacto no es valido"
+                messageErrorContainer.style.color = 'red'
+            } else if (!regexPatente.test(patente.value)) {
+                socket.emit("guest-access-denied")
+                username.style.marginTop = "1.5rem"
+                messageErrorContainer.style.display = "block"
+                messageErrorContainer.textContent = "La patente ingresada no es valida"
+                messageErrorContainer.style.color = 'red'
+            
+            } else {
+                const data = {
+                    username: username.value,
+                    contact: contact.value,
+                    email: email.value,
+                    patente: patente.value
+                }
+
+                socket.emit("guest-access-request", data)
+                messageErrorContainer.style.display = "none"
+                form.reset()
             }
-
-            socket.emit("guest-access-request", data)
-            messageErrorContainer.style.display = "none"
-            form.reset()
-
-            // }
         });
 
         socket.on("guest-access-ok", ({ message, place, verify }) => {
 
             logo.style.animation = "fadeOut 0.5s ease forwards"
-
             messageContainer.style.display = "block"
             messageContainer.textContent = message
             messageContainer.style.color = 'green'
             console.log(verify)
 
             setTimeout(() => {
-
                 logo.style.display = 'none'
-
                 verificationContainer.textContent = `Ubicación del estacionamiento: ${place}`
-
-            }, 500);
-        });
+            }, 500)
+        })
 
         socket.on("guest-access-denied", ({ message }) => {
-
             messageContainer.style.display = "block"
             messageContainer.textContent = message
             messageContainer.style.color = 'red'
-
         })
 
     </script>

@@ -9,7 +9,7 @@ export const loginRules = [
 export const userRules = [
     body("username")
         .notEmpty()
-        .isLength({ min: 5 })
+        .isLength({ min: 8 })
         .withMessage("El campo 'username' debe tener al menos 5 caracteres"),
     body("email").isEmail().withMessage("El campo 'email' debe ser una dirección de correo electrónico válida"),
     body("password")
@@ -38,7 +38,7 @@ export const passwordRules = [
         .withMessage("El campo 'password' debe contener al menos un número")
         .matches(/[a-z]/)
         .withMessage("El campo 'password' debe contener al menos una letra minúscula")
-        .matches(/[!@#$%^&*]/)
+        .matches(/[!@#$%^&*,./|"'<:;>{}`~]/)
         .withMessage("El campo 'password' debe contener al menos un carácter especial: !@#$%^&*"),
     body("confirmPassword")
         .custom((value, { req }) => {

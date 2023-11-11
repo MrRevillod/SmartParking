@@ -11,7 +11,9 @@
                     placeholder="Ingrese su dirección de correo electrónico" required>
                 <button type="submit" class="btn to-reg-button">Enviar</button>
                 <div style="margin-top: 1rem; text-decoration: none;">
-                    <a href="http://<%= adress %>:8000/auth/login">Volver al login</a>
+                    <a style="text-decoration: none; font-size: small; font-weight: bold; color: #0D5492;"
+                        href=" <%=baseUrl %>/api/mobile">Volver al
+                        login</a>
                 </div>
             </div>
         </form>
@@ -19,34 +21,32 @@
 
     <script>
 
-        const form = document.getElementById('emailForm');
-        const messageContainer = document.getElementById('messageContainer');
+        const form = document.getElementById('emailForm')
+        const messageContainer = document.getElementById('messageContainer')
 
         form.addEventListener('submit', async (event) => {
-            event.preventDefault();
+            event.preventDefault()
 
-            const userMail = document.getElementById('email').value;
+            const userMail = document.getElementById('email').value
             const response = await fetch("<%= baseUrl %>/api/auth/forgot-password", {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({ email: userMail })
-            });
+            })
 
-            const responseData = await response.json();
-
-            console.log(responseData);
+            const responseData = await response.json()
 
             if (response.ok) {
                 form.reset()
                 messageContainer.style.display = "block"
-                messageContainer.textContent = responseData.message;
-                messageContainer.style.color = 'green';
+                messageContainer.textContent = responseData.message
+                messageContainer.style.color = 'green'
             } else {
                 messageContainer.style.display = "block"
-                messageContainer.textContent = responseData.message;
-                messageContainer.style.color = 'red';
+                messageContainer.textContent = responseData.message
+                messageContainer.style.color = 'red'
             }
         });
 

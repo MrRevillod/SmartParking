@@ -1,9 +1,10 @@
 
-import { JWT_SECRET } from "../config/env.js"
 import { MESSAGES } from "../utils/http.utils.js"
 import { verifyJwt } from "../utils/jwt.utils.js"
 import { saveError } from "../utils/error.utils.js"
+
 import { userModel } from "../models/user.model.js"
+import { JWT_SECRET } from "../config/env.js"
 
 export const sessionValidation = async (req, res, next) => {
 
@@ -22,7 +23,7 @@ export const sessionValidation = async (req, res, next) => {
         next()
 
     } catch (error) {
-        res.status(401).json({ message: MESSAGES.UNAUTHORIZED })
         saveError(error)
+        res.status(error?.status || 500).json({ message: error?.message || MESSAGES.UNEXPECTED })
     }
 }

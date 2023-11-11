@@ -1,6 +1,7 @@
 
 import { MESSAGES } from "../utils/http.utils.js"
 import { saveError } from "../utils/error.utils.js"
+
 import { MIME_TYPES } from "../rules/upload.rules.js"
 import { PUBLIC_PATH, PUBLIC_URL } from "../config/env.js"
 
@@ -33,8 +34,8 @@ export const uploadImage = async (req, res, next) => {
         next()
 
     } catch (error) {
-        res.status(error?.status || 500).json({ message: error?.message || MESSAGES.UNEXPECTED })
         saveError(error)
+        res.status(error?.status || 500).json({ message: error?.message || MESSAGES.UNEXPECTED })
     }
 }
 
