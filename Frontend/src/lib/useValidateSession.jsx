@@ -1,5 +1,7 @@
 
 import { API_URL } from "./env.js"
+import { Toast } from "./Toast.jsx"
+import { customUseTimeout } from "./useTimeout.jsx"
 
 export const validateSession = async () => {
 
@@ -17,4 +19,21 @@ export const validateSession = async () => {
     }
 
     return false
+}
+
+export const validation = async (setLoaded, navigator,socket) => {
+    
+    setLoaded(false)
+    const validated = await validateSession()
+    await customUseTimeout(1000)
+
+    if (!validated) {
+        navigator("/login")
+        Toast({ msg: "Debes iniciar sesión" })
+
+        socket.disconnect()
+    } else {
+        setLoaded(true)
+    }
+    
 }

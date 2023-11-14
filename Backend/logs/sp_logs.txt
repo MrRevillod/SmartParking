@@ -1,0 +1,736 @@
+2023-11-06 10:22:15
+
+Error interno del servidor - 500 
+
+Error: [object Object]
+    at saveError (file:///C:/Users/lolsg/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///C:/Users/lolsg/SmartParking/Backend/src/middlewares/session.mw.js:30:9)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:175:3)
+
+2023-11-06 10:26:12
+
+Error interno del servidor - 500 
+
+Error: [object Object]
+    at saveError (file:///C:/Users/lolsg/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///C:/Users/lolsg/SmartParking/Backend/src/middlewares/session.mw.js:30:9)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:175:3)
+
+2023-11-06 10:26:12
+
+Error interno del servidor - 500 
+
+Error: [object Object]
+    at saveError (file:///C:/Users/lolsg/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///C:/Users/lolsg/SmartParking/Backend/src/middlewares/session.mw.js:30:9)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:175:3)
+
+2023-11-06 10:26:16
+
+Error interno del servidor - 500 
+
+Error: [object Object]
+    at saveError (file:///C:/Users/lolsg/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///C:/Users/lolsg/SmartParking/Backend/src/middlewares/session.mw.js:30:9)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:175:3)
+
+2023-11-06 10:26:16
+
+Error interno del servidor - 500 
+
+Error: [object Object]
+    at saveError (file:///C:/Users/lolsg/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///C:/Users/lolsg/SmartParking/Backend/src/middlewares/session.mw.js:30:9)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:175:3)
+
+2023-11-06 10:26:21
+
+Error interno del servidor - 500 
+
+Error: [object Object]
+    at saveError (file:///C:/Users/lolsg/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///C:/Users/lolsg/SmartParking/Backend/src/middlewares/session.mw.js:30:9)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:175:3)
+
+2023-11-06 12:02:03
+
+Error interno del servidor - 500 
+
+Error: [object Object]
+    at saveError (file:///C:/Users/lolsg/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///C:/Users/lolsg/SmartParking/Backend/src/middlewares/session.mw.js:30:9)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:175:3)
+
+2023-11-06 12:02:04
+
+Error interno del servidor - 500 
+
+Error: [object Object]
+    at saveError (file:///C:/Users/lolsg/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///C:/Users/lolsg/SmartParking/Backend/src/middlewares/session.mw.js:30:9)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:175:3)
+
+2023-11-06 12:02:04
+
+Error interno del servidor - 500 
+
+Error: [object Object]
+    at saveError (file:///C:/Users/lolsg/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///C:/Users/lolsg/SmartParking/Backend/src/middlewares/session.mw.js:30:9)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:175:3)
+
+2023-11-06 12:02:04
+
+Error interno del servidor - 500 
+
+Error: [object Object]
+    at saveError (file:///C:/Users/lolsg/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///C:/Users/lolsg/SmartParking/Backend/src/middlewares/session.mw.js:30:9)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:175:3)
+
+2023-11-06 12:33:06
+
+Error interno del servidor - 500 
+
+Error: [object Object]
+    at saveError (file:///C:/Users/lolsg/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///C:/Users/lolsg/SmartParking/Backend/src/middlewares/session.mw.js:30:9)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:175:3)
+
+2023-11-06 12:33:06
+
+Error interno del servidor - 500 
+
+Error: [object Object]
+    at saveError (file:///C:/Users/lolsg/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///C:/Users/lolsg/SmartParking/Backend/src/middlewares/session.mw.js:30:9)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:175:3)
+
+2023-11-07 22:47:47
+
+Error interno del servidor - 500 
+
+Error: [object Object]
+    at saveError (file:///C:/Users/lolsg/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///C:/Users/lolsg/SmartParking/Backend/src/middlewares/session.mw.js:28:9)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:175:3)
+
+2023-11-07 22:47:47
+
+Error interno del servidor - 500 
+
+Error: [object Object]
+    at saveError (file:///C:/Users/lolsg/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///C:/Users/lolsg/SmartParking/Backend/src/middlewares/session.mw.js:28:9)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:175:3)
+
+2023-11-09 20:24:17
+
+Error interno del servidor - 500 
+
+Error: [object Object]
+    at saveError (file:///C:/Users/lolsg/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///C:/Users/lolsg/SmartParking/Backend/src/middlewares/session.mw.js:28:9)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:175:3)
+
+2023-11-09 20:24:17
+
+Error interno del servidor - 500 
+
+Error: [object Object]
+    at saveError (file:///C:/Users/lolsg/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///C:/Users/lolsg/SmartParking/Backend/src/middlewares/session.mw.js:28:9)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:175:3)
+
+2023-11-09 20:24:18
+
+Error interno del servidor - 500 
+
+Error: [object Object]
+    at saveError (file:///C:/Users/lolsg/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///C:/Users/lolsg/SmartParking/Backend/src/middlewares/session.mw.js:28:9)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:175:3)
+
+2023-11-09 20:24:18
+
+Error interno del servidor - 500 
+
+Error: [object Object]
+    at saveError (file:///C:/Users/lolsg/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///C:/Users/lolsg/SmartParking/Backend/src/middlewares/session.mw.js:28:9)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:175:3)
+
+2023-11-09 20:24:18
+
+Error interno del servidor - 500 
+
+Error: [object Object]
+    at saveError (file:///C:/Users/lolsg/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///C:/Users/lolsg/SmartParking/Backend/src/middlewares/session.mw.js:28:9)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:175:3)
+
+2023-11-09 20:24:18
+
+Error interno del servidor - 500 
+
+Error: [object Object]
+    at saveError (file:///C:/Users/lolsg/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///C:/Users/lolsg/SmartParking/Backend/src/middlewares/session.mw.js:28:9)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:175:3)
+
+2023-11-09 20:24:19
+
+Error interno del servidor - 500 
+
+Error: [object Object]
+    at saveError (file:///C:/Users/lolsg/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///C:/Users/lolsg/SmartParking/Backend/src/middlewares/session.mw.js:28:9)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:175:3)
+
+2023-11-09 20:28:22
+
+Error interno del servidor - 500 
+
+Error: [object Object]
+    at saveError (file:///C:/Users/lolsg/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///C:/Users/lolsg/SmartParking/Backend/src/middlewares/session.mw.js:28:9)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:175:3)
+
+2023-11-13 08:50:51
+
+Error interno del servidor - 500 
+
+Error: [object Object]
+    at saveError (file:///C:/Users/lolsg/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///C:/Users/lolsg/SmartParking/Backend/src/middlewares/session.mw.js:28:9)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:175:3)
+
+2023-11-13 08:50:51
+
+Error interno del servidor - 500 
+
+Error: [object Object]
+    at saveError (file:///C:/Users/lolsg/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///C:/Users/lolsg/SmartParking/Backend/src/middlewares/session.mw.js:28:9)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:175:3)
+
+2023-11-13 08:50:52
+
+Error interno del servidor - 500 
+
+Error: [object Object]
+    at saveError (file:///C:/Users/lolsg/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///C:/Users/lolsg/SmartParking/Backend/src/middlewares/session.mw.js:28:9)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:175:3)
+
+2023-11-13 08:50:52
+
+Error interno del servidor - 500 
+
+Error: [object Object]
+    at saveError (file:///C:/Users/lolsg/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///C:/Users/lolsg/SmartParking/Backend/src/middlewares/session.mw.js:28:9)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:175:3)
+
+2023-11-13 08:50:53
+
+Error interno del servidor - 500 
+
+Error: [object Object]
+    at saveError (file:///C:/Users/lolsg/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///C:/Users/lolsg/SmartParking/Backend/src/middlewares/session.mw.js:28:9)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:175:3)
+
+2023-11-13 08:50:54
+
+Error interno del servidor - 500 
+
+Error: [object Object]
+    at saveError (file:///C:/Users/lolsg/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///C:/Users/lolsg/SmartParking/Backend/src/middlewares/session.mw.js:28:9)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:175:3)
+
+2023-11-13 08:50:54
+
+Error interno del servidor - 500 
+
+Error: [object Object]
+    at saveError (file:///C:/Users/lolsg/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///C:/Users/lolsg/SmartParking/Backend/src/middlewares/session.mw.js:28:9)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:175:3)
+
+2023-11-13 08:50:55
+
+Error interno del servidor - 500 
+
+Error: [object Object]
+    at saveError (file:///C:/Users/lolsg/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///C:/Users/lolsg/SmartParking/Backend/src/middlewares/session.mw.js:28:9)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:175:3)
+
+2023-11-13 09:19:49
+
+Error interno del servidor - 500 
+
+Error: [object Object]
+    at saveError (file:///C:/Users/lolsg/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///C:/Users/lolsg/SmartParking/Backend/src/middlewares/session.mw.js:28:9)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:175:3)
+
+2023-11-14 10:03:42
+
+Error interno del servidor - 500 
+
+Error: [object Object]
+    at saveError (file:///C:/Users/lolsg/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///C:/Users/lolsg/SmartParking/Backend/src/middlewares/session.mw.js:28:9)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:175:3)
+
+2023-11-14 10:03:42
+
+Error interno del servidor - 500 
+
+Error: [object Object]
+    at saveError (file:///C:/Users/lolsg/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///C:/Users/lolsg/SmartParking/Backend/src/middlewares/session.mw.js:28:9)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:175:3)
+
+2023-11-14 10:03:43
+
+Error interno del servidor - 500 
+
+Error: [object Object]
+    at saveError (file:///C:/Users/lolsg/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///C:/Users/lolsg/SmartParking/Backend/src/middlewares/session.mw.js:28:9)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:175:3)
+
+2023-11-14 10:03:43
+
+Error interno del servidor - 500 
+
+Error: [object Object]
+    at saveError (file:///C:/Users/lolsg/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///C:/Users/lolsg/SmartParking/Backend/src/middlewares/session.mw.js:28:9)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:175:3)
+
+2023-11-14 10:03:43
+
+Error interno del servidor - 500 
+
+Error: [object Object]
+    at saveError (file:///C:/Users/lolsg/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///C:/Users/lolsg/SmartParking/Backend/src/middlewares/session.mw.js:28:9)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:175:3)
+
+2023-11-14 10:03:43
+
+Error interno del servidor - 500 
+
+Error: [object Object]
+    at saveError (file:///C:/Users/lolsg/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///C:/Users/lolsg/SmartParking/Backend/src/middlewares/session.mw.js:28:9)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:175:3)
+
+2023-11-14 10:03:45
+
+Error interno del servidor - 500 
+
+Error: [object Object]
+    at saveError (file:///C:/Users/lolsg/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///C:/Users/lolsg/SmartParking/Backend/src/middlewares/session.mw.js:28:9)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:175:3)
+
+2023-11-14 10:11:32
+
+Error interno del servidor - 500 
+
+Error: [object Object]
+    at saveError (file:///C:/Users/lolsg/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///C:/Users/lolsg/SmartParking/Backend/src/middlewares/session.mw.js:28:9)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:175:3)
+
+2023-11-14 10:44:30
+
+Error interno del servidor - 500 
+
+Error: [object Object]
+    at saveError (file:///C:/Users/lolsg/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///C:/Users/lolsg/SmartParking/Backend/src/middlewares/session.mw.js:28:9)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:175:3)
+
+2023-11-14 10:44:30
+
+Error interno del servidor - 500 
+
+Error: [object Object]
+    at saveError (file:///C:/Users/lolsg/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///C:/Users/lolsg/SmartParking/Backend/src/middlewares/session.mw.js:28:9)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:175:3)
+
+2023-11-14 10:44:31
+
+Error interno del servidor - 500 
+
+Error: [object Object]
+    at saveError (file:///C:/Users/lolsg/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///C:/Users/lolsg/SmartParking/Backend/src/middlewares/session.mw.js:28:9)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:175:3)
+
+2023-11-14 10:44:31
+
+Error interno del servidor - 500 
+
+Error: [object Object]
+    at saveError (file:///C:/Users/lolsg/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///C:/Users/lolsg/SmartParking/Backend/src/middlewares/session.mw.js:28:9)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:175:3)
+
+2023-11-14 10:44:31
+
+Error interno del servidor - 500 
+
+Error: [object Object]
+    at saveError (file:///C:/Users/lolsg/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///C:/Users/lolsg/SmartParking/Backend/src/middlewares/session.mw.js:28:9)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:175:3)
+
+2023-11-14 10:44:31
+
+Error interno del servidor - 500 
+
+Error: [object Object]
+    at saveError (file:///C:/Users/lolsg/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///C:/Users/lolsg/SmartParking/Backend/src/middlewares/session.mw.js:28:9)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:175:3)
+
+2023-11-14 10:44:32
+
+Error interno del servidor - 500 
+
+Error: [object Object]
+    at saveError (file:///C:/Users/lolsg/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///C:/Users/lolsg/SmartParking/Backend/src/middlewares/session.mw.js:28:9)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:175:3)
+

@@ -1,22 +1,48 @@
 
-import { Cardy } from "./Cardy"
-import "./Stats.css"
+import { useContext, useEffect, useState } from "react"
 
-export const Stats = ({ reservas }) => {
+import { SocketContext } from "../../../lib/socketContext"
+
+
+import "./Stats.css"
+import { ToggleTableButton } from "../../../components/ToggleTableButton"
+import { ReservationsTable } from "../../../components/ReservationsTable"
+import { StatsTable } from "../../../components/StatsTable"
+
+export const Stats = () => {
+    const [reservas, setReservas] = useState([])
+    const [active, setActive] = useState(false)
+    const socket = useContext(SocketContext)
+
+    useEffect(() => {
+        socket.emit("get-reservations")
+        socket.emit("get-logs")
+
+        socket.on("all-reservations", (res) => {
+            setReservas(res?.reservations)
+        })
+
+        socket.on("all-logs", (res) => {
+            console.log(res)
+        })
+
+
+        return () => {
+            socket.off("all-reservations")
+            socket.off("all-logs")
+            
+        }
+    }, [socket])
+
     return (
         <div className="col w-full row justify-content-center  ">
             <div className="text-center display-2 fw-bold m-3 mt-5">Reservas</div>
-            <p className="text-center fs-4 ">Listado de solicitudes de reserva</p>
+            
+           <div className="w-75 mt-5  ">
+                <ToggleTableButton active={active} setActive={setActive} />
+                {!active ? <ReservationsTable reservas={reservas} /> : <StatsTable />}
+            </div> 
 
-            {reservas.length > 0 ? <div className="w-75 mt-5  ">
-                <div className="row  w-100 fs-4 rounded-top pt-2 icon-blue backblue text-light  overflow-hidden   border-2    ">
-                    <p className="col-3     ">Nombre</p>
-                    <p className="col-3    ">Patente</p>
-                    <p className="col-3    ">Estacionamiento</p>
-                    <p className="col-3    ">Estado</p>
-                </div>
-                <Cardy reservas={reservas} />
-            </div> : <div className="text-center display-4 text-danger fw-bold">No hay Reservas </div>}
         </div>
     )
 }
