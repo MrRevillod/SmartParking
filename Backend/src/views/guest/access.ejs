@@ -7,17 +7,17 @@
             </div>
             <div class="text-center">
                 <div class="place-logo-container">
-                    <div class="text-center" id="placeContainer"></div>
                     <img src="<%= baseUrl %>/images/logo-blue.png"" class=" img-fluid" alt="" id="logo">
                 </div>
             </div>
             <div>
                 <div class="text-center" id="verificationContainer"></div>
+                <div class="text-center" id="messageContainer" style="display: none;"></div>
                 <div class="text-center" id="messageErrorContainer" style="display: none;"></div>
                 <input class="forminput" id="username" type="text" placeholder="Nombre">
-                <input class="forminput" id="contact" type="text" placeholder="contacto">
-                <input class="forminput" id="patente" type="text" placeholder="patente">
-                <div class="text-center" id="messageContainer" style="display: none;"></div>
+                <input class="forminput" id="email" type="text" placeholder="Correo">
+                <input class="forminput" id="contact" type="text" placeholder="Numero de Telefono">
+                <input class="forminput" id="patente" type="text" placeholder="Patente">
                 <button style="margin-top: 1rem;" class="btn to-reg-button" id="button">Enviar</button>
             </div>
         </form>
@@ -43,6 +43,7 @@
             const username = document.getElementById("username")
             const contact = document.getElementById("contact")
             const patente = document.getElementById("patente")
+            const email = document.getElementById("email")
             const regexPatente = (/^[BCDFGHJKLPQRSTVWXYZ]{4}(1[0-9]|[2-9][0-9])$/)
             const regexContacto = (/^\+569\d{8}$/)
 
@@ -64,11 +65,12 @@
                 messageErrorContainer.style.display = "block"
                 messageErrorContainer.textContent = "La patente ingresada no es valida"
                 messageErrorContainer.style.color = 'red'
-            }
-            else {
+            
+            } else {
                 const data = {
                     username: username.value,
                     contact: contact.value,
+                    email: email.value,
                     patente: patente.value
                 }
 
@@ -76,7 +78,7 @@
                 messageErrorContainer.style.display = "none"
                 form.reset()
             }
-        })
+        });
 
         socket.on("guest-access-ok", ({ message, place, verify }) => {
 
@@ -84,18 +86,11 @@
             messageContainer.style.display = "block"
             messageContainer.textContent = message
             messageContainer.style.color = 'green'
+            console.log(verify)
 
             setTimeout(() => {
-
                 logo.style.display = 'none'
-
-                placeContainer.textContent = `Ubicación del estacionamiento: ${place}`
-                placeContainer.style.display = 'block'
-                placeContainer.style.animation = "fadeIn 0.5s ease forwards"
-                placeContainer.classList.add('smooth-transition')
-
-                verificationContainer.textContent = `Codigo de verificacion: ${verify}`
-
+                verificationContainer.textContent = `Ubicación del estacionamiento: ${place}`
             }, 500)
         })
 

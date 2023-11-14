@@ -38,7 +38,7 @@ export const passwordRules = [
         .withMessage("El campo 'password' debe contener al menos un número")
         .matches(/[a-z]/)
         .withMessage("El campo 'password' debe contener al menos una letra minúscula")
-        .matches(/[!@#$%^&*]/)
+        .matches(/[!@#$%^&*,./|"'<:;>{}`~]/)
         .withMessage("El campo 'password' debe contener al menos un carácter especial: !@#$%^&*"),
     body("confirmPassword")
         .custom((value, { req }) => {

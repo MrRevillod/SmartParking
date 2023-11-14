@@ -2,17 +2,21 @@
 import { userModel } from "../models/user.model.js"
 import { parkingModel } from "../models/parking.model.js"
 
+import { MAIL, PUBLIC_URL } from "../config/env.js"
+
+import { getParkings, findParking } from "./parking.controller.js"
+import { getLogs, userAccessLogController, userExitLogController } from "./log.controller.js"
+
+import { MESSAGES } from "../utils/http.utils.js"
+import { transporter } from "../utils/mailer.utils.js"
 import { hashPassword } from "../utils/bcrypt.utils.js"
 import { stringToBinary, guestCode } from "../utils/guestcode.utils.js"
-
-import { findParking } from "./parking.controller.js"
-import { getParkings } from "./reservation.controller.js"
-import { getLogs, userAccessLogController, userExitLogController } from "./log.controller.js"
+import { verificationCodeSubject, verificationCodeTemplate } from "../utils/mail.template.js"
 
 export const guestAccessController = async (io, socket, data) => {
 
-    const { username, contact, patente } = data
-    let user = await userModel.findOne({ $or: [{ username }, { contact }, { "vehicles.patente": patente }] })
+    const { username, contact, email, patente } = data
+    let user = await userModel.findOne({ $or: [{ username }, { contact }, { email }, { "vehicles.patente": patente }] })
 
     if (user) {
         socket.emit("guest-access-denied", {
@@ -41,7 +45,7 @@ export const guestAccessController = async (io, socket, data) => {
 
     const tempData = {
         username,
-        email: `${username}-temp@mail.com`,
+        email,
         password: await hashPassword("temp"),
         role: "TEMP_ROLE",
         contact,
@@ -61,11 +65,31 @@ export const guestAccessController = async (io, socket, data) => {
     await parkingModel.findOneAndUpdate({ name: parking.name }, { active: true, status: "ocupado", userId: user.id })
 
     socket.emit("guest-access-ok", {
-        message: `Haz ingresado correctamente, que tengas una buena estadia
-         en nuestro estacionamiento!`,
+        message: `Haz ingresado correctamente. Te hemos enviado un código de verificación 
+        a tu correo electrónico para que puedas registrar tu salida`,
         place: user.parking,
         verify: user.verificationCode
     })
+
+    const url = `${PUBLIC_URL}}/api/parking/guest-exit?patente=${patente}&verificationCode=${verCode}`
+
+    transporter.sendMail({
+        from: `Smart Parking UCT ${MAIL}`,
+        to: user.email,
+        subject: verificationCodeSubject,
+        html: verificationCodeTemplate(user.username, verCode, url)
+    },
+        (error, info) => {
+            if (error) {
+
+                socket.emit("guest-access-denied", {
+                    message: MESSAGES.EMAIL_UNEXPECTED_ERROR
+                })
+
+                return
+            }
+        }
+    )
 
     await userAccessLogController(socket, username, parking.name, patente)
 
