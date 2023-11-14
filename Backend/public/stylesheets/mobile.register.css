@@ -152,6 +152,7 @@
     gap: 1rem;
     max-width: 20vw;
     text-align: center;
+    min-width: 300px;
 }
 
 #dialog button {

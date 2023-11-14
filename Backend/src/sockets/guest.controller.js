@@ -109,7 +109,7 @@ export const guestExitController = async (io, socket, data) => {
 
     if (!user) {
         socket.emit("guest-exit-denied", {
-            message: "El usuario no existe en nuestro sistema o algun dato ingresado no es valido"
+            message: "El usuario no existe en nuestro sistema o algún dato ingresado es inválido"
         })
 
         return
