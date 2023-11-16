@@ -19,31 +19,31 @@
 
     <div id="load"></div>
 
-    <div id="mobile">
-        <div id="header">
+    <div id="mobile" class="mobile">
+        <div id="header" class="card">
             <h1>Smart Parking</h1>
-            <input type="checkbox" name="" id="dark-mode-btn">
+            <input type="checkbox" name="" id="dark-mode-btn" class="dark-mode-btn">
             <h1 id="logout" class="bi bi-box-arrow-left"></h1>
         </div>
 
-        <section>
+        <section class="card">
             <h3>Simulación de reservas</h3>
             <div>
-                <button id="button1">Solicitar reserva</button>
-                <button id="button2">Cancelar reserva</button>
-                <button id="button3">Marcar llegada</button>
+                <button id="button1" class="button">Solicitar reserva</button>
+                <button id="button2" class="button">Cancelar reserva</button>
+                <button id="button3" class="button">Marcar llegada</button>
             </div>
         </section>
 
-        <section>
+        <section class="card">
             <h3>Simulación de ingreso y salida</h3>
             <div>
-                <button id="button4">Solicitar ingreso</button>
-                <button id="button5">Marcar salida</button>
+                <button id="button4" class="button">Solicitar ingreso</button>
+                <button id="button5" class="button">Marcar salida</button>
             </div>
         </section>
 
-        <section>
+        <section class="card">
             <h3>Respuesta del servidor</h3>
             <div id="response"></div>
         </section>
@@ -59,11 +59,11 @@
         const load = document.getElementById('load')
         const mobile = document.getElementById('mobile')
 
-        e.preventDefault();
-        const token = localStorage.getItem("token");
+        e.preventDefault()
+        const token = localStorage.getItem("token")
 
         if (!token) {
-            window.location.href = "<%= baseUrl %>/api/mobile";
+            window.location.href = "<%= baseUrl %>/api/mobile"
         }
 
         const res = await fetch("<%= baseUrl %>/api/auth/confirm-session", {
@@ -72,15 +72,15 @@
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${token}`
             },
-        });
+        })
 
         if (!res.ok) {
-            window.location.href = "<%= baseUrl %>/api/mobile";
+            window.location.href = "<%= baseUrl %>/api/mobile"
         }
 
-        mobile.style.display = "flex";
-        load.style.display = "none";
-    });
+        mobile.style.display = "flex"
+        load.style.display = "none"
+    })
 
     const socket = io("<%= baseUrl %>")
     const button = document.getElementById("button1")
@@ -104,7 +104,7 @@
 
         if (res.ok) {
             localStorage.removeItem("token")
-            window.location.href = "<%= baseUrl %>/api/mobile";
+            window.location.href = "<%= baseUrl %>/api/mobile"
 
         } else {
             setResponse("Error al cerrar sesión")
@@ -185,6 +185,23 @@
     socket.on("parking-exit-denied", ({ message }) => {
         setResponse(message)
     })
+
+    const body = document.body
+    const darkModeBtn = document.getElementById('dark-mode-btn')
+
+    function toggleDarkMode() {
+
+        const darkMode = darkModeBtn.checked
+
+        if (darkMode) {
+            body.classList.add('dark-mode')
+        } else {
+            body.classList.remove('dark-mode')
+        }
+    }
+
+    darkModeBtn.addEventListener('change', toggleDarkMode)
+    toggleDarkMode()
 
 </script>
 
