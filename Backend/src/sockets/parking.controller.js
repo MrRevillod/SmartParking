@@ -92,6 +92,9 @@ export const parkingAccessController = async (io, socket, data) => {
         parkings: await getParkings(),
     })
 
+    io.to("administradores").emit("all-logs", {
+        logs: await getLogs()
+    })
 }
 
 export const parkingExitController = async (io, socket, data) => {
@@ -153,6 +156,7 @@ export const parkingExitController = async (io, socket, data) => {
     })
 
     await userExitLogController(io, user.username, parking.name)
+    await userExitLogController(socket, user.username, parking.name)
 
     io.to("administradores").emit("all-logs", {
         logs: await getLogs()

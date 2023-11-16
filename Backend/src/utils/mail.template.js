@@ -38,7 +38,6 @@ export const validationTemplate = (url) => {
     `
 }
 
-
 export const changePasswordSubject = "Smart Parking - Cambiar contraseña"
 
 export const changePasswordTemplate = (url) => {
@@ -121,6 +120,3 @@ export const verificationCodeTemplate = (username, verCode, url) => {
         </body>
     `
 }
-
-
-

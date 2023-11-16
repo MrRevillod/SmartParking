@@ -35,7 +35,6 @@ export const guestAccessController = async (io, socket, data) => {
     const parking = await findParking()
 
     if (!parking) {
-
         socket.emit("guest-access-denied", {
             message: "No hay parkings disponibles"
         })
@@ -80,8 +79,8 @@ export const guestAccessController = async (io, socket, data) => {
         html: verificationCodeTemplate(user.username, verCode, url)
     },
         (error, info) => {
-            if (error) {
 
+            if (error) {
                 socket.emit("guest-access-denied", {
                     message: MESSAGES.EMAIL_UNEXPECTED_ERROR
                 })
