@@ -19,33 +19,33 @@
 
     <div id="load"></div>
 
-    <div id="mobile">
-        <div id="header">
-            <h1>Smart Parking</h1>
-            <input type="checkbox" name="" id="dark-mode-btn">
+    <div id="mobile" class="mobile">
+        <div id="header" class="header">
+            <h1 class="md">Smart Parking</h1>
+            <input type="checkbox" name="" id="dark-mode-btn" class="dark-mode-btn">
             <h1 id="logout" class="bi bi-box-arrow-left"></h1>
         </div>
 
-        <section>
-            <h3>Simulación de reservas</h3>
+        <section class="md1">
+            <h3 class="md">Simulación de reservas</h3>
             <div>
-                <button id="button1">Solicitar reserva</button>
-                <button id="button2">Cancelar reserva</button>
-                <button id="button3">Marcar llegada</button>
+                <button id="button1" class="button1">Solicitar reserva</button>
+                <button id="button2" class="button2">Cancelar reserva</button>
+                <button id="button3" class="button3">Marcar llegada</button>
             </div>
         </section>
 
-        <section>
-            <h3>Simulación de ingreso y salida</h3>
+        <section class="md1">
+            <h3 class="md">Simulación de ingreso y salida</h3>
             <div>
-                <button id="button4">Solicitar ingreso</button>
-                <button id="button5">Marcar salida</button>
+                <button id="button4" class="button4">Solicitar ingreso</button>
+                <button id="button5" class="button5">Marcar salida</button>
             </div>
         </section>
 
-        <section>
-            <h3>Respuesta del servidor</h3>
-            <div id="response"></div>
+        <section class="md1">
+            <h3 class="md">Respuesta del servidor</h3>
+            <div id="response" class="response"></div>
         </section>
     </div>
 </body>
@@ -186,6 +186,30 @@
         setResponse(message)
     })
 
+    document.addEventListener('DOMContentLoaded', function () {
+        const darkModeBtn = document.getElementById('dark-mode-btn');
+
+        // Cambia la siguiente línea para obtener el elemento body correctamente
+        const body = document.body;
+
+        // Función para cambiar el modo
+        function toggleDarkMode() {
+            const darkMode = darkModeBtn.checked;
+
+            // Cambiar clases en el body según el modo
+            if (darkMode) {
+                body.classList.add('dark-mode');
+            } else {
+                body.classList.remove('dark-mode');
+            }
+        }
+
+        // Asignar el evento de cambio al checkbox
+        darkModeBtn.addEventListener('change', toggleDarkMode);
+
+        // Ejecutar la función al cargar la página para reflejar el estado actual del checkbox
+        toggleDarkMode();
+    });
 </script>
 
 </html>
