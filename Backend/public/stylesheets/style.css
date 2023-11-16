@@ -16,6 +16,10 @@ body {
     .maindiv {
         width: 90% !important;
     }
+
+    #full-div {
+        width: 90% !important;
+    }
 }
 
 .mainform {
@@ -112,4 +116,57 @@ body {
 
 .smooth-transition {
     transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+#full-div {
+    height: 80vh;
+    width: 450px;
+    border-radius: 0.5rem;
+    flex-direction: column;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: red;
+    background-color: #FDFDFD;
+}
+
+#full-div .ocho {
+    height: 50%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+#full-div div {
+    flex-direction: column;
+    width: 90%;
+}
+
+#full-div .dos {
+    padding-top: 15%;
+    height: 50%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+#full-div div h3 {
+    margin-bottom: 1rem;
+}
+
+#full-div div p {
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+#full-div div button {
+    margin-bottom: 5rem;
+    background-color: #0D5492;
+    color: #FDFDFD;
+    font-weight: bold;
+    border-radius: 0.5rem;
+    width: 80%;
+    height: 2.5rem;
+    border: none;
 }

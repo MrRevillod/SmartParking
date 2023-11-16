@@ -23,8 +23,8 @@ export const accountValidation = async (req, res) => {
         res.render("account/validated", { baseUrl: PUBLIC_URL })
 
     } catch (error) {
-        res.status(error?.status || 500).json({ message: error?.message || MESSAGES.UNEXPECTED })
         saveError(error)
+        res.status(error?.status || 500).json({ message: error?.message || MESSAGES.UNEXPECTED })
     }
 }
 
@@ -60,8 +60,8 @@ export const sendRecoveryEmail = async (req, res) => {
         res.status(200).json({ message: MESSAGES.PASSWORD_RESET_SENT })
 
     } catch (error) {
-        res.status(error?.status || 500).json({ message: error?.message || MESSAGES.UNEXPECTED })
         saveError(error)
+        res.status(error?.status || 500).json({ message: error?.message || MESSAGES.UNEXPECTED })
     }
 }
 
@@ -83,7 +83,7 @@ export const setNewPassword = async (req, res) => {
         res.status(200).json({ message: MESSAGES.PASSWORD_CHANGED })
 
     } catch (error) {
-        res.status(error?.status || 500).json({ message: error?.message || MESSAGES.UNEXPECTED })
         saveError(error)
+        res.status(error?.status || 500).json({ message: error?.message || MESSAGES.UNEXPECTED })
     }
 }

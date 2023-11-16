@@ -29,8 +29,8 @@ export const loginController = async (req, res) => {
         res.status(200).json({ message: MESSAGES.OK, token })
 
     } catch (error) {
-        res.status(error?.status || 500).json({ message: error?.message || MESSAGES.UNEXPECTED })
         saveError(error)
+        res.status(error?.status || 500).json({ message: error?.message || MESSAGES.UNEXPECTED })
     }
 }
 
@@ -55,8 +55,8 @@ export const adminLoginController = async (req, res) => {
         res.status(200).json({ message: MESSAGES.OK, token })
 
     } catch (error) {
-        res.status(error?.status || 500).json({ message: error?.message || MESSAGES.UNEXPECTED })
         saveError(error)
+        res.status(error?.status || 500).json({ message: error?.message || MESSAGES.UNEXPECTED })
     }
 }
 
@@ -88,15 +88,14 @@ export const registerController = async (req, res) => {
             html: validationTemplate(url)
         },
             (error, info) => {
-                console.log(error ? error : info)
                 if (error) throw { status: 500, message: MESSAGES.EMAIL_VERIFICATION_FAILED }
             })
 
         res.status(200).json({ message: MESSAGES.EMAIL_VERIFICATION_SENT })
 
     } catch (error) {
-        res.status(error?.status || 500).json({ message: error?.message || MESSAGES.UNEXPECTED })
         saveError(error)
+        res.status(error?.status || 500).json({ message: error?.message || MESSAGES.UNEXPECTED })
     }
 }
 
@@ -122,7 +121,7 @@ export const logoutController = async (req, res) => {
         res.status(200).json({ message: MESSAGES.OK })
 
     } catch (error) {
-        res.status(error?.status || 500).json({ message: error?.message || MESSAGES.UNEXPECTED })
         saveError(error)
+        res.status(error?.status || 500).json({ message: error?.message || MESSAGES.UNEXPECTED })
     }
 }

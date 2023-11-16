@@ -7,6 +7,7 @@ import { parkingModel } from "../models/parking.model.js"
 import { reservationModel } from "../models/reservation.model.js"
 
 import { findParking, isInside } from "./parking.controller.js"
+import { userAccessLogController, getLogs } from "./log.controller.js"
 
 export const getReservations = async () => {
     const reservations = await reservationModel.find()
@@ -175,7 +176,7 @@ export const reservationArrivalController = async (io, socket, data) => {
         return
     }
 
-    await parkingModel.findByIdAndUpdate(reservation.parkingId, {
+    let parking = await parkingModel.findByIdAndUpdate(reservation.parkingId, {
         $set: {
             active: true,
             status: "ocupado",
@@ -184,6 +185,7 @@ export const reservationArrivalController = async (io, socket, data) => {
     })
 
     await reservationModel.findByIdAndDelete(reservation.id)
+    await userAccessLogController(socket, user.username, parking.name, reservation.patente)
 
     socket.emit("reservation-arrival-ok", {
         message: `Llegada confirmada a ${reservation.parking}`,
@@ -195,5 +197,9 @@ export const reservationArrivalController = async (io, socket, data) => {
 
     io.to("administradores").emit("all-parkings", {
         parkings: await getParkings()
+    })
+
+    io.to("administradores").emit("all-logs", {
+        logs: await getLogs()
     })
 }

@@ -1,23 +1,33 @@
 <%- include("../templates/header", {titulo: "Smart Parking - Entrada" , baseUrl: baseUrl }) %>
 
-    <div class="maindiv">
+    <div id="full-div">
+        <div class="ocho">
+            <h3>No hay espacios disponibles.</h3>
+            <p>Intentalo más tarde o intenta recargar el sitio.</p>
+        </div>
+        <div class="dos">
+            <button id="reload">Reintentar</button>
+        </div>
+    </div>
+
+    <div id="maindiv" class="maindiv">
         <form class="mainform" id="mainform">
             <div style="color: #0D5492;">
                 <h1 class="text-center">Acceso Invitado</h1>
             </div>
             <div class="text-center">
                 <div class="place-logo-container">
-                    <div class="text-center" id="placeContainer"></div>
                     <img src="<%= baseUrl %>/images/logo-blue.png"" class=" img-fluid" alt="" id="logo">
                 </div>
             </div>
             <div>
                 <div class="text-center" id="verificationContainer"></div>
+                <div class="text-center" id="messageContainer" style="display: none;"></div>
                 <div class="text-center" id="messageErrorContainer" style="display: none;"></div>
                 <input class="forminput" id="username" type="text" placeholder="Nombre">
-                <input class="forminput" id="contact" type="text" placeholder="contacto">
-                <input class="forminput" id="patente" type="text" placeholder="patente">
-                <div class="text-center" id="messageContainer" style="display: none;"></div>
+                <input class="forminput" id="email" type="text" placeholder="Correo">
+                <input class="forminput" id="contact" type="text" placeholder="Numero de Telefono">
+                <input class="forminput" id="patente" type="text" placeholder="Patente">
                 <button style="margin-top: 1rem;" class="btn to-reg-button" id="button">Enviar</button>
             </div>
         </form>
@@ -28,75 +38,83 @@
 
     <script>
 
-        const socket = io("<%= baseUrl %>")
+        const logo = document.getElementById('logo')
         const form = document.getElementById("mainform")
         const button = document.getElementById("button")
-        const messageContainer = document.getElementById('messageContainer')
-        const logo = document.getElementById('logo')
         const placeContainer = document.getElementById('placeContainer')
+        const messageContainer = document.getElementById('messageContainer')
         const verificationContainer = document.getElementById("verificationContainer")
         const messageErrorContainer = document.getElementById('messageErrorContainer')
+        
+        const socket = io("<%= baseUrl %>")
+
+        socket.on("parking-status", ({status}) => {
+
+            if (status === "FULL") {
+                document.getElementById("maindiv").style.display = "none"
+                document.getElementById("full-div").style.display = "flex"
+            }
+        })
+
+        document.getElementById("reload").addEventListener("click", () => {
+            location.reload()
+        })
 
         button.addEventListener("click", (event) => {
+            
             event.preventDefault()
 
             const username = document.getElementById("username")
             const contact = document.getElementById("contact")
             const patente = document.getElementById("patente")
+            const email = document.getElementById("email")
+            
             const regexPatente = (/^[BCDFGHJKLPQRSTVWXYZ]{4}(1[0-9]|[2-9][0-9])$/)
             const regexContacto = (/^\+569\d{8}$/)
 
-            if ((username.value === "") || (contact.value === "") || (patente.value === "")) {
-                socket.emit("guest-access-denied")
+            const showErrorMessage = (message) => {
                 username.style.marginTop = "1.5rem"
                 messageErrorContainer.style.display = "block"
-                messageErrorContainer.textContent = "No puedes dejar espacios en blanco"
-                messageErrorContainer.style.color = 'red'
-            } else if (!regexContacto.test(contact.value)) {
-                socket.emit("guest-access-denied")
-                username.style.marginTop = "1.5rem"
-                messageErrorContainer.style.display = "block"
-                messageErrorContainer.textContent = "El numero de contacto no es valido"
-                messageErrorContainer.style.color = 'red'
-            } else if (!regexPatente.test(patente.value)) {
-                socket.emit("guest-access-denied")
-                username.style.marginTop = "1.5rem"
-                messageErrorContainer.style.display = "block"
-                messageErrorContainer.textContent = "La patente ingresada no es valida"
+                messageErrorContainer.textContent = message
                 messageErrorContainer.style.color = 'red'
             }
-            else {
-                const data = {
-                    username: username.value,
-                    contact: contact.value,
-                    patente: patente.value
-                }
 
-                socket.emit("guest-access-request", data)
-                messageErrorContainer.style.display = "none"
-                form.reset()
+            if ((username.value === "") || (contact.value === "") || (patente.value === "") || (email.value === "")) {
+                showErrorMessage("No puedes dejar espacios en blanco")
+                return
+            
+            } else if (!regexContacto.test(contact.value)) {
+                showErrorMessage("El numero de contacto ingresado no es valido")
+                return
+            
+            } else if (!regexPatente.test(patente.value)) {
+                showErrorMessage("La patente ingresada no es valida")
+                return
+            } 
+                
+            const data = {
+                username: username.value,
+                contact: contact.value,
+                email: email.value,
+                patente: patente.value
             }
+
+            socket.emit("guest-access-request", data)
+            messageErrorContainer.style.display = "none"
+            form.reset()
         })
 
         socket.on("guest-access-ok", ({ message, place, verify }) => {
-
             logo.style.animation = "fadeOut 0.5s ease forwards"
             messageContainer.style.display = "block"
             messageContainer.textContent = message
             messageContainer.style.color = 'green'
 
             setTimeout(() => {
-
                 logo.style.display = 'none'
-
-                placeContainer.textContent = `Ubicación del estacionamiento: ${place}`
-                placeContainer.style.display = 'block'
-                placeContainer.style.animation = "fadeIn 0.5s ease forwards"
-                placeContainer.classList.add('smooth-transition')
-
-                verificationContainer.textContent = `Codigo de verificacion: ${verify}`
-
+                verificationContainer.textContent = `Ubicación del estacionamiento: ${place}`
             }, 500)
+
         })
 
         socket.on("guest-access-denied", ({ message }) => {
@@ -107,4 +125,4 @@
 
     </script>
 
-    </html>
+</html>

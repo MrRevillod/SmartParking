@@ -1,5 +1,5 @@
 body {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Montserrat';
     background-color: #050505;
     height: 96vh;
     display: flex;
@@ -7,6 +7,10 @@ body {
     align-items: center;
     margin: 0;
     padding: 0;
+}
+
+.dark-mode body {
+    background-color: #242526;
 }
 
 @media screen and (max-width: 800px) {
@@ -35,6 +39,10 @@ body {
     display: none;
 }
 
+.dark-mode .mobile {
+    background-color: #18191a;
+}
+
 #load {
     width: 60vw;
     height: 80vh;
@@ -47,96 +55,4 @@ body {
     align-items: center;
     border: white 0.1rem solid;
     border-radius: 0.2rem;
-}
-
-.md {
-    color: #1c1c1c;
-}
-
-.button1{
-    color: #1c1c1c;
-    background-color: #f5f5f5;
-}
-
-.button2{
-    color: #1c1c1c;
-    background-color: #f5f5f5;
-}
-
-.button3{
-    color: #1c1c1c;
-    background-color: #f5f5f5;
-}
-
-.button4{
-    color: #1c1c1c;
-    background-color: #f5f5f5;
-}
-
-.button5{
-    color: #1c1c1c;
-    background-color: #f5f5f5;
-}
-
-.header{
-    background-color: #f5f5f5;
-}
-
-.md1{
-    background-color: #f5f5f5;
-}
-
-.response{
-    color: #050505;
-}
-
-/* Añadir estas reglas para el modo oscuro */
-.dark-mode body {
-    background-color: #242526; /* Gris oscuro */
-}
-
-.dark-mode .mobile {
-    background-color: #18191a; /* Gris claro */
-}
-
-/* Asegúrate de agregar esto solo si estás en modo oscuro #f5f5f5 */
-.dark-mode .md {
-    color: #a1a4a8; /* Blanco */
-}
-
-.dark-mode .button1{
-    color: #a1a4a8;
-    background-color: #242526;
-}
-
-.dark-mode .button2{
-    color: #a1a4a8;
-    background-color: #242526;
-}
-
-.dark-mode .button3{
-    color: #a1a4a8;
-    background-color: #242526;
-}
-
-.dark-mode .button4{
-    color: #a1a4a8;
-    background-color: #242526;
-}
-
-.dark-mode .button5{
-    color: #a1a4a8;
-    background-color: #242526;
-}
-
-.dark-mode .header{
-    background-color: #242526;
-}
-
-.dark-mode .md1{
-    background-color: #242526;
-}
-
-.dark-mode .response{
-    color: #a1a4a8;
 }
