@@ -2,8 +2,7 @@
 export const Table = ({ data, columns }) => {
 
     return (
-        <div className=" ">
-
+        <div className=" "> 
             <div className="row back-blue rounded-top-2 text-light" >
 
                 {columns.map((c, i) => (
