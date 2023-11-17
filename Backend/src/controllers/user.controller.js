@@ -7,8 +7,6 @@ export const getUsers = async (req, res) => {
 
     try {
 
-        // const users = await userModel.find({ $or: [{ role: "USER_ROLE" }, { role: "TEMP_ROLE" }] })
-
         const users = await userModel.find()
         if (!users) throw { status: 404, message: MESSAGES.USER_NOT_FOUND }
 

@@ -1,6 +1,5 @@
 
 import { Server } from "socket.io"
-
 import { getLogs } from "./sockets/log.controller.js"
 import { validateAdmin } from "./sockets/sockets.mw.js"
 import { guestAccessController, guestExitController } from "./sockets/guest.controller.js"
@@ -16,20 +15,12 @@ export const socketSetup = (server) => {
         }
     })
 
-    /* 
-        Ejemplo para obtener información de administrador:
+    io.on("connection", async (socket) => {
 
-        socket.emit("join-admin", { token: localStorage.getItem("token") })
-
-        socket.emit("get-parkings")
-
-        socket.on("all-parkings", ({ parkings }) => {
-            console.log(parkings)
+        socket.emit("parking-status", {
+            status: await getParkings() ? "NOT-FULL" : "FULL"
         })
 
-    */
-
-    io.on("connection", async (socket) => {
         socket.on("join-admin", async (data) => {
             const { token } = data 
             if (!token) {

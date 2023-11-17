@@ -1,15 +1,13 @@
 {
     "name": "smart-parking-api",
     "version": "1.0.0",
-    "description": "",
     "main": "index.js",
     "type": "module",
     "scripts": {
         "dev": "nodemon ./src/index.js",
         "start": "node ./src/index.js"
     },
-    "keywords": [],
-    "author": "",
+    "author": "MrRevillod",
     "license": "ISC",
     "dependencies": {
         "bcryptjs": "^2.4.3",
@@ -19,12 +17,12 @@
         "dotenv": "^16.3.1",
         "ejs": "^3.1.9",
         "express": "^4.18.2",
-        "express-fileupload": "^1.4.0",
+        "express-fileupload": "^1.4.2",
         "express-validator": "^7.0.1",
         "jsonwebtoken": "^9.0.2",
         "mongodb": "^6.2.0",
-        "mongoose": "^7.5.0",
-        "nodemailer": "^6.9.5",
+        "mongoose": "^8.0.0",
+        "nodemailer": "^6.9.7",
         "socket.io": "^4.7.2"
     }
 }

@@ -13,8 +13,8 @@ export const getParkings = async (req, res) => {
         res.status(200).json({ message: MESSAGES.OK, parkings })
 
     } catch (error) {
-        res.status(error?.status || 500).json({ message: error?.message || MESSAGES.UNEXPECTED })
         saveError(error)
+        res.status(error?.status || 500).json({ message: error?.message || MESSAGES.UNEXPECTED })
     }
 }
 
@@ -30,7 +30,7 @@ export const getParking = async (req, res) => {
         res.status(200).json({ message: MESSAGES.OK, parking })
 
     } catch (error) {
-        res.status(error?.status || 500).json({ message: error?.message || MESSAGES.UNEXPECTED })
         saveError(error)
+        res.status(error?.status || 500).json({ message: error?.message || MESSAGES.UNEXPECTED })
     }
 }
