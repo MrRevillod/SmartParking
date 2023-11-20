@@ -63,6 +63,10 @@
             messageContainer.style.display = "block"
             messageContainer.textContent = message
             messageContainer.style.color = 'red'
+
+            setTimeout(() => {
+                messageContainer.style.display = "none"
+            }, 3000)
         })
 
     </script>

@@ -53,7 +53,7 @@ export const passwordRules = [
 export const vehicleRules = [
     body('vehicles.*.patente')
         .notEmpty()
-        .matches(/^[BCDFGHJKLPQRSTVWXYZ]{4}(1[0-9]|[2-9][0-9])$/)
+        .matches(/^[BCDFGHJKLMNPQRSTVWXYZ]{4}(1[0-9]|[2-9][0-9])$/)
         .withMessage('La patente debe tener el formato correcto'),
 
     body('vehicles.*.model')

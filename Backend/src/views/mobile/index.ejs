@@ -18,7 +18,7 @@
 
     <div id="load"></div>
 
-    <div id="mobile">
+    <div id="mobile" class="mobile">
         <div id="main-cont">
             <form id="form-login">
                 <div id="logo-cont">
@@ -87,11 +87,6 @@
 
         if (!isValidEmail(email)) {
             setResponse("El correo electrónico no es válido")
-            return
-        }
-
-        if (!isValidPassword(password)) {
-            setResponse("La contraseña no es válida")
             return
         }
 

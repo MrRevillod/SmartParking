@@ -33,7 +33,7 @@ const showInfo = (value) => {
     const messages = {
         username: "Ingresa tu nombre completo.",
         email: "Debes ingresar un correo válido y existente.",
-        contact: "Formato esperado: +569xxxxxxxx.",
+        contact: "Formato de 9 digitos: 9xxxxxxxx.",
         password: "Ingresa una contraseña de mínimo 8 caracteres. Debe contener al menos una mayúscula, una minúscula, un número y un caracter especial.",
         confirmPassword: "Las contraseñas deben coincidir.",
         model: "Formato esperado: Marca Modelo. Máximo 20 caracteres.",
@@ -43,15 +43,20 @@ const showInfo = (value) => {
         regPassword: "Ingresa una contraseña de mínimo 8 caracteres. Debe contener al menos una mayúscula, una minúscula, un número y un caracter especial.",
         regConfirmPassword: "Las contraseñas deben coincidir.",
         regEmail: "Debes ingresar un correo válido y existente.",
-        empty: "Debes ingresar todos los datos."
+        regPatente: "Formato esperado: FHBG89.",
+        regContact: "Formato de 9 digitos: 9xxxxxxxx.",
+        empty: "Debes ingresar todos los datos.",
+        userExist: "El usuario ya existe.",
     }
+
+    const message = !messages[value] ? value : messages[value]
 
     main.style.opacity = "0.8"
 
     const dialog = document.createElement("dialog")
     dialog.id = "dialog"
     dialog.innerHTML = `
-        <h4>${messages[value]}</h1>
+        <h4>${message}</h1>
         <button id="dialog-button">Aceptar</button>
     `
 
@@ -76,96 +81,3 @@ const showInfo = (value) => {
     })
 }
 
-window.addEventListener("load", async () => {
-
-    const load = document.getElementById('load')
-    const mobile = document.getElementById('mobile')
-
-    if (localStorage.getItem("token")) {
-
-        const token = localStorage.getItem("token")
-        const res = await fetch("<% baseUrl %>/api/auth/confirm-session", {
-            method: "POST",
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
-            }
-        })
-
-        if (res.ok) {
-            window.location.href = "<%= baseUrl %>/api/mobile/home"
-
-        } else {
-            localStorage.removeItem("token")
-            load.style.display = "none"
-            mobile.style.display = "flex"
-        }
-    }
-
-    fillYears()
-
-    load.style.display = "none"
-    mobile.style.display = "flex"
-})
-
-
-button.addEventListener("click", async (e) => {
-
-    console.log("click")
-
-    const form = document.getElementById("register-form")
-    const respuestaDiv = document.getElementById("response")
-
-    const password = document.getElementById('password').value
-    const confirmPassword = document.getElementById('confirmPassword').value
-    const data = {
-        username: document.getElementById('username').value,
-        email: document.getElementById('email').value,
-        password: password,
-        contact: document.getElementById('contact').value,
-        vehicles: {
-            patente: document.getElementById('patente').value,
-            model: document.getElementById('model').value,
-            year: parseInt(document.getElementById('year').value)
-        }
-    }
-
-    for (const key in data) {
-        if (data[key] === "") {
-            showInfo("empty")
-            return
-        }
-    }
-
-    if (!isValidEmail(data.email)) {
-        showInfo("regEmail")
-        return
-    }
-
-    if (password !== confirmPassword) {
-        showInfo("regConfirmPassword")
-        return
-    }
-
-    if (!isValidPassword(password)) {
-        showInfo("regPassword")
-        return
-    }
-
-    const res = await fetch("<%= baseUrl %>/api/auth/register", {
-        method: "POST",
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-    })
-
-    const result = await res.json()
-
-    if (res.ok) {
-        alert(result.message)
-        form.reset()
-    } else {
-        alert(result.message)
-    }
-})

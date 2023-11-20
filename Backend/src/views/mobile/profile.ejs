@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <title>Smart Parking - Profile</title>
+    <link rel="stylesheet" href="<%= baseUrl %>/stylesheets/mobile.base.css">
+    <link rel="stylesheet" href="<%= baseUrl %>/stylesheets/mobile.profile.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <link rel="icon" type="image/x-icon" href="<%= baseUrl %>/images/logo-white.png">
+    <script src="<%= baseUrl %>/scripts/mobile.functions.js"></script>
+</head>
+
+<body>
+    <div id="load"></div>
+    <div id="mobile">
+        <img id="profileImg" src="" alt="">
+        <div id="one-third">
+            <div id="header">
+                <div id="place">
+                    <h2 id="parking"></h2>
+                </div>
+                <div id="headerIcon">
+                    <h1 id="home" class="bi bi-house"></h1>
+                    <h1 id="logout" class="bi bi-box-arrow-left"></h1>
+                </div>
+            </div>
+        </div>
+        <div id="two-third">
+            <div id="headerWhite"></div>
+            <div id="info">
+                <h1 id="username"></h1>
+                <h1 id="email"></h1>
+                <h1 id="contact"></h1>
+                <div id="headerInfo">
+                    <h1 id="roleUser" class="rounded-pill"></h1>
+                    <h1 id="active"></h1>
+                </div>
+            </div>
+            <div id="vehicles" class="table-container">
+                <div class="table-row header-row">
+                    <div class="table-cell">Patente</div>
+                    <div class="table-cell">Modelo</div>
+                    <div class="table-cell">Año</div>
+                </div>
+            </div>
+            <div id="deleteProfile">
+                <button>Eliminar Perfil</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+
+    const token = localStorage.getItem("token")
+
+    window.addEventListener("load", async (e) => {
+
+        const load = document.getElementById('load')
+        const mobile = document.getElementById('mobile')
+
+        e.preventDefault();
+        if (!token) {
+            window.location.href = "<%= baseUrl %>/api/mobile"
+        }
+
+        const res = await fetch("<%= baseUrl %>/api/auth/confirm-session", {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            },
+        })
+
+        if (!res.ok) {
+            window.location.href = "<%= baseUrl %>/api/mobile"
+        }
+
+        mobile.style.display = "flex"
+        load.style.display = "none"
+    })
+
+    window.addEventListener("load", async (e) => {
+
+        const res = await fetch("<%= baseUrl %>/api/users/profile", {
+            method: "GET",
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            },
+        })
+
+        const data = await res.json()
+        const user = data.user
+
+        console.log(user.vehicles[0])
+
+        const profileImg = document.getElementById("profileImg")
+        const parking = document.getElementById("parking")
+        const username = document.getElementById("username")
+        const email = document.getElementById("email")
+        const contact = document.getElementById("contact")
+        const active = document.getElementById("active")
+        const headerInfo = document.getElementById("headerInfo")
+
+        if (user.active == false) {
+            parking.textContent = "~"
+        } else {
+            parking.textContent = user.parking
+        }
+
+        if (user.active == false) {
+            active.textContent = "Inactivo"
+            active.style.backgroundColor = "#DC3545"
+        } else {
+            active.textContent = "Activo"
+            active.style.backgroundColor = "#198754"
+            headerInfo.style.width = "50%"
+        }
+
+        if (user.role == "ADMIN_ROLE") {
+            roleUser.textContent = "Administrador"
+        } else {
+            roleUser.textContent = "Usuario"
+        }
+
+        profileImg.src = user.profilePicture
+        username.textContent = user.username
+        email.textContent = user.email
+        contact.textContent = user.contact
+
+        for (let i = 0; i < user.vehicles.length; i++) {
+            const vehicleRow = document.createElement("div")
+            vehicleRow.classList.add("table-row")
+
+            const patenteCell = document.createElement("div")
+            patenteCell.classList.add("table-cell")
+            patenteCell.textContent = user.vehicles[i].patente
+            vehicleRow.appendChild(patenteCell)
+
+            const modelCell = document.createElement("div")
+            modelCell.classList.add("table-cell")
+            modelCell.textContent = user.vehicles[i].model
+            vehicleRow.appendChild(modelCell)
+
+            const yearCell = document.createElement("div")
+            yearCell.classList.add("table-cell")
+            yearCell.textContent = user.vehicles[i].year
+            vehicleRow.appendChild(yearCell)
+
+            vehicles.appendChild(vehicleRow)
+        }
+
+    })
+
+    const homebtn = document.getElementById("home")
+    const logoutbtn = document.getElementById("logout")
+    const deleteProfile = document.getElementById("deleteProfile")
+    const main = document.getElementById("mobile")
+    const body = document.querySelector("body")
+
+
+    homebtn.addEventListener("click", async (e) => {
+
+        if (token) {
+            window.location.href = "<%= baseUrl %>/api/mobile/home";
+        }
+
+        else {
+            setResponse("Error al volver al inicio");
+        }
+    })
+
+    logoutbtn.addEventListener("click", async (e) => {
+
+        const res = await fetch("<%= baseUrl %>/api/auth/logout", {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            },
+        })
+
+        if (res.ok) {
+            localStorage.removeItem("token")
+            window.location.href = "<%= baseUrl %>/api/mobile";
+
+        } else {
+            setResponse("Error al cerrar sesión")
+        }
+    })
+
+    const showInfo = () => {
+
+        const existingDialog = document.getElementById("dialog")
+        if (existingDialog) {
+            existingDialog.close()
+            existingDialog.remove()
+        }
+
+        main.style.opacity = "0.8"
+
+        const dialog = document.createElement("dialog")
+        dialog.id = "dialog"
+        dialog.innerHTML = `
+    <h4>¿Estas seguro que quieres eliminar tu cuenta?</h1>
+    <button id="dialog-button">Si, estoy seguro</button>
+`
+
+        body.appendChild(dialog)
+
+        const dialogButton = document.getElementById("dialog-button")
+
+        dialog.showModal()
+
+        dialogButton.addEventListener("click", async (e) => {
+            const res = await fetch("<%= baseUrl %>/api/users/", {
+                method: "DELETE",
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+            })
+
+            if (res.ok) {
+                localStorage.removeItem("token")
+                window.location.href = "<%= baseUrl %>/api/mobile";
+                dialog.close()
+                dialog.remove()
+                main.style.opacity = "1"
+            } else {
+                setResponse("Error al eliminar perfil")
+            }
+        })
+
+        dialog.addEventListener("mousedown", (e) => {
+            if (e.target === dialog) {
+                dialog.close()
+                dialog.remove()
+                main.style.opacity = "1"
+            }
+        })
+    }
+
+    deleteProfile.addEventListener("click", (e) => {
+        showInfo()
+    })
+
+
+
+
+</script>
