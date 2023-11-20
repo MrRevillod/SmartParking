@@ -16,7 +16,19 @@
     background-color: #f5f5f5;
 }
 
+#headerIconContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
 #logout {
+    cursor: pointer;
+}
+
+#profile {
     cursor: pointer;
 }
 

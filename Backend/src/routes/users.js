@@ -12,7 +12,7 @@ const router = Router()
 
 router.get("/profile", sessionValidation, getProfile)
 router.get("/:id", sessionValidation, ownerValidation, validateMongoUid, getUser)
-router.delete("/:id", sessionValidation, ownerValidation, validateMongoUid, deleteUser)
+router.delete("/", sessionValidation, deleteUser)
 router.put("/:id", sessionValidation, ownerValidation, validateMongoUid, updateUser)
 router.put("/update-image/:id", sessionValidation, ownerValidation, validateMongoUid, uploadImage, updateImage)
 router.get("/", sessionValidation, roleValidation(["ADMIN_ROLE"]), getUsers)

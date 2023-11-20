@@ -21,9 +21,13 @@
 
     <div id="mobile">
         <div id="header">
-            <h1>Smart Parking</h1>
-            <input type="checkbox" name="" id="dark-mode-btn">
-            <h1 id="logout" class="bi bi-box-arrow-left"></h1>
+            <div>
+                <h1>Smart Parking</h1>
+            </div>
+            <div id="headerIconContainer">
+                <h1 id="profile" class="bi bi-person"></h1>
+                <h1 id="logout" class="bi bi-box-arrow-left"></h1>
+            </div>
         </div>
 
         <section>
@@ -88,7 +92,21 @@
     const button3 = document.getElementById("button3")
     const button4 = document.getElementById("button4")
     const button5 = document.getElementById("button5")
+    const profilebtn = document.getElementById("profile")
     const logoutbtn = document.getElementById("logout")
+
+    profilebtn.addEventListener("click", async (e) => {
+
+        const token = localStorage.getItem("token")
+
+        if (token) {
+            window.location.href = "<%= baseUrl %>/api/mobile/profile";
+        }
+
+        else {
+            setResponse("Error al ingresar a tu perfil");
+        }
+    })
 
     logoutbtn.addEventListener("click", async (e) => {
 
