@@ -33,7 +33,7 @@ const showInfo = (value) => {
     const messages = {
         username: "Ingresa tu nombre completo.",
         email: "Debes ingresar un correo válido y existente.",
-        contact: "Formato esperado: +569xxxxxxxx.",
+        contact: "Formato de 9 digitos: 9xxxxxxxx.",
         password: "Ingresa una contraseña de mínimo 8 caracteres. Debe contener al menos una mayúscula, una minúscula, un número y un caracter especial.",
         confirmPassword: "Las contraseñas deben coincidir.",
         model: "Formato esperado: Marca Modelo. Máximo 20 caracteres.",
@@ -43,6 +43,8 @@ const showInfo = (value) => {
         regPassword: "Ingresa una contraseña de mínimo 8 caracteres. Debe contener al menos una mayúscula, una minúscula, un número y un caracter especial.",
         regConfirmPassword: "Las contraseñas deben coincidir.",
         regEmail: "Debes ingresar un correo válido y existente.",
+        regPatente: "Formato esperado: FHBG89.",
+        regContact: "Formato de 9 digitos: 9xxxxxxxx.",
         empty: "Debes ingresar todos los datos.",
         userExist: "El usuario ya existe.",
     }
@@ -78,3 +80,4 @@ const showInfo = (value) => {
         }
     })
 }
+

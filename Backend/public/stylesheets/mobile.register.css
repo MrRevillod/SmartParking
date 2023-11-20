@@ -122,6 +122,33 @@
     margin-bottom: 0.5rem;
 }
 
+.number-select-div {
+    display: flex;
+    flex-direction: row;
+}
+
+.number-select-div .input {
+    width: 100%;
+    padding-left: 60px;
+}
+
+.number-select-div select {
+    position: absolute;
+    z-index: 1;
+    width: 55px;
+    height: 2.3rem;
+    border: none;
+    border-radius: 0.5rem 0 0 0.5rem;
+    background-color: #F5F5F5;
+    border-left: 1px solid #0D5492;
+    border-top: 1px solid #0D5492;
+    border-bottom: 1px solid #0D5492;
+}
+
+select {
+    background-color: #F5F5F5;
+}
+
 #buttons-div {
     display: flex;
     flex-direction: row;

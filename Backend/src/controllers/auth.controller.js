@@ -66,14 +66,17 @@ export const registerController = async (req, res) => {
 
         const { username, email, password, contact, vehicles } = req.body
 
-        let user = await userModel.findOne({ $or: [{ username }, { email }] })
-        if (user) throw { status: 409, message: MESSAGES.USER_EXIST }
+        const usernameExist = await userModel.findOne({ username })
+        if (usernameExist) throw { status: 409, message: MESSAGES.USERNAME_EXIST }
 
-        let contactExist = await userModel.findOne({ $or: [{ contact }] })
+        const emailExist = await userModel.findOne({ email })
+        if (emailExist) throw { status: 409, message: MESSAGES.EMAIL_EXIST }
+
+        let contactExist = await userModel.findOne({ contact })
         if (contactExist) throw { status: 409, message: MESSAGES.CONTACT_EXIST }
 
         const hash = await hashPassword(password)
-        user = await userModel.create({ username, email, password: hash, contact, vehicles })
+        const user = await userModel.create({ username, email, password: hash, contact, vehicles })
 
         const payload = { uid: user.id }
         const secret = JWT_SECRET + user.validated.toString()

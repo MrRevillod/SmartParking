@@ -20,8 +20,8 @@ export const guestAccessController = async (io, socket, data) => {
 
     if (user) {
         socket.emit("guest-access-denied", {
-            message: `El usuario ya existe en nuestro sistema o se encuentra 
-            dentro del estacionamiento, usa la aplicación para ingresar`
+            message: `El usuario ya se encuentra en nuestro sistema 
+            intenta usar la aplicación para ingresar`
         })
 
         return

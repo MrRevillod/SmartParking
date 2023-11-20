@@ -122,14 +122,14 @@
 
         event.preventDefault()
         const token = localStorage.getItem("token")
-        socket.emit("user-cancel-reservation", { token, patente: "ACXB42" })
+        socket.emit("user-cancel-reservation", { token })
     })
 
     button3.addEventListener("click", async (event) => {
 
         event.preventDefault()
         const token = localStorage.getItem("token")
-        socket.emit("user-reservation-arrival", { token, patente: "ACXB42" })
+        socket.emit("user-reservation-arrival", { token })
     })
 
     button4.addEventListener("click", async (event) => {
@@ -143,7 +143,7 @@
 
         event.preventDefault()
         const token = localStorage.getItem("token")
-        socket.emit("user-exit-req", { token, patente: "ACXB42" })
+        socket.emit("user-exit-req", { token })
     })
 
     socket.on("reservation-ok", ({ message }) => {

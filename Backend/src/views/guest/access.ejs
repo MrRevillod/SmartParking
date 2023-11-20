@@ -77,6 +77,11 @@
                 messageErrorContainer.style.display = "block"
                 messageErrorContainer.textContent = message
                 messageErrorContainer.style.color = 'red'
+
+                setTimeout(() => {
+                    messageErrorContainer.style.display = "none"
+                    username.style.marginTop = "0rem"
+                }, 3000)
             }
 
             if ((username.value === "") || (contact.value === "") || (patente.value === "") || (email.value === "")) {
@@ -121,6 +126,10 @@
             messageContainer.style.display = "block"
             messageContainer.textContent = message
             messageContainer.style.color = 'red'
+
+            setTimeout(() => {
+                messageContainer.style.display = "none"
+            }, 3000)
         })
 
     </script>
