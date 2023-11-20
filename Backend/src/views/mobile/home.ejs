@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     <link rel="icon" type="image/x-icon" href="<%= baseUrl %>/images/logo-white.png">
     <script src="<%= baseUrl %>/scripts/mobile.functions.js"></script>
+    
 </head>
 
 <body>
@@ -105,16 +106,28 @@
         if (res.ok) {
             localStorage.removeItem("token")
             window.location.href = "<%= baseUrl %>/api/mobile"
-
         } else {
             setResponse("Error al cerrar sesión")
         }
     })
 
     button.addEventListener("click", async (event) => {
-
         event.preventDefault()
         const token = localStorage.getItem("token")
+
+        const res = await fetch("<%= baseUrl %>/api/users/profile/",{
+            method:'GET',
+            headers:{
+                Authorization:`Bearer ${token}`
+            }
+        })
+
+        const { user } = await res.json()
+
+        const vehicles = user.vehicles 
+
+        
+
         socket.emit("user-reservation-req", { token, patente: "ACXB42" })
     })
 

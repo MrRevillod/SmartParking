@@ -54,7 +54,7 @@ export const Stats = () => {
     }, [socket, parkings, parkings.length])
 
     return (
-        <div className="col w-full row justify-content-center  ">
+        <div className="col w-full row justify-content-center   ">
             <div className="text-center display-2 fw-bold m-3 mt-5">Reservas</div>
 
             <div className="w-75 mt-2  ">
