@@ -1454,3 +1454,771 @@ Error: [object Object]
     at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:280:10)
     at Function.handle (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:175:3)
 
+2023-11-20 11:05:36
+
+No autorizado - 401 
+
+Error: [object Object]
+    at saveError (file:///C:/Users/lolsg/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///C:/Users/lolsg/SmartParking/Backend/src/middlewares/session.mw.js:26:9)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:175:3)
+
+2023-11-20 11:05:36
+
+No autorizado - 401 
+
+Error: [object Object]
+    at saveError (file:///C:/Users/lolsg/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///C:/Users/lolsg/SmartParking/Backend/src/middlewares/session.mw.js:26:9)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:175:3)
+
+2023-11-20 11:05:38
+
+No autorizado - 401 
+
+Error: [object Object]
+    at saveError (file:///C:/Users/lolsg/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///C:/Users/lolsg/SmartParking/Backend/src/middlewares/session.mw.js:26:9)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:175:3)
+
+2023-11-20 11:05:38
+
+No autorizado - 401 
+
+Error: [object Object]
+    at saveError (file:///C:/Users/lolsg/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///C:/Users/lolsg/SmartParking/Backend/src/middlewares/session.mw.js:26:9)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:175:3)
+
+2023-11-20 11:05:38
+
+No autorizado - 401 
+
+Error: [object Object]
+    at saveError (file:///C:/Users/lolsg/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///C:/Users/lolsg/SmartParking/Backend/src/middlewares/session.mw.js:26:9)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:175:3)
+
+2023-11-20 11:05:38
+
+No autorizado - 401 
+
+Error: [object Object]
+    at saveError (file:///C:/Users/lolsg/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///C:/Users/lolsg/SmartParking/Backend/src/middlewares/session.mw.js:26:9)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:175:3)
+
+2023-11-20 11:05:43
+
+No autorizado - 401 
+
+Error: [object Object]
+    at saveError (file:///C:/Users/lolsg/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///C:/Users/lolsg/SmartParking/Backend/src/middlewares/session.mw.js:26:9)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:175:3)
+
+2023-11-20 11:43:43
+
+No autorizado - 401 
+
+Error: [object Object]
+    at saveError (file:///C:/Users/lolsg/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///C:/Users/lolsg/SmartParking/Backend/src/middlewares/session.mw.js:26:9)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:175:3)
+
+2023-11-20 11:43:43
+
+No autorizado - 401 
+
+Error: [object Object]
+    at saveError (file:///C:/Users/lolsg/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///C:/Users/lolsg/SmartParking/Backend/src/middlewares/session.mw.js:26:9)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:175:3)
+
+2023-11-20 11:43:44
+
+No autorizado - 401 
+
+Error: [object Object]
+    at saveError (file:///C:/Users/lolsg/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///C:/Users/lolsg/SmartParking/Backend/src/middlewares/session.mw.js:26:9)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:175:3)
+
+2023-11-20 11:43:44
+
+No autorizado - 401 
+
+Error: [object Object]
+    at saveError (file:///C:/Users/lolsg/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///C:/Users/lolsg/SmartParking/Backend/src/middlewares/session.mw.js:26:9)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:175:3)
+
+2023-11-20 11:43:44
+
+No autorizado - 401 
+
+Error: [object Object]
+    at saveError (file:///C:/Users/lolsg/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///C:/Users/lolsg/SmartParking/Backend/src/middlewares/session.mw.js:26:9)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:175:3)
+
+2023-11-20 11:43:44
+
+No autorizado - 401 
+
+Error: [object Object]
+    at saveError (file:///C:/Users/lolsg/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///C:/Users/lolsg/SmartParking/Backend/src/middlewares/session.mw.js:26:9)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:175:3)
+
+2023-11-20 11:43:46
+
+No autorizado - 401 
+
+Error: [object Object]
+    at saveError (file:///C:/Users/lolsg/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///C:/Users/lolsg/SmartParking/Backend/src/middlewares/session.mw.js:26:9)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:175:3)
+
+2023-11-20 12:08:49
+
+No autorizado - 401 
+
+Error: [object Object]
+    at saveError (file:///C:/Users/lolsg/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///C:/Users/lolsg/SmartParking/Backend/src/middlewares/session.mw.js:26:9)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:175:3)
+
+2023-11-20 12:25:11
+
+No autorizado - 401 
+
+Error: [object Object]
+    at saveError (file:///C:/Users/lolsg/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///C:/Users/lolsg/SmartParking/Backend/src/middlewares/session.mw.js:26:9)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:175:3)
+
+2023-11-20 12:25:11
+
+No autorizado - 401 
+
+Error: [object Object]
+    at saveError (file:///C:/Users/lolsg/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///C:/Users/lolsg/SmartParking/Backend/src/middlewares/session.mw.js:26:9)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:175:3)
+
+2023-11-20 12:25:12
+
+No autorizado - 401 
+
+Error: [object Object]
+    at saveError (file:///C:/Users/lolsg/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///C:/Users/lolsg/SmartParking/Backend/src/middlewares/session.mw.js:26:9)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:175:3)
+
+2023-11-20 12:25:12
+
+No autorizado - 401 
+
+Error: [object Object]
+    at saveError (file:///C:/Users/lolsg/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///C:/Users/lolsg/SmartParking/Backend/src/middlewares/session.mw.js:26:9)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:175:3)
+
+2023-11-20 12:25:12
+
+No autorizado - 401 
+
+Error: [object Object]
+    at saveError (file:///C:/Users/lolsg/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///C:/Users/lolsg/SmartParking/Backend/src/middlewares/session.mw.js:26:9)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:175:3)
+
+2023-11-20 12:25:12
+
+No autorizado - 401 
+
+Error: [object Object]
+    at saveError (file:///C:/Users/lolsg/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///C:/Users/lolsg/SmartParking/Backend/src/middlewares/session.mw.js:26:9)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:175:3)
+
+2023-11-20 12:25:13
+
+No autorizado - 401 
+
+Error: [object Object]
+    at saveError (file:///C:/Users/lolsg/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///C:/Users/lolsg/SmartParking/Backend/src/middlewares/session.mw.js:26:9)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:175:3)
+
+2023-11-20 13:00:31
+
+No autorizado - 401 
+
+Error: [object Object]
+    at saveError (file:///C:/Users/lolsg/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///C:/Users/lolsg/SmartParking/Backend/src/middlewares/session.mw.js:26:9)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:175:3)
+
+2023-11-20 13:05:29
+
+No autorizado - 401 
+
+Error: [object Object]
+    at saveError (file:///C:/Users/lolsg/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///C:/Users/lolsg/SmartParking/Backend/src/middlewares/session.mw.js:26:9)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:175:3)
+
+2023-11-20 13:05:31
+
+No autorizado - 401 
+
+Error: [object Object]
+    at saveError (file:///C:/Users/lolsg/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///C:/Users/lolsg/SmartParking/Backend/src/middlewares/session.mw.js:26:9)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:175:3)
+
+2023-11-20 13:05:31
+
+No autorizado - 401 
+
+Error: [object Object]
+    at saveError (file:///C:/Users/lolsg/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///C:/Users/lolsg/SmartParking/Backend/src/middlewares/session.mw.js:26:9)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:175:3)
+
+2023-11-20 13:05:31
+
+No autorizado - 401 
+
+Error: [object Object]
+    at saveError (file:///C:/Users/lolsg/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///C:/Users/lolsg/SmartParking/Backend/src/middlewares/session.mw.js:26:9)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:175:3)
+
+2023-11-20 13:05:55
+
+No autorizado - 401 
+
+Error: [object Object]
+    at saveError (file:///C:/Users/lolsg/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///C:/Users/lolsg/SmartParking/Backend/src/middlewares/session.mw.js:26:9)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:175:3)
+
+2023-11-20 15:17:31
+
+No autorizado - 401 
+
+Error: [object Object]
+    at saveError (file:///C:/Users/lolsg/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///C:/Users/lolsg/SmartParking/Backend/src/middlewares/session.mw.js:26:9)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:175:3)
+
+2023-11-20 15:17:31
+
+No autorizado - 401 
+
+Error: [object Object]
+    at saveError (file:///C:/Users/lolsg/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///C:/Users/lolsg/SmartParking/Backend/src/middlewares/session.mw.js:26:9)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:175:3)
+
+2023-11-20 15:17:32
+
+No autorizado - 401 
+
+Error: [object Object]
+    at saveError (file:///C:/Users/lolsg/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///C:/Users/lolsg/SmartParking/Backend/src/middlewares/session.mw.js:26:9)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:175:3)
+
+2023-11-20 15:17:32
+
+No autorizado - 401 
+
+Error: [object Object]
+    at saveError (file:///C:/Users/lolsg/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///C:/Users/lolsg/SmartParking/Backend/src/middlewares/session.mw.js:26:9)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:175:3)
+
+2023-11-20 15:17:32
+
+No autorizado - 401 
+
+Error: [object Object]
+    at saveError (file:///C:/Users/lolsg/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///C:/Users/lolsg/SmartParking/Backend/src/middlewares/session.mw.js:26:9)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:175:3)
+
+2023-11-20 15:17:32
+
+No autorizado - 401 
+
+Error: [object Object]
+    at saveError (file:///C:/Users/lolsg/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///C:/Users/lolsg/SmartParking/Backend/src/middlewares/session.mw.js:26:9)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:175:3)
+
+2023-11-20 15:17:33
+
+No autorizado - 401 
+
+Error: [object Object]
+    at saveError (file:///C:/Users/lolsg/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///C:/Users/lolsg/SmartParking/Backend/src/middlewares/session.mw.js:26:9)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:175:3)
+
+2023-11-20 15:17:42
+
+No autorizado - 401 
+
+Error: [object Object]
+    at saveError (file:///C:/Users/lolsg/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///C:/Users/lolsg/SmartParking/Backend/src/middlewares/session.mw.js:26:9)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:175:3)
+
+2023-11-20 15:17:43
+
+No autorizado - 401 
+
+Error: [object Object]
+    at saveError (file:///C:/Users/lolsg/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///C:/Users/lolsg/SmartParking/Backend/src/middlewares/session.mw.js:26:9)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:175:3)
+
+2023-11-20 15:17:44
+
+No autorizado - 401 
+
+Error: [object Object]
+    at saveError (file:///C:/Users/lolsg/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///C:/Users/lolsg/SmartParking/Backend/src/middlewares/session.mw.js:26:9)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:175:3)
+
+2023-11-20 15:17:46
+
+No autorizado - 401 
+
+Error: [object Object]
+    at saveError (file:///C:/Users/lolsg/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///C:/Users/lolsg/SmartParking/Backend/src/middlewares/session.mw.js:26:9)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:175:3)
+
+2023-11-20 15:17:46
+
+No autorizado - 401 
+
+Error: [object Object]
+    at saveError (file:///C:/Users/lolsg/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///C:/Users/lolsg/SmartParking/Backend/src/middlewares/session.mw.js:26:9)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:175:3)
+
+2023-11-21 08:25:09
+
+No autorizado - 401 
+
+Error: [object Object]
+    at saveError (file:///C:/Users/lolsg/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///C:/Users/lolsg/SmartParking/Backend/src/middlewares/session.mw.js:26:9)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:175:3)
+
+2023-11-21 08:25:09
+
+No autorizado - 401 
+
+Error: [object Object]
+    at saveError (file:///C:/Users/lolsg/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///C:/Users/lolsg/SmartParking/Backend/src/middlewares/session.mw.js:26:9)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:175:3)
+
+2023-11-21 08:25:11
+
+No autorizado - 401 
+
+Error: [object Object]
+    at saveError (file:///C:/Users/lolsg/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///C:/Users/lolsg/SmartParking/Backend/src/middlewares/session.mw.js:26:9)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:175:3)
+
+2023-11-21 08:25:11
+
+No autorizado - 401 
+
+Error: [object Object]
+    at saveError (file:///C:/Users/lolsg/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///C:/Users/lolsg/SmartParking/Backend/src/middlewares/session.mw.js:26:9)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:175:3)
+
+2023-11-21 08:25:11
+
+No autorizado - 401 
+
+Error: [object Object]
+    at saveError (file:///C:/Users/lolsg/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///C:/Users/lolsg/SmartParking/Backend/src/middlewares/session.mw.js:26:9)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:175:3)
+
+2023-11-21 08:25:11
+
+No autorizado - 401 
+
+Error: [object Object]
+    at saveError (file:///C:/Users/lolsg/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///C:/Users/lolsg/SmartParking/Backend/src/middlewares/session.mw.js:26:9)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:175:3)
+
+2023-11-21 08:25:13
+
+No autorizado - 401 
+
+Error: [object Object]
+    at saveError (file:///C:/Users/lolsg/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///C:/Users/lolsg/SmartParking/Backend/src/middlewares/session.mw.js:26:9)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:175:3)
+
+2023-11-21 08:25:40
+
+No autorizado - 401 
+
+Error: [object Object]
+    at saveError (file:///C:/Users/lolsg/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///C:/Users/lolsg/SmartParking/Backend/src/middlewares/session.mw.js:26:9)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\lolsg\SmartParking\Backend\node_modules\express\lib\router\index.js:175:3)
+

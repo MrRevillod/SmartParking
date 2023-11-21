@@ -29,7 +29,8 @@ export const App = () => {
 
     const [loaded, setLoaded] = useState(false)
     const [reservas, setReservas] = useState([])
-
+    const [parkings, setParkings] = useState([])
+    
     useLayoutEffect(() => {
         const validation = async () => {
             setLoaded(false)
@@ -53,21 +54,29 @@ export const App = () => {
         socket.connect()
         const onConnect = () => {
             socket.emit("join-admin", { token: localStorage.getItem("token") })
+            socket.emit("get-parkings")
+            socket.emit("get-reservations")
             Toast({ msg: "Socket Connected" })
         }
         const onDisconnect = () => {
             Toast({ msg: "Socket Disconnected" })
         }
         const renderReservations = (data) => {
+            console.log(data.reservations)
             setReservas(data.reservations)
         }
         const newReserva = (data) => {
-            setReservas([...reservas, data.reservation])
             Toast({ msg: data })
+        }
+
+        const renderParkings = (data) => {
+            const { parkings } = data
+            setParkings(parkings)
         }
         socket.on("connect", onConnect)
         socket.on("disconnect", onDisconnect)
         socket.on("all-reservations", renderReservations)
+        socket.on("all-parkings",renderParkings)
         socket.on("new-reservation", newReserva)
 
         return () => {
@@ -100,8 +109,8 @@ export const App = () => {
                                 <Route path="/" element={<Home />} />
                                 <Route path="/dashboard" element={<Home />} />
                                 <Route path="/users" element={<Users />} />
-                                <Route path="/parking" element={<Parking />} />
-                                <Route path="/stats" element={<Stats reservas={reservas} />} />
+                                <Route path="/parking" element={<Parking parkings={parkings} />} />
+                                <Route path="/stats" element={<Stats reservas={reservas} parkings={parkings} />} />
                             </Routes>
                         </QueryClientProvider>
                     </motion.div>

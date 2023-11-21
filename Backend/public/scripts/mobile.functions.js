@@ -1,9 +1,3 @@
-const main = document.getElementById('mobile')
-const body = document.querySelector('body')
-
-let patente;
-
-
 
 const isValidEmail = (email) => {
     const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/
@@ -27,43 +21,46 @@ const setResponse = (message) => {
 
 
 
-const selectVehicle = (vehicles) => {
-    patente = vehicles[0]  // Default selection
+const selectVehicle = (vehicles,socket,req) => {
+
+    const main = document.getElementById('mobile')
+    const body2 = document.body
+    
     const existingDialog = document.getElementById("dialog")
     
     if (existingDialog) {
         existingDialog.close()
         existingDialog.remove()
     }
-
-    main.style.opacity = "0.8"
-
     const dialog = document.createElement("dialog")
     dialog.id = "dialog"
-    dialog.innerHTML = `
-        <h4>${message}</h1>
-        <button id="dialog-button">Aceptar</button>
-    `
 
-    body.appendChild(dialog)
+    const title = document.createElement("h4")
+    title.innerText = "Selecciona el vehículo"
+    dialog.appendChild(title)
 
-    const dialogButton = document.getElementById("dialog-button")
+    vehicles.forEach(vehicle => {
+        const vehicleButton = document.createElement("button")
+        vehicleButton.innerText = vehicle.model
+        vehicleButton.className = "button"
+        vehicleButton.style.margin = "5px"
+        vehicleButton.addEventListener("click", (e) => {
+            e.preventDefault()
+
+            const token = localStorage.getItem("token")
+            dialog.close()
+            dialog.remove()
+            socket.emit(req, { token, patente: vehicle.patente })
+            main.style.opacity = "1"
+        })
+        dialog.appendChild(vehicleButton)
+
+    })
+
+    body2.appendChild(dialog)
 
     dialog.showModal()
 
 
-    // CHANGE 
-    dialogButton.addEventListener("click", () => {
-        dialog.close()
-        dialog.remove()
-        main.style.opacity = "1"
-    })
 
-    dialog.addEventListener("mousedown", (e) => {
-        if (e.target === dialog) {
-            dialog.close()
-            dialog.remove()
-            main.style.opacity = "1"
-        }
-    })
 }

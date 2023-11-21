@@ -15,11 +15,16 @@ export const SocketContextProvider = ({ children, socket }) => {
 
             socket.on("new-reservation", (msg) => {
                 Toast({ msg: msg })
+                socket.emit("get-reservations")
             })
 
             socket.on("disconnect", () => {
                 Toast({ msg: 'Socket Disconnected' })
             })
+
+            
+
+
 
 
         });

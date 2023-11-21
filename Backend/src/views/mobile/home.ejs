@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     <link rel="icon" type="image/x-icon" href="<%= baseUrl %>/images/logo-white.png">
     <script src="<%= baseUrl %>/scripts/mobile.functions.js"></script>
-    
+
 </head>
 
 <body>
@@ -54,9 +54,7 @@
 <script src="/socket.io/socket.io.js"></script>
 
 <script>
-
     window.addEventListener("load", async (e) => {
-
         const load = document.getElementById('load')
         const mobile = document.getElementById('mobile')
 
@@ -91,6 +89,23 @@
     const button5 = document.getElementById("button5")
     const logoutbtn = document.getElementById("logout")
 
+    const onClickHandler = async (event, req) => {
+        event.preventDefault()
+        console.log("click")
+        const token = localStorage.getItem("token")
+
+        const res = await fetch("<%= baseUrl %>/api/users/profile/", {
+            method: 'GET',
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        })
+
+        const { user } = await res.json()
+        const vehicles = user.vehicles
+        selectVehicle(vehicles, socket, req)
+        
+    }
     logoutbtn.addEventListener("click", async (e) => {
 
         const token = localStorage.getItem("token")
@@ -112,51 +127,24 @@
     })
 
     button.addEventListener("click", async (event) => {
-        event.preventDefault()
-        const token = localStorage.getItem("token")
-
-        const res = await fetch("<%= baseUrl %>/api/users/profile/",{
-            method:'GET',
-            headers:{
-                Authorization:`Bearer ${token}`
-            }
-        })
-
-        const { user } = await res.json()
-
-        const vehicles = user.vehicles 
-
-        
-
-        socket.emit("user-reservation-req", { token, patente: "ACXB42" })
+        onClickHandler(event, "user-reservation-req")
     })
 
     button2.addEventListener("click", async (event) => {
+        onClickHandler(event, "user-cancel-reservation")
 
-        event.preventDefault()
-        const token = localStorage.getItem("token")
-        socket.emit("user-cancel-reservation", { token, patente: "ACXB42" })
     })
 
     button3.addEventListener("click", async (event) => {
-
-        event.preventDefault()
-        const token = localStorage.getItem("token")
-        socket.emit("user-reservation-arrival", { token, patente: "ACXB42" })
+        onClickHandler(event, "user-reservation-arrival")
     })
 
     button4.addEventListener("click", async (event) => {
-
-        event.preventDefault()
-        const token = localStorage.getItem("token")
-        socket.emit("user-access-req", { token, patente: "ACXB42" })
+        onClickHandler(event, "user-access-req")
     })
 
     button5.addEventListener("click", async (event) => {
-
-        event.preventDefault()
-        const token = localStorage.getItem("token")
-        socket.emit("user-exit-req", { token, patente: "ACXB42" })
+        onClickHandler(event, "user-exit-req")
     })
 
     socket.on("reservation-ok", ({ message }) => {
@@ -198,7 +186,6 @@
     socket.on("parking-exit-denied", ({ message }) => {
         setResponse(message)
     })
-
     const body = document.body
     const darkModeBtn = document.getElementById('dark-mode-btn')
 
