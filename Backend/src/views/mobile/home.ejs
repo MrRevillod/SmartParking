@@ -108,6 +108,8 @@
     const profilebtn = document.getElementById("profile")
     const logoutbtn = document.getElementById("logout")
 
+    let functionActive = false
+
     profilebtn.addEventListener("click", async (e) => {
 
         const token = localStorage.getItem("token")
@@ -145,9 +147,17 @@
         event.preventDefault()
         const token = localStorage.getItem("token")
 
-        selectVehicle(vehicles, (patente) => {
-            socket.emit("user-reservation-req", { token, patente })
-        })
+        if(functionActive){
+            socket.on("timer-get", ({ message }) => {
+                document.getElementById("response").innerHTML = message
+                document.getElementById("response").style.display = "block"
+
+            })
+        } else {
+            selectVehicle(vehicles, (patente) => {
+                socket.emit("user-reservation-req", { token, patente })
+            })
+        }
     })
 
     button2.addEventListener("click", async (event) => {
@@ -166,9 +176,16 @@
         event.preventDefault()
         const token = localStorage.getItem("token")
 
-        selectVehicle(vehicles, (patente) => {
-            socket.emit("user-access-req", { token, patente })
-        })
+        if(functionActive){
+            socket.on("timer-get", ({ message }) => {
+                document.getElementById("response").innerHTML = message
+                document.getElementById("response").style.display = "block"
+            })
+        } else {
+            selectVehicle(vehicles, (patente) => {
+                socket.emit("user-access-req", { token, patente })
+            })
+        }
     })
 
     button5.addEventListener("click", async (event) => {
@@ -215,6 +232,10 @@
 
     socket.on("parking-exit-denied", ({ message }) => {
         setResponse(message)
+    })
+
+    socket.on("timer-active", (data) => {
+        functionActive = data
     })
 
     const body = document.body

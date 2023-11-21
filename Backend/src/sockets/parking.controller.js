@@ -5,6 +5,7 @@ import { JWT_SECRET } from "../config/env.js"
 import { userModel } from "../models/user.model.js"
 import { parkingModel } from "../models/parking.model.js"
 
+import { startTimer } from "../utils/wait.utils.js"
 import { hasReservation } from "./reservation.controller.js"
 import { userAccessLogController, userExitLogController, getLogs } from "./log.controller.js"
 
@@ -155,6 +156,7 @@ export const parkingExitController = async (io, socket, data) => {
         message: `Salida del estacionamiento ${parking.name} registrada con éxito`
     })
 
+    startTimer(io, socket, data)
     await userExitLogController(io, user.username, parking.name)
     await userExitLogController(socket, user.username, parking.name)
 
