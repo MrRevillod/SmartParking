@@ -1,22 +1,55 @@
 
-import { Cardy } from "./Cardy"
+import { useContext, useEffect, useState } from "react"
+
+import { SocketContext } from "../../../lib/socketContext"
+
+
 import "./Stats.css"
+import { ToggleTableButton } from "../../../components/ToggleTableButton"
+import { ReservationsTable } from "../../../components/ReservationsTable"
+import { StatsTable } from "../../../components/StatsTable"
 
-export const Stats = ({ reservas }) => {
+
+
+
+
+
+export const Stats = ({reservas,parkings}) => {
+
+    const [active, setActive] = useState(false)
+
+    const [logs,setLogs] = useState([])
+    const socket = useContext(SocketContext)
+
+    useEffect(() => {
+
+        socket.emit("get-logs")
+        
+    },[socket])
+
+
+    useEffect(() => {
+        socket.on("all-logs", (res) => {
+            const { logs } = res
+            setLogs(logs)
+        })
+        return () => {
+
+            socket.off("all-logs")
+
+
+        }
+    }, [socket])
+
     return (
-        <div className="col w-full row justify-content-center  ">
+        <div className="col w-full row justify-content-center   ">
             <div className="text-center display-2 fw-bold m-3 mt-5">Reservas</div>
-            <p className="text-center fs-4 ">Listado de solicitudes de reserva</p>
 
-            {reservas.length > 0 ? <div className="w-75 mt-5  ">
-                <div className="row  w-100 fs-4 rounded-top pt-2 icon-blue backblue text-light  overflow-hidden   border-2    ">
-                    <p className="col-3     ">Nombre</p>
-                    <p className="col-3    ">Patente</p>
-                    <p className="col-3    ">Estacionamiento</p>
-                    <p className="col-3    ">Estado</p>
-                </div>
-                <Cardy reservas={reservas} />
-            </div> : <div className="text-center display-4 text-danger fw-bold">No hay Reservas </div>}
+            <div className="w-75 mt-2  ">
+                <ToggleTableButton active={active} setActive={setActive} />
+                {!active ? <ReservationsTable reservas={reservas} /> : <StatsTable logs={logs} parkings={parkings} />}
+            </div>
+
         </div>
     )
 }

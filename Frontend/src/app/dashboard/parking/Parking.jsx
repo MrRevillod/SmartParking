@@ -1,6 +1,8 @@
 
 import { useEffect, useState } from "react"
 
+
+
 import { Legend } from "../../../components/Legend"
 import { ParkingMap } from "../../../components/ParkingMap"
 import { StatusCircle2 } from "../../../components/StatusCircle2"
@@ -8,7 +10,6 @@ import { StatusCircle2 } from "../../../components/StatusCircle2"
 import "./Parking.css"
 
 export const Parking = ({ parkings }) => {
-
     const [disponibles, setDisponibles] = useState(0)
     const [reservados, setReservados] = useState(0)
     const [ocupados, setOcupados] = useState(0)
@@ -31,6 +32,10 @@ export const Parking = ({ parkings }) => {
         setOcupados(ocu * 100 / total)
 
     }, [parkings])
+
+
+
+
 
     return (
         <div className='row w-100'>

@@ -26,3 +26,8 @@ Backend/scripts/
 .env
 env
 ./.env
+Backend/logs/sp_logs.txt
+./Backend/logs/sp_logs.txt
+*/Backend/logs/sp_logs.txt
+./Frontend/dev-dist/
+Frontend/dev-dist/

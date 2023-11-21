@@ -29,8 +29,8 @@ export const loginController = async (req, res) => {
         res.status(200).json({ message: MESSAGES.OK, token })
 
     } catch (error) {
-        res.status(error?.status || 500).json({ message: error?.message || MESSAGES.UNEXPECTED })
         saveError(error)
+        res.status(error?.status || 500).json({ message: error?.message || MESSAGES.UNEXPECTED })
     }
 }
 
@@ -55,8 +55,8 @@ export const adminLoginController = async (req, res) => {
         res.status(200).json({ message: MESSAGES.OK, token })
 
     } catch (error) {
-        res.status(error?.status || 500).json({ message: error?.message || MESSAGES.UNEXPECTED })
         saveError(error)
+        res.status(error?.status || 500).json({ message: error?.message || MESSAGES.UNEXPECTED })
     }
 }
 
@@ -66,14 +66,17 @@ export const registerController = async (req, res) => {
 
         const { username, email, password, contact, vehicles } = req.body
 
-        let user = await userModel.findOne({ $or: [{ username }, { email }] })
-        if (user) throw { status: 409, message: MESSAGES.USER_EXIST }
+        const usernameExist = await userModel.findOne({ username })
+        if (usernameExist) throw { status: 409, message: MESSAGES.USERNAME_EXIST }
 
-        let contactExist = await userModel.findOne({ $or: [{ contact }] })
+        const emailExist = await userModel.findOne({ email })
+        if (emailExist) throw { status: 409, message: MESSAGES.EMAIL_EXIST }
+
+        let contactExist = await userModel.findOne({ contact })
         if (contactExist) throw { status: 409, message: MESSAGES.CONTACT_EXIST }
 
         const hash = await hashPassword(password)
-        user = await userModel.create({ username, email, password: hash, contact, vehicles })
+        const user = await userModel.create({ username, email, password: hash, contact, vehicles })
 
         const payload = { uid: user.id }
         const secret = JWT_SECRET + user.validated.toString()
@@ -88,15 +91,14 @@ export const registerController = async (req, res) => {
             html: validationTemplate(url)
         },
             (error, info) => {
-                console.log(error ? error : info)
                 if (error) throw { status: 500, message: MESSAGES.EMAIL_VERIFICATION_FAILED }
             })
 
         res.status(200).json({ message: MESSAGES.EMAIL_VERIFICATION_SENT })
 
     } catch (error) {
-        res.status(error?.status || 500).json({ message: error?.message || MESSAGES.UNEXPECTED })
         saveError(error)
+        res.status(error?.status || 500).json({ message: error?.message || MESSAGES.UNEXPECTED })
     }
 }
 
@@ -122,7 +124,7 @@ export const logoutController = async (req, res) => {
         res.status(200).json({ message: MESSAGES.OK })
 
     } catch (error) {
-        res.status(error?.status || 500).json({ message: error?.message || MESSAGES.UNEXPECTED })
         saveError(error)
+        res.status(error?.status || 500).json({ message: error?.message || MESSAGES.UNEXPECTED })
     }
 }

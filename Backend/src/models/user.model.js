@@ -42,7 +42,7 @@ const userSchema = new Schema({
     profilePicture: {
         type: String,
         unique: false,
-        default: `http://${PUBLIC_URL}/images/default.jpeg`
+        default: `${PUBLIC_URL}/images/default.jpeg`
     },
 
     contact: {

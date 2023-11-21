@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/x-icon" href="<%= baseUrl %>/images/logo-white.png">
+    <link rel="icon" type="image/x-icon" href="<%= baseUrl %>/images/icon192x192.png">
     <script src="<%= baseUrl %>/scripts/mobile.functions.js"></script>
 </head>
 
@@ -18,7 +18,7 @@
 
     <div id="load"></div>
 
-    <div id="mobile">
+    <div id="mobile" class="mobile">
         <div id="main-cont">
             <form id="form-login">
                 <div id="logo-cont">
@@ -87,11 +87,6 @@
 
         if (!isValidEmail(email)) {
             setResponse("El correo electrónico no es válido")
-            return
-        }
-
-        if (!isValidPassword(password)) {
-            setResponse("La contraseña no es válida")
             return
         }
 

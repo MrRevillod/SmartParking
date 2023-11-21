@@ -1,16 +1,21 @@
 
+import { useContext } from "react"
+
 import Swal from "sweetalert2"
 import { motion } from "framer-motion"
 import { Link, useNavigate } from "react-router-dom"
 
 import { Logo } from "./Logo"
 import { Toast } from "../lib/Toast"
-import { socket } from "../lib/socket"
 import { API_URL } from "../lib/env.js"
 
 import "./Navbar.css"
+import { SocketContext } from "../lib/socketContext"
+
 
 export const Navbar = () => {
+    
+    const socket = useContext(SocketContext)
 
     const router = useNavigate()
 

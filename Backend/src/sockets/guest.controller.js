@@ -20,8 +20,8 @@ export const guestAccessController = async (io, socket, data) => {
 
     if (user) {
         socket.emit("guest-access-denied", {
-            message: `El usuario ya existe en nuestro sistema o se encuentra 
-            dentro del estacionamiento, usa la aplicación para ingresar`
+            message: `El usuario ya se encuentra en nuestro sistema 
+            intenta usar la aplicación para ingresar`
         })
 
         return
@@ -35,7 +35,6 @@ export const guestAccessController = async (io, socket, data) => {
     const parking = await findParking()
 
     if (!parking) {
-
         socket.emit("guest-access-denied", {
             message: "No hay parkings disponibles"
         })
@@ -80,8 +79,8 @@ export const guestAccessController = async (io, socket, data) => {
         html: verificationCodeTemplate(user.username, verCode, url)
     },
         (error, info) => {
-            if (error) {
 
+            if (error) {
                 socket.emit("guest-access-denied", {
                     message: MESSAGES.EMAIL_UNEXPECTED_ERROR
                 })
@@ -109,7 +108,7 @@ export const guestExitController = async (io, socket, data) => {
 
     if (!user) {
         socket.emit("guest-exit-denied", {
-            message: "El usuario no existe en nuestro sistema o algun dato ingresado no es valido"
+            message: "El usuario no existe en nuestro sistema o algún dato ingresado es inválido"
         })
 
         return

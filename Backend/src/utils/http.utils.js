@@ -2,7 +2,7 @@
 export const MESSAGES = {
     OK: "OK",
     USER_EXIST: "El usuario ya existe",
-    USER_NOT_FOUND: "Usuario no encontrado",
+    USER_NOT_FOUND: "El usuario que intentas buscar no existe en nuestra plataforma",
     INVALID_CREDENTIALS: "Email o contraseña invalidos",
     PASSWORD_REQUIRED: "La contraseña es requerida",
     EMAIL_REQUIRED: "El email es requerido",
@@ -32,7 +32,9 @@ export const MESSAGES = {
     UPDATE_USER_SUCCES: "Los datos del usuario se actualizaron con éxito",
     UPDATE_PROFILE_PICTURE: "La imagen de perfil se ha actualizado con éxito",
     CONTACT_EXIST: "El número de contacto ya se encuentra registrado",
-    USER_NOT_IN_PARKING: "El usuario no se encuentra en el parking",
+    EMAIL_EXIST: "El email con el que intentas registrarte ya está asignado a una cuenta en nuestra plataforma",
+    USERNAME_EXIST: "Ya existe un usuario registrado bajo este nombre",
+    USER_NOT_IN_PARKING: "El usuario no se encuentra en el estacionamiento",
     PARKING_NOT_FOUND: "No se encuantran estacionamientos disponibles",
     EMAIL_UNEXPECTED_ERROR: "Error inesperado al enviar el email, vuelva a intentarlo"
 }

@@ -11,39 +11,44 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
-    <link rel="icon" type="image/x-icon" href="<%= baseUrl %>/images/logo-white.png">
+    <link rel="icon" type="image/x-icon" href="<%= baseUrl %>/images/icon192x192.png">
     <script src="<%= baseUrl %>/scripts/mobile.functions.js"></script>
+
 </head>
 
 <body>
 
     <div id="load"></div>
 
-    <div id="mobile">
-        <div id="header">
-            <h1>Smart Parking</h1>
-            <input type="checkbox" name="" id="dark-mode-btn">
-            <h1 id="logout" class="bi bi-box-arrow-left"></h1>
+    <div id="mobile" class="mobile">
+        <div id="header" class="">
+            <div>
+                <h2>Smart Parking</h2>
+            </div>
+            <div id="headerIconContainer">
+                <h1 id="profile" class="bi bi-person"></h1>
+                <h1 id="logout" class="bi bi-box-arrow-left"></h1>
+            </div>
         </div>
 
-        <section>
+        <section class="card">
             <h3>Simulación de reservas</h3>
             <div>
-                <button id="button1">Solicitar reserva</button>
-                <button id="button2">Cancelar reserva</button>
-                <button id="button3">Marcar llegada</button>
+                <button id="button1" class="button">Solicitar reserva</button>
+                <button id="button2" class="button">Cancelar reserva</button>
+                <button id="button3" class="button">Marcar llegada</button>
             </div>
         </section>
 
-        <section>
+        <section class="card">
             <h3>Simulación de ingreso y salida</h3>
             <div>
-                <button id="button4">Solicitar ingreso</button>
-                <button id="button5">Marcar salida</button>
+                <button id="button4" class="button">Solicitar ingreso</button>
+                <button id="button5" class="button">Marcar salida</button>
             </div>
         </section>
 
-        <section>
+        <section class="card">
             <h3>Respuesta del servidor</h3>
             <div id="response"></div>
         </section>
@@ -54,41 +59,68 @@
 
 <script>
 
-    window.addEventListener("load", async (e) => {
+    let vehicles = []
 
+    window.addEventListener("load", async (e) => {
         const load = document.getElementById('load')
         const mobile = document.getElementById('mobile')
 
-        e.preventDefault();
-        const token = localStorage.getItem("token");
+        e.preventDefault()
+        const token = localStorage.getItem("token")
 
         if (!token) {
-            window.location.href = "<%= baseUrl %>/api/mobile";
+            window.location.href = "<%= baseUrl %>/api/mobile"
         }
 
-        const res = await fetch("<%= baseUrl %>/api/auth/confirm-session", {
+        let res = await fetch("<%= baseUrl %>/api/auth/confirm-session", {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${token}`
             },
-        });
+        })
 
         if (!res.ok) {
-            window.location.href = "<%= baseUrl %>/api/mobile";
+            window.location.href = "<%= baseUrl %>/api/mobile"
         }
 
-        mobile.style.display = "flex";
-        load.style.display = "none";
-    });
+        res = await fetch("<%= baseUrl %>/api/users/profile/",{
+            method:'GET',
+            headers:{
+                Authorization:`Bearer ${token}`
+            }
+        })
 
+        const { user } = await res.json()
+        vehicles = user.vehicles
+        
+        mobile.style.display = "flex"
+        load.style.display = "none"
+    })
+    
     const socket = io("<%= baseUrl %>")
     const button = document.getElementById("button1")
     const button2 = document.getElementById("button2")
     const button3 = document.getElementById("button3")
     const button4 = document.getElementById("button4")
     const button5 = document.getElementById("button5")
+    const profilebtn = document.getElementById("profile")
     const logoutbtn = document.getElementById("logout")
+
+    let functionActive = false
+
+    profilebtn.addEventListener("click", async (e) => {
+
+        const token = localStorage.getItem("token")
+
+        if (token) {
+            window.location.href = "<%= baseUrl %>/api/mobile/profile";
+        }
+
+        else {
+            setResponse("Error al ingresar a tu perfil");
+        }
+    })
 
     logoutbtn.addEventListener("click", async (e) => {
 
@@ -104,46 +136,72 @@
 
         if (res.ok) {
             localStorage.removeItem("token")
-            window.location.href = "<%= baseUrl %>/api/mobile";
-
+            window.location.href = "<%= baseUrl %>/api/mobile"
         } else {
             setResponse("Error al cerrar sesión")
         }
     })
 
     button.addEventListener("click", async (event) => {
-
         event.preventDefault()
         const token = localStorage.getItem("token")
-        socket.emit("user-reservation-req", { token, patente: "ACXB42" })
+
+        if (functionActive) {
+            
+            socket.on("timer-get", ({ message }) => {
+                document.getElementById("response").innerHTML = message
+                document.getElementById("response").style.display = "block"
+
+                if (!bool) {
+                    document.getElementById("response").innerHTML = " "
+                }
+            })
+
+        } else {
+            selectVehicle(vehicles, (patente) => {
+                socket.emit("user-reservation-req", { token, patente })
+            })
+        }
+        
     })
 
     button2.addEventListener("click", async (event) => {
-
         event.preventDefault()
         const token = localStorage.getItem("token")
-        socket.emit("user-cancel-reservation", { token, patente: "ACXB42" })
+        socket.emit("user-cancel-reservation", { token })
     })
 
     button3.addEventListener("click", async (event) => {
-
         event.preventDefault()
         const token = localStorage.getItem("token")
-        socket.emit("user-reservation-arrival", { token, patente: "ACXB42" })
+        socket.emit("user-reservation-arrival", { token })
     })
 
     button4.addEventListener("click", async (event) => {
-
         event.preventDefault()
         const token = localStorage.getItem("token")
-        socket.emit("user-access-req", { token, patente: "ACXB42" })
+
+        if (functionActive) {
+            socket.on("timer-get", ({ message, bool }) => {
+                document.getElementById("response").innerHTML = message
+                document.getElementById("response").style.display = "block"
+
+                if (!bool) {
+                    document.getElementById("response").innerHTML = " "
+                }
+            })
+        
+        } else {
+            selectVehicle(vehicles, (patente) => {
+                socket.emit("user-access-req", { token, patente })
+            })
+        }
     })
 
     button5.addEventListener("click", async (event) => {
-
         event.preventDefault()
         const token = localStorage.getItem("token")
-        socket.emit("user-exit-req", { token, patente: "ACXB42" })
+        socket.emit("user-exit-req", { token })
     })
 
     socket.on("reservation-ok", ({ message }) => {
@@ -185,6 +243,71 @@
     socket.on("parking-exit-denied", ({ message }) => {
         setResponse(message)
     })
+
+    socket.on("timer-active", (data) => {
+        functionActive = data
+    })
+
+    const body = document.body
+    const darkModeBtn = document.getElementById('dark-mode-btn')
+
+    window.addEventListener("load", (e) => {
+        const darkMode = JSON.parse(localStorage.getItem('dark-mode'))
+        if (darkMode) {
+            body.classList.toggle('dark-mode')
+        }
+    })
+
+    let patente = ""
+
+    const getVehicle = (newPatente) => {
+       patente = newPatente
+    }
+
+    const selectVehicle = (vehicles, onVehicleSelected) => {
+        
+        const existingDialog = document.getElementById("dialog")
+        
+        if (existingDialog) {
+            existingDialog.close()
+            existingDialog.remove()
+        }
+
+        const dialog = document.createElement("dialog")
+        body.style.opacity = "0.2"
+        dialog.id = "vehicles-dialog"
+
+        dialog.innerHTML = `
+            <h3>Seleccione un vehículo</h3>
+            <div id="vehicles-cont" style="grid-template-columns: repeat(${vehicles.length}, 1fr)">
+                ${vehicles.map(vehicle => `
+                    <div class="vehicle" onclick="onVehicleClick('${vehicle.patente}')">
+                        <h4>${vehicle.model}</h4>
+                        <h5>${vehicle.patente}</h5>
+                    </div>
+                `).join("")}
+            </div>
+        `
+        
+        body.appendChild(dialog)
+        dialog.showModal()
+
+        window.onVehicleClick = (patente) => {
+            onVehicleSelected(patente)
+            dialog.close()
+            dialog.remove()
+            body.style.opacity = "1"
+        }
+
+        dialog.addEventListener("mousedown", (e) => {
+            
+            if (e.target === dialog) {
+                dialog.close()
+                dialog.remove()
+                body.style.opacity = "1"
+            }
+        })
+    }
 
 </script>
 
