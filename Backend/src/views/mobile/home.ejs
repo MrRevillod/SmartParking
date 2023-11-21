@@ -21,10 +21,14 @@
     <div id="load"></div>
 
     <div id="mobile" class="mobile">
-        <div id="header" class="card">
-            <h1>Smart Parking</h1>
-            <input type="checkbox" name="" id="dark-mode-btn" class="dark-mode-btn">
-            <h1 id="logout" class="bi bi-box-arrow-left"></h1>
+        <div id="header" class="">
+            <div>
+                <h1>Smart Parking</h1>
+            </div>
+            <div id="headerIconContainer">
+                <h1 id="profile" class="bi bi-person"></h1>
+                <h1 id="logout" class="bi bi-box-arrow-left"></h1>
+            </div>
         </div>
 
         <section class="card">
@@ -101,7 +105,21 @@
     const button3 = document.getElementById("button3")
     const button4 = document.getElementById("button4")
     const button5 = document.getElementById("button5")
+    const profilebtn = document.getElementById("profile")
     const logoutbtn = document.getElementById("logout")
+
+    profilebtn.addEventListener("click", async (e) => {
+
+        const token = localStorage.getItem("token")
+
+        if (token) {
+            window.location.href = "<%= baseUrl %>/api/mobile/profile";
+        }
+
+        else {
+            setResponse("Error al ingresar a tu perfil");
+        }
+    })
 
     logoutbtn.addEventListener("click", async (e) => {
 
@@ -196,17 +214,12 @@
     })
 
     const body = document.body
-    const mobile = document.getElementById('mobile')
     const darkModeBtn = document.getElementById('dark-mode-btn')
 
-    darkModeBtn.addEventListener('change', () => {
-        
-        const darkMode = darkModeBtn.checked
-    
+    window.addEventListener("load", (e) => {
+        const darkMode = JSON.parse(localStorage.getItem('dark-mode'))
         if (darkMode) {
-            body.classList.add('dark-mode')
-        } else {
-            body.classList.remove('dark-mode')
+            body.classList.toggle('dark-mode')
         }
     })
 

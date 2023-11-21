@@ -56,9 +56,9 @@ export const deleteUser = async (req, res) => {
 
     try {
 
-        const id = req.params.id
+        const { uid } = req.user
 
-        const user = await userModel.findByIdAndDelete(id)
+        const user = await userModel.findByIdAndDelete(uid)
         if (!user) throw { status: 401, message: MESSAGES.USER_NOT_FOUND }
 
         res.status(200).json({ message: MESSAGES.OK, state: MESSAGES.DELETE_USER_SUCCESS })
