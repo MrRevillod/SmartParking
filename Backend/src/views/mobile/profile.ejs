@@ -17,7 +17,7 @@
 
 <body>
     <div id="load"></div>
-    <div id="mobile">
+    <div id="mobile" class="mobile">
         <img id="profileImg" src="" alt="">
         <div id="one-third">
             <div id="header">
@@ -31,7 +31,9 @@
             </div>
         </div>
         <div id="two-third">
-            <div id="headerWhite"></div>
+            <div id="headerWhite">
+                <h1 id="dark-mode-icon" class="bi bi-moon" onclick="toggleDarkMode()"></h1>
+            </div>
             <div id="info">
                 <h1 id="username"></h1>
                 <h1 id="email"></h1>
@@ -83,6 +85,8 @@
 
         mobile.style.display = "flex"
         load.style.display = "none"
+
+
     })
 
     window.addEventListener("load", async (e) => {
@@ -97,8 +101,6 @@
 
         const data = await res.json()
         const user = data.user
-
-        console.log(user.vehicles[0])
 
         const profileImg = document.getElementById("profileImg")
         const parking = document.getElementById("parking")
@@ -162,8 +164,6 @@
     const logoutbtn = document.getElementById("logout")
     const deleteProfile = document.getElementById("deleteProfile")
     const main = document.getElementById("mobile")
-    const body = document.querySelector("body")
-
 
     homebtn.addEventListener("click", async (e) => {
 
@@ -251,7 +251,27 @@
         showInfo()
     })
 
+    const darkModeIcon = document.getElementById('dark-mode-icon')
+    const body = document.body
 
+    function toggleDarkMode() {
 
+        const darkMode = body.classList.toggle('dark-mode')
+
+        if (darkMode) {
+            darkModeIcon.classList.replace('bi-moon', 'bi-brightness-high')
+            localStorage.setItem('dark-mode', true)
+        } else {
+            darkModeIcon.classList.replace('bi-brightness-high', 'bi-moon')
+            localStorage.setItem('dark-mode', false)
+        }
+    }
+
+    window.addEventListener("load", (e) => {
+        const darkMode = JSON.parse(localStorage.getItem('dark-mode'))
+        if (darkMode) {
+            toggleDarkMode()
+        }
+    })
 
 </script>
