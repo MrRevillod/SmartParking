@@ -23,7 +23,7 @@
     <div id="mobile" class="mobile">
         <div id="header" class="">
             <div>
-                <h1>Smart Parking</h1>
+                <h2>Smart Parking</h2>
             </div>
             <div id="headerIconContainer">
                 <h1 id="profile" class="bi bi-person"></h1>
@@ -142,11 +142,12 @@
     })
 
     button.addEventListener("click", async (event) => {
-
         event.preventDefault()
         const token = localStorage.getItem("token")
-        selectVehicle(vehicles)
-        socket.emit("user-reservation-req", { token, patente: "ACXB42" })
+
+        selectVehicle(vehicles, (patente) => {
+            socket.emit("user-reservation-req", { token, patente })
+        })
     })
 
     button2.addEventListener("click", async (event) => {
@@ -164,7 +165,10 @@
     button4.addEventListener("click", async (event) => {
         event.preventDefault()
         const token = localStorage.getItem("token")
-        socket.emit("user-access-req", { token, patente: "ACXB42" })
+
+        selectVehicle(vehicles, (patente) => {
+            socket.emit("user-access-req", { token, patente })
+        })
     })
 
     button5.addEventListener("click", async (event) => {
@@ -223,39 +227,49 @@
         }
     })
 
-    const selectVehicle = (vehicles) => {
+    let patente = ""
+
+    const getVehicle = (newPatente) => {
+       patente = newPatente
+    }
+
+    const selectVehicle = (vehicles, onVehicleSelected) => {
         
         const existingDialog = document.getElementById("dialog")
-        patente = vehicles[0]
-
+        
         if (existingDialog) {
             existingDialog.close()
             existingDialog.remove()
         }
 
-        body.style.opacity = "0.2"
-
         const dialog = document.createElement("dialog")
+        body.style.opacity = "0.2"
         dialog.id = "vehicles-dialog"
-        
-        const vehiclesHtml = vehicles.map(vehicle => `
-            <div class="vehicle">
-                <h4>${vehicle.model}</h4>
-                <h5>${vehicle.patente}</h5>
-            </div>
-        `).join("")
 
         dialog.innerHTML = `
             <h3>Seleccione un vehículo</h3>
             <div id="vehicles-cont" style="grid-template-columns: repeat(${vehicles.length}, 1fr)">
-                ${vehiclesHtml}
+                ${vehicles.map(vehicle => `
+                    <div class="vehicle" onclick="onVehicleClick('${vehicle.patente}')">
+                        <h4>${vehicle.model}</h4>
+                        <h5>${vehicle.patente}</h5>
+                    </div>
+                `).join("")}
             </div>
         `
-
+        
         body.appendChild(dialog)
         dialog.showModal()
 
+        window.onVehicleClick = (patente) => {
+            onVehicleSelected(patente)
+            dialog.close()
+            dialog.remove()
+            body.style.opacity = "1"
+        }
+
         dialog.addEventListener("mousedown", (e) => {
+            
             if (e.target === dialog) {
                 dialog.close()
                 dialog.remove()
