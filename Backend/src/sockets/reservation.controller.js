@@ -94,7 +94,6 @@ export const userReservationController = async (io, socket, data) => {
         `Nueva reserva en ${parking.name}`
     )
 
-
     io.to("administradores").emit("all-parkings", {
         parkings: await getParkings()
     })
