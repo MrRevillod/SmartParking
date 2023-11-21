@@ -25,6 +25,10 @@ export const socketSetup = (server) => {
 
             const { token } = data
 
+            if (!token) {
+                socket.emit("error", "Error al validar la solicitud")
+            }
+
             if (!await validateAdmin(socket, token)) {
                 socket.emit("error", "Error al validar la solicitud")
             }

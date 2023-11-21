@@ -11,8 +11,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
-    <link rel="icon" type="image/x-icon" href="<%= baseUrl %>/images/logo-white.png">
+    <link rel="icon" type="image/x-icon" href="<%= baseUrl %>/images/icon192x192.png">
     <script src="<%= baseUrl %>/scripts/mobile.functions.js"></script>
+    
 </head>
 
 <body>
@@ -54,6 +55,8 @@
 
 <script>
 
+    let vehicles = []
+
     window.addEventListener("load", async (e) => {
 
         const load = document.getElementById('load')
@@ -66,7 +69,7 @@
             window.location.href = "<%= baseUrl %>/api/mobile"
         }
 
-        const res = await fetch("<%= baseUrl %>/api/auth/confirm-session", {
+        let res = await fetch("<%= baseUrl %>/api/auth/confirm-session", {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',
@@ -78,10 +81,20 @@
             window.location.href = "<%= baseUrl %>/api/mobile"
         }
 
+        res = await fetch("<%= baseUrl %>/api/users/profile/",{
+            method:'GET',
+            headers:{
+                Authorization:`Bearer ${token}`
+            }
+        })
+
+        const { user } = await res.json()
+        vehicles = user.vehicles
+        
         mobile.style.display = "flex"
         load.style.display = "none"
     })
-
+    
     const socket = io("<%= baseUrl %>")
     const button = document.getElementById("button1")
     const button2 = document.getElementById("button2")
@@ -105,7 +118,6 @@
         if (res.ok) {
             localStorage.removeItem("token")
             window.location.href = "<%= baseUrl %>/api/mobile"
-
         } else {
             setResponse("Error al cerrar sesión")
         }
@@ -115,32 +127,29 @@
 
         event.preventDefault()
         const token = localStorage.getItem("token")
+        selectVehicle(vehicles)
         socket.emit("user-reservation-req", { token, patente: "ACXB42" })
     })
 
     button2.addEventListener("click", async (event) => {
-
         event.preventDefault()
         const token = localStorage.getItem("token")
         socket.emit("user-cancel-reservation", { token })
     })
 
     button3.addEventListener("click", async (event) => {
-
         event.preventDefault()
         const token = localStorage.getItem("token")
         socket.emit("user-reservation-arrival", { token })
     })
 
     button4.addEventListener("click", async (event) => {
-
         event.preventDefault()
         const token = localStorage.getItem("token")
         socket.emit("user-access-req", { token, patente: "ACXB42" })
     })
 
     button5.addEventListener("click", async (event) => {
-
         event.preventDefault()
         const token = localStorage.getItem("token")
         socket.emit("user-exit-req", { token })
@@ -187,21 +196,60 @@
     })
 
     const body = document.body
+    const mobile = document.getElementById('mobile')
     const darkModeBtn = document.getElementById('dark-mode-btn')
 
-    function toggleDarkMode() {
-
+    darkModeBtn.addEventListener('change', () => {
+        
         const darkMode = darkModeBtn.checked
-
+    
         if (darkMode) {
             body.classList.add('dark-mode')
         } else {
             body.classList.remove('dark-mode')
         }
-    }
+    })
 
-    darkModeBtn.addEventListener('change', toggleDarkMode)
-    toggleDarkMode()
+    const selectVehicle = (vehicles) => {
+        
+        const existingDialog = document.getElementById("dialog")
+        patente = vehicles[0]
+
+        if (existingDialog) {
+            existingDialog.close()
+            existingDialog.remove()
+        }
+
+        body.style.opacity = "0.2"
+
+        const dialog = document.createElement("dialog")
+        dialog.id = "vehicles-dialog"
+        
+        const vehiclesHtml = vehicles.map(vehicle => `
+            <div class="vehicle">
+                <h4>${vehicle.model}</h4>
+                <h5>${vehicle.patente}</h5>
+            </div>
+        `).join("")
+
+        dialog.innerHTML = `
+            <h3>Seleccione un vehículo</h3>
+            <div id="vehicles-cont" style="grid-template-columns: repeat(${vehicles.length}, 1fr)">
+                ${vehiclesHtml}
+            </div>
+        `
+
+        body.appendChild(dialog)
+        dialog.showModal()
+
+        dialog.addEventListener("mousedown", (e) => {
+            if (e.target === dialog) {
+                dialog.close()
+                dialog.remove()
+                body.style.opacity = "1"
+            }
+        })
+    }
 
 </script>
 

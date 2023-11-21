@@ -90,7 +90,7 @@ export const guestAccessController = async (io, socket, data) => {
         }
     )
 
-    await userAccessLogController(socket, username, parking.name, patente)
+    await userAccessLogCo---ntroller(socket, username, parking.name, patente)
 
     io.to("administradores").emit("all-logs", {
         logs: await getLogs()

@@ -9,18 +9,12 @@ body {
     padding: 0;
 }
 
-.dark-mode body {
-    background-color: #242526;
-}
-
 @media screen and (max-width: 800px) {
-    body {
-        background-color: #0D5492;
-    }
 
     .mobile {
         border: none !important;
-        width: 95vw !important;
+        width: 100vw !important;
+        height: 100vh !important;
     }
 
     #load {
@@ -39,6 +33,7 @@ body {
     display: none;
 }
 
+.dark-mode body,
 .dark-mode .mobile {
     background-color: #18191a;
 }

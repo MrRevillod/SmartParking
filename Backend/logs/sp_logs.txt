@@ -1,0 +1,267 @@
+2023-11-20 20:28:11
+
+No autorizado - 401 
+
+Error: [object Object]
+    at saveError (file:///home/mrrevillod/Projects/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///home/mrrevillod/Projects/SmartParking/Backend/src/middlewares/session.mw.js:26:9)
+    at Layer.handle [as handle_request] (/home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/route.js:144:13)
+    at Route.dispatch (/home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/route.js:114:3)
+    at Layer.handle [as handle_request] (/home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/layer.js:95:5)
+    at /home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/index.js:284:15
+    at Function.process_params (/home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/index.js:346:12)
+    at next (/home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/index.js:280:10)
+    at Function.handle (/home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/index.js:175:3)
+
+2023-11-20 20:28:11
+
+No autorizado - 401 
+
+Error: [object Object]
+    at saveError (file:///home/mrrevillod/Projects/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///home/mrrevillod/Projects/SmartParking/Backend/src/middlewares/session.mw.js:26:9)
+    at Layer.handle [as handle_request] (/home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/route.js:144:13)
+    at Route.dispatch (/home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/route.js:114:3)
+    at Layer.handle [as handle_request] (/home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/layer.js:95:5)
+    at /home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/index.js:284:15
+    at Function.process_params (/home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/index.js:346:12)
+    at next (/home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/index.js:280:10)
+    at Function.handle (/home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/index.js:175:3)
+
+2023-11-20 20:28:12
+
+No autorizado - 401 
+
+Error: [object Object]
+    at saveError (file:///home/mrrevillod/Projects/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///home/mrrevillod/Projects/SmartParking/Backend/src/middlewares/session.mw.js:26:9)
+    at Layer.handle [as handle_request] (/home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/route.js:144:13)
+    at Route.dispatch (/home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/route.js:114:3)
+    at Layer.handle [as handle_request] (/home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/layer.js:95:5)
+    at /home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/index.js:284:15
+    at Function.process_params (/home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/index.js:346:12)
+    at next (/home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/index.js:280:10)
+    at Function.handle (/home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/index.js:175:3)
+
+2023-11-20 20:28:12
+
+No autorizado - 401 
+
+Error: [object Object]
+    at saveError (file:///home/mrrevillod/Projects/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///home/mrrevillod/Projects/SmartParking/Backend/src/middlewares/session.mw.js:26:9)
+    at Layer.handle [as handle_request] (/home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/route.js:144:13)
+    at Route.dispatch (/home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/route.js:114:3)
+    at Layer.handle [as handle_request] (/home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/layer.js:95:5)
+    at /home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/index.js:284:15
+    at Function.process_params (/home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/index.js:346:12)
+    at next (/home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/index.js:280:10)
+    at Function.handle (/home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/index.js:175:3)
+
+2023-11-20 20:28:12
+
+No autorizado - 401 
+
+Error: [object Object]
+    at saveError (file:///home/mrrevillod/Projects/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///home/mrrevillod/Projects/SmartParking/Backend/src/middlewares/session.mw.js:26:9)
+    at Layer.handle [as handle_request] (/home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/route.js:144:13)
+    at Route.dispatch (/home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/route.js:114:3)
+    at Layer.handle [as handle_request] (/home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/layer.js:95:5)
+    at /home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/index.js:284:15
+    at Function.process_params (/home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/index.js:346:12)
+    at next (/home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/index.js:280:10)
+    at Function.handle (/home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/index.js:175:3)
+
+2023-11-20 20:28:13
+
+No autorizado - 401 
+
+Error: [object Object]
+    at saveError (file:///home/mrrevillod/Projects/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///home/mrrevillod/Projects/SmartParking/Backend/src/middlewares/session.mw.js:26:9)
+    at Layer.handle [as handle_request] (/home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/route.js:144:13)
+    at Route.dispatch (/home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/route.js:114:3)
+    at Layer.handle [as handle_request] (/home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/layer.js:95:5)
+    at /home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/index.js:284:15
+    at Function.process_params (/home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/index.js:346:12)
+    at next (/home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/index.js:280:10)
+    at Function.handle (/home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/index.js:175:3)
+
+2023-11-20 20:28:25
+
+No autorizado - 401 
+
+Error: [object Object]
+    at saveError (file:///home/mrrevillod/Projects/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///home/mrrevillod/Projects/SmartParking/Backend/src/middlewares/session.mw.js:26:9)
+    at Layer.handle [as handle_request] (/home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/route.js:144:13)
+    at Route.dispatch (/home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/route.js:114:3)
+    at Layer.handle [as handle_request] (/home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/layer.js:95:5)
+    at /home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/index.js:284:15
+    at Function.process_params (/home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/index.js:346:12)
+    at next (/home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/index.js:280:10)
+    at Function.handle (/home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/index.js:175:3)
+
+2023-11-20 20:58:44
+
+Email o contraseña invalidos - 401 
+
+Error: [object Object]
+    at saveError (file:///home/mrrevillod/Projects/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at loginController (file:///home/mrrevillod/Projects/SmartParking/Backend/src/controllers/auth.controller.js:32:9)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+
+2023-11-20 20:58:57
+
+Email o contraseña invalidos - 401 
+
+Error: [object Object]
+    at saveError (file:///home/mrrevillod/Projects/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at loginController (file:///home/mrrevillod/Projects/SmartParking/Backend/src/controllers/auth.controller.js:32:9)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+
+2023-11-20 20:59:08
+
+Email o contraseña invalidos - 401 
+
+Error: [object Object]
+    at saveError (file:///home/mrrevillod/Projects/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at loginController (file:///home/mrrevillod/Projects/SmartParking/Backend/src/controllers/auth.controller.js:32:9)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+
+2023-11-20 21:37:28
+
+No autorizado - 401 
+
+Error: [object Object]
+    at saveError (file:///home/mrrevillod/Projects/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///home/mrrevillod/Projects/SmartParking/Backend/src/middlewares/session.mw.js:26:9)
+    at Layer.handle [as handle_request] (/home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/route.js:144:13)
+    at Route.dispatch (/home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/route.js:114:3)
+    at Layer.handle [as handle_request] (/home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/layer.js:95:5)
+    at /home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/index.js:284:15
+    at Function.process_params (/home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/index.js:346:12)
+    at next (/home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/index.js:280:10)
+    at Function.handle (/home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/index.js:175:3)
+
+2023-11-20 21:37:28
+
+No autorizado - 401 
+
+Error: [object Object]
+    at saveError (file:///home/mrrevillod/Projects/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///home/mrrevillod/Projects/SmartParking/Backend/src/middlewares/session.mw.js:26:9)
+    at Layer.handle [as handle_request] (/home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/route.js:144:13)
+    at Route.dispatch (/home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/route.js:114:3)
+    at Layer.handle [as handle_request] (/home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/layer.js:95:5)
+    at /home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/index.js:284:15
+    at Function.process_params (/home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/index.js:346:12)
+    at next (/home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/index.js:280:10)
+    at Function.handle (/home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/index.js:175:3)
+
+2023-11-20 21:37:29
+
+No autorizado - 401 
+
+Error: [object Object]
+    at saveError (file:///home/mrrevillod/Projects/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///home/mrrevillod/Projects/SmartParking/Backend/src/middlewares/session.mw.js:26:9)
+    at Layer.handle [as handle_request] (/home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/route.js:144:13)
+    at Route.dispatch (/home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/route.js:114:3)
+    at Layer.handle [as handle_request] (/home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/layer.js:95:5)
+    at /home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/index.js:284:15
+    at Function.process_params (/home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/index.js:346:12)
+    at next (/home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/index.js:280:10)
+    at Function.handle (/home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/index.js:175:3)
+
+2023-11-20 21:37:29
+
+No autorizado - 401 
+
+Error: [object Object]
+    at saveError (file:///home/mrrevillod/Projects/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///home/mrrevillod/Projects/SmartParking/Backend/src/middlewares/session.mw.js:26:9)
+    at Layer.handle [as handle_request] (/home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/route.js:144:13)
+    at Route.dispatch (/home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/route.js:114:3)
+    at Layer.handle [as handle_request] (/home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/layer.js:95:5)
+    at /home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/index.js:284:15
+    at Function.process_params (/home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/index.js:346:12)
+    at next (/home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/index.js:280:10)
+    at Function.handle (/home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/index.js:175:3)
+
+2023-11-20 21:37:29
+
+No autorizado - 401 
+
+Error: [object Object]
+    at saveError (file:///home/mrrevillod/Projects/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///home/mrrevillod/Projects/SmartParking/Backend/src/middlewares/session.mw.js:26:9)
+    at Layer.handle [as handle_request] (/home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/route.js:144:13)
+    at Route.dispatch (/home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/route.js:114:3)
+    at Layer.handle [as handle_request] (/home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/layer.js:95:5)
+    at /home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/index.js:284:15
+    at Function.process_params (/home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/index.js:346:12)
+    at next (/home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/index.js:280:10)
+    at Function.handle (/home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/index.js:175:3)
+
+2023-11-20 21:37:30
+
+No autorizado - 401 
+
+Error: [object Object]
+    at saveError (file:///home/mrrevillod/Projects/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///home/mrrevillod/Projects/SmartParking/Backend/src/middlewares/session.mw.js:26:9)
+    at Layer.handle [as handle_request] (/home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/route.js:144:13)
+    at Route.dispatch (/home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/route.js:114:3)
+    at Layer.handle [as handle_request] (/home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/layer.js:95:5)
+    at /home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/index.js:284:15
+    at Function.process_params (/home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/index.js:346:12)
+    at next (/home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/index.js:280:10)
+    at Function.handle (/home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/index.js:175:3)
+
+2023-11-20 21:37:36
+
+No autorizado - 401 
+
+Error: [object Object]
+    at saveError (file:///home/mrrevillod/Projects/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///home/mrrevillod/Projects/SmartParking/Backend/src/middlewares/session.mw.js:26:9)
+    at Layer.handle [as handle_request] (/home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/route.js:144:13)
+    at Route.dispatch (/home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/route.js:114:3)
+    at Layer.handle [as handle_request] (/home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/layer.js:95:5)
+    at /home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/index.js:284:15
+    at Function.process_params (/home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/index.js:346:12)
+    at next (/home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/index.js:280:10)
+    at Function.handle (/home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/index.js:175:3)
+
+2023-11-20 21:39:37
+
+No autorizado - 401 
+
+Error: [object Object]
+    at saveError (file:///home/mrrevillod/Projects/SmartParking/Backend/src/utils/error.utils.js:18:60)
+    at sessionValidation (file:///home/mrrevillod/Projects/SmartParking/Backend/src/middlewares/session.mw.js:26:9)
+    at Layer.handle [as handle_request] (/home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/route.js:144:13)
+    at Route.dispatch (/home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/route.js:114:3)
+    at Layer.handle [as handle_request] (/home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/layer.js:95:5)
+    at /home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/index.js:284:15
+    at Function.process_params (/home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/index.js:346:12)
+    at next (/home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/index.js:280:10)
+    at Function.handle (/home/mrrevillod/Projects/SmartParking/Backend/node_modules/.pnpm/express@4.18.2/node_modules/express/lib/router/index.js:175:3)
+

@@ -1,5 +1,7 @@
 
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
+
+import { SocketContext } from "../../../lib/socketContext"
 
 import { Legend } from "../../../components/Legend"
 import { ParkingMap } from "../../../components/ParkingMap"
@@ -7,30 +9,52 @@ import { StatusCircle2 } from "../../../components/StatusCircle2"
 
 import "./Parking.css"
 
-export const Parking = ({ parkings }) => {
+export const Parking = () => {
+    const socket = useContext(SocketContext)
 
+    const [parkings, setParkings] = useState([])
     const [disponibles, setDisponibles] = useState(0)
     const [reservados, setReservados] = useState(0)
     const [ocupados, setOcupados] = useState(0)
-
+    
     useEffect(() => {
-        const total = parkings.length
-        const disp = parkings.filter(parking => parking.status === "disponible").length
-        const res = parkings.filter(parking => parking.status === "reservado").length
-        const ocu = parkings.filter(parking => parking.status === "ocupado").length
+        const paintParkings = () => {
+            const total = parkings.length
+            const disp = parkings.filter(parking => parking.status === "disponible").length
+            const res = parkings.filter(parking => parking.status === "reservado").length
+            const ocu = parkings.filter(parking => parking.status === "ocupado").length
 
-        if (total === 0) {
-            setDisponibles(0)
-            setReservados(0)
-            setOcupados(0)
-            return
+            if (total === 0) {
+                setDisponibles(0)
+                setReservados(0)
+                setOcupados(0)
+                return
+            }
+
+            setDisponibles(disp * 100 / total)
+            setReservados(res * 100 / total)
+            setOcupados(ocu * 100 / total)
+
         }
 
-        setDisponibles(disp * 100 / total)
-        setReservados(res * 100 / total)
-        setOcupados(ocu * 100 / total)
+        socket.emit('get-parkings')
 
-    }, [parkings])
+        socket.on('all-parkings', (data) => {
+            const { parkings } = data
+            setParkings(parkings)
+            paintParkings()
+        })
+
+
+
+        return () => {
+            socket.off('all-parkings')
+        }
+
+    }, [socket,parkings, parkings.length])
+
+
+
 
     return (
         <div className='row w-100'>

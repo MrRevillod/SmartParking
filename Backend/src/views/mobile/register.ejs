@@ -12,7 +12,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
-    <link rel="icon" type="image/x-icon" href="<%= baseUrl %>/images/logo-white.png">
+    <link rel="icon" type="image/x-icon" href="<%= baseUrl %>/images/icon192x192.png">
     <script src="<%= baseUrl %>/scripts/mobile.functions.js"></script>
 </head>
 
@@ -24,14 +24,13 @@
 
         <div id="main-cont">
             <h1>Registrarte</h1>
-
             <form id="register-form">
                 <div id="response"></div>
-
                 <div class="input-wrapper-flex">
                     <label for="username">Nombre Completo:</label>
                     <div class="icon-cont">
-                        <input class="input-flex input" id="username" type="text" placeholder="Esteban Castro Martínez" required>
+                        <input class="input-flex input" id="username" type="text" placeholder="Esteban Castro Martínez"
+                            required>
                         <i class="bi bi-question-circle" onclick="showInfo('username')"></i>
                     </div>
                 </div>
@@ -43,7 +42,7 @@
                             <input class="input-grid input" id="email" type="email" placeholder="em@dom.com" required>
                         </div>
                     </div>
-                    
+
                     <div class="input-wrapper-grid">
                         <label for="contact">Teléfono:</label>
                         <div class="icon-cont">
@@ -69,7 +68,8 @@
                 <div class="input-wrapper-flex">
                     <label for="password">Contraseña:</label>
                     <div class="icon-cont">
-                        <input class="input-flex input" id="password" type="password" placeholder="Mínimo 8 caracteres" required>
+                        <input class="input-flex input" id="password" type="password" placeholder="Mínimo 8 caracteres"
+                            required>
                         <i class="bi bi-question-circle" onclick="showInfo('password')"></i>
                     </div>
                 </div>
@@ -78,8 +78,8 @@
                     <label for="confirmPassword">Confirmar Contraseña:</label>
                     <div class="icon-cont">
                         <input class="input-flex input" id="confirmPassword" type="password" placeholder="Mínimo 8 caracteres" required>
-                        <i class="bi bi-eye-slash" id="hide-icon" style="display: none;" onclick="toggleViewPassword()"></i>
-                        <i class="bi bi-eye" id="view-icon" onclick="toggleViewPassword()"></i>
+                        <i class="bi bi-eye-fill" id="view-icon" onclick="toggleViewPassword()"></i>
+                        <i class="bi bi-eye-slash-fill" id="hide-icon" style="display: none;" onclick="toggleViewPassword()"></i>
                     </div>
                 </div>
 
@@ -100,7 +100,7 @@
                             <i class="bi bi-question-circle" onclick="showInfo('patente')"></i>
                         </div>
                     </div>
-                    
+
                     <div class="input-wrapper-grid">
                         <label for="year">Año:</label>
                         <div class="icon-cont">
@@ -233,7 +233,7 @@
                 }, 3000)
             }
         })
-</script>
+    </script>
 
 </body>
 

@@ -61,9 +61,49 @@
     background-color: #F5F5F5;
 }
 
+@media screen and (max-width: 800px) {
+
+    #vehicles-dialog {
+        min-width: 300px !important;
+        max-width: 20vw !important;
+    }
+
+}
+
+#vehicles-dialog {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 0.5rem;
+    gap: 1rem;
+    max-width: 25vw;
+    text-align: center;
+    min-width: 380px;
+}
+
+#vehicles-cont {
+    display: grid;
+    gap: 1rem;
+}
+
+#vehicles-cont div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    background-color: #F5F5F5;
+    color: #050505;
+}
+
 .dark-mode .card,
 .dark-mode #header,
-.dark-mode #response {
+.dark-mode #response,
+.dark-mode #vehicles-dialog {
     color: #ced2d8;
     background-color: #242526;
 }
